@@ -1,0 +1,2766 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="6 Minute Walk Test (6MWT): ficha educativa y herramienta digital para el registro de una prueba de marcha de seis minutos."
+    >
+
+    <meta
+        name="keywords"
+        content="6MWT, 6 Minute Walk Test, prueba de marcha, neurorehabilitación, fisioterapia, ACV"
+    >
+
+    <title>6 Minute Walk Test | NeuroRehab</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="script.js" defer></script>
+
+    <style>
+        /* =========================================================
+           HERRAMIENTA DIGITAL 6MWT
+           Estilos locales para no depender de modificaciones
+           obligatorias en estilos.css.
+           ========================================================= */
+
+        .sixmwt-tool {
+            margin-top: 40px;
+            padding: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(20, 167, 157, 0.15);
+        }
+
+        .sixmwt-tool-header {
+            padding: 32px;
+            background: linear-gradient(
+                135deg,
+                #0b5960 0%,
+                #147f82 55%,
+                #14a79d 100%
+            );
+            color: #ffffff;
+        }
+
+        .sixmwt-tool-header span {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.82;
+        }
+
+        .sixmwt-tool-header h3 {
+            margin: 0 0 10px;
+            font-size: 1.65rem;
+        }
+
+        .sixmwt-tool-header p {
+            margin: 0;
+            max-width: 760px;
+            opacity: 0.92;
+        }
+
+        .sixmwt-tool-body {
+            padding: 32px;
+        }
+
+        .sixmwt-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .sixmwt-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .sixmwt-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .sixmwt-field label {
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: #173b40;
+        }
+
+        .sixmwt-field small {
+            font-size: 0.76rem;
+            color: #65777a;
+        }
+
+        .sixmwt-field input,
+        .sixmwt-field select,
+        .sixmwt-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            border: 1px solid #cbd9da;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #173b40;
+            font: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sixmwt-field textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .sixmwt-field input:focus,
+        .sixmwt-field select:focus,
+        .sixmwt-field textarea:focus {
+            outline: none;
+            border-color: #14a79d;
+            box-shadow: 0 0 0 3px rgba(20, 167, 157, 0.12);
+        }
+
+        .sixmwt-divider {
+            height: 1px;
+            margin: 30px 0;
+            background: #e4eeee;
+        }
+
+        .sixmwt-status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding: 18px 20px;
+            border-radius: 12px;
+            background: #f1f8f7;
+            border: 1px solid #d5e9e7;
+        }
+
+        .sixmwt-status-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #527074;
+        }
+
+        .sixmwt-status-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0b5960;
+        }
+
+        .sixmwt-timer {
+            display: grid;
+            place-items: center;
+            min-height: 220px;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 16px;
+            background: #102f33;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .sixmwt-timer-label {
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .sixmwt-timer-value {
+            font-size: clamp(3.5rem, 9vw, 6rem);
+            line-height: 1;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.04em;
+        }
+
+        .sixmwt-timer-state {
+            margin-top: 12px;
+            color: #b9d7d8;
+            font-size: 0.9rem;
+        }
+
+        .sixmwt-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .sixmwt-btn {
+            appearance: none;
+            border: none;
+            border-radius: 9px;
+            padding: 12px 18px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .sixmwt-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .sixmwt-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.45;
+            transform: none;
+        }
+
+        .sixmwt-btn-primary {
+            background: #14a79d;
+            color: #ffffff;
+        }
+
+        .sixmwt-btn-secondary {
+            background: #e7f1f1;
+            color: #16464a;
+        }
+
+        .sixmwt-btn-danger {
+            background: #8b3940;
+            color: #ffffff;
+        }
+
+        .sixmwt-btn-dark {
+            background: #173b40;
+            color: #ffffff;
+        }
+
+        .sixmwt-measure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .sixmwt-measure-card {
+            padding: 20px;
+            border: 1px solid #dce9e9;
+            border-radius: 12px;
+            background: #fbfdfd;
+        }
+
+        .sixmwt-measure-card span {
+            display: block;
+            margin-bottom: 8px;
+            color: #6b7f81;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sixmwt-measure-card strong {
+            display: block;
+            color: #0b5960;
+            font-size: 1.7rem;
+            line-height: 1.1;
+        }
+
+        .sixmwt-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sixmwt-result {
+            display: none;
+            margin-top: 30px;
+            padding: 26px;
+            border-radius: 14px;
+            background: #eef8f6;
+            border: 1px solid #bfe1dc;
+        }
+
+        .sixmwt-result.visible {
+            display: block;
+        }
+
+        .sixmwt-result h4 {
+            margin: 0 0 18px;
+            color: #0b5960;
+            font-size: 1.3rem;
+        }
+
+        .sixmwt-result-main {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sixmwt-result-item {
+            padding: 17px;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .sixmwt-result-item span {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.76rem;
+            color: #63787b;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .sixmwt-result-item strong {
+            color: #173b40;
+            font-size: 1.25rem;
+        }
+
+        .sixmwt-note {
+            margin-top: 20px;
+            padding: 15px 17px;
+            border-left: 4px solid #14a79d;
+            background: #ffffff;
+            color: #536a6d;
+            font-size: 0.88rem;
+        }
+
+        .sixmwt-alert {
+            display: none;
+            margin: 18px 0;
+            padding: 14px 16px;
+            border-radius: 9px;
+            background: #fff5e6;
+            border: 1px solid #f0d19c;
+            color: #694d20;
+            font-size: 0.88rem;
+        }
+
+        .sixmwt-alert.visible {
+            display: block;
+        }
+
+        .sixmwt-stopwatch {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .sixmwt-mini-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .sixmwt-mini-field label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #365b5f;
+        }
+
+        .sixmwt-mini-field input,
+        .sixmwt-mini-field select {
+            padding: 11px 12px;
+            border: 1px solid #cbd9da;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .sixmwt-footnote {
+            margin-top: 20px;
+            color: #667b7e;
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+
+        .sixmwt-print-only {
+            display: none;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+
+            #sixmwtPrintArea,
+            #sixmwtPrintArea * {
+                visibility: visible !important;
+            }
+
+            #sixmwtPrintArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            .sixmwt-print-only {
+                display: block;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .sixmwt-grid,
+            .sixmwt-measure-grid,
+            .sixmwt-result-main,
+            .sixmwt-stopwatch {
+                grid-template-columns: 1fr;
+            }
+
+            .sixmwt-field.full {
+                grid-column: auto;
+            }
+
+            .sixmwt-tool-body {
+                padding: 22px;
+            }
+
+            .sixmwt-tool-header {
+                padding: 25px 22px;
+            }
+
+            .sixmwt-status {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .sixmwt-timer {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     NAVEGACIÓN
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+            type="button"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="acv.html">
+                    Neurorehabilitación
+                </a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">
+                    Evaluación
+                </a>
+
+                <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">
+                    Evidencia científica
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#recursos">
+                    Recursos
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#blog">
+                    Blog
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="hero-tag">
+            EVALUACIÓN · MARCHA Y MOVILIDAD
+        </p>
+
+        <h1>
+            6 Minute Walk Test
+        </h1>
+
+        <p>
+            Prueba funcional de marcha que permite valorar la distancia
+            recorrida durante seis minutos y realizar seguimiento del
+            desempeño funcional.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MIGAS DE PAN
+     ========================================================= -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+        Inicio
+    </a>
+
+    <span>›</span>
+
+    <a href="evaluacion.html">
+        Evaluación
+    </a>
+
+    <span>›</span>
+
+    <strong>
+        6 Minute Walk Test
+    </strong>
+
+</div>
+
+
+<!-- =========================================================
+     CONTENIDO PRINCIPAL
+     ========================================================= -->
+
+<main class="article-container">
+
+
+    <!-- =====================================================
+         INTRODUCCIÓN
+         ===================================================== -->
+
+    <section class="article-intro">
+
+        <span class="article-label">
+            MARCHA Y MOVILIDAD
+        </span>
+
+        <h2>
+            6 Minute Walk Test
+        </h2>
+
+        <p>
+            El 6 Minute Walk Test (6MWT) es una prueba funcional que
+            permite determinar la distancia que una persona puede
+            recorrer caminando durante seis minutos.
+        </p>
+
+        <p>
+            Se utiliza como medida del desempeño funcional durante
+            la marcha y permite realizar seguimiento de los cambios
+            asociados con la evolución clínica y los procesos de
+            rehabilitación.
+        </p>
+
+        <p>
+            En neurorehabilitación puede ser especialmente útil para
+            valorar la capacidad de desplazamiento en personas con
+            alteraciones de la marcha, incluyendo aquellas que han
+            presentado un accidente cerebrovascular.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         HERRAMIENTA DIGITAL
+         ===================================================== -->
+
+    <section class="article-section" id="herramienta-6mwt">
+
+        <div class="section-title-left">
+
+            <p>
+                HERRAMIENTA DIGITAL
+            </p>
+
+            <h2>
+                Registrar una evaluación 6MWT
+            </h2>
+
+        </div>
+
+        <p>
+            Esta herramienta permite organizar el registro de una
+            evaluación de seis minutos. Los cálculos corresponden
+            únicamente a los datos introducidos por el profesional.
+        </p>
+
+
+        <div class="sixmwt-tool" id="sixmwtPrintArea">
+
+            <div class="sixmwt-tool-header">
+
+                <span>
+                    NeuroRehab · Evaluación funcional
+                </span>
+
+                <h3>
+                    Registro interactivo del 6 Minute Walk Test
+                </h3>
+
+                <p>
+                    Complete los datos de la evaluación antes de iniciar
+                    el cronómetro. La distancia se calcula a partir de
+                    la longitud del circuito, las vueltas completas y
+                    la distancia adicional registrada.
+                </p>
+
+            </div>
+
+
+            <div class="sixmwt-tool-body">
+
+                <!-- DATOS GENERALES -->
+
+                <div class="sixmwt-grid">
+
+                    <div class="sixmwt-field">
+
+                        <label for="patientName">
+                            Identificación / código
+                        </label>
+
+                        <input
+                            type="text"
+                            id="patientName"
+                            name="patientName"
+                            placeholder="Ej. Paciente 001"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="evaluationDate">
+                            Fecha de evaluación
+                        </label>
+
+                        <input
+                            type="date"
+                            id="evaluationDate"
+                            name="evaluationDate"
+                        >
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="circuitLength">
+                            Longitud del circuito (m)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="circuitLength"
+                            name="circuitLength"
+                            min="1"
+                            step="0.1"
+                            value="30"
+                            inputmode="decimal"
+                        >
+
+                        <small>
+                            Introduzca la longitud real utilizada en el protocolo.
+                        </small>
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="assistiveDevice">
+                            Ayuda para la marcha
+                        </label>
+
+                        <select id="assistiveDevice" name="assistiveDevice">
+
+                            <option value="">
+                                Seleccionar
+                            </option>
+
+                            <option value="Ninguna">
+                                Ninguna
+                            </option>
+
+                            <option value="Bastón">
+                                Bastón
+                            </option>
+
+                            <option value="Muletas">
+                                Muletas
+                            </option>
+
+                            <option value="Caminador">
+                                Caminador
+                            </option>
+
+                            <option value="Otra">
+                                Otra
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sixmwt-divider"></div>
+
+
+                <!-- ESTADO -->
+
+                <div
+                    class="sixmwt-status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
+
+                    <div>
+
+                        <div class="sixmwt-status-label">
+                            Estado de la prueba
+                        </div>
+
+                        <div
+                            class="sixmwt-status-value"
+                            id="testStatus"
+                        >
+                            Preparada para iniciar
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="sixmwt-status-label">
+                            Tiempo restante
+                        </div>
+
+                        <div
+                            class="sixmwt-status-value"
+                            id="statusTime"
+                        >
+                            06:00
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CRONÓMETRO -->
+
+                <div
+                    class="sixmwt-timer"
+                    role="timer"
+                    aria-live="off"
+                    aria-label="Cronómetro del 6 Minute Walk Test"
+                >
+
+                    <div>
+
+                        <div class="sixmwt-timer-label">
+                            Tiempo restante
+                        </div>
+
+                        <div
+                            class="sixmwt-timer-value"
+                            id="timerDisplay"
+                        >
+                            06:00
+                        </div>
+
+                        <div
+                            class="sixmwt-timer-state"
+                            id="timerState"
+                        >
+                            Presione "Iniciar prueba" cuando la persona esté preparada.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLES -->
+
+                <div class="sixmwt-controls">
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-primary"
+                        id="startBtn"
+                    >
+                        Iniciar prueba
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-secondary"
+                        id="pauseBtn"
+                        disabled
+                    >
+                        Pausar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-dark"
+                        id="resumeBtn"
+                        disabled
+                    >
+                        Reanudar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-danger"
+                        id="finishBtn"
+                        disabled
+                    >
+                        Finalizar
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="sixmwt-alert"
+                    id="toolAlert"
+                    role="alert"
+                ></div>
+
+
+                <!-- REGISTRO DE DISTANCIA -->
+
+                <div class="sixmwt-measure-grid">
+
+                    <div class="sixmwt-measure-card">
+
+                        <span>
+                            Vueltas completas
+                        </span>
+
+                        <strong id="lapsDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="sixmwt-measure-card">
+
+                        <span>
+                            Distancia adicional
+                        </span>
+
+                        <strong id="extraDisplay">
+                            0 m
+                        </strong>
+
+                    </div>
+
+
+                    <div class="sixmwt-measure-card">
+
+                        <span>
+                            Distancia calculada
+                        </span>
+
+                        <strong id="distanceDisplay">
+                            0 m
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sixmwt-grid">
+
+                    <div class="sixmwt-field">
+
+                        <label for="completedLaps">
+                            Vueltas completas
+                        </label>
+
+                        <input
+                            type="number"
+                            id="completedLaps"
+                            min="0"
+                            step="1"
+                            value="0"
+                            inputmode="numeric"
+                        >
+
+                        <small>
+                            Número de vueltas completas realizadas.
+                        </small>
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="extraDistance">
+                            Distancia adicional (m)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="extraDistance"
+                            min="0"
+                            step="0.1"
+                            value="0"
+                            inputmode="decimal"
+                        >
+
+                        <small>
+                            Distancia recorrida después de la última vuelta completa.
+                        </small>
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="pauseCount">
+                            Número de pausas
+                        </label>
+
+                        <input
+                            type="number"
+                            id="pauseCount"
+                            min="0"
+                            step="1"
+                            value="0"
+                            inputmode="numeric"
+                        >
+
+                    </div>
+
+
+                    <div class="sixmwt-field">
+
+                        <label for="perceivedExertion">
+                            Esfuerzo percibido
+                        </label>
+
+                        <select
+                            id="perceivedExertion"
+                            name="perceivedExertion"
+                        >
+
+                            <option value="">
+                                No registrado
+                            </option>
+
+                            <option value="0">
+                                0 · Ningún esfuerzo
+                            </option>
+
+                            <option value="1">
+                                1 · Muy, muy ligero
+                            </option>
+
+                            <option value="2">
+                                2 · Muy ligero
+                            </option>
+
+                            <option value="3">
+                                3 · Moderado
+                            </option>
+
+                            <option value="4">
+                                4 · Algo intenso
+                            </option>
+
+                            <option value="5">
+                                5 · Intenso
+                            </option>
+
+                            <option value="6">
+                                6 ·
+                            </option>
+
+                            <option value="7">
+                                7 · Muy intenso
+                            </option>
+
+                            <option value="8">
+                                8 ·
+                            </option>
+
+                            <option value="9">
+                                9 ·
+                            </option>
+
+                            <option value="10">
+                                10 · Máximo
+                            </option>
+
+                        </select>
+
+                        <small>
+                            Escala modificada de percepción subjetiva del esfuerzo.
+                        </small>
+
+                    </div>
+
+
+                    <div class="sixmwt-field full">
+
+                        <label for="clinicalObservations">
+                            Observaciones clínicas
+                        </label>
+
+                        <textarea
+                            id="clinicalObservations"
+                            name="clinicalObservations"
+                            placeholder="Pausas, síntomas, comportamiento de la marcha, cambios durante la prueba u otras observaciones relevantes."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sixmwt-divider"></div>
+
+
+                <!-- RESULTADO -->
+
+                <div
+                    class="sixmwt-result"
+                    id="finalResult"
+                    aria-live="polite"
+                >
+
+                    <h4>
+                        Resultado de la evaluación
+                    </h4>
+
+                    <div class="sixmwt-result-main">
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Distancia total
+                            </span>
+
+                            <strong id="finalDistance">
+                                0 m
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Tiempo realizado
+                            </span>
+
+                            <strong id="finalTime">
+                                00:00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Vueltas
+                            </span>
+
+                            <strong id="finalLaps">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Pausas
+                            </span>
+
+                            <strong id="finalPauses">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Ayuda
+                            </span>
+
+                            <strong id="finalDevice">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sixmwt-result-item">
+
+                            <span>
+                                Esfuerzo
+                            </span>
+
+                            <strong id="finalRpe">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sixmwt-note">
+
+                        <strong>Interpretación:</strong>
+                        la distancia recorrida es el resultado principal
+                        del 6MWT. Su interpretación clínica debe realizarse
+                        teniendo en cuenta las características de la persona,
+                        el protocolo utilizado, las ayudas para la marcha,
+                        las pausas y las condiciones de evaluación.
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCIONES -->
+
+                <div class="sixmwt-actions">
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-secondary"
+                        id="calculateBtn"
+                    >
+                        Actualizar resultado
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-dark"
+                        id="printBtn"
+                    >
+                        Imprimir / guardar PDF
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sixmwt-btn sixmwt-btn-danger"
+                        id="resetBtn"
+                    >
+                        Nueva evaluación
+                    </button>
+
+                </div>
+
+
+                <p class="sixmwt-footnote">
+
+                    Esta herramienta tiene finalidad educativa y de apoyo
+                    al registro. No sustituye el protocolo oficial, la
+                    valoración clínica, las medidas de seguridad ni el
+                    juicio profesional. Antes de realizar la prueba deben
+                    verificarse las condiciones clínicas y de seguridad
+                    correspondientes.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INFORMACIÓN GENERAL
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                01 · INFORMACIÓN GENERAL
+            </p>
+
+            <h2>
+                Características de la prueba
+            </h2>
+
+        </div>
+
+
+        <div class="clinical-grid">
+
+            <article class="clinical-card">
+                <span>01</span>
+                <h3>Dominio</h3>
+                <p>
+                    Marcha, movilidad y capacidad funcional relacionada
+                    con el desplazamiento.
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span>02</span>
+                <h3>Duración</h3>
+                <p>
+                    Seis minutos de marcha continua, permitiendo pausas
+                    cuando sean necesarias.
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span>03</span>
+                <h3>Resultado principal</h3>
+                <p>
+                    Distancia total recorrida durante seis minutos,
+                    expresada en metros.
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span>04</span>
+                <h3>Tipo de prueba</h3>
+                <p>
+                    Prueba funcional de tiempo limitado y esfuerzo
+                    submáximo.
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span>05</span>
+                <h3>Aplicación</h3>
+                <p>
+                    Puede utilizarse para valoración inicial, seguimiento
+                    y evaluación de cambios.
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span>06</span>
+                <h3>Resultado</h3>
+                <p>
+                    Una mayor distancia recorrida generalmente representa
+                    un mejor desempeño funcional de la marcha.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OBJETIVO
+         ===================================================== -->
+
+    <section class="article-section article-blue">
+
+        <div class="section-title-left">
+
+            <p>
+                02 · OBJETIVO
+            </p>
+
+            <h2>
+                ¿Qué evalúa?
+            </h2>
+
+        </div>
+
+        <p>
+            El objetivo principal del 6MWT es determinar la distancia
+            que una persona puede caminar en seis minutos bajo
+            condiciones estandarizadas.
+        </p>
+
+        <p>
+            La prueba proporciona información sobre el desempeño
+            funcional de la marcha y la capacidad de mantener el
+            desplazamiento durante un periodo determinado.
+        </p>
+
+
+        <div class="evaluation-list">
+
+            <div>
+                <strong>Capacidad funcional</strong>
+                <p>
+                    Permite estimar el desempeño de la persona durante
+                    una tarea funcional de marcha.
+                </p>
+            </div>
+
+            <div>
+                <strong>Resistencia</strong>
+                <p>
+                    Permite observar la capacidad de mantener la marcha
+                    durante seis minutos.
+                </p>
+            </div>
+
+            <div>
+                <strong>Desempeño de la marcha</strong>
+                <p>
+                    La distancia recorrida constituye una medida objetiva
+                    del desempeño funcional.
+                </p>
+            </div>
+
+            <div>
+                <strong>Seguimiento</strong>
+                <p>
+                    Puede utilizarse para valorar cambios asociados con
+                    intervenciones de rehabilitación.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INDICACIONES
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                03 · INDICACIONES
+            </p>
+
+            <h2>
+                ¿Cuándo puede utilizarse?
+            </h2>
+
+        </div>
+
+        <p>
+            El 6MWT puede incorporarse cuando se requiere una medida
+            funcional del desempeño durante la marcha.
+        </p>
+
+
+        <div class="clinical-grid">
+
+            <article class="clinical-card">
+
+                <span>ACV</span>
+
+                <h3>
+                    Accidente cerebrovascular
+                </h3>
+
+                <p>
+                    Evaluación de la capacidad funcional de marcha y
+                    seguimiento durante la recuperación.
+                </p>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>NEURO</span>
+
+                <h3>
+                    Condiciones neurológicas
+                </h3>
+
+                <p>
+                    Puede emplearse en diferentes condiciones neurológicas
+                    que comprometen la movilidad.
+                </p>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>REHAB</span>
+
+                <h3>
+                    Procesos de rehabilitación
+                </h3>
+
+                <p>
+                    Útil para comparar el desempeño funcional antes y
+                    después de una intervención.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EQUIPAMIENTO
+         ===================================================== -->
+
+    <section class="article-section article-blue">
+
+        <div class="section-title-left">
+
+            <p>
+                04 · EQUIPAMIENTO
+            </p>
+
+            <h2>
+                ¿Qué se necesita?
+            </h2>
+
+        </div>
+
+
+        <div class="evaluation-list">
+
+            <div>
+                <strong>Recorrido</strong>
+                <p>
+                    Idealmente se utiliza un corredor interior plano y
+                    recto de 30 metros, de acuerdo con el protocolo
+                    correspondiente.
+                </p>
+            </div>
+
+            <div>
+                <strong>Marcadores</strong>
+                <p>
+                    Deben identificarse claramente los extremos del
+                    recorrido para facilitar los giros.
+                </p>
+            </div>
+
+            <div>
+                <strong>Cronómetro</strong>
+                <p>
+                    Se requiere un cronómetro para controlar exactamente
+                    los seis minutos.
+                </p>
+            </div>
+
+            <div>
+                <strong>Registro</strong>
+                <p>
+                    Se registra la distancia total recorrida y cualquier
+                    incidencia relevante.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROCEDIMIENTO
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                05 · PROCEDIMIENTO
+            </p>
+
+            <h2>
+                ¿Cómo se realiza?
+            </h2>
+
+        </div>
+
+        <p>
+            La aplicación debe realizarse siguiendo un protocolo
+            estandarizado para favorecer la reproducibilidad de las
+            mediciones.
+        </p>
+
+
+        <div class="intervention-grid">
+
+            <article>
+                <h3>01. Preparación</h3>
+                <p>
+                    Explicar a la persona el procedimiento, comprobar que
+                    comprende las instrucciones y registrar las condiciones
+                    relevantes antes de iniciar.
+                </p>
+            </article>
+
+            <article>
+                <h3>02. Posición inicial</h3>
+                <p>
+                    La persona se ubica al inicio del recorrido y se
+                    prepara para comenzar la marcha.
+                </p>
+            </article>
+
+            <article>
+                <h3>03. Inicio</h3>
+                <p>
+                    Se inicia el cronómetro y la persona comienza a
+                    caminar intentando recorrer la mayor distancia posible
+                    durante seis minutos.
+                </p>
+            </article>
+
+            <article>
+                <h3>04. Durante la prueba</h3>
+                <p>
+                    La persona puede disminuir la velocidad, detenerse o
+                    descansar si lo necesita, retomando posteriormente la
+                    marcha.
+                </p>
+            </article>
+
+            <article>
+                <h3>05. Finalización</h3>
+                <p>
+                    Al completar los seis minutos se indica que debe
+                    detenerse y se registra la distancia alcanzada.
+                </p>
+            </article>
+
+            <article>
+                <h3>06. Registro</h3>
+                <p>
+                    Registrar la distancia total recorrida, las pausas
+                    realizadas y cualquier observación clínica relevante.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONSIDERACIONES CLÍNICAS
+         ===================================================== -->
+
+    <section class="article-section dark-section">
+
+        <div class="section-title-left">
+
+            <p>
+                06 · CONSIDERACIONES CLÍNICAS
+            </p>
+
+            <h2>
+                La estandarización es fundamental
+            </h2>
+
+        </div>
+
+
+        <p>
+            La longitud del recorrido, las instrucciones, el uso de
+            ayudas para la marcha y las condiciones de aplicación pueden
+            influir sobre el resultado.
+        </p>
+
+        <p>
+            En personas con accidente cerebrovascular, las modificaciones
+            del protocolo pueden afectar la distancia alcanzada. Por esta
+            razón, cuando se realizan mediciones seriadas es recomendable
+            mantener las mismas condiciones de aplicación.
+        </p>
+
+        <p>
+            La interpretación debe considerar el estado funcional de la
+            persona, las características de la marcha, el uso de
+            dispositivos de asistencia y el contexto clínico.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTERPRETACIÓN
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                07 · INTERPRETACIÓN
+            </p>
+
+            <h2>
+                ¿Cómo interpretar el resultado?
+            </h2>
+
+        </div>
+
+
+        <p>
+            El resultado principal corresponde a la distancia total
+            recorrida en metros durante los seis minutos.
+        </p>
+
+
+        <div class="scale-table">
+
+            <div class="scale-row scale-header">
+                <span>Aspecto</span>
+                <span>Consideración clínica</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Distancia</span>
+                <span>
+                    Se expresa en metros recorridos durante los seis minutos.
+                </span>
+            </div>
+
+            <div class="scale-row">
+                <span>Mayor distancia</span>
+                <span>
+                    Generalmente refleja un mejor desempeño funcional
+                    de la marcha.
+                </span>
+            </div>
+
+            <div class="scale-row">
+                <span>Menor distancia</span>
+                <span>
+                    Puede indicar limitación de la capacidad funcional
+                    o de la resistencia durante la marcha.
+                </span>
+            </div>
+
+            <div class="scale-row">
+                <span>Cambio longitudinal</span>
+                <span>
+                    Las diferencias entre evaluaciones deben interpretarse
+                    considerando el error de medición y las condiciones
+                    del protocolo.
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ACV
+         ===================================================== -->
+
+    <section class="article-section article-blue">
+
+        <div class="section-title-left">
+
+            <p>
+                08 · NEUROREHABILITACIÓN
+            </p>
+
+            <h2>
+                Aplicación en personas con ACV
+            </h2>
+
+        </div>
+
+
+        <p>
+            El 6MWT se utiliza ampliamente en investigación y rehabilitación
+            de personas que han presentado un accidente cerebrovascular.
+        </p>
+
+        <p>
+            La evidencia muestra que el desempeño en esta prueba se
+            relaciona con diferentes componentes funcionales, incluyendo
+            equilibrio, función motora, velocidad de marcha y movilidad.
+        </p>
+
+        <p>
+            En población con ACV, es especialmente importante documentar
+            las características del protocolo, debido a que las variaciones
+            en la longitud del recorrido pueden modificar la distancia
+            obtenida.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROPIEDADES PSICOMÉTRICAS
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                09 · PROPIEDADES DE MEDICIÓN
+            </p>
+
+            <h2>
+                Evidencia sobre la medición
+            </h2>
+
+        </div>
+
+
+        <div class="clinical-grid">
+
+            <article class="clinical-card">
+
+                <span>FIABILIDAD</span>
+
+                <h3>
+                    Alta reproducibilidad
+                </h3>
+
+                <p>
+                    Estudios en personas con ACV han encontrado una elevada
+                    fiabilidad test-retest del 6MWT.
+                </p>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>VALIDEZ</span>
+
+                <h3>
+                    Relación con la función
+                </h3>
+
+                <p>
+                    La distancia recorrida presenta asociaciones con
+                    diferentes medidas de movilidad, equilibrio y función
+                    motora.
+                </p>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>CAMBIO</span>
+
+                <h3>
+                    Seguimiento clínico
+                </h3>
+
+                <p>
+                    Puede utilizarse para detectar cambios en el desempeño
+                    funcional durante procesos de rehabilitación.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EVIDENCIA CIENTÍFICA
+         ===================================================== -->
+
+    <section class="article-section article-blue">
+
+        <div class="section-title-left">
+
+            <p>
+                10 · EVIDENCIA CIENTÍFICA
+            </p>
+
+            <h2>
+                Fuentes principales
+            </h2>
+
+        </div>
+
+
+        <div class="scientific-links">
+
+
+            <div class="scientific-card">
+
+                <div class="scientific-card-number">
+                    01
+                </div>
+
+                <div class="scientific-card-content">
+
+                    <span>
+                        AMERICAN THORACIC SOCIETY
+                    </span>
+
+                    <h4>
+                        ATS Statement: Guidelines for the Six-Minute Walk Test
+                    </h4>
+
+                    <p>
+                        Documento de referencia para la estandarización
+                        del procedimiento, preparación, seguridad,
+                        aplicación e interpretación del 6MWT.
+                    </p>
+
+                    <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/12091180/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Consultar referencia →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="scientific-card">
+
+                <div class="scientific-card-number">
+                    02
+                </div>
+
+                <div class="scientific-card-content">
+
+                    <span>
+                        STROKE RESEARCH AND TREATMENT
+                    </span>
+
+                    <h4>
+                        Protocol Variations and Six-Minute Walk Test
+                        Performance in Stroke Survivors
+                    </h4>
+
+                    <p>
+                        Revisión sistemática y metaanálisis sobre la
+                        aplicación del 6MWT en supervivientes de ACV y
+                        el efecto de las variaciones del protocolo.
+                    </p>
+
+                    <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/25685596/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Consultar referencia →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="scientific-card">
+
+                <div class="scientific-card-number">
+                    03
+                </div>
+
+                <div class="scientific-card-content">
+
+                    <span>
+                        JOURNAL OF REHABILITATION MEDICINE
+                    </span>
+
+                    <h4>
+                        Walking tests for stroke survivors:
+                        a systematic review of their measurement properties
+                    </h4>
+
+                    <p>
+                        Revisión de las propiedades de medición de diferentes
+                        pruebas de marcha utilizadas en personas con ACV.
+                    </p>
+
+                    <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/22583082/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Consultar referencia →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REFERENCIA RÁPIDA
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                11 · REFERENCIA RÁPIDA
+            </p>
+
+            <h2>
+                6MWT en síntesis
+            </h2>
+
+        </div>
+
+
+        <div class="scale-table">
+
+            <div class="scale-row">
+                <span>Nombre</span>
+                <span>6 Minute Walk Test</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Abreviatura</span>
+                <span>6MWT</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Dominio</span>
+                <span>Marcha y movilidad</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Tiempo</span>
+                <span>6 minutos</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Resultado</span>
+                <span>Distancia recorrida en metros</span>
+            </div>
+
+            <div class="scale-row">
+                <span>Uso en neurorehabilitación</span>
+                <span>
+                    Evaluación y seguimiento del desempeño funcional
+                    de la marcha.
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AVISO
+         ===================================================== -->
+
+    <div class="coming-soon">
+
+        <strong>
+            Nota clínica:
+        </strong>
+
+        Esta ficha y su herramienta digital tienen finalidad educativa
+        y de apoyo al registro. La aplicación e interpretación del
+        instrumento deben realizarse considerando las características
+        individuales de la persona, las condiciones de seguridad y el
+        protocolo clínico correspondiente.
+
+    </div>
+
+
+    <!-- =====================================================
+         OTROS INSTRUMENTOS
+         ===================================================== -->
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>
+                EVALUACIÓN
+            </p>
+
+            <h2>
+                Explora otros instrumentos
+            </h2>
+
+        </div>
+
+
+        <div class="clinical-grid">
+
+
+            <article class="clinical-card">
+
+                <span>
+                    EQUILIBRIO
+                </span>
+
+                <h3>
+                    Berg Balance Scale
+                </h3>
+
+                <p>
+                    Evaluación del equilibrio funcional y control postural.
+                </p>
+
+                <a href="berg.html">
+                    Ver instrumento →
+                </a>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>
+                    MARCHA
+                </span>
+
+                <h3>
+                    Timed Up and Go
+                </h3>
+
+                <p>
+                    Evaluación de la movilidad funcional mediante una tarea
+                    de levantarse, caminar y regresar.
+                </p>
+
+                <a href="tug.html">
+                    Ver instrumento →
+                </a>
+
+            </article>
+
+
+            <article class="clinical-card">
+
+                <span>
+                    MARCHA
+                </span>
+
+                <h3>
+                    10 Meter Walk Test
+                </h3>
+
+                <p>
+                    Evaluación de la velocidad de marcha en una distancia
+                    determinada.
+                </p>
+
+                <a href="10mwt.html">
+                    Ver instrumento →
+                </a>
+
+            </article>
+
+
+        </div>
+
+
+        <p style="text-align:center; margin-top:40px;">
+
+            <a
+                href="evaluacion.html"
+                class="btn-primary"
+                style="display:inline-block;"
+            >
+                ← Volver a Evaluación
+            </a>
+
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 NeuroRehab
+    </p>
+
+    <p>
+        Fisioterapia · Neurorehabilitación · Ciencia
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT DEL 6MWT
+     ========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const TOTAL_SECONDS = 6 * 60;
+
+    let remainingSeconds = TOTAL_SECONDS;
+    let elapsedSeconds = 0;
+    let timer = null;
+    let running = false;
+    let paused = false;
+
+    const timerDisplay = document.getElementById("timerDisplay");
+    const statusTime = document.getElementById("statusTime");
+    const timerState = document.getElementById("timerState");
+    const testStatus = document.getElementById("testStatus");
+
+    const startBtn = document.getElementById("startBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const finishBtn = document.getElementById("finishBtn");
+
+    const resetBtn = document.getElementById("resetBtn");
+    const calculateBtn = document.getElementById("calculateBtn");
+    const printBtn = document.getElementById("printBtn");
+
+    const circuitLength = document.getElementById("circuitLength");
+    const completedLaps = document.getElementById("completedLaps");
+    const extraDistance = document.getElementById("extraDistance");
+    const pauseCount = document.getElementById("pauseCount");
+
+    const lapsDisplay = document.getElementById("lapsDisplay");
+    const extraDisplay = document.getElementById("extraDisplay");
+    const distanceDisplay = document.getElementById("distanceDisplay");
+
+    const toolAlert = document.getElementById("toolAlert");
+    const finalResult = document.getElementById("finalResult");
+
+    const patientName = document.getElementById("patientName");
+    const evaluationDate = document.getElementById("evaluationDate");
+    const assistiveDevice = document.getElementById("assistiveDevice");
+    const perceivedExertion = document.getElementById("perceivedExertion");
+    const clinicalObservations = document.getElementById("clinicalObservations");
+
+    const finalDistance = document.getElementById("finalDistance");
+    const finalTime = document.getElementById("finalTime");
+    const finalLaps = document.getElementById("finalLaps");
+    const finalPauses = document.getElementById("finalPauses");
+    const finalDevice = document.getElementById("finalDevice");
+    const finalRpe = document.getElementById("finalRpe");
+
+
+    /* =====================================================
+       FECHA ACTUAL
+       ===================================================== */
+
+    if (!evaluationDate.value) {
+
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
+
+        evaluationDate.value = `${year}-${month}-${day}`;
+
+    }
+
+
+    /* =====================================================
+       UTILIDADES
+       ===================================================== */
+
+    function formatTime(seconds) {
+
+        const safeSeconds = Math.max(0, Math.floor(seconds));
+
+        const minutes = Math.floor(safeSeconds / 60);
+        const secondsRemaining = safeSeconds % 60;
+
+        return (
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(secondsRemaining).padStart(2, "0")
+        );
+
+    }
+
+
+    function showAlert(message) {
+
+        toolAlert.textContent = message;
+        toolAlert.classList.add("visible");
+
+    }
+
+
+    function hideAlert() {
+
+        toolAlert.textContent = "";
+        toolAlert.classList.remove("visible");
+
+    }
+
+
+    function updateTimerDisplay() {
+
+        const formatted = formatTime(remainingSeconds);
+
+        timerDisplay.textContent = formatted;
+        statusTime.textContent = formatted;
+
+    }
+
+
+    function getDistance() {
+
+        const circuit = Number.parseFloat(circuitLength.value) || 0;
+        const laps = Number.parseInt(completedLaps.value, 10) || 0;
+        const extra = Number.parseFloat(extraDistance.value) || 0;
+
+        return (circuit * laps) + extra;
+
+    }
+
+
+    function updateDistance() {
+
+        const circuit = Number.parseFloat(circuitLength.value) || 0;
+        const laps = Number.parseInt(completedLaps.value, 10) || 0;
+        const extra = Number.parseFloat(extraDistance.value) || 0;
+
+        const distance = getDistance();
+
+        lapsDisplay.textContent = laps;
+        extraDisplay.textContent = `${extra.toFixed(1)} m`;
+        distanceDisplay.textContent = `${distance.toFixed(1)} m`;
+
+        return {
+            circuit,
+            laps,
+            extra,
+            distance
+        };
+
+    }
+
+
+    /* =====================================================
+       VALIDACIÓN
+       ===================================================== */
+
+    function validateDistanceData() {
+
+        const circuit = Number.parseFloat(circuitLength.value);
+        const laps = Number.parseInt(completedLaps.value, 10);
+        const extra = Number.parseFloat(extraDistance.value);
+
+        if (!Number.isFinite(circuit) || circuit <= 0) {
+
+            showAlert(
+                "Introduzca una longitud de circuito válida mayor que 0 metros."
+            );
+
+            circuitLength.focus();
+
+            return false;
+
+        }
+
+        if (!Number.isInteger(laps) || laps < 0) {
+
+            showAlert(
+                "El número de vueltas completas debe ser un número entero igual o mayor que 0."
+            );
+
+            completedLaps.focus();
+
+            return false;
+
+        }
+
+        if (!Number.isFinite(extra) || extra < 0) {
+
+            showAlert(
+                "La distancia adicional debe ser igual o mayor que 0 metros."
+            );
+
+            extraDistance.focus();
+
+            return false;
+
+        }
+
+        if (extra >= circuit) {
+
+            showAlert(
+                "La distancia adicional debe ser menor que la longitud del circuito. Si se completó otra vuelta, incremente el número de vueltas."
+            );
+
+            extraDistance.focus();
+
+            return false;
+
+        }
+
+        hideAlert();
+
+        return true;
+
+    }
+
+
+    /* =====================================================
+       RESULTADO
+       ===================================================== */
+
+    function updateResult() {
+
+        if (!validateDistanceData()) {
+            return;
+        }
+
+        const data = updateDistance();
+
+        finalDistance.textContent =
+            `${data.distance.toFixed(1)} m`;
+
+        finalTime.textContent =
+            formatTime(elapsedSeconds);
+
+        finalLaps.textContent =
+            data.laps;
+
+        finalPauses.textContent =
+            Number.parseInt(pauseCount.value, 10) || 0;
+
+        finalDevice.textContent =
+            assistiveDevice.value || "No registrado";
+
+        finalRpe.textContent =
+            perceivedExertion.value !== ""
+                ? perceivedExertion.value
+                : "No registrado";
+
+        finalResult.classList.add("visible");
+
+    }
+
+
+    /* =====================================================
+       INICIO
+       ===================================================== */
+
+    function startTest() {
+
+        if (!validateDistanceData()) {
+            return;
+        }
+
+        if (running) {
+            return;
+        }
+
+        hideAlert();
+
+        remainingSeconds = TOTAL_SECONDS;
+        elapsedSeconds = 0;
+
+        running = true;
+        paused = false;
+
+        startBtn.disabled = true;
+        pauseBtn.disabled = false;
+        resumeBtn.disabled = true;
+        finishBtn.disabled = false;
+
+        testStatus.textContent =
+            "Prueba en curso";
+
+        timerState.textContent =
+            "La prueba está activa. Registre las vueltas y pausas según corresponda.";
+
+        updateTimerDisplay();
+
+        finalResult.classList.remove("visible");
+
+        timer = setInterval(function () {
+
+            if (!running || paused) {
+                return;
+            }
+
+            remainingSeconds -= 1;
+            elapsedSeconds += 1;
+
+            updateTimerDisplay();
+
+            if (remainingSeconds <= 0) {
+
+                remainingSeconds = 0;
+
+                updateTimerDisplay();
+
+                finishTest(true);
+
+            }
+
+        }, 1000);
+
+    }
+
+
+    /* =====================================================
+       PAUSA
+       ===================================================== */
+
+    function pauseTest() {
+
+        if (!running || paused) {
+            return;
+        }
+
+        paused = true;
+
+        pauseBtn.disabled = true;
+        resumeBtn.disabled = false;
+
+        testStatus.textContent =
+            "Prueba pausada";
+
+        timerState.textContent =
+            "Cronómetro pausado. Reanude cuando corresponda.";
+
+        const currentPauses =
+            Number.parseInt(pauseCount.value, 10) || 0;
+
+        pauseCount.value = currentPauses + 1;
+
+    }
+
+
+    /* =====================================================
+       REANUDAR
+       ===================================================== */
+
+    function resumeTest() {
+
+        if (!running || !paused) {
+            return;
+        }
+
+        paused = false;
+
+        pauseBtn.disabled = false;
+        resumeBtn.disabled = true;
+
+        testStatus.textContent =
+            "Prueba en curso";
+
+        timerState.textContent =
+            "La prueba está activa.";
+
+    }
+
+
+    /* =====================================================
+       FINALIZAR
+       ===================================================== */
+
+    function finishTest(autoFinished = false) {
+
+        if (!running) {
+            return;
+        }
+
+        running = false;
+        paused = false;
+
+        clearInterval(timer);
+        timer = null;
+
+        pauseBtn.disabled = true;
+        resumeBtn.disabled = true;
+        finishBtn.disabled = true;
+
+        startBtn.disabled = true;
+
+        if (autoFinished) {
+
+            remainingSeconds = 0;
+            elapsedSeconds = TOTAL_SECONDS;
+
+            testStatus.textContent =
+                "Prueba completada";
+
+            timerState.textContent =
+                "Se completaron los seis minutos.";
+
+        } else {
+
+            testStatus.textContent =
+                "Prueba finalizada";
+
+            timerState.textContent =
+                "La evaluación fue finalizada manualmente.";
+
+        }
+
+        updateTimerDisplay();
+        updateResult();
+
+    }
+
+
+    /* =====================================================
+       REINICIAR
+       ===================================================== */
+
+    function resetTest() {
+
+        const confirmed = window.confirm(
+            "¿Desea iniciar una nueva evaluación? Se eliminará el registro actual de la herramienta."
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+        clearInterval(timer);
+        timer = null;
+
+        remainingSeconds = TOTAL_SECONDS;
+        elapsedSeconds = 0;
+
+        running = false;
+        paused = false;
+
+        completedLaps.value = 0;
+        extraDistance.value = 0;
+        pauseCount.value = 0;
+
+        perceivedExertion.value = "";
+        clinicalObservations.value = "";
+
+        testStatus.textContent =
+            "Preparada para iniciar";
+
+        timerState.textContent =
+            'Presione "Iniciar prueba" cuando la persona esté preparada.';
+
+        startBtn.disabled = false;
+        pauseBtn.disabled = true;
+        resumeBtn.disabled = true;
+        finishBtn.disabled = true;
+
+        finalResult.classList.remove("visible");
+
+        hideAlert();
+
+        updateTimerDisplay();
+        updateDistance();
+
+    }
+
+
+    /* =====================================================
+       EVENTOS
+       ===================================================== */
+
+    startBtn.addEventListener("click", startTest);
+
+    pauseBtn.addEventListener("click", pauseTest);
+
+    resumeBtn.addEventListener("click", resumeTest);
+
+    finishBtn.addEventListener("click", function () {
+        finishTest(false);
+    });
+
+    calculateBtn.addEventListener("click", updateResult);
+
+    resetBtn.addEventListener("click", resetTest);
+
+    printBtn.addEventListener("click", function () {
+
+        updateResult();
+
+        if (!finalResult.classList.contains("visible")) {
+            return;
+        }
+
+        window.print();
+
+    });
+
+
+    [
+        circuitLength,
+        completedLaps,
+        extraDistance
+    ].forEach(function (element) {
+
+        element.addEventListener("input", function () {
+
+            updateDistance();
+
+            if (finalResult.classList.contains("visible")) {
+                updateResult();
+            }
+
+        });
+
+    });
+
+
+    pauseCount.addEventListener("input", function () {
+
+        if (Number.parseInt(pauseCount.value, 10) < 0) {
+            pauseCount.value = 0;
+        }
+
+        if (finalResult.classList.contains("visible")) {
+            updateResult();
+        }
+
+    });
+
+
+    assistiveDevice.addEventListener("change", function () {
+
+        if (finalResult.classList.contains("visible")) {
+            updateResult();
+        }
+
+    });
+
+
+    perceivedExertion.addEventListener("change", function () {
+
+        if (finalResult.classList.contains("visible")) {
+            updateResult();
+        }
+
+    });
+
+
+    /* =====================================================
+       INICIALIZACIÓN
+       ===================================================== */
+
+    updateTimerDisplay();
+    updateDistance();
+
+
+    /* =====================================================
+       SEGURIDAD AL ABANDONAR LA PÁGINA
+       ===================================================== */
+
+    window.addEventListener("beforeunload", function (event) {
+
+        if (running) {
+
+            event.preventDefault();
+            event.returnValue = "";
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>

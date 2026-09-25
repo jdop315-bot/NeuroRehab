@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Escala de Rankin Modificada (mRS): Evaluación del grado de discapacidad e independencia funcional tras un accidente cerebrovascular.">
+    <title>Escala de Rankin Modificada (mRS) | NeuroRehab</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Neuro<span>Rehab</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span>☰</span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acv.html">Neurorehabilitación</a></li>
+                <li class="dropdown">
+                    <a href="evaluacion.html">Evaluación</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#evidencia">Evidencia científica</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <p class="hero-tag">DISCAPACIDAD FUNCIONAL · ACV</p>
+            <h1>Escala de Rankin Modificada (mRS)</h1>
+            <p>Modified Rankin Scale: estándar mundial para medir la discapacidad global y el grado de dependencia funcional</p>
+        </div>
+    </header>
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb" aria-label="Migas de pan">
+        <a href="index.html">Inicio</a>
+        <span>›</span>
+        <a href="evaluacion.html">Evaluación</a>
+        <span>›</span>
+        <a href="acv.html">ACV</a>
+        <span>›</span>
+        <strong>Rankin Modificada (mRS)</strong>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="article-container">
+
+        <!-- INTRODUCCIÓN -->
+        <section class="article-intro">
+            <span class="article-label">MEDIDA DE RESULTADO CLÍNICO</span>
+            <h2>Evaluación del impacto global y dependencia funcional</h2>
+            <p>
+                La <strong>Escala de Rankin Modificada (mRS)</strong> es la escala más utilizada en ensayos clínicos y práctica neurológica para evaluar la discapacidad funcional en personas que han sufrido un accidente cerebrovascular. Consta de una categorización ordinal estructurada de <strong>0 a 6</strong>, donde 0 representa ausencia total de síntomas y 6 representa el fallecimiento.
+            </p>
+            <p>
+                En investigación y neurorrehabilitación, las puntuaciones <strong>0 a 2</strong> se consideran convencionalmente como un <em>resultado favorable</em> (independencia funcional para la vida diaria sin necesidad de ayuda humana), mientras que las puntuaciones <strong>3 a 5</strong> definen distintos grados de dependencia funcional.
+            </p>
+        </section>
+
+        <!-- APLICACIÓN CLÍNICA -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>01 · CRITERIOS OPERATIVOS</p>
+                <h2>¿Cómo diferenciar cada nivel en la práctica?</h2>
+            </div>
+
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>NIVEL 0 – 1</span>
+                    <h3>Sin discapacidad funcional</h3>
+                    <p>El paciente puede tener síntomas leves (ej. cefalea leve, parestesias discretas), pero realiza todas sus actividades laborales, recreativas y domésticas previas sin restricción.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>NIVEL 2</span>
+                    <h3>Discapacidad leve</h3>
+                    <p>Incapaz de realizar algunas actividades complejas previas (conducir, trabajo exigente, finanzas complejas), pero es totalmente autónomo en su higiene, vestido, alimentación y marcha.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>NIVEL 3</span>
+                    <h3>Discapacidad moderada</h3>
+                    <p>Puede caminar de forma independiente (con o sin bastón), pero requiere ayuda para tareas instrumentales como cocinar, limpiar, hacer compras o gestionar medicación.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>NIVEL 4 – 5</span>
+                    <h3>Dependencia severa</h3>
+                    <p>Incapacidad para caminar sin asistencia humana (Nivel 4) o estado de encamamiento con necesidad continua de cuidados de enfermería y ayuda para toda necesidad fisiológica (Nivel 5).</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CALCULADORA / SELECTOR INTERACTIVO -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>02 · EVALUADOR INTERACTIVO</p>
+                <h2>Selector y categorización clínica mRS</h2>
+            </div>
+            <p>
+                Seleccione el nivel que mejor describa la capacidad funcional actual del paciente en las últimas 24-48 horas.
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Puntuación de la Escala de Rankin Modificada</h3>
+                    <p>Basado en el protocolo estructurado de entrevista validado (Banks & Marotta, Stroke 2007).</p>
+                </div>
+
+                <form id="mrsForm" autocomplete="off">
+                    <fieldset class="calc-item">
+                        <legend>Grado de discapacidad funcional observable</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="0" checked>
+                                <span><strong>Grado 0:</strong> Sin síntomas en absoluto.</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="1">
+                                <span><strong>Grado 1:</strong> Sin discapacidad significativa a pesar de síntomas; capaz de realizar todas sus actividades y deberes habituales.</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="2">
+                                <span><strong>Grado 2:</strong> Discapacidad leve; incapaz de realizar todas las actividades previas, pero capaz de valerse por sí mismo sin ayuda (independiente para ABVD).</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="3">
+                                <span><strong>Grado 3:</strong> Discapacidad moderada; requiere alguna ayuda externa, pero es capaz de caminar sin asistencia física de otra persona.</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="4">
+                                <span><strong>Grado 4:</strong> Discapacidad moderadamente severa; incapaz de caminar sin ayuda y de atender sus necesidades corporales sin asistencia de un cuidador.</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="5">
+                                <span><strong>Grado 5:</strong> Discapacidad severa; confinado a la cama, incontinente y requiere atención médica y cuidados de enfermería continuos día y noche.</span>
+                            </label>
+
+                            <label class="calc-option">
+                                <input type="radio" name="mrs_level" value="6">
+                                <span><strong>Grado 6:</strong> Fallecimiento del paciente.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- PANEL DE RESULTADOS -->
+                    <div id="mrsResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-green" id="mrsBadge">Grado 0 — Asintomático</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="mrsTotalScore">0</span>
+                                    <span class="calc-score-max">/ 6 en escala ordinal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="calc-interpretation-text" id="mrsInterpretation">
+                            Sin síntomas en absoluto; recuperación funcional completa. Categorizado como Resultado Favorable (Independencia Funcional).
+                        </p>
+
+                        <div class="scale-table">
+    <div class="scale-row scale-header">
+        <span>Dicotomización (rango mRS)</span>
+        <span>Implicación clínica</span>
+    </div>
+    <div class="scale-row">
+        <span>Resultado Favorable (mRS 0 – 2)</span>
+        <span>Independiente en las actividades básicas de la vida diaria (ABVD). Capaz de vivir solo sin cuidador permanente.</span>
+    </div>
+    <div class="scale-row">
+        <span>Dependencia Funcional (mRS 3 – 5)</span>
+        <span>Requiere asistencia de un cuidador... </span>
+    </div>
+    <div class="scale-row">
+        <span>Fallecimiento (mRS 6)</span>
+        <span>Mortalidad documentada en el seguimiento clínico.</span>
+    </div>
+
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="mrsReset">Restablecer selector</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- EVIDENCIA Y REFERENCIAS -->
+        <section class="reference-box">
+    <h4>Referencias bibliográficas (APA 7ª edición)</h4>
+    <ul class="reference-list">
+        <li>
+            Banks, J. L., &amp; Marotta, C. A. (2007). Outcomes validity and reliability of the modified Rankin scale: Implications for stroke clinical trials: A literature review and synthesis. <em>Stroke</em>, <em>38</em>(3), 1091–1096. https://doi.org/10.1161/01.STR.0000258355.23810.c6
+        </li>
+        <li>
+            Rankin, J. (1957). Cerebral vascular accidents in patients over the age of 60: II. Prognosis. <em>Scottish Medical Journal</em>, <em>2</em>(5), 200–215. https://doi.org/10.1177/003693305700200504
+        </li>
+        <li>
+            Saver, J. L., Filip, B., Hamilton, S., Yanes, A., Craig, S., Cho, M., Conwit, R., Starkman, S., &amp; Kidwell, C. (2010). Improving the reliability of stroke disability grading in clinical trials and clinical practice: The Rankin Focused Assessment (RFA). <em>Stroke</em>, <em>41</em>(5), 992–995. https://doi.org/10.1161/STROKEAHA.109.571364
+        </li>
+        <li>
+            van Swieten, J. C., Koudstaal, P. J., Visser, M. C., Schouten, H. J., &amp; van Gijn, J. (1988). Interobserver agreement for the assessment of handicap in stroke patients. <em>Stroke</em>, <em>19</em>(5), 604–607. https://doi.org/10.1161/01.STR.19.5.604
+        </li>
+    </ul>
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+        <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+    </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enfermedades neuromusculares: ELA, Distrofias Musculares y Miastenia Gravis. Fisioterapia especializada y calculadoras interactivas ALSFRS-R y MG-ADL.">
+    <title>Enfermedades Neuromusculares | NeuroRehab</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Neuro<span>Rehab</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span>☰</span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acv.html">Neurorehabilitación</a></li>
+                <li class="dropdown">
+                    <a href="evaluacion.html">Evaluación</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#evidencia">Evidencia científica</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <p class="hero-tag">PATOLOGÍAS DE LA UNIDAD MOTORA Y MÚSCULO</p>
+            <h1>Enfermedades neuromusculares</h1>
+            <p>Esclerosis Lateral Amiotrófica (ELA), Distrofias Musculares, Miastenia Gravis y escalas oficiales ALSFRS-R y MG-ADL</p>
+        </div>
+    </header>
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb" aria-label="Migas de pan">
+        <a href="index.html">Inicio</a>
+        <span>›</span>
+        <span>Neurorehabilitación</span>
+        <span>›</span>
+        <strong>Enfermedades neuromusculares</strong>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="article-container">
+
+        <!-- INTRODUCCIÓN -->
+        <section class="article-intro">
+            <span class="article-label">UNIDAD MOTORA Y FISIOTERAPIA</span>
+            <h2>Abordaje fisioterapéutico en patología neuromuscular</h2>
+            <p>
+                Las <strong>enfermedades neuromusculares</strong> engloban un espectro heterogéneo de entidades que afectan a la motoneurona (como la Esclerosis Lateral Amiotrófica), al nervio periférico, a la unión neuromuscular (como la Miastenia Gravis) o a la fibra muscular esquelética (como las Distrofias Musculares progresivas).
+            </p>
+            <p>
+                A diferencia de las lesiones del sistema nervioso central en las que se busca la neuroplasticidad para restituir la función, en muchas enfermedades neuromusculares degenerativas el objetivo prioritario de la fisioterapia es el <strong>mantenimiento funcional óptimo, la conservación de energía, la prevención de contracturas y deformidades, y la protección ventilatoria</strong> evitando siempre el agotamiento o sobreentrenamiento dañino.
+            </p>
+        </section>
+
+        <!-- SECCIÓN 1: ENTIDADES CLÍNICAS -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>01 · CUADROS CLÍNICOS PRINCIPALES</p>
+                <h2>Características fisiopatológicas y principios de intervención</h2>
+            </div>
+
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>MOTONEURONA</span>
+                    <h3>Esclerosis Lateral Amiotrófica (ELA)</h3>
+                    <p>Degeneración progresiva simultánea de 1ª (espasticidad, hiperreflexia) y 2ª motoneurona (atrofia, fasciculaciones, flacidez). Fisioterapia orientada al ejercicio aeróbico submáximo inicial, adaptación temprana de ayudas técnicas (collarines, sillas de ruedas) y soporte respiratorio no invasivo.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>MIOPATÍAS HEREDITARIAS</span>
+                    <h3>Distrofias musculares (DMD, DMB, FSHD)</h3>
+                    <p>Trastornos genéticos de proteínas de membrana (distrofina). La contracción excéntrica lesiona la membrana muscular. Prioridad en estiramientos pasivos mantenidos de tríceps e isquiotibiales, bipedestación asistida para conservar hueso y fisioterapia acuática.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>UNIÓN NEUROMUSCULAR</span>
+                    <h3>Miastenia Gravis</h3>
+                    <p>Afección autoinmune mediada por autoanticuerpos contra receptores de acetilcolina (AChR) o MuSK. Cursa con debilidad fluctuante y fatigabilidad patológica tras la repetición. La fisioterapia debe programarse tras la toma de medicación anticolinesterásica y con descansos intermedios.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: PAUTAS DE FISIOTERAPIA -->
+        <section class="article-section dark-section">
+            <div class="section-title-left">
+                <p>02 · DIRECTRICES CLÍNICAS DE SEGURIDAD</p>
+                <h2>Pilares de la intervención física en patología neuromuscular</h2>
+            </div>
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>CONSERVACIÓN DE ENERGÍA</span>
+                    <h3>Dosificación estricta</h3>
+                    <p>Planificación de pausas activas. El ejercicio nunca debe generar dolor o agotamiento que persista al día siguiente. Se promueve el uso de productos de apoyo para no gastar energía en desplazamientos prescindibles.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>CUIDADOS RESPIRATORIOS</span>
+                    <h3>Manejo de la tos y ventilación</h3>
+                    <p>Entrenamiento de apilamiento de aire (air-stacking) con ambú, técnicas de tos asistida mecánica (in-exsuflador / CoughAssist) y monitorización periódica de la capacidad vital forzada (FVC) y pico flujo de tos (PCF).</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CALCULADORA ALSFRS-R -->
+        <section class="article-section" id="escala-alsfrs">
+            <div class="section-title-left">
+                <p>03 · ESCLEROSIS LATERAL AMIOTRÓFICA</p>
+                <h2>Calculadora oficial ALSFRS-R (ALS Functional Rating Scale - Revised)</h2>
+            </div>
+            <p>
+                La escala <strong>ALSFRS-R</strong> (Cedarbaum et al., 1999) es la herramienta de referencia mundial para monitorizar la progresión funcional en personas con ELA a través de 12 ítems distribuidos en 4 dominios (0 a 48 puntos).
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Registro de la Escala ALSFRS-R (0 a 48 puntos)</h3>
+                    <p>Seleccione la puntuación más adecuada para cada uno de los 12 ítems evaluados.</p>
+                </div>
+
+                <form id="alsfrsForm" autocomplete="off">
+
+                    <!-- DOMINIO BULBAR -->
+                    <div class="calc-domain-title">
+                        <span>Dominio Bulbar (Máximo 12 puntos)</span>
+                        <span class="calc-domain-subtotal" id="alsfrsBulbar">12 / 12</span>
+                    </div>
+
+                    <fieldset class="calc-item">
+                        <legend>1. Habla</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_1" value="4" checked>
+                                <span><strong>4</strong> — Procesos del habla normales.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_1" value="3">
+                                <span><strong>3</strong> — Dificultad del habla detectable pero totalmente inteligible.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_1" value="2">
+                                <span><strong>2</strong> — Inteligible combinada con repeticiones o gestos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_1" value="1">
+                                <span><strong>1</strong> — El habla debe combinarse con comunicación no vocal (tablero/dispositivo).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_1" value="0">
+                                <span><strong>0</strong> — Pérdida total del habla útil.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>2. Salivación</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_2" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_2" value="3">
+                                <span><strong>3</strong> — Exceso leve pero definitivo de saliva en la boca; babeo nocturno ocasional.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_2" value="2">
+                                <span><strong>2</strong> — Exceso moderado de saliva; babeo mínimo durante el día.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_2" value="1">
+                                <span><strong>1</strong> — Exceso marcado de saliva con babeo frecuente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_2" value="0">
+                                <span><strong>0</strong> — Babeo continuo que requiere el uso constante de pañuelos o aspiración.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>3. Deglución</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_3" value="4" checked>
+                                <span><strong>4</strong> — Hábitos alimentarios normales.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_3" value="3">
+                                <span><strong>3</strong> — Problemas iniciales de atragantamiento ocasional.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_3" value="2">
+                                <span><strong>2</strong> — Modificación dietética de consistencias necesaria.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_3" value="1">
+                                <span><strong>1</strong> — Alimentación suplementaria por sonda o gastrostomía (PEG).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_3" value="0">
+                                <span><strong>0</strong> — Exclusivamente nutrición por sonda/enteral. Nada por vía oral.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- DOMINIO MOTOR FINO -->
+                    <div class="calc-domain-title">
+                        <span>Dominio Motor Fino (Máximo 12 puntos)</span>
+                        <span class="calc-domain-subtotal" id="alsfrsFineMotor">12 / 12</span>
+                    </div>
+
+                    <fieldset class="calc-item">
+                        <legend>4. Escritura</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_4" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_4" value="3">
+                                <span><strong>3</strong> — Lenta o torpe pero todas las palabras son legibles.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_4" value="2">
+                                <span><strong>2</strong> — No todas las palabras son legibles.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_4" value="1">
+                                <span><strong>1</strong> — Capaz de agarrar el bolígrafo pero incapaz de escribir legiblemente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_4" value="0">
+                                <span><strong>0</strong> — Incapaz de sujetar un bolígrafo.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>5. Cortar comida y manejar utensilios</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_5" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_5" value="3">
+                                <span><strong>3</strong> — Algo lento y torpe pero no requiere ayuda externa.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_5" value="2">
+                                <span><strong>2</strong> — Puede cortar la mayoría de alimentos pero requiere algo de ayuda.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_5" value="1">
+                                <span><strong>1</strong> — La comida debe ser cortada previamente por otra persona; come lento.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_5" value="0">
+                                <span><strong>0</strong> — Requiere ser alimentado completamente.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>6. Vestido e higiene personal</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_6" value="4" checked>
+                                <span><strong>4</strong> — Función normal sin esfuerzo extraordinario.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_6" value="3">
+                                <span><strong>3</strong> — Independiente y realiza todo el autocuidado pero con lentitud y esfuerzo.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_6" value="2">
+                                <span><strong>2</strong> — Requiere asistencia intermitente o sustitutos (velcro, etc.).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_6" value="1">
+                                <span><strong>1</strong> — Requiere asistencia diaria continua para el autocuidado.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_6" value="0">
+                                <span><strong>0</strong> — Dependencia total de un cuidador.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- DOMINIO MOTOR GRUESO -->
+                    <div class="calc-domain-title">
+                        <span>Dominio Motor Grueso (Máximo 12 puntos)</span>
+                        <span class="calc-domain-subtotal" id="alsfrsGrossMotor">12 / 12</span>
+                    </div>
+
+                    <fieldset class="calc-item">
+                        <legend>7. Girar en la cama y ajustar sábanas</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_7" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_7" value="3">
+                                <span><strong>3</strong> — Algo lento y torpe pero sin requerir ayuda.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_7" value="2">
+                                <span><strong>2</strong> — Puede girarse solo pero con gran dificultad; no puede ajustar sábanas.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_7" value="1">
+                                <span><strong>1</strong> — Puede iniciar el giro pero requiere asistencia externa para completarlo.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_7" value="0">
+                                <span><strong>0</strong> — Totalmente dependiente para los cambios posturales en cama.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>8. Caminar</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_8" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_8" value="3">
+                                <span><strong>3</strong> — Dificultad temprana en la marcha (tropiezos ocasionales).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_8" value="2">
+                                <span><strong>2</strong> — Marcha con productos de apoyo (bastón, andador o férulas AFO).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_8" value="1">
+                                <span><strong>1</strong> — Marcha no funcional; propulsión en silla de ruedas.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_8" value="0">
+                                <span><strong>0</strong> — Confinado en cama o incapaz de propulsar silla.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>9. Subir escaleras</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_9" value="4" checked>
+                                <span><strong>4</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_9" value="3">
+                                <span><strong>3</strong> — Lento pero sin apoyo de barandilla.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_9" value="2">
+                                <span><strong>2</strong> — Requiere uso de barandilla o soporte para subir.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_9" value="1">
+                                <span><strong>1</strong> — Requiere ayuda de otra persona para subir escalones.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_9" value="0">
+                                <span><strong>0</strong> — Incapaz de subir escaleras.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- DOMINIO RESPIRATORIO -->
+                    <div class="calc-domain-title">
+                        <span>Dominio Respiratorio (Máximo 12 puntos)</span>
+                        <span class="calc-domain-subtotal" id="alsfrsResp">12 / 12</span>
+                    </div>
+
+                    <fieldset class="calc-item">
+                        <legend>10. Disnea (Dificultad respiratoria)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_10" value="4" checked>
+                                <span><strong>4</strong> — Ninguna.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_10" value="3">
+                                <span><strong>3</strong> — Ocurre al caminar o subir 1 piso de escaleras.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_10" value="2">
+                                <span><strong>2</strong> — Ocurre durante una o más de las actividades cotidianas (comer, aseo).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_10" value="1">
+                                <span><strong>1</strong> — Ocurre en reposo, sentado o acostado.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_10" value="0">
+                                <span><strong>0</strong> — Disnea severa que impide realizar tareas básicas.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>11. Ortopnea</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_11" value="4" checked>
+                                <span><strong>4</strong> — Ninguna; duerme plano en la cama sin dificultad.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_11" value="3">
+                                <span><strong>3</strong> — Algo de dificultad para dormir acostado plano; usa más almohadas.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_11" value="2">
+                                <span><strong>2</strong> — Requiere dormir semiincorporado (3 o más almohadas o cama articulada).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_11" value="1">
+                                <span><strong>1</strong> — Solo puede dormir completamente sentado en un sillón.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_11" value="0">
+                                <span><strong>0</strong> — Incapaz de conciliar el sueño sin ventilación mecánica.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>12. Insuficiencia respiratoria (Soporte ventilatorio)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_12" value="4" checked>
+                                <span><strong>4</strong> — Ninguno; no utiliza ventilación mecánica.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_12" value="3">
+                                <span><strong>3</strong> — Uso intermitente de ventilación no invasiva (BiPAP) para dormir.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_12" value="2">
+                                <span><strong>2</strong> — Uso continuo de BiPAP durante la noche (&gt;8 horas).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_12" value="1">
+                                <span><strong>1</strong> — Uso de BiPAP continuo durante la noche y parte del día (&gt;16 horas).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="alsfrs_12" value="0">
+                                <span><strong>0</strong> — Dependiente de ventilación mecánica invasiva 24 horas al día (vía traqueostomía).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- PANEL RESULTADOS ALSFRS-R -->
+                    <div id="alsfrsResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-green" id="alsfrsBadge">Función Global Conservada</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="alsfrsTotalScore">48</span>
+                                    <span class="calc-score-max">/ 48 puntos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="calc-interpretation-text" id="alsfrsInterpretation">
+                            Puntuación dentro de rangos funcionales altos. Mantener ejercicio aeróbico suave y pautas de conservación de energía.
+                        </p>
+
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="alsfrsReset">Reiniciar escala ALSFRS-R</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: CALCULADORA MG-ADL -->
+        <section class="article-section" id="escala-mgadl">
+            <div class="section-title-left">
+                <p>04 · MIASTENIA GRAVIS</p>
+                <h2>Calculadora MG-ADL (Myasthenia Gravis Activities of Daily Living)</h2>
+            </div>
+            <p>
+                El perfil <strong>MG-ADL</strong> (Wolfe et al., 1999) es una escala centrada en los síntomas y la limitación funcional referida por el propio paciente con Miastenia Gravis (8 ítems puntuados de 0 a 3, total 0 a 24 puntos). Una mejoría de <strong>≥ 2 puntos</strong> en el total se considera una diferencia clínicamente importante mínima (MCID).
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Registro del Perfil MG-ADL (0 a 24 puntos)</h3>
+                    <p>Evalúe el impacto de la miastenia sobre las actividades cotidianas durante la última semana.</p>
+                </div>
+
+                <form id="mgAdlForm" autocomplete="off">
+
+                    <!-- DOMINIOS SUB-METRICOS -->
+                    <div class="calc-meta-grid">
+                        <div class="calc-meta-box">
+                            <span>Ocular (7, 8)</span>
+                            <strong id="mgAdlOcular">0 / 6</strong>
+                        </div>
+                        <div class="calc-meta-box">
+                            <span>Bulbar (1, 2, 3)</span>
+                            <strong id="mgAdlBulbar">0 / 9</strong>
+                        </div>
+                        <div class="calc-meta-box">
+                            <span>Respiratorio (4)</span>
+                            <strong id="mgAdlResp">0 / 3</strong>
+                        </div>
+                        <div class="calc-meta-box">
+                            <span>Motor/Axial (5, 6)</span>
+                            <strong id="mgAdlMotor">0 / 6</strong>
+                        </div>
+                    </div>
+
+                    <!-- 1. Hablar -->
+                    <fieldset class="calc-item">
+                        <legend>1. Hablar</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_1" value="0" checked>
+                                <span><strong>0</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_1" value="1">
+                                <span><strong>1</strong> — Voz nasal o habla arrastrada intermitente con el uso prolongado.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_1" value="2">
+                                <span><strong>2</strong> — Habla arrastrada constante pero comprensible.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_1" value="3">
+                                <span><strong>3</strong> — Habla difícil de comprender o ininteligible.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. Masticar -->
+                    <fieldset class="calc-item">
+                        <legend>2. Masticar</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_2" value="0" checked>
+                                <span><strong>0</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_2" value="1">
+                                <span><strong>1</strong> — Fatiga muscular al masticar alimentos sólidos habituales.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_2" value="2">
+                                <span><strong>2</strong> — Solo puede masticar alimentos blandos; requiere descansos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_2" value="3">
+                                <span><strong>3</strong> — Incapaz de masticar; requiere dieta líquida o sonda.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 3. Deglutir -->
+                    <fieldset class="calc-item">
+                        <legend>3. Tragar / Deglutir</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_3" value="0" checked>
+                                <span><strong>0</strong> — Normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_3" value="1">
+                                <span><strong>1</strong> — Atragantamiento ocasional o sensación de esfuerzo para tragar.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_3" value="2">
+                                <span><strong>2</strong> — Atragantamiento frecuente; requiere modificaciones dietéticas estrictas.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_3" value="3">
+                                <span><strong>3</strong> — Incapaz de tragar; requiere soporte de sonda enteral.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 4. Respirar -->
+                    <fieldset class="calc-item">
+                        <legend>4. Respirar</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_4" value="0" checked>
+                                <span><strong>0</strong> — Normal; sin disnea de origen miasténico.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_4" value="1">
+                                <span><strong>1</strong> — Falta de aire con el esfuerzo físico habitual (caminar o subir escaleras).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_4" value="2">
+                                <span><strong>2</strong> — Falta de aire en reposo o al hablar.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_4" value="3">
+                                <span><strong>3</strong> — Requiere soporte ventilatorio mecánico (invasivo o no invasivo).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 5. Cepillarse los dientes o peinarse -->
+                    <fieldset class="calc-item">
+                        <legend>5. Cepillarse los dientes o peinarse (Fuerza proximal miembro superior)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_5" value="0" checked>
+                                <span><strong>0</strong> — Normal; sin necesidad de pausas.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_5" value="1">
+                                <span><strong>1</strong> — Realiza la tarea con esfuerzo extra pero sin descansar.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_5" value="2">
+                                <span><strong>2</strong> — Requiere descansos intermedios para poder completar el peinado/cepillado.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_5" value="3">
+                                <span><strong>3</strong> — Incapaz de realizar la tarea por sí mismo; requiere ayuda completa.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 6. Levantarse de una silla -->
+                    <fieldset class="calc-item">
+                        <legend>6. Levantarse de una silla (Fuerza cintura pélvica)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_6" value="0" checked>
+                                <span><strong>0</strong> — Normal; sin usar los brazos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_6" value="1">
+                                <span><strong>1</strong> — Raras veces necesita impulsarse con los brazos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_6" value="2">
+                                <span><strong>2</strong> — Siempre requiere empujar con los brazos sobre los reposabrazos o muslos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_6" value="3">
+                                <span><strong>3</strong> — Incapaz de levantarse sin ayuda física de otra persona.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 7. Visión doble -->
+                    <fieldset class="calc-item">
+                        <legend>7. Visión doble (Diplopía)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_7" value="0" checked>
+                                <span><strong>0</strong> — Ninguna.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_7" value="1">
+                                <span><strong>1</strong> — Ocurre pero no diariamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_7" value="2">
+                                <span><strong>2</strong> — Ocurre diariamente pero no es constante todo el día.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_7" value="3">
+                                <span><strong>3</strong> — Constante a lo largo de todo el día.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 8. Párpados caídos -->
+                    <fieldset class="calc-item">
+                        <legend>8. Caída de los párpados (Ptosis palpebral)</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_8" value="0" checked>
+                                <span><strong>0</strong> — Ninguna.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_8" value="1">
+                                <span><strong>1</strong> — Ocurre ocasionalmente pero no diariamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_8" value="2">
+                                <span><strong>2</strong> — Diaria pero no constante todo el día.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="mgadl_8" value="3">
+                                <span><strong>3</strong> — Constante todo el día; compromete el campo visual.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- PANEL RESULTADOS MG-ADL -->
+                    <div id="mgAdlResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-green" id="mgAdlBadge">Síntomas Mínimos / Controlados</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="mgAdlTotalScore">0</span>
+                                    <span class="calc-score-max">/ 24 puntos MG-ADL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="calc-interpretation-text" id="mgAdlInterpretation">
+                            Puntuación baja (0 a 4 puntos). Poca repercusión sobre las actividades cotidianas. Programar ejercicio en horas de menor fatiga (mañanas o tras medicación).
+                        </p>
+
+                        <div class="scale-table">
+                            <div class="scale-row scale-header">
+                                <span>Métrica clínica MG-ADL</span>
+                                <span>Criterio</span>
+                                <span>Significado clínico</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>MCID (Diferencia Mínima Clínicamente Importante)</span>
+                                <span>Variación de ≥ 2 puntos</span>
+                                <span>Una reducción de 2 o más puntos tras el tratamiento farmacológico o rehabilitador indica mejoría clínicamente significativa (Muppidi et al., 2011).</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>Alerta Bulbar o Respiratoria</span>
+                                <span>Ítems 1, 2, 3 o 4 con puntuación ≥ 2</span>
+                                <span>Riesgo potencial de crisis miasténica. Derivación neurológica urgente y suspensión inmediata de ejercicio físico extenuante.</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="mgAdlReset">Reiniciar perfil MG-ADL</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- EVIDENCIA Y REFERENCIAS -->
+        <section class="reference-box">
+
+    <h4>Referencias bibliográficas (APA 7)</h4>
+
+    <ul class="reference-list">
+
+        <li>
+            Birnkrant, D. J., Bushby, K., Bann, C. M., Apkon, S. D., Blackwell, A., Brumbaugh, D., Case, L. E., Clemens, P. R., Hadjiyannakis, S., Pandya, S., Street, N., Tomezsko, J., Wagner, K. R., Ward, L. M., &amp; Weber, D. R. (2018). Diagnosis and management of Duchenne muscular dystrophy, part 1: Diagnosis, and neuromuscular, rehabilitation, endocrine, and gastrointestinal and nutritional management. <em>The Lancet Neurology</em>, <em>17</em>(3), 251–267. https://doi.org/10.1016/S1474-4422(18)30024-3
+        </li>
+
+        <li>
+            Cedarbaum, J. M., Stambler, N., Malta, E., Fuller, C., Hilt, D., Thurmond, B., &amp; Nakanishi, A. (1999). The ALSFRS-R: A revised ALS functional rating scale that incorporates assessments of respiratory function. <em>Journal of the Neurological Sciences</em>, <em>169</em>(1–2), 13–21. https://doi.org/10.1016/S0022-510X(99)00210-5
+        </li>
+
+        <li>
+            Kaufmann, P., Levy, G., Montes, J., Buchsbaum, R., Barsdorf, A. I., Battista, V., Arbing, R., Gordon, P., Mitsumoto, H., Levin, B., &amp; Thompson, J. L. P. (2005). Excellent inter-rater, intra-rater, and telephone-administered reliability of the ALSFRS-R in a multicenter clinical trial. <em>Amyotrophic Lateral Sclerosis and Other Motor Neuron Disorders</em>, <em>6</em>(2), 100–104. https://doi.org/10.1080/14660820510036375
+        </li>
+
+        <li>
+            Muppidi, S., Wolfe, G. I., Conaway, M., &amp; Burns, T. M. (2011). FDA endpoint analysis of the MG-ADL and its comparison with the MG composite and the QMG. <em>Muscle &amp; Nerve</em>, <em>44</em>(5), 727–731. https://doi.org/10.1002/mus.22160
+        </li>
+
+        <li>
+            Wolfe, G. I., Herbelin, L., Nations, S. P., Foster, B., Bryan, W. W., &amp; Barohn, R. J. (1999). Myasthenia gravis activities of daily living profile. <em>Neurology</em>, <em>52</em>(7), 1487–1489. https://doi.org/10.1212/WNL.52.7.1487
+        </li>
+
+    </ul>
+
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+        <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+    </footer>
+
+</body>
+</html>
+

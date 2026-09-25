@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Síndrome de Guillain-Barré (SGB): fases clínicas, precauciones de sobreuso en fisioterapia, escala de Hughes y calculadora pronóstica mEGOS.">
+    <title>Síndrome de Guillain-Barré | NeuroRehab</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Neuro<span>Rehab</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span>☰</span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acv.html">Neurorehabilitación</a></li>
+                <li class="dropdown">
+                    <a href="evaluacion.html">Evaluación</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#evidencia">Evidencia científica</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <p class="hero-tag">POLINEUROPATÍAS AGUDAS · NEUROREHABILITACIÓN</p>
+            <h1>Síndrome de Guillain-Barré (SGB)</h1>
+            <p>Fisiopatología por fases, precauciones de sobreesfuerzo, escala de Hughes y calculador pronóstico mEGOS</p>
+        </div>
+    </header>
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb" aria-label="Migas de pan">
+        <a href="index.html">Inicio</a>
+        <span>›</span>
+        <span>Neurorehabilitación</span>
+        <span>›</span>
+        <strong>Síndrome de Guillain-Barré</strong>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="article-container">
+
+        <!-- INTRODUCCIÓN -->
+        <section class="article-intro">
+            <span class="article-label">POLIRRADICULONEUROPATÍA AUTOINMUNE</span>
+            <h2>Cuadro clínico y fases evolutivas del SGB</h2>
+            <p>
+                El <strong>Síndrome de Guillain-Barré (SGB)</strong> es una polirradiculoneuropatía aguda desmielinizante o axonal de naturaleza autoinmune, mediada habitualmente por anticuerpos tras una infección previa (como <em>Campylobacter jejuni</em>, Citomegalovirus, Epstein-Barr o virus respiratorios/entéricos).
+            </p>
+            <p>
+                Se caracteriza clínicamente por debilidad muscular simétrica progresiva ascendente, hiporreflexia o arreflexia osteotendinosa global, dolor neuropático radicular y, en aproximadamente el 20-30% de los pacientes, insuficiencia respiratoria aguda que requiere ventilación mecánica invasiva en UCI.
+            </p>
+        </section>
+
+        <!-- FASES CLÍNICAS -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>01 · CURSO TEMPORAL</p>
+                <h2>Las tres fases clínicas determinantes para la fisioterapia</h2>
+            </div>
+
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>FASE 1 (DÍAS – 4 SEMANAS)</span>
+                    <h3>Fase aguda o progresiva</h3>
+                    <p>Empeoramiento continuo de la debilidad motora. Máxima prioridad en monitorización respiratoria (capacidad vital forzada &lt; 15-20 ml/kg indica intubación inminente), cambios posturales y prevención de úlceras por presión.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>FASE 2 (DÍAS – SEMANAS)</span>
+                    <h3>Fase de meseta</h3>
+                    <p>Estabilización del déficit neurológico sin mayor progresión pero con máxima debilidad muscular. Riesgo elevado de complicaciones del encamamiento prolongado, trombosis venosa profunda y rigideces articulares.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>FASE 3 (MESES – AÑOS)</span>
+                    <h3>Fase de recuperación</h3>
+                    <p>Regeneración axonal y remielinización progresiva. Reentrenamiento motor funcional, verticalización y reincorporación a la marcha. La fatiga patológica severa es la secuela a largo plazo más prevalente.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ALERTA DE FISIOTERAPIA: SOBREESFUERZO -->
+        <section class="article-section dark-section">
+            <div class="section-title-left">
+                <p>02 · PRECAUCIÓN CLÍNICA CRÍTICA</p>
+                <h2>Prevención de la debilidad por sobreesfuerzo ("Overwork Weakness")</h2>
+            </div>
+            <p>
+                Un principio cardinal en la neurorrehabilitación del SGB es la <strong>prevención del daño muscular por sobrecarga excéntrica o sobreesfuerzo</strong>. Los axones en proceso de reinervación y las unidades motoras recién recuperadas son sumamente vulnerables al daño mecánico y metabólico:
+            </p>
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>CRITERIOS DE SEGURIDAD</span>
+                    <h3>Dosificación del ejercicio terapéutico</h3>
+                    <p>Nunca fatigar al paciente hasta el agotamiento. Evitar contracciones excéntricas máximas. El ejercicio debe ser a intensidades submáximas (Escala de Borg &le; 12-13), con intervalos de descanso frecuentes.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>SEÑALES DE ALERTA</span>
+                    <h3>Detección de sobreesfuerzo</h3>
+                    <p>Si el paciente presenta mayor debilidad, dolor muscular intenso o fatiga extrema 24 horas después de una sesión de fisioterapia, la dosis de ejercicio superó el umbral seguro y debe reducirse de inmediato.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ESCALA DE DISCAPACIDAD DE HUGHES -->
+        <section class="article-section" id="escala-hughes">
+            <div class="section-title-left">
+                <p>03 · ESTADO FUNCIONAL GLOBAL</p>
+                <h2>Escala de Discapacidad de Hughes (GBS Disability Score)</h2>
+            </div>
+            <p>
+                La escala de Hughes (0 a 6) es la medida de resultado funcional más extendida en la literatura y ensayos clínicos internacionales para clasificar el estado de movilidad en el SGB.
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Evaluador de Discapacidad de Hughes</h3>
+                    <p>Seleccione el grado correspondiente al estado de movilidad actual.</p>
+                </div>
+
+                <form id="hughesForm" autocomplete="off">
+                    <fieldset class="calc-item">
+                        <legend>Grado de movilidad y función</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="0">
+                                <span><strong>Grado 0:</strong> Sano; función neurológica normal y asintomático.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="1">
+                                <span><strong>Grado 1:</strong> Síntomas y signos menores; capaz de correr y subir escaleras normalmente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="2" checked>
+                                <span><strong>Grado 2:</strong> Capaz de caminar 10 metros o más en espacio abierto sin soporte/ayuda humana, pero incapaz de correr.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="3">
+                                <span><strong>Grado 3:</strong> Capaz de caminar 10 metros en espacio abierto pero requiere soporte (bastón, andador o asistencia de una persona).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="4">
+                                <span><strong>Grado 4:</strong> Confinado a la cama o a la silla de ruedas (incapaz de caminar 10 metros incluso con ayuda).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="5">
+                                <span><strong>Grado 5:</strong> Requiere ventilación asistida (invasiva o no invasiva) al menos parte del día o de la noche.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="hughes_level" value="6">
+                                <span><strong>Grado 6:</strong> Fallecimiento del paciente.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div id="hughesResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-yellow" id="hughesBadge">Grado 2 — Marcha independiente</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="hughesScore">2</span>
+                                    <span class="calc-score-max">/ Grados 0 a 6 de Hughes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="calc-interpretation-text" id="hughesInterpretation">
+                            Capaz de caminar 10 metros o más en espacio abierto sin soporte físico ni ayuda de otra persona, pero incapaz de correr.
+                        </p>
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="hughesReset">Reiniciar escala Hughes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CALCULADORA mEGOS -->
+        <section class="article-section" id="calculadora-megos">
+            <div class="section-title-left">
+                <p>04 · PRONÓSTICO A 6 MESES</p>
+                <h2>Calculadora Pronóstica mEGOS (Modified Erasmus GBS Outcome Score)</h2>
+            </div>
+            <p>
+                El modelo pronóstico <strong>mEGOS</strong> (Walgaard et al., 2011; van Koningsveld et al., 2007) permite predecir al ingreso hospitalario la probabilidad de que el paciente <strong>NO consiga deambular de forma independiente a los 6 meses</strong>. Combina tres predictores clínicos independientes validados:
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Score mEGOS al Ingreso Hospitalario (0 a 6 puntos)</h3>
+                    <p>Predicción validada de marcha independiente a los 6 meses de evolución.</p>
+                </div>
+
+                <form id="megosForm" autocomplete="off">
+
+                    <!-- FACTOR 1: EDAD -->
+                    <fieldset class="calc-item">
+                        <legend>1. Edad del paciente</legend>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="megos_age" value="0" checked>
+                                <span><strong>≤ 40 años</strong> (0 puntos)</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_age" value="1">
+                                <span><strong>41 a 60 años</strong> (1 punto)</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_age" value="2">
+                                <span><strong>&gt; 60 años</strong> (2 puntos)</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- FACTOR 2: DIARREA PREVIA -->
+                    <fieldset class="calc-item">
+                        <legend>2. Diarrea en las 4 semanas previas al inicio</legend>
+                        <p class="calc-item-desc">Marcador clínico subrogado de infección por <em>Campylobacter jejuni</em> (patrón axonal/de recuperación más lenta).</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="megos_diarrhea" value="0" checked>
+                                <span><strong>No</strong> (0 puntos) — Sin antecedente diarreico.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_diarrhea" value="1">
+                                <span><strong>Sí</strong> (1 punto) — Presencia de diarrea precedente documentada.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- FACTOR 3: MRC SUM SCORE -->
+                    <fieldset class="calc-item">
+                        <legend>3. Puntuación de fuerza muscular (MRC Sum Score al ingreso, 0 a 60)</legend>
+                        <p class="calc-item-desc">Suma de la escala MRC (0-5) en 6 grupos musculares bilaterales (abducción hombro, flexión codo, extensión muñeca, flexión cadera, extensión rodilla, dorsiflexión tobillo).</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="megos_mrc" value="0" checked>
+                                <span><strong>MRC 51 – 60 puntos</strong> (0 puntos) — Paresia leve o ausente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_mrc" value="1">
+                                <span><strong>MRC 41 – 50 puntos</strong> (1 punto) — Debilidad motora moderada.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_mrc" value="2">
+                                <span><strong>MRC 31 – 40 puntos</strong> (2 puntos) — Debilidad motora moderada-severa.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="megos_mrc" value="3">
+                                <span><strong>MRC ≤ 30 puntos</strong> (3 puntos) — Tetraparesia flácida severa al ingreso.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- PANEL RESULTADOS mEGOS -->
+                    <div id="megosResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-green" id="megosBadge">Riesgo Bajo (0 / 6 pts)</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="megosScore">0</span>
+                                    <span class="calc-score-max">/ 6 puntos mEGOS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="font-weight: bold; color: #071A33; font-size: 1.08rem;" id="megosProb">
+                            Probabilidad estimada de NO caminar de forma independiente a los 6 meses: ~1% a 5% (Excelente pronóstico funcional).
+                        </p>
+
+                        <p class="calc-interpretation-text" id="megosInterpretation">
+                            La gran mayoría de los pacientes (&gt;95%) recuperará la deambulación independiente a los 6 meses. Fisioterapia enfocada en prevención de contracturas y reentrenamiento progresivo.
+                        </p>
+
+                        <div class="scale-table">
+                            <div class="scale-row scale-header">
+                                <span>Puntos mEGOS al ingreso</span>
+                                <span>Estratificación de riesgo</span>
+                                <span>Tasa de incapacidad para deambular a los 6 meses (Walgaard et al.)</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>0 – 1 punto</span>
+                                <span>Riesgo Bajo</span>
+                                <span>1% a 5% (Muy alto porcentaje de marcha independiente)</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>2 – 3 puntos</span>
+                                <span>Riesgo Intermedio</span>
+                                <span>10% a 25%</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>4 – 6 puntos</span>
+                                <span>Riesgo Alto</span>
+                                <span>35% a 50%+ (Mayor necesidad de neurorrehabilitación intensiva prolongada)</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="megosReset">Reiniciar calculadora mEGOS</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- EVIDENCIA Y REFERENCIAS -->
+        <section class="reference-box">
+
+    <h4>Referencias bibliográficas (APA 7)</h4>
+
+    <ul class="reference-list">
+
+        <li>
+            Hughes, R. A. C., Newsom-Davis, J. M., Perkin, G. D., &amp; Pierce, J. M. (1978). Controlled trial of prednisolone in acute polyneuropathy. <em>The Lancet</em>, <em>312</em>(8093), 750–753. https://doi.org/10.1016/S0140-6736(78)92644-2
+        </li>
+
+        <li>
+            Khan, F., &amp; Amatya, B. (2012). Rehabilitation in Guillain-Barré syndrome. <em>European Journal of Physical and Rehabilitation Medicine</em>, <em>48</em>(3), 497–505. https://pubmed.ncbi.nlm.nih.gov/22820826/
+        </li>
+
+        <li>
+            van Doorn, P. A., Ruts, L., &amp; Jacobs, B. C. (2008). Clinical features, pathogenesis, and treatment of Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>7</em>(10), 939–950. https://doi.org/10.1016/S1474-4422(08)70215-1
+        </li>
+
+        <li>
+            van Koningsveld, R., Steyerberg, E. W., Hughes, R. A. C., Swan, A. V., van Doorn, P. A., &amp; Jacobs, B. C. (2007). A clinical prognostic scoring system for Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>6</em>(7), 589–594. https://doi.org/10.1016/S1474-4422(07)70130-8
+        </li>
+
+        <li>
+            Walgaard, C., Lingsma, H. F., Ruts, L., Drenthen, J., van Koningsveld, R., Garssen, M. J. P., van Doorn, P. A., Steyerberg, E. W., &amp; Jacobs, B. C. (2011). Early recognition of poor prognosis in Guillain-Barré syndrome. <em>Neurology</em>, <em>76</em>(11), 968–975. https://doi.org/10.1212/WNL.0b013e31821a42f8
+        </li>
+
+    </ul>
+
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+        <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+    </footer>
+
+</body>
+</html>
+

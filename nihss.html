@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora clínica interactiva de la Escala NIHSS (National Institutes of Health Stroke Scale) para evaluación neurológica en ACV.">
+    <title>NIHSS - Escala de Ictus | NeuroRehab</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Neuro<span>Rehab</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span>☰</span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acv.html">Neurorehabilitación</a></li>
+                <li class="dropdown">
+                    <a href="evaluacion.html">Evaluación</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#evidencia">Evidencia científica</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <p class="hero-tag">EVALUACIÓN EN ACV · NEUROLOGÍA CLÍNICA</p>
+            <h1>Escala NIHSS</h1>
+            <p>National Institutes of Health Stroke Scale: cuantificación sistemática del déficit neurológico agudo</p>
+        </div>
+    </header>
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb" aria-label="Migas de pan">
+        <a href="index.html">Inicio</a>
+        <span>›</span>
+        <a href="evaluacion.html">Evaluación</a>
+        <span>›</span>
+        <a href="acv.html">ACV</a>
+        <span>›</span>
+        <strong>NIHSS</strong>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="article-container">
+
+        <!-- INTRODUCCIÓN -->
+        <section class="article-intro">
+            <span class="article-label">INSTRUMENTO OFICIAL DE EVALUACIÓN</span>
+            <h2>Evaluación cuantitativa del déficit neurológico en el ictus</h2>
+            <p>
+                La escala <strong>NIHSS (National Institutes of Health Stroke Scale)</strong> es el estándar internacional para la cuantificación clínica de la gravedad del déficit neurológico tras un accidente cerebrovascular isquémico o hemorrágico. Diseñada para ser administrada en menos de 10 minutos, evalúa 11 dominios clínicos distribuidos en 15 ítems puntuados, con un rango de <strong>0 a 42 puntos</strong>.
+            </p>
+            <p>
+                En el contexto de la fisioterapia y neurorrehabilitación, la puntuación NIHSS basal y evolutiva aporta valor pronóstico sobre la recuperación funcional motora, el riesgo de complicaciones por inmovilidad y la necesidad de derivación a programas intensivos hospitalarios o ambulatorios.
+            </p>
+        </section>
+
+        <!-- DOMINIOS CLÍNICOS -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>01 · DOMINIOS CLÍNICOS</p>
+                <h2>Estructura del examen neurológico NIHSS</h2>
+            </div>
+
+            <div class="clinical-grid">
+                <article class="clinical-card">
+                    <span>DOMINIO 1</span>
+                    <h3>Nivel de conciencia</h3>
+                    <p>Evalúa el estado de alerta, la orientación temporal/personal (mes y edad) y la respuesta a órdenes motoras sencillas.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>DOMINIO 2</span>
+                    <h3>Oculomotricidad y visión</h3>
+                    <p>Valora los movimientos oculares conjugados horizontales y la amplitud de los campos visuales por confrontación.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>DOMINIO 3</span>
+                    <h3>Función motora y ataxia</h3>
+                    <p>Claudicación y caída de extremidades superiores e inferiores contra gravedad (10s y 5s), simetría facial y coordinación cerebelosa.</p>
+                </article>
+
+                <article class="clinical-card">
+                    <span>DOMINIO 4</span>
+                    <h3>Sensibilidad y corticalidad</h3>
+                    <p>Respuesta al estímulo táctil/álgico, comprensión y fluidez del lenguaje (afasia), articulación del habla (disartria) y extinción sensorial.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CALCULADORA CLÍNICA -->
+        <section class="article-section">
+            <div class="section-title-left">
+                <p>02 · CALCULADORA INTERACTIVA</p>
+                <h2>Calculadora clínica oficial NIHSS</h2>
+            </div>
+            <p>
+                Seleccione la puntuación correspondiente para cada uno de los 15 componentes observados durante la exploración clínica. La puntuación total y la estratificación de severidad se actualizan automáticamente en tiempo real.
+            </p>
+
+            <div class="calc-container">
+                <div class="calc-header">
+                    <h3>Registro del Examen NIHSS (0 a 42 puntos)</h3>
+                    <p>Puntúe sólo lo que el paciente hace de forma observable; no juzgue lo que cree que podría hacer.</p>
+                </div>
+
+                <form id="nihssForm" autocomplete="off">
+
+                    <!-- 1a. Nivel de Conciencia -->
+                    <fieldset class="calc-item">
+                        <legend>1a. Nivel de conciencia</legend>
+                        <p class="calc-item-desc">El examinador debe elegir la respuesta correcta incluso si una evaluación completa se ve obstaculizada por intubación u otros factores.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1a" value="0" checked>
+                                <span><strong>0</strong> — Alerta; responde con viveza e inmediatamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1a" value="1">
+                                <span><strong>1</strong> — No alerta; pero despierta con estímulos verbales o menores.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1a" value="2">
+                                <span><strong>2</strong> — No alerta; requiere estímulos repetidos o estímulo doloroso vigoroso para responder.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1a" value="3">
+                                <span><strong>3</strong> — Coma; responde únicamente con respuestas reflejas motoras/autonómicas o sin respuesta.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 1b. Preguntas de Conciencia -->
+                    <fieldset class="calc-item">
+                        <legend>1b. Preguntas de nivel de conciencia (Mes y Edad)</legend>
+                        <p class="calc-item-desc">Pregunte al paciente el mes actual y su edad exacta. No dar pistas ni ayudar con pistas fonéticas.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1b" value="0" checked>
+                                <span><strong>0</strong> — Responde ambas preguntas correctamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1b" value="1">
+                                <span><strong>1</strong> — Responde una pregunta correctamente (o disfasia/afasia parcial).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1b" value="2">
+                                <span><strong>2</strong> — Ninguna correcta (afasia severa, estupor o mutismo).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 1c. Órdenes de Conciencia -->
+                    <fieldset class="calc-item">
+                        <legend>1c. Órdenes motoras (Abrir/Cerrar ojos y Apretar mano)</legend>
+                        <p class="calc-item-desc">Se le pide al paciente abrir y cerrar los ojos y apretar y soltar la mano no parética. Se puede gesticular la orden si hay barrera de comprensión.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1c" value="0" checked>
+                                <span><strong>0</strong> — Realiza ambas tareas de forma correcta.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1c" value="1">
+                                <span><strong>1</strong> — Realiza una tarea correctamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_1c" value="2">
+                                <span><strong>2</strong> — No realiza ninguna tarea de forma correcta.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. Mirada Conjugada -->
+                    <fieldset class="calc-item">
+                        <legend>2. Mirada conjugada horizontal</legend>
+                        <p class="calc-item-desc">Evalúe los movimientos oculares horizontales voluntarios o de seguimiento visual.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_2" value="0" checked>
+                                <span><strong>0</strong> — Movimientos normales de la mirada conjugada.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_2" value="1">
+                                <span><strong>1</strong> — Paresia parcial de la mirada; la mirada es anormal en uno o ambos ojos pero no fija.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_2" value="2">
+                                <span><strong>2</strong> — Desviación forzada de la mirada o paresia total que no se vence con maniobras oculocefálicas.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 3. Campos Visuales -->
+                    <fieldset class="calc-item">
+                        <legend>3. Campos visuales (Campimetría por confrontación)</legend>
+                        <p class="calc-item-desc">Campimetría confrontacional en los cuadrantes superiores e inferiores mediante conteo de dedos o amenaza visual.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_3" value="0" checked>
+                                <span><strong>0</strong> — Sin pérdida de campo visual.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_3" value="1">
+                                <span><strong>1</strong> — Hemianopsia parcial o cuadrantanopsia.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_3" value="2">
+                                <span><strong>2</strong> — Hemianopsia completa homónima.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_3" value="3">
+                                <span><strong>3</strong> — Ceguera bilateral (incluye ceguera cortical).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 4. Parálisis Facial -->
+                    <fieldset class="calc-item">
+                        <legend>4. Parálisis facial</legend>
+                        <p class="calc-item-desc">Pida al paciente que enseñe los dientes, levante las cejas y apriete los ojos (o respuesta al estímulo doloroso).</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_4" value="0" checked>
+                                <span><strong>0</strong> — Movimientos faciales normales y simétricos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_4" value="1">
+                                <span><strong>1</strong> — Paresia menor (asimetría leve del surco nasolabial o sonrisa).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_4" value="2">
+                                <span><strong>2</strong> — Parálisis parcial (parálisis casi completa o total de la porción facial inferior).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_4" value="3">
+                                <span><strong>3</strong> — Parálisis facial completa (ausencia total de movimiento en hemicara superior e inferior).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 5a & 5b. Motor Brazos -->
+                    <fieldset class="calc-item">
+                        <legend>5a. Motor brazo izquierdo (Mantener 10 segundos)</legend>
+                        <p class="calc-item-desc">Extender el brazo a 90° (sentado) o 45° (en decúbito supino). Contar 10 segundos.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="0" checked>
+                                <span><strong>0</strong> — Sin claudicación; mantiene el brazo en 90°/45° durante los 10 segundos completos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="1">
+                                <span><strong>1</strong> — Claudicación; desciende antes de los 10 segundos pero no contacta la cama/soporte.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="2">
+                                <span><strong>2</strong> — Esfuerzo contra gravedad; vence gravedad al inicio pero cae a la cama antes de 10s.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="3">
+                                <span><strong>3</strong> — Sin esfuerzo contra gravedad; el brazo cae inmediatamente, solo movimiento en plano horizontal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="4">
+                                <span><strong>4</strong> — Sin movimiento voluntario alguno (plejía).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5a" value="UN">
+                                <span><strong>UN</strong> — Amputación o fusión articular en hombro.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>5b. Motor brazo derecho (Mantener 10 segundos)</legend>
+                        <p class="calc-item-desc">Extender el brazo a 90° (sentado) o 45° (en decúbito supino). Contar 10 segundos.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="0" checked>
+                                <span><strong>0</strong> — Sin claudicación durante 10 segundos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="1">
+                                <span><strong>1</strong> — Claudica antes de 10s pero no toca cama.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="2">
+                                <span><strong>2</strong> — Cae a la cama antes de 10s pero realiza esfuerzo inicial contra gravedad.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="3">
+                                <span><strong>3</strong> — Sin esfuerzo contra gravedad; cae inmediatamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="4">
+                                <span><strong>4</strong> — Sin movimiento (plejía).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_5b" value="UN">
+                                <span><strong>UN</strong> — Amputación o limitación articular.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 6a & 6b. Motor Piernas -->
+                    <fieldset class="calc-item">
+                        <legend>6a. Motor pierna izquierda (Mantener 5 segundos)</legend>
+                        <p class="calc-item-desc">Elevar la pierna a 30° en posición de decúbito supino durante 5 segundos.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="0" checked>
+                                <span><strong>0</strong> — Sin claudicación; mantiene 30° durante los 5 segundos completos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="1">
+                                <span><strong>1</strong> — Claudicación; desciende antes de los 5s pero no toca la cama.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="2">
+                                <span><strong>2</strong> — Cae sobre la cama antes de los 5 segundos pero realiza esfuerzo inicial contra gravedad.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="3">
+                                <span><strong>3</strong> — Sin esfuerzo contra gravedad; la pierna cae inmediatamente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="4">
+                                <span><strong>4</strong> — Sin movimiento alguno (plejía).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6a" value="UN">
+                                <span><strong>UN</strong> — Amputación o fusión articular en cadera/rodilla.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="calc-item">
+                        <legend>6b. Motor pierna derecha (Mantener 5 segundos)</legend>
+                        <p class="calc-item-desc">Elevar la pierna a 30° en decúbito supino durante 5 segundos.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="0" checked>
+                                <span><strong>0</strong> — Sin claudicación durante 5 segundos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="1">
+                                <span><strong>1</strong> — Claudica antes de los 5s sin tocar cama.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="2">
+                                <span><strong>2</strong> — Cae a cama antes de los 5s pero vence gravedad al inicio.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="3">
+                                <span><strong>3</strong> — Sin esfuerzo contra gravedad.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="4">
+                                <span><strong>4</strong> — Sin movimiento (plejía).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_6b" value="UN">
+                                <span><strong>UN</strong> — Amputación o limitación articular.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 7. Ataxia -->
+                    <fieldset class="calc-item">
+                        <legend>7. Ataxia de extremidades (Prueba Dedo-Nariz y Talón-Rodilla)</legend>
+                        <p class="calc-item-desc">Se puntúa ataxia solo si es desproporcionada al grado de debilidad motora.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_7" value="0" checked>
+                                <span><strong>0</strong> — Ausente; movimientos coordinados o el paciente presenta paresia severa que impide evaluar.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_7" value="1">
+                                <span><strong>1</strong> — Presente en una extremidad (brazo o pierna).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_7" value="2">
+                                <span><strong>2</strong> — Presente en dos extremidades.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_7" value="UN">
+                                <span><strong>UN</strong> — Amputación o deformidad fija.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 8. Sensibilidad -->
+                    <fieldset class="calc-item">
+                        <legend>8. Sensibilidad (Pinchazo con aguja o tacto superficial)</legend>
+                        <p class="calc-item-desc">Evalúe la simetría de la respuesta al pinchazo en cara, tronco y las cuatro extremidades.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_8" value="0" checked>
+                                <span><strong>0</strong> — Normal; sin pérdida de sensibilidad.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_8" value="1">
+                                <span><strong>1</strong> — Pérdida sensitiva leve a moderada (siente menos nítido o embotado en el hemicuerpo afecto).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_8" value="2">
+                                <span><strong>2</strong> — Pérdida sensitiva severa o total (anestesia; el paciente no es consciente del estímulo).</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 9. Lenguaje / Afasia -->
+                    <fieldset class="calc-item">
+                        <legend>9. Mejor lenguaje (Afasia)</legend>
+                        <p class="calc-item-desc">Se solicita describir una lámina estandarizada, nombrar objetos comunes y leer una lista de frases.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_9" value="0" checked>
+                                <span><strong>0</strong> — Sin afasia; fluidez y comprensión normales.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_9" value="1">
+                                <span><strong>1</strong> — Afasia leve a moderada; limitación evidente en fluidez o denominación sin comprometer totalmente el intercambio.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_9" value="2">
+                                <span><strong>2</strong> — Afasia severa; toda la comunicación es fragmentaria, con gran dificultad para descifrar la intención del paciente.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_9" value="3">
+                                <span><strong>3</strong> — Mutismo o afasia global; comprensión nula y sin expresión verbal funcional.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 10. Disartria -->
+                    <fieldset class="calc-item">
+                        <legend>10. Disartria (Articulación del habla)</legend>
+                        <p class="calc-item-desc">Haga que el paciente lea o repita palabras estándar (ej: «mama», «tip-top», «cincuenta-cincuenta»).</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_10" value="0" checked>
+                                <span><strong>0</strong> — Articulación normal.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_10" value="1">
+                                <span><strong>1</strong> — Disartria leve a moderada; arrastra algunas palabras pero se le entiende.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_10" value="2">
+                                <span><strong>2</strong> — Disartria severa; habla ininteligible o anartria completa.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_10" value="UN">
+                                <span><strong>UN</strong> — Intubado o presencia de barrera física insalvable.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 11. Extinción e Inatención -->
+                    <fieldset class="calc-item">
+                        <legend>11. Extinción e inatención (Negligencia hemiespacial)</legend>
+                        <p class="calc-item-desc">Se evalúa la doble estimulación simultánea táctil y visual, y el reconocimiento de su propio hemicuerpo.</p>
+                        <div class="calc-options-grid">
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_11" value="0" checked>
+                                <span><strong>0</strong> — Sin negligencia ni inatención; reconoce estímulos bilaterales simultáneos.</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_11" value="1">
+                                <span><strong>1</strong> — Inatención o extinción a la estimulación simultánea bilateral en una de las modalidades sensoriales (visual, táctil o auditiva).</span>
+                            </label>
+                            <label class="calc-option">
+                                <input type="radio" name="nihss_11" value="2">
+                                <span><strong>2</strong> — Hemi-inatención profunda o extinción en más de una modalidad sensorial; no reconoce su propia mano parética.</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- PANEL DE RESULTADOS -->
+                    <div id="nihssResults" class="calc-results-panel" role="region" aria-live="polite">
+                        <div class="calc-results-header">
+                            <div>
+                                <span class="calc-badge calc-badge-green" id="nihssBadge">Sin déficit aparente</span>
+                                <div class="calc-score-display" style="margin-top: 8px;">
+                                    <span class="calc-score-number" id="nihssTotalScore">0</span>
+                                    <span class="calc-score-max">/ 42 puntos</span>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 0.85rem; color: #667687; display: block;">Ítems registrados:</span>
+                                <strong id="nihssCompletedCount" style="color: #071A33; font-size: 1.1rem;">15 de 15</strong>
+                            </div>
+                        </div>
+
+                        <p class="calc-interpretation-text" id="nihssInterpretation">
+                            Puntuación 0: No se aprecian déficits neurológicos medibles con la escala NIHSS. Requiere vigilancia clínica continuada según evolución.
+                        </p>
+
+                        <div class="scale-table">
+                            <div class="scale-row scale-header">
+                                <span>Rango NIHSS</span>
+                                <span>Clasificación clínica de severidad</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>0</span>
+                                <span>Sin déficit observable</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>1 – 4</span>
+                                <span>Ictus leve</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>5 – 15</span>
+                                <span>Ictus moderado</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>16 – 20</span>
+                                <span>Ictus moderado a severo</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>21 – 42</span>
+                                <span>Ictus severo</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="button" class="calc-btn-reset" id="nihssReset">Reiniciar formulario NIHSS</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- EVIDENCIA Y REFERENCIAS -->
+        <section class="reference-box">
+            <h4>Referencias bibliográficas indexadas (PubMed / AHA / ASA)</h4>
+            <ol>
+                <li><strong>Brott T, Adams HP Jr, Olinger CP, et al.</strong> Measurements of acute cerebral infarction: a clinical examination scale. <em>Stroke</em>. 1989;20(7):864-870. PMID: 2749846.</li>
+                <li><strong>Lyden P, Lu M, Jackson C, et al.</strong> Underlying structure of the National Institutes of Health Stroke Scale: results from the NINDS tPA stroke trial. <em>Stroke</em>. 1999;30(11):2340-2346. PMID: 10556214.</li>
+                <li><strong>Powers WJ, Rabinstein AA, Ackerson T, et al.</strong> Guidelines for the Early Management of Patients With Acute Ischemic Stroke: 2019 Update to the 2018 Guidelines for the Early Management of Acute Ischemic Stroke. <em>Stroke</em>. 2019;50(12):e344-e418. PMID: 31662037.</li>
+                <li><strong>Kwah LK, Diong J.</strong> National Institutes of Health Stroke Scale (NIHSS). <em>J Physiother</em>. 2014;60(1):61. PMID: 24856943.</li>
+            </ol>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+        <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+    </footer>
+
+</body>
+</html>
+
