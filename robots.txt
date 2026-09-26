@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jdop315-bot.github.io/NeuroRehab/sitemap.xml
