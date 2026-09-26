@@ -7180,7 +7180,7 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   EVIDENCIA — GRID DE CATEGORÍAS
+   EVIDENCIA — GRID DE RECURSOS CIENTÍFICOS
    ========================================================== */
 
 .evidence-grid {
@@ -7192,17 +7192,24 @@ footer p:last-child {
 }
 
 .evidence-card {
+    display: flex;
+    flex-direction: column;
     padding: 28px;
     background: #FFFFFF;
     border: 1px solid #DFE7EF;
     border-radius: 12px;
     text-align: left;
+    text-decoration: none;
     box-shadow: 0 5px 20px rgba(7, 26, 51, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .evidence-card:hover {
     transform: translateY(-5px);
+    border-color: #2F80ED;
     box-shadow: 0 12px 30px rgba(7, 26, 51, 0.10);
 }
 
@@ -7224,10 +7231,38 @@ footer p:last-child {
 }
 
 .evidence-card p {
-    margin: 0;
+    margin: 0 0 16px;
     color: #596777;
     font-size: 0.92rem;
     line-height: 1.65;
+    flex: 1;
+}
+
+.evidence-link {
+    display: inline-block;
+    margin-top: auto;
+    color: #1769CC;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.evidence-card:hover .evidence-link {
+    color: #0B3A70;
+    transform: translateX(3px);
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .evidence-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 }
 
 
