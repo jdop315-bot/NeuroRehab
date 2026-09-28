@@ -6917,3 +6917,44 @@ if (document.readyState === "loading") {
 } else {
     initAllCalculators();
 }
+
+/* ==========================================================
+   BOTÓN VOLVER ARRIBA
+   ========================================================== */
+
+(function () {
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    if (!scrollTopBtn) {
+        return;
+    }
+
+    function toggleScrollTopButton() {
+
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("visible");
+        } else {
+            scrollTopBtn.classList.remove("visible");
+        }
+
+    }
+
+    scrollTopBtn.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+    window.addEventListener(
+        "scroll",
+        toggleScrollTopButton,
+        { passive: true }
+    );
+
+    toggleScrollTopButton();
+
+})();

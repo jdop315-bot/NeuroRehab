@@ -7526,3 +7526,64 @@ footer p:last-child {
         padding: 22px 20px;
     }
 }
+/* ==========================================================
+   BOTÓN VOLVER ARRIBA
+   ========================================================== */
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2F80ED;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(47, 128, 237, 0.35);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.2s ease;
+    z-index: 4000;
+}
+
+#scrollTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+    background: #1769CC;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(47, 128, 237, 0.5);
+}
+
+#scrollTopBtn:focus-visible {
+    outline: 3px solid rgba(47, 128, 237, 0.4);
+    outline-offset: 3px;
+}
+
+#scrollTopBtn svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 700px) {
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
