@@ -272,6 +272,18 @@ if (tenMwtCalculator) {
     const tenMwtChangeDescription =
     document.getElementById("tenMwtChangeDescription");
 
+        const tenMwtInterpretationBox =
+        document.getElementById("tenMwtInterpretationBox");
+
+    const tenMwtInterpretationLabel =
+        document.getElementById("tenMwtInterpretationLabel");
+
+    const tenMwtInterpretationDescription =
+        document.getElementById("tenMwtInterpretationDescription");
+
+    const tenMwtMcidNote =
+        document.getElementById("tenMwtMcidNote");
+
     /* ==========================================
     AYUDA TÉCNICA — OPCIÓN "OTRA"
     ========================================== */
@@ -410,7 +422,134 @@ if (tenMwtCalculator) {
     );
 
     updateTenMwtInstruction();
+    /* ==========================================
+    INTERPRETACIÓN CLÍNICA — VELOCIDAD DE MARCHA
+    (Perry et al., 1995 / Fritz & Lusardi, 2009)
+    ========================================== */
 
+    function interpretTenMwtSpeed(speed, mode) {
+
+        const isFast = mode === "rapida";
+
+        if (speed < 0.40) {
+            return {
+                label: "Deambulación domiciliaria",
+                className: "tenmwt-household",
+                description:
+                    "La velocidad corresponde a un patrón de deambulación " +
+                    "restringido al hogar. Suele asociarse con dependencia " +
+                    "para desplazamientos comunitarios y mayor riesgo de caídas. " +
+                    "Se recomienda priorizar el entrenamiento de la marcha " +
+                    "con apoyo, el equilibrio y la prevención de caídas."
+            };
+        }
+
+        if (speed < 0.60) {
+            return {
+                label: "Deambulación limitada en comunidad",
+                className: "tenmwt-limited",
+                description:
+                    "La velocidad permite desplazamientos comunitarios " +
+                    "limitados. Puede ser útil combinar entrenamiento de la " +
+                    "marcha, resistencia y velocidad progresiva, además de " +
+                    "valorar el uso de ayudas técnicas."
+            };
+        }
+
+        if (speed < 0.80) {
+            return {
+                label: "Deambulación comunitaria modificada",
+                className: "tenmwt-modified",
+                description:
+                    "La velocidad corresponde a una deambulación comunitaria " +
+                    "modificada. La persona suele desplazarse en su entorno " +
+                    "con ciertas limitaciones. Se recomienda entrenamiento " +
+                    "funcional orientado a tareas y progresión de la velocidad."
+            };
+        }
+
+        if (speed < 1.00) {
+            return {
+                label: "Deambulación comunitaria completa",
+                className: "tenmwt-community",
+                description:
+                    "La velocidad permite la deambulación comunitaria completa. " +
+                    "Es posible mantener y optimizar la función con " +
+                    "entrenamiento de la marcha, resistencia y prevención " +
+                    "de recaídas."
+            };
+        }
+
+        if (speed < 1.30) {
+
+            if (isFast) {
+                return {
+                    label: "Velocidad funcional esperada",
+                    className: "tenmwt-normal",
+                    description:
+                        "La velocidad se encuentra dentro de rangos funcionales " +
+                        "esperados para la población adulta. Mantener la actividad " +
+                        "física regular y el entrenamiento de fuerza favorece la " +
+                        "preservación funcional."
+                };
+            }
+
+            return {
+                label: "Velocidad funcional esperada",
+                className: "tenmwt-normal",
+                description:
+                    "La velocidad se encuentra dentro de rangos funcionales " +
+                    "esperados para la población adulta. Mantener la actividad " +
+                    "física regular y el entrenamiento de fuerza favorece la " +
+                    "preservación funcional."
+            };
+        }
+
+        return {
+            label: "Velocidad suficiente para cruzar la calle con seguridad",
+            className: "tenmwt-normal",
+            description:
+                "La velocidad alcanzada permite desplazamientos comunitarios " +
+                "con seguridad, incluyendo cruzar la calle en el tiempo " +
+                "habitual de un semáforo. Se recomienda mantener la función " +
+                "a través de actividad física regular."
+        };
+    }
+
+
+    function updateTenMwtInterpretation(speed, mode) {
+
+        if (!tenMwtInterpretationBox ||
+            !tenMwtInterpretationLabel ||
+            !tenMwtInterpretationDescription) {
+            return;
+        }
+
+        const interpretation =
+            interpretTenMwtSpeed(speed, mode);
+
+        tenMwtInterpretationLabel.textContent =
+            interpretation.label;
+
+        tenMwtInterpretationDescription.textContent =
+            interpretation.description;
+
+        tenMwtInterpretationBox.classList.remove(
+            "tenmwt-household",
+            "tenmwt-limited",
+            "tenmwt-modified",
+            "tenmwt-community",
+            "tenmwt-normal"
+        );
+
+        tenMwtInterpretationBox.classList.add(
+            interpretation.className
+        );
+
+        if (tenMwtMcidNote) {
+            tenMwtMcidNote.hidden = false;
+        }
+    }
 
     /* ==========================================
     CÁLCULO 10MWT

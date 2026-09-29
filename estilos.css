@@ -7924,3 +7924,191 @@ footer p:last-child {
 .fma-interpretation.fma-conserved #fmaLeInterpretationLabel {
     color: #27AE60;
 }
+
+/* ==========================================================
+   10MWT — INTERPRETACIÓN CLÍNICA
+   ========================================================== */
+
+.tenmwt-interpretation {
+    margin-top: 20px;
+    padding: 22px 24px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-left: 5px solid #2F80ED;
+    box-shadow: 0 4px 12px rgba(7, 26, 51, 0.04);
+    transition: border-color 0.3s ease;
+}
+
+.tenmwt-interpretation > strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #0B3A70;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.tenmwt-interpretation #tenMwtInterpretationLabel {
+    margin: 0 0 8px;
+    color: #1769CC;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.tenmwt-interpretation #tenMwtInterpretationDescription {
+    margin: 0 0 12px;
+    color: #526173;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tenMwt-mcid-note {
+    margin: 12px 0 0;
+    padding: 12px 16px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 3px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.tenMwt-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   VARIANTES DE COLOR SEGÚN VELOCIDAD
+   ========================================== */
+
+/* Deambulación domiciliaria */
+.tenmwt-interpretation.tenmwt-household {
+    border-left-color: #C62828;
+}
+.tenmwt-interpretation.tenmwt-household #tenMwtInterpretationLabel {
+    color: #C62828;
+}
+
+/* Deambulación limitada en comunidad */
+.tenmwt-interpretation.tenmwt-limited {
+    border-left-color: #E67E22;
+}
+.tenmwt-interpretation.tenmwt-limited #tenMwtInterpretationLabel {
+    color: #E67E22;
+}
+
+/* Deambulación comunitaria modificada */
+.tenmwt-interpretation.tenmwt-modified {
+    border-left-color: #F2C94C;
+}
+.tenmwt-interpretation.tenmwt-modified #tenMwtInterpretationLabel {
+    color: #B8860B;
+}
+
+/* Deambulación comunitaria completa */
+.tenmwt-interpretation.tenmwt-community {
+    border-left-color: #2F80ED;
+}
+.tenmwt-interpretation.tenmwt-community #tenMwtInterpretationLabel {
+    color: #2F80ED;
+}
+
+/* Velocidad funcional normal */
+.tenmwt-interpretation.tenmwt-normal {
+    border-left-color: #27AE60;
+}
+.tenmwt-interpretation.tenmwt-normal #tenMwtInterpretationLabel {
+    color: #27AE60;
+}
+
+/* ==========================================================
+   10MWT — INTERPRETACIÓN CLÍNICA
+   ========================================================== */
+
+.tenmwt-interpretation {
+    margin-top: 20px;
+    padding: 22px 24px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-left: 5px solid #2F80ED;
+    box-shadow: 0 4px 12px rgba(7, 26, 51, 0.04);
+    transition: border-color 0.3s ease;
+}
+
+.tenmwt-interpretation > strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #0B3A70;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.tenmwt-interpretation #tenMwtInterpretationLabel {
+    margin: 0 0 8px;
+    color: #1769CC;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.tenmwt-interpretation #tenMwtInterpretationDescription {
+    margin: 0 0 12px;
+    color: #526173;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tenMwt-mcid-note {
+    margin: 12px 0 0;
+    padding: 12px 16px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 3px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.tenMwt-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+.tenmwt-interpretation.tenmwt-household {
+    border-left-color: #C62828;
+}
+.tenmwt-interpretation.tenmwt-household #tenMwtInterpretationLabel {
+    color: #C62828;
+}
+
+.tenmwt-interpretation.tenmwt-limited {
+    border-left-color: #E67E22;
+}
+.tenmwt-interpretation.tenmwt-limited #tenMwtInterpretationLabel {
+    color: #E67E22;
+}
+
+.tenmwt-interpretation.tenmwt-modified {
+    border-left-color: #F2C94C;
+}
+.tenmwt-interpretation.tenmwt-modified #tenMwtInterpretationLabel {
+    color: #B8860B;
+}
+
+.tenmwt-interpretation.tenmwt-community {
+    border-left-color: #2F80ED;
+}
+.tenmwt-interpretation.tenmwt-community #tenMwtInterpretationLabel {
+    color: #2F80ED;
+}
+
+.tenmwt-interpretation.tenmwt-normal {
+    border-left-color: #27AE60;
+}
+.tenmwt-interpretation.tenmwt-normal #tenMwtInterpretationLabel {
+    color: #27AE60;
+}
