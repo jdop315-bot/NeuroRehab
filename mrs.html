@@ -8,7 +8,7 @@
     <title>Escala de Rankin Modificada (mRS) | NeuroRehab</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 
-<link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos.css">
     <script src="script.js" defer></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMMW"></script>
@@ -139,7 +139,7 @@
             <div class="calc-container">
                 <div class="calc-header">
                     <h3>Puntuación de la Escala de Rankin Modificada</h3>
-                    <p>Basado en el protocolo estructurado de entrevista validado (Banks & Marotta, Stroke 2007).</p>
+                    <p>Basado en el protocolo estructurado de entrevista validado (Banks &amp; Marotta, Stroke 2007).</p>
                 </div>
 
                 <form id="mrsForm" autocomplete="off">
@@ -200,28 +200,47 @@
                         </p>
 
                         <div class="scale-table">
-    <div class="scale-row scale-header">
-        <span>Dicotomización (rango mRS)</span>
-        <span>Implicación clínica</span>
-    </div>
-    <div class="scale-row">
-        <span>Resultado Favorable (mRS 0 – 2)</span>
-        <span>Independiente en las actividades básicas de la vida diaria (ABVD). Capaz de vivir solo sin cuidador permanente.</span>
-    </div>
-    <div class="scale-row">
-        <span>Dependencia Funcional (mRS 3 – 5)</span>
-        <span>Requiere asistencia de un cuidador... </span>
-    </div>
-    <div class="scale-row">
-        <span>Fallecimiento (mRS 6)</span>
-        <span>Mortalidad documentada en el seguimiento clínico.</span>
-    </div>
-
+                            <div class="scale-row scale-header">
+                                <span>Dicotomización (rango mRS)</span>
+                                <span>Implicación clínica</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>Resultado Favorable (mRS 0 – 2)</span>
+                                <span>Independiente en las actividades básicas de la vida diaria (ABVD). Capaz de vivir solo sin cuidador permanente.</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>Dependencia Funcional (mRS 3 – 5)</span>
+                                <span>Requiere asistencia de un cuidador para actividades instrumentales o básicas. Objetivos de fisioterapia centrados en transferencias, prevención de caídas y movilidad asistida.</span>
+                            </div>
+                            <div class="scale-row">
+                                <span>Fallecimiento (mRS 6)</span>
+                                <span>Mortalidad documentada en el seguimiento clínico.</span>
+                            </div>
                         </div>
 
                         <div class="calc-actions">
                             <button type="button" class="calc-btn-reset" id="mrsReset">Restablecer selector</button>
                         </div>
+
+                        <!-- BOTONES COPIAR / IMPRIMIR -->
+                        <div class="calc-result-actions">
+                            <button type="button" class="calc-copy-btn" data-target="mrsResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copiar resultados
+                            </button>
+                            <button type="button" class="calc-print-btn" data-target="mrsResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9V2h12v7"/>
+                                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                    <rect width="12" height="8" x="6" y="14"/>
+                                </svg>
+                                Imprimir
+                            </button>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -229,22 +248,22 @@
 
         <!-- EVIDENCIA Y REFERENCIAS -->
         <section class="reference-box">
-    <h4>Referencias bibliográficas (APA 7ª edición)</h4>
-    <ul class="reference-list">
-        <li>
-            Banks, J. L., &amp; Marotta, C. A. (2007). Outcomes validity and reliability of the modified Rankin scale: Implications for stroke clinical trials: A literature review and synthesis. <em>Stroke</em>, <em>38</em>(3), 1091–1096. https://doi.org/10.1161/01.STR.0000258355.23810.c6
-        </li>
-        <li>
-            Rankin, J. (1957). Cerebral vascular accidents in patients over the age of 60: II. Prognosis. <em>Scottish Medical Journal</em>, <em>2</em>(5), 200–215. https://doi.org/10.1177/003693305700200504
-        </li>
-        <li>
-            Saver, J. L., Filip, B., Hamilton, S., Yanes, A., Craig, S., Cho, M., Conwit, R., Starkman, S., &amp; Kidwell, C. (2010). Improving the reliability of stroke disability grading in clinical trials and clinical practice: The Rankin Focused Assessment (RFA). <em>Stroke</em>, <em>41</em>(5), 992–995. https://doi.org/10.1161/STROKEAHA.109.571364
-        </li>
-        <li>
-            van Swieten, J. C., Koudstaal, P. J., Visser, M. C., Schouten, H. J., &amp; van Gijn, J. (1988). Interobserver agreement for the assessment of handicap in stroke patients. <em>Stroke</em>, <em>19</em>(5), 604–607. https://doi.org/10.1161/01.STR.19.5.604
-        </li>
-    </ul>
-</section>
+            <h4>Referencias bibliográficas (APA 7ª edición)</h4>
+            <ul class="reference-list">
+                <li>
+                    Banks, J. L., &amp; Marotta, C. A. (2007). Outcomes validity and reliability of the modified Rankin scale: Implications for stroke clinical trials: A literature review and synthesis. <em>Stroke</em>, <em>38</em>(3), 1091–1096. https://doi.org/10.1161/01.STR.0000258355.23810.c6
+                </li>
+                <li>
+                    Rankin, J. (1957). Cerebral vascular accidents in patients over the age of 60: II. Prognosis. <em>Scottish Medical Journal</em>, <em>2</em>(5), 200–215. https://doi.org/10.1177/003693305700200504
+                </li>
+                <li>
+                    Saver, J. L., Filip, B., Hamilton, S., Yanes, A., Craig, S., Cho, M., Conwit, R., Starkman, S., &amp; Kidwell, C. (2010). Improving the reliability of stroke disability grading in clinical trials and clinical practice: The Rankin Focused Assessment (RFA). <em>Stroke</em>, <em>41</em>(5), 992–995. https://doi.org/10.1161/STROKEAHA.109.571364
+                </li>
+                <li>
+                    van Swieten, J. C., Koudstaal, P. J., Visser, M. C., Schouten, H. J., &amp; van Gijn, J. (1988). Interobserver agreement for the assessment of handicap in stroke patients. <em>Stroke</em>, <em>19</em>(5), 604–607. https://doi.org/10.1161/01.STR.19.5.604
+                </li>
+            </ul>
+        </section>
 
     </main>
 
@@ -254,14 +273,12 @@
         <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
     </footer>
 
-  <button id="scrollTopBtn" type="button" aria-label="Volver arriba">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m18 15-6-6-6 6"/>
-    </svg>
-</button>
+    <button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </button>
 
-</body> 
-
+</body>
 
 </html>
-

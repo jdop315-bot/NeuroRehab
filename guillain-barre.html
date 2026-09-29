@@ -8,7 +8,7 @@
     <title>Síndrome de Guillain-Barré | NeuroRehab</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 
-<link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos.css">
     <script src="script.js" defer></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMMW"></script>
@@ -209,6 +209,26 @@
                         <div class="calc-actions">
                             <button type="button" class="calc-btn-reset" id="hughesReset">Reiniciar escala Hughes</button>
                         </div>
+
+                        <!-- BOTONES COPIAR / IMPRIMIR -->
+                        <div class="calc-result-actions">
+                            <button type="button" class="calc-copy-btn" data-target="hughesResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copiar resultados
+                            </button>
+                            <button type="button" class="calc-print-btn" data-target="hughesResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9V2h12v7"/>
+                                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                    <rect width="12" height="8" x="6" y="14"/>
+                                </svg>
+                                Imprimir
+                            </button>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -337,6 +357,26 @@
                         <div class="calc-actions">
                             <button type="button" class="calc-btn-reset" id="megosReset">Reiniciar calculadora mEGOS</button>
                         </div>
+
+                        <!-- BOTONES COPIAR / IMPRIMIR -->
+                        <div class="calc-result-actions">
+                            <button type="button" class="calc-copy-btn" data-target="megosResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copiar resultados
+                            </button>
+                            <button type="button" class="calc-print-btn" data-target="megosResults">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9V2h12v7"/>
+                                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                    <rect width="12" height="8" x="6" y="14"/>
+                                </svg>
+                                Imprimir
+                            </button>
+                        </div>
+
                     </div>
 
                 </form>
@@ -346,33 +386,33 @@
         <!-- EVIDENCIA Y REFERENCIAS -->
         <section class="reference-box">
 
-    <h4>Referencias bibliográficas (APA 7)</h4>
+            <h4>Referencias bibliográficas (APA 7)</h4>
 
-    <ul class="reference-list">
+            <ul class="reference-list">
 
-        <li>
-            Hughes, R. A. C., Newsom-Davis, J. M., Perkin, G. D., &amp; Pierce, J. M. (1978). Controlled trial of prednisolone in acute polyneuropathy. <em>The Lancet</em>, <em>312</em>(8093), 750–753. https://doi.org/10.1016/S0140-6736(78)92644-2
-        </li>
+                <li>
+                    Hughes, R. A. C., Newsom-Davis, J. M., Perkin, G. D., &amp; Pierce, J. M. (1978). Controlled trial of prednisolone in acute polyneuropathy. <em>The Lancet</em>, <em>312</em>(8093), 750–753. https://doi.org/10.1016/S0140-6736(78)92644-2
+                </li>
 
-        <li>
-            Khan, F., &amp; Amatya, B. (2012). Rehabilitation in Guillain-Barré syndrome. <em>European Journal of Physical and Rehabilitation Medicine</em>, <em>48</em>(3), 497–505. https://pubmed.ncbi.nlm.nih.gov/22820826/
-        </li>
+                <li>
+                    Khan, F., &amp; Amatya, B. (2012). Rehabilitation in Guillain-Barré syndrome. <em>European Journal of Physical and Rehabilitation Medicine</em>, <em>48</em>(3), 497–505. https://pubmed.ncbi.nlm.nih.gov/22820826/
+                </li>
 
-        <li>
-            van Doorn, P. A., Ruts, L., &amp; Jacobs, B. C. (2008). Clinical features, pathogenesis, and treatment of Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>7</em>(10), 939–950. https://doi.org/10.1016/S1474-4422(08)70215-1
-        </li>
+                <li>
+                    van Doorn, P. A., Ruts, L., &amp; Jacobs, B. C. (2008). Clinical features, pathogenesis, and treatment of Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>7</em>(10), 939–950. https://doi.org/10.1016/S1474-4422(08)70215-1
+                </li>
 
-        <li>
-            van Koningsveld, R., Steyerberg, E. W., Hughes, R. A. C., Swan, A. V., van Doorn, P. A., &amp; Jacobs, B. C. (2007). A clinical prognostic scoring system for Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>6</em>(7), 589–594. https://doi.org/10.1016/S1474-4422(07)70130-8
-        </li>
+                <li>
+                    van Koningsveld, R., Steyerberg, E. W., Hughes, R. A. C., Swan, A. V., van Doorn, P. A., &amp; Jacobs, B. C. (2007). A clinical prognostic scoring system for Guillain-Barré syndrome. <em>The Lancet Neurology</em>, <em>6</em>(7), 589–594. https://doi.org/10.1016/S1474-4422(07)70130-8
+                </li>
 
-        <li>
-            Walgaard, C., Lingsma, H. F., Ruts, L., Drenthen, J., van Koningsveld, R., Garssen, M. J. P., van Doorn, P. A., Steyerberg, E. W., &amp; Jacobs, B. C. (2011). Early recognition of poor prognosis in Guillain-Barré syndrome. <em>Neurology</em>, <em>76</em>(11), 968–975. https://doi.org/10.1212/WNL.0b013e31821a42f8
-        </li>
+                <li>
+                    Walgaard, C., Lingsma, H. F., Ruts, L., Drenthen, J., van Koningsveld, R., Garssen, M. J. P., van Doorn, P. A., Steyerberg, E. W., &amp; Jacobs, B. C. (2011). Early recognition of poor prognosis in Guillain-Barré syndrome. <em>Neurology</em>, <em>76</em>(11), 968–975. https://doi.org/10.1212/WNL.0b013e31821a42f8
+                </li>
 
-    </ul>
+            </ul>
 
-</section>
+        </section>
 
     </main>
 
@@ -388,8 +428,6 @@
     </svg>
 </button>
 
-</body> 
-
+</body>
 
 </html>
-

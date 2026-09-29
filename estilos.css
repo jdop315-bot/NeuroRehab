@@ -7587,3 +7587,112 @@ footer p:last-child {
         height: 42px;
     }
 }
+/* ==========================================================
+   ACCIONES DE RESULTADOS (COPIAR / IMPRIMIR)
+   ========================================================== */
+
+.calc-result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #E3EAF2;
+}
+
+.calc-copy-btn,
+.calc-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #FFFFFF;
+    color: #1769CC;
+    border: 1px solid #CBD7E3;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calc-copy-btn:hover,
+.calc-print-btn:hover {
+    background: #EAF3FF;
+    border-color: #2F80ED;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(47, 128, 237, 0.15);
+}
+
+.calc-copy-btn:focus-visible,
+.calc-print-btn:focus-visible {
+    outline: 3px solid rgba(47, 128, 237, 0.20);
+    outline-offset: 2px;
+}
+
+.calc-copy-btn:disabled,
+.calc-print-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.calc-copy-btn svg,
+.calc-print-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================
+   IMPRESIÓN
+   ========================================================== */
+
+@media print {
+
+    .navbar,
+    .breadcrumb,
+    footer,
+    .page-hero,
+    .article-intro,
+    .article-section,
+    .calc-container,
+    .calc-result-actions,
+    #scrollTopBtn,
+    .skip-link,
+    .menu-toggle {
+        display: none !important;
+    }
+
+    body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        font-size: 12pt;
+    }
+
+    .calc-results-panel,
+    .barthel-results,
+    #tugResults,
+    #frtResults,
+    #tenMwtResults,
+    #fstsResults,
+    #gcsResults,
+    #ranchoResults,
+    #mdsUpdrsResults,
+    #alsfrsResults,
+    #mgAdlResults,
+    #pdms2Results {
+        display: block !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+        border: 1px solid #CCC !important;
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #000000 !important;
+        text-decoration: underline;
+    }
+}

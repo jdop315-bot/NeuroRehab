@@ -261,7 +261,7 @@
                 </fieldset>
 
                 <!-- PANEL CONSOLIDADO -->
-                <div class="calc-results-panel" role="region" aria-live="polite">
+                <div id="cpResults" class="calc-results-panel" role="region" aria-live="polite">
                     <div class="calc-results-header">
                         <div>
                             <span class="calc-badge calc-badge-blue" id="cpSummaryBadge">Perfil: GMFCS I · MACS I · EDACS I</span>
@@ -283,6 +283,23 @@
                     <p class="calc-interpretation-text" id="cpProfileSummary" style="margin-top: 16px;">
                         Paciente clasificado con función motora gruesa Nivel I, destreza manual Nivel I y función deglutoria-alimentaria Nivel I. Orientar las metas funcionales de fisioterapia y terapia ocupacional conforme a este perfil funcional.
                     </p>
+                                        <div class="calc-result-actions">
+                        <button type="button" class="calc-copy-btn" data-target="cpResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                            Copiar resultados
+                        </button>
+                        <button type="button" class="calc-print-btn" data-target="cpResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9V2h12v7"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect width="12" height="8" x="6" y="14"/>
+                            </svg>
+                            Imprimir
+                        </button>
+                    </div>
                 </div>
 
             </div>
