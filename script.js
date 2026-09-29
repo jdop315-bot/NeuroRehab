@@ -5795,7 +5795,7 @@ function initNihssCalculator() {
         if (total === 0) {
             category = "Sin déficit aparente";
             badgeClass = "calc-badge-green";
-            desc = "Puntuación 0: No se aprecian déficits neurológicos medibles con la escala NIHSS. Requiere vigilancia clí­nica continuada según evolución.";
+            desc = "Puntuación 0: No se aprecian déficits neurológicos medibles con la escala NIHSS. Requiere vigilancia clínica continuada según evolución.";
         } else if (total <= 4) {
             category = "Ictus leve";
             badgeClass = "calc-badge-yellow";
@@ -5807,7 +5807,7 @@ function initNihssCalculator() {
         } else if (total <= 20) {
             category = "Ictus moderado a severo";
             badgeClass = "calc-badge-red";
-            desc = "Puntuación 16 a 20: Déficit neurológico relevante con compromiso motor, sensorial o cognitivo-lingüí­stico importante. Alta necesidad de cuidados y rehabilitación hospitalaria.";
+            desc = "Puntuación 16 a 20: Déficit neurológico relevante con compromiso motor, sensorial o cognitivo-lingüístico importante. Alta necesidad de cuidados y rehabilitación hospitalaria.";
         } else {
             category = "Ictus severo";
             badgeClass = "calc-badge-red";
@@ -5855,10 +5855,10 @@ function initMrsCalculator() {
     const resetBtn = document.getElementById("mrsReset");
 
     const mRSData = {
-        "0": { title: "Grado 0 - Asintomático", badge: "calc-badge-green", desc: "Sin í­ntomas en absoluto; recuperación funcional completa." },
+        "0": { title: "Grado 0 - Asintomático", badge: "calc-badge-green", desc: "Sin síntomas en absoluto; recuperación funcional completa." },
         "1": { title: "Grado 1 - Discapacidad no significativa", badge: "calc-badge-green", desc: "Presenta algunos síntomas residuales, pero es capaz de llevar a cabo todos sus deberes y actividades habituales sin ayuda." },
         "2": { title: "Grado 2 - Discapacidad leve", badge: "calc-badge-yellow", desc: "Incapaz de realizar algunas actividades previas, pero plenamente independiente para las actividades básicas de la vida diaria y el autocuidado sin asistencia." },
-        "3": { title: "Grado 3 - Discapacidad moderada", badge: "calc-badge-orange", desc: "Requiere cierta ayuda externa para actividades instrumentales, pero es capaz de caminar de forma autónoma sin asistencia fí­sica de otra persona." },
+        "3": { title: "Grado 3 - Discapacidad moderada", badge: "calc-badge-orange", desc: "Requiere cierta ayuda externa para actividades instrumentales, pero es capaz de caminar de forma autónoma sin asistencia física de otra persona." },
         "4": { title: "Grado 4 - Discapacidad moderadamente severa", badge: "calc-badge-red", desc: "Incapaz de caminar sin ayuda y de atender sus necesidades corporales básicas sin asistencia. Requiere apoyo continuo de un cuidador." },
         "5": { title: "Grado 5 - Discapacidad severa", badge: "calc-badge-red", desc: "Totalmente dependiente; confinado a la cama, incontinente y con necesidad de atención y cuidados de enfermería permanentes." },
         "6": { title: "Grado 6 - Fallecimiento", badge: "calc-badge-red", desc: "Muerte del paciente." }
@@ -5984,15 +5984,15 @@ function initCerebralPalsySelectors() {
 
     const gmfcsDesc = {
         "I": "Camina sin restricciones en interiores y exteriores. Puede subir escaleras sin barandilla. Corre y salta pero con menor velocidad, coordinación o equilibrio.",
-        "II": "Camina en la mayorí­a de entornos pero presenta limitaciones en superficies irregulares, pendientes o espacios concurridos. Sube escaleras apoyándose en la barandilla. Limitaciones mí­nimas para correr y saltar.",
+        "II": "Camina en la mayoría de entornos pero presenta limitaciones en superficies irregulares, pendientes o espacios concurridos. Sube escaleras apoyándose en la barandilla. Limitaciones mínimas para correr y saltar.",
         "III": "Camina utilizando productos de apoyo para la marcha de accionamiento manual (andador posterior o bastones) en interiores. Puede subir escaleras con barandilla bajo supervisión. Para distancias largas utiliza silla de ruedas.",
-        "IV": "Automovilidad con limitaciones importantes; puede utilizar silla de ruedas motorizada o requiere ayuda fí­sica amplia para los desplazamientos. En el hogar puede lograr traslados cortos con apoyo.",
+        "IV": "Automovilidad con limitaciones importantes; puede utilizar silla de ruedas motorizada o requiere ayuda física amplia para los desplazamientos. En el hogar puede lograr traslados cortos con apoyo.",
         "V": "Severa limitación en el control voluntario del movimiento y mantenimiento de la postura contra la gravedad. Transportado siempre en silla de ruedas adaptada con soporte postural cefálico y de tronco."
     };
 
     const macsDesc = {
         "I": "Manipula objetos fácil y exitosamente. Las limitaciones en destreza manual fina no interfieren en la independencia cotidiana.",
-        "II": "Manipula la mayorí­a de los objetos cotidianos pero con calidad y/o velocidad de ejecución algo reducida. Puede buscar alternativas para realizar ciertas tareas.",
+        "II": "Manipula la mayoría de los objetos cotidianos pero con calidad y/o velocidad de ejecución algo reducida. Puede buscar alternativas para realizar ciertas tareas.",
         "III": "Manipula objetos con dificultad; requiere ayuda para preparar o adaptar la actividad, o la realiza de forma lenta.",
         "IV": "Manipula un número limitado de objetos de fácil agarre en situaciones adaptadas. Requiere asistencia continua.",
         "V": "No manipula objetos y presenta una habilidad severamente limitada para realizar acciones motoras sencillas. Requiere asistencia total."
@@ -6001,9 +6001,9 @@ function initCerebralPalsySelectors() {
     const edacsDesc = {
         "I": "Come y bebe con seguridad y eficiencia completa.",
         "II": "Come y bebe con seguridad pero con algunas limitaciones en la eficiencia (pérdida ocasional de alimento o mayor tiempo invertido).",
-        "III": "Come y bebe con ciertas limitaciones en la seguridad (riesgo de atragantamiento ocasional con texturas difí­ciles); puede haber limitaciones de eficiencia.",
+        "III": "Come y bebe con ciertas limitaciones en la seguridad (riesgo de atragantamiento ocasional con texturas difíciles); puede haber limitaciones de eficiencia.",
         "IV": "Come y bebe con limitaciones significativas en la seguridad (alto riesgo de aspiración recurrente). Requiere modificaciones estrictas de texturas y supervisión.",
-        "V": "Incapaz de alimentarse o beber por vía oral de forma segura. Requiere alimentación enteral o gastrostomí­a."
+        "V": "Incapaz de alimentarse o beber por vía oral de forma segura. Requiere alimentación enteral o gastrostomía."
     };
 
     function updateProfile() {
@@ -6053,11 +6053,11 @@ function initHughesCalculator() {
 
     const hughesData = {
         "0": { title: "Grado 0 - Sano", badge: "calc-badge-green", desc: "Función neurológica normal; asintomático." },
-        "1": { title: "Grado 1 - Sí­ntomas menores", badge: "calc-badge-green", desc: "Sí­ntomas y signos menores; capaz de correr y subir escaleras sin dificultad." },
-        "2": { title: "Grado 2 - Marcha independiente", badge: "calc-badge-yellow", desc: "Capaz de caminar 10 metros o más en espacio abierto sin soporte fí­sico ni ayuda de otra persona, pero incapaz de correr." },
-        "3": { title: "Grado 3 - Marcha con asistencia", badge: "calc-badge-orange", desc: "Capaz de caminar 10 metros en espacio abierto pero requiere bastón, andador o apoyo fí­sico de una persona." },
-        "4": { title: "Grado 4 - Encamado o silla de ruedas", badge: "calc-badge-red", desc: "Confinado a cama o silla de ruedas; incapaz de recorrer 10 metros incluso con ayuda fí­sica." },
-        "5": { title: "Grado 5 - Ventilación asistida", badge: "calc-badge-red", desc: "Requiere ventilación mecánica durante al menos parte del dí­a o de la noche." },
+        "1": { title: "Grado 1 - Síntomas menores", badge: "calc-badge-green", desc: "Síntomas y signos menores; capaz de correr y subir escaleras sin dificultad." },
+        "2": { title: "Grado 2 - Marcha independiente", badge: "calc-badge-yellow", desc: "Capaz de caminar 10 metros o más en espacio abierto sin soporte físico ni ayuda de otra persona, pero incapaz de correr." },
+        "3": { title: "Grado 3 - Marcha con asistencia", badge: "calc-badge-orange", desc: "Capaz de caminar 10 metros en espacio abierto pero requiere bastón, andador o apoyo físico de una persona." },
+        "4": { title: "Grado 4 - Encamado o silla de ruedas", badge: "calc-badge-red", desc: "Confinado a cama o silla de ruedas; incapaz de recorrer 10 metros incluso con ayuda física." },
+        "5": { title: "Grado 5 - Ventilación asistida", badge: "calc-badge-red", desc: "Requiere ventilación mecánica durante al menos parte del día o de la noche." },
         "6": { title: "Grado 6 - Muerte", badge: "calc-badge-red", desc: "Fallecimiento." }
     };
 
@@ -6119,7 +6119,7 @@ function initMegosCalculator() {
             risk = "Riesgo Bajo";
             badgeClass = "calc-badge-green";
             prob = "Probabilidad estimada de NO caminar de forma independiente a los 6 meses: ~1% a 5% (Excelente pronóstico funcional).";
-            desc = "La gran mayorí­a de los pacientes (>95%) recuperará la deambulación independiente a los 6 meses. Fisioterapia enfocada en prevención de contracturas y reentrenamiento progresivo.";
+            desc = "La gran mayoría de los pacientes (>95%) recuperará la deambulación independiente a los 6 meses. Fisioterapia enfocada en prevención de contracturas y reentrenamiento progresivo.";
         } else if (total <= 3) {
             risk = "Riesgo Intermedio";
             badgeClass = "calc-badge-yellow";
@@ -6129,7 +6129,7 @@ function initMegosCalculator() {
             risk = "Riesgo Alto";
             badgeClass = "calc-badge-red";
             prob = "Probabilidad estimada de NO caminar de forma independiente a los 6 meses: ~35% a 50% o superior.";
-            desc = "Riesgo elevado de recuperación motora prolongada y estancia hospitalaria extendida. Alta vigilancia respiratoria y programa de rehabilitación neurofí­sica a largo plazo.";
+            desc = "Riesgo elevado de recuperación motora prolongada y estancia hospitalaria extendida. Alta vigilancia respiratoria y programa de rehabilitación neurofísica a largo plazo.";
         }
 
         if (scoreDisplay) scoreDisplay.textContent = total;
@@ -6205,7 +6205,7 @@ function initAlsfrsCalculator() {
 
         let badge = "calc-badge-green";
         let status = "Función Global Conservada";
-        let note = "Puntuación dentro de rangos funcionales altos. Mantener ejercicio aeróbico suave y pautas de conservación de energí­a.";
+        let note = "Puntuación dentro de rangos funcionales altos. Mantener ejercicio aeróbico suave y pautas de conservación de energía.";
 
         if (total < 25) {
             badge = "calc-badge-red";
@@ -6222,7 +6222,7 @@ function initAlsfrsCalculator() {
         }
 
         if (resp < 10) {
-            note += " ¡Alerta clí­nica!: Puntuación respiratoria reducida. Requiere evaluación médica y espirometrí­a urgente para indicación de soporte ventilatorio no invasivo (BiPAP).";
+            note += " ¡Alerta clínica!: Puntuación respiratoria reducida. Requiere evaluación médica y espirometría urgente para indicación de soporte ventilatorio no invasivo (BiPAP).";
         }
 
         if (badgeDisplay) {
@@ -6299,13 +6299,13 @@ function initMgAdlCalculator() {
         if (scoreDisplay) scoreDisplay.textContent = total;
 
         let badge = "calc-badge-green";
-        let status = "Sí­ntomas Mí­nimos / Controlados";
+        let status = "Síntomas Mínimos / Controlados";
         let desc = "Puntuación baja (0 a 4 puntos). Poca repercusión sobre las actividades cotidianas. Programar ejercicio en horas de menor fatiga (mañanas o tras medicación).";
 
         if (total >= 15) {
             badge = "calc-badge-red";
             status = "Afectación Severa";
-            desc = "Puntuación muy elevada (>14 puntos). Riesgo de crisis miasténica si existe debilidad bulbar o respiratoria. Evitar sobreesfuerzos fí­sicos y contactar de inmediato con neurologí­a.";
+            desc = "Puntuación muy elevada (>14 puntos). Riesgo de crisis miasténica si existe debilidad bulbar o respiratoria. Evitar sobreesfuerzos físicos y contactar de inmediato con neurología.";
         } else if (total >= 9) {
             badge = "calc-badge-orange";
             status = "Afectación Moderada";
@@ -6317,7 +6317,7 @@ function initMgAdlCalculator() {
         }
 
         if (resp > 0) {
-            desc += " Atención: Puntuación respiratoria presente (>0). Monitorizar mecánica diafragmática y saturación de oxí­geno.";
+            desc += " Atención: Puntuación respiratoria presente (>0). Monitorizar mecánica diafragmática y saturación de oxígeno.";
         }
 
         if (badgeDisplay) {
@@ -7066,3 +7066,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+});
