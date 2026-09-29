@@ -4197,45 +4197,177 @@ if (document.getElementById("fmaCalculator")) {
 
     function updateFMAUEResult() {
 
-        const total = calculateFMAUETotal();
-        const completed = countFMAUECompleted();
+    const total = calculateFMAUETotal();
+    const completed = countFMAUECompleted();
 
-        setElementText("fmaFinalScore", total);
-        setElementText("fmaTotal", total);
+    setElementText("fmaFinalScore", total);
+    setElementText("fmaTotal", total);
 
-        const percentageValue = (total / 66) * 100;
+    const percentageValue = (total / 66) * 100;
 
-        setElementText(
-            "fmaPercentage",
-            percentageValue.toFixed(1) + " %"
-        );
+    setElementText(
+        "fmaPercentage",
+        percentageValue.toFixed(1) + " %"
+    );
 
-        const message =
-            document.getElementById("fmaResultMessage");
-
-        if (message) {
-
-            message.textContent =
-                completed < 33
-                    ? "Se han registrado " + completed + " de 33 ítems."
-                    : "Evaluación FMA-UE completada. Puntuación total: " + total + " / 66.";
-
-        }
-
-        const completion =
-            document.getElementById("fmaCompletionMessage");
-
-        if (completion) {
-
-            completion.textContent =
-                completed < 33
-                    ? "Complete los " + (33 - completed) + " ítems restantes para obtener el resultado final."
-                    : "Evaluación completa. Revise el resultado antes de registrarlo en la historia clínica.";
-
-        }
-
+    const message = document.getElementById("fmaResultMessage");
+    if (message) {
+        message.textContent = completed < 33
+            ? "Se han registrado " + completed + " de 33 ítems."
+            : "Evaluación FMA-UE completada. Puntuación total: " + total + " / 66.";
     }
 
+    const completion = document.getElementById("fmaCompletionMessage");
+    if (completion) {
+        completion.textContent = completed < 33
+            ? "Complete los " + (33 - completed) + " ítems restantes para obtener el resultado final."
+            : "Evaluación completa. Revise el resultado antes de registrarlo en la historia clínica.";
+    }
+
+    updateFMAUEInterpretation(total, completed);
+}
+
+
+/* ==========================================
+   INTERPRETACIÓN CLÍNICA — FMA-UE
+   ========================================== */
+
+function interpretFmaByPercentage(percentage) {
+
+    if (percentage <= 25) {
+        return {
+            label: "Compromiso motor severo",
+            className: "fma-severe",
+            description:
+                "El desempeño se encuentra en un rango compatible con " +
+                "compromiso motor severo en la extremidad evaluada. " +
+                "Se recomienda priorizar objetivos funcionales básicos, " +
+                "prevención de complicaciones y abordaje del tono muscular."
+        };
+    }
+
+    if (percentage <= 50) {
+        return {
+            label: "Compromiso motor moderado-severo",
+            className: "fma-moderate-severe",
+            description:
+                "El desempeño sugiere un compromiso motor moderado-severo. " +
+                "Puede ser útil combinar estrategias de facilitación motora, " +
+                "práctica orientada a tareas y manejo de sinergias."
+        };
+    }
+
+    if (percentage <= 75) {
+        return {
+            label: "Compromiso motor moderado",
+            className: "fma-moderate",
+            description:
+                "El desempeño corresponde a un compromiso motor moderado. " +
+                "Es recomendable trabajar control selectivo del movimiento, " +
+                "disociación de sinergias y actividades funcionales progresivas."
+        };
+    }
+
+    if (percentage <= 95) {
+        return {
+            label: "Compromiso motor leve",
+            className: "fma-mild",
+            description:
+                "El desempeño indica un compromiso motor leve. " +
+                "La intervención puede orientarse al refinamiento de la " +
+                "coordinación, destreza fina y participación en actividades " +
+                "complejas de la vida diaria."
+        };
+    }
+
+    return {
+        label: "Función motora prácticamente conservada",
+        className: "fma-conserved",
+        description:
+            "El desempeño se encuentra en un rango cercano al máximo posible. " +
+            "Puede ser útil mantener la función a través de actividad física, " +
+            "entrenamiento de fuerza y prevención de recurrencias."
+    };
+}
+
+
+function updateFMAUEInterpretation(total, completed) {
+
+    const box =
+        document.getElementById("fmaUeInterpretationBox");
+
+    const label =
+        document.getElementById("fmaUeInterpretationLabel");
+
+    const description =
+        document.getElementById("fmaUeInterpretationDescription");
+
+    const mcidNote =
+        document.getElementById("fmaUeMcidNote");
+
+    if (!box || !label || !description) {
+        return;
+    }
+
+
+    /* ------------------------------------------
+       ESTADO INCOMPLETO
+       ------------------------------------------ */
+
+    if (completed < 33) {
+
+        box.classList.remove(
+            "fma-severe",
+            "fma-moderate-severe",
+            "fma-moderate",
+            "fma-mild",
+            "fma-conserved"
+        );
+
+        label.textContent =
+            "Complete la evaluación para obtener la interpretación.";
+
+        description.textContent =
+            "Se han registrado " + completed + " de 33 ítems. " +
+            "La interpretación clínica se mostrará al completar la evaluación.";
+
+        if (mcidNote) {
+            mcidNote.hidden = true;
+        }
+
+        return;
+    }
+
+
+    /* ------------------------------------------
+       INTERPRETACIÓN SEGÚN PORCENTAJE
+       ------------------------------------------ */
+
+    const percentage = (total / 66) * 100;
+
+    const interpretation =
+        interpretFmaByPercentage(percentage);
+
+    label.textContent =
+        interpretation.label;
+
+    description.textContent =
+        interpretation.description;
+
+    box.classList.remove(
+        "fma-severe",
+        "fma-moderate-severe",
+        "fma-moderate",
+        "fma-mild",
+        "fma-conserved"
+    );
+
+    box.classList.add(interpretation.className);
+
+    if (mcidNote) {
+        mcidNote.hidden = false;
+    }
+}
 
     /* ==========================================
     ACTUALIZAR ESTADO VISUAL DE LOS BOTONES
@@ -5008,44 +5140,128 @@ if (document.getElementById("fmaLeCalculator")) {
 
     function updateFMALEResult() {
 
-        const total = calculateFMALETotal();
-        const completed = countFMALECompleted();
+    const total = calculateFMALETotal();
+    const completed = countFMALECompleted();
 
-        setLeElementText("fmaLeFinalScore", total);
-        setLeElementText("fmaLeTotal", total);
+    setLeElementText("fmaLeFinalScore", total);
+    setLeElementText("fmaLeTotal", total);
 
-        const percentageValue = (total / 34) * 100;
+    const percentageValue = (total / 34) * 100;
 
-        setLeElementText(
-            "fmaLePercentage",
-            percentageValue.toFixed(1) + " %"
-        );
+    setLeElementText(
+        "fmaLePercentage",
+        percentageValue.toFixed(1) + " %"
+    );
 
-        const message =
-            document.getElementById("fmaLeResultMessage");
+    const message =
+        document.getElementById("fmaLeResultMessage");
 
-        if (message) {
+    if (message) {
 
-            message.textContent =
-                completed < 17
-                    ? "Se han registrado " + completed + " de 17 ítems."
-                    : "Evaluación FMA-LE completada. Puntuación total: " + total + " / 34.";
-
-        }
-
-        const completion =
-            document.getElementById("fmaLeCompletionMessage");
-
-        if (completion) {
-
-            completion.textContent =
-                completed < 17
-                    ? "Complete los " + (17 - completed) + " ítems restantes para obtener el resultado final."
-                    : "Evaluación completa. Revise el resultado antes de registrarlo en la historia clínica.";
-
-        }
+        message.textContent =
+            completed < 17
+                ? "Se han registrado " + completed + " de 17 ítems."
+                : "Evaluación FMA-LE completada. Puntuación total: " + total + " / 34.";
 
     }
+
+    const completion =
+        document.getElementById("fmaLeCompletionMessage");
+
+    if (completion) {
+
+        completion.textContent =
+            completed < 17
+                ? "Complete los " + (17 - completed) + " ítems restantes para obtener el resultado final."
+                : "Evaluación completa. Revise el resultado antes de registrarlo en la historia clínica.";
+
+    }
+
+    updateFMALEInterpretation(total, completed);
+}
+
+
+/* ==========================================
+   INTERPRETACIÓN CLÍNICA — FMA-LE
+   ========================================== */
+
+function updateFMALEInterpretation(total, completed) {
+
+    const box =
+        document.getElementById("fmaLeInterpretationBox");
+
+    const label =
+        document.getElementById("fmaLeInterpretationLabel");
+
+    const description =
+        document.getElementById("fmaLeInterpretationDescription");
+
+    const mcidNote =
+        document.getElementById("fmaLeMcidNote");
+
+    if (!box || !label || !description) {
+        return;
+    }
+
+
+    /* ------------------------------------------
+       ESTADO INCOMPLETO
+       ------------------------------------------ */
+
+    if (completed < 17) {
+
+        box.classList.remove(
+            "fma-severe",
+            "fma-moderate-severe",
+            "fma-moderate",
+            "fma-mild",
+            "fma-conserved"
+        );
+
+        label.textContent =
+            "Complete la evaluación para obtener la interpretación.";
+
+        description.textContent =
+            "Se han registrado " + completed + " de 17 ítems. " +
+            "La interpretación clínica se mostrará al completar la evaluación.";
+
+        if (mcidNote) {
+            mcidNote.hidden = true;
+        }
+
+        return;
+    }
+
+
+    /* ------------------------------------------
+       INTERPRETACIÓN SEGÚN PORCENTAJE
+       ------------------------------------------ */
+
+    const percentage = (total / 34) * 100;
+
+    const interpretation =
+        interpretFmaByPercentage(percentage);
+
+    label.textContent =
+        interpretation.label;
+
+    description.textContent =
+        interpretation.description;
+
+    box.classList.remove(
+        "fma-severe",
+        "fma-moderate-severe",
+        "fma-moderate",
+        "fma-mild",
+        "fma-conserved"
+    );
+
+    box.classList.add(interpretation.className);
+
+    if (mcidNote) {
+        mcidNote.hidden = false;
+    }
+}
 
 
     /* ==========================================

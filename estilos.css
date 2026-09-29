@@ -7818,3 +7818,109 @@ footer p:last-child {
     border-radius: 14px;
     box-shadow: 0 8px 25px rgba(7, 26, 51, 0.06);
 }
+/* ==========================================================
+   FMA — INTERPRETACIÓN CLÍNICA (UE y LE)
+   Estilo análogo a .barthel-interpretation
+   ========================================================== */
+
+.fma-interpretation {
+    margin-top: 20px;
+    padding: 22px 24px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-left: 5px solid #2F80ED;
+    box-shadow: 0 4px 12px rgba(7, 26, 51, 0.04);
+    transition: border-color 0.3s ease;
+}
+
+.fma-interpretation > strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #0B3A70;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.fma-interpretation #fmaUeInterpretationLabel,
+.fma-interpretation #fmaLeInterpretationLabel {
+    margin: 0 0 8px;
+    color: #1769CC;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.fma-interpretation #fmaUeInterpretationDescription,
+.fma-interpretation #fmaLeInterpretationDescription {
+    margin: 0 0 12px;
+    color: #526173;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.fma-mcid-note {
+    margin: 12px 0 0;
+    padding: 12px 16px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 3px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.fma-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   VARIANTES DE COLOR SEGÚN COMPROMISO MOTOR
+   ========================================== */
+
+/* Compromiso severo */
+.fma-interpretation.fma-severe {
+    border-left-color: #C62828;
+}
+.fma-interpretation.fma-severe #fmaUeInterpretationLabel,
+.fma-interpretation.fma-severe #fmaLeInterpretationLabel {
+    color: #C62828;
+}
+
+/* Compromiso moderado-severo */
+.fma-interpretation.fma-moderate-severe {
+    border-left-color: #E67E22;
+}
+.fma-interpretation.fma-moderate-severe #fmaUeInterpretationLabel,
+.fma-interpretation.fma-moderate-severe #fmaLeInterpretationLabel {
+    color: #E67E22;
+}
+
+/* Compromiso moderado */
+.fma-interpretation.fma-moderate {
+    border-left-color: #F2C94C;
+}
+.fma-interpretation.fma-moderate #fmaUeInterpretationLabel,
+.fma-interpretation.fma-moderate #fmaLeInterpretationLabel {
+    color: #B8860B;
+}
+
+/* Compromiso leve */
+.fma-interpretation.fma-mild {
+    border-left-color: #2F80ED;
+}
+.fma-interpretation.fma-mild #fmaUeInterpretationLabel,
+.fma-interpretation.fma-mild #fmaLeInterpretationLabel {
+    color: #2F80ED;
+}
+
+/* Función conservada */
+.fma-interpretation.fma-conserved {
+    border-left-color: #27AE60;
+}
+.fma-interpretation.fma-conserved #fmaUeInterpretationLabel,
+.fma-interpretation.fma-conserved #fmaLeInterpretationLabel {
+    color: #27AE60;
+}
