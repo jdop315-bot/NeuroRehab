@@ -7645,8 +7645,8 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   IMPRESIÓN — VERSIÓN DEFINITIVA
-   Solo el panel de resultados, sin páginas en blanco
+   IMPRESIÓN — VERSIÓN SIMPLE
+   Solo se activa cuando el JS añade la clase .printing
    ========================================================== */
 
 @media print {
@@ -7655,58 +7655,47 @@ footer p:last-child {
         margin: 15mm;
     }
 
-    /* ---- Ocultar TODO el layout ---- */
-
     html,
     body {
-        margin: 0 !important;
-        padding: 0 !important;
         background: #FFFFFF !important;
         color: #000000 !important;
         font-size: 12pt;
-        height: auto !important;
-        min-height: 0 !important;
-        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* ---- Ocultar el contenido general ---- */
-
-    body > nav,
-    body > header,
-    body > div.breadcrumb,
-    body > footer,
-    main.article-container > *:not(.has-result-panel),
+    /* Ocultar navbar, hero, breadcrumb, footer */
+    .navbar,
+    .page-hero,
+    .breadcrumb,
+    footer,
+    .skip-link,
+    .menu-toggle,
+    #scrollTopBtn,
     .article-intro,
     .article-section,
+    .reference-box,
+    .scientific-links,
     .evidence-section,
     .content-section,
     .contact-section,
-    .reference-box,
-    .scientific-links,
-    .scientific-card,
-    .reference-list,
-    .coming-soon,
-    .tool-note,
-    .intervention-grid,
-    .evaluation-list,
-    .clinical-grid,
     .evidence-grid,
     .blog-grid,
     .about-grid,
     .contact-grid,
     .resources,
-    .page-hero,
-    .breadcrumb,
-    .navbar,
-    .skip-link,
-    .menu-toggle,
-    #scrollTopBtn,
-    button:not(.calc-copy-btn):not(.calc-print-btn) {
+    .coming-soon,
+    .tool-note,
+    .intervention-grid,
+    .evaluation-list,
+    .clinical-grid,
+    .instrument-grid,
+    .stats-section,
+    .cards {
         display: none !important;
     }
 
-    /* ---- Mostrar solo el panel de resultados ---- */
-
+    /* Mostrar solo el panel de resultados */
     .calc-results-panel,
     .barthel-results,
     #tugResults,
@@ -7728,20 +7717,15 @@ footer p:last-child {
         visibility: visible !important;
         position: static !important;
         width: 100% !important;
-        max-width: 100% !important;
         margin: 0 !important;
         padding: 20px !important;
         box-shadow: none !important;
         border: 1px solid #999 !important;
         background: #FFFFFF !important;
         color: #000000 !important;
-        page-break-inside: avoid;
-        page-break-after: avoid;
-        page-break-before: avoid;
     }
 
-    /* ---- Asegurar visibilidad de hijos ---- */
-
+    /* Hijos visibles */
     .calc-results-panel *,
     .barthel-results *,
     #tugResults *,
@@ -7759,91 +7743,33 @@ footer p:last-child {
     #hughesResults *,
     #megosResults *,
     #cpResults * {
-        display: block !important;
         visibility: visible !important;
         color: #000000 !important;
     }
 
-    /* ---- Excepción: mostrar inline y flex en hijos correctos ---- */
-
-    .calc-results-panel .scale-row,
-    .calc-results-panel .calc-results-header,
-    .calc-results-panel .calc-score-display,
-    .calc-results-panel .calc-badge {
-        display: flex !important;
-    }
-
-    .calc-results-panel .scale-row span {
-        display: inline !important;
-    }
-
-    /* ---- Ocultar los botones de acción ---- */
-
+    /* Ocultar botones de acción */
     .calc-result-actions,
     .calc-actions {
         display: none !important;
     }
 
-    /* ---- Ajustes de tabla ---- */
-
-    .scale-table {
-        display: block !important;
-        border: 1px solid #999 !important;
-        page-break-inside: avoid;
-    }
-
-    .scale-row {
-        display: grid !important;
-        grid-template-columns: 1fr 1.5fr !important;
-        gap: 15px !important;
-        padding: 12px 15px !important;
-        border-bottom: 1px solid #CCC !important;
-    }
-
-    .scale-header {
-        background: #EAF3FF !important;
-        color: #000000 !important;
-    }
-
-    /* ---- Ajustes de badges ---- */
-
-    .calc-badge {
-        border: 1px solid #999 !important;
-        background: #F5F5F5 !important;
-        color: #000000 !important;
-        padding: 5px 10px !important;
-        display: inline-block !important;
-    }
-
-    /* ---- Ajustes de score ---- */
-
-    .calc-score-number {
-        display: inline !important;
-        font-size: 2rem !important;
-        font-weight: 800 !important;
-    }
-
-    .calc-score-max {
-        display: inline !important;
-    }
-
-    /* ---- Enlaces ---- */
-
-    a {
-        color: #000000 !important;
-        text-decoration: underline;
-    }
-
-    /* ---- Encabezado ---- */
-
+    /* Encabezado de la impresión */
     body::before {
         content: "NeuroRehab — Resultados de evaluación";
-        display: block !important;
+        display: block;
         font-size: 14pt;
         font-weight: bold;
         margin-bottom: 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #000;
-        visibility: visible !important;
+    }
+
+    a {
+        color: #000000 !important;
+        text-decoration: underline;
+    }
+        /* Cuando el body tiene la clase printing-mode, ocultar todo excepto el panel */
+    body.printing-mode > *:not(.calc-results-panel):not(.barthel-results):not(#tugResults):not(#frtResults):not(#tenMwtResults):not(#fstsResults):not(#gcsResults):not(#ranchoResults):not(#mdsUpdrsResults):not(#alsfrsResults):not(#mgAdlResults):not(#pdms2Results):not(#motricityResults):not(#asiaResults):not(#hughesResults):not(#megosResults):not(#cpResults) {
+        display: none !important;
     }
 }

@@ -7013,16 +7013,56 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* ------------------------------------------
+        /* ------------------------------------------
        IMPRIMIR RESULTADOS
        ------------------------------------------ */
 
     document.querySelectorAll(".calc-print-btn").forEach(function (button) {
 
         button.addEventListener("click", function () {
+
+            /* 1. Obtener el panel de resultados objetivo */
+            const targetId = button.getAttribute("data-target");
+            const target = document.getElementById(targetId);
+
+            if (!target) {
+                return;
+            }
+
+            /* 2. Guardar el padre original del panel */
+            const originalParent = target.parentNode;
+            const originalNextSibling = target.nextSibling;
+
+            /* 3. Guardar el scroll actual */
+            const scrollY = window.scrollY;
+
+            /* 4. Mover el panel directamente al body */
+            document.body.appendChild(target);
+
+            /* 5. Añadir clase al body para activar el modo impresión */
+            document.body.classList.add("printing-mode");
+
+            /* 6. Imprimir */
             window.print();
+
+            /* 7. Restaurar después de imprimir */
+            setTimeout(function () {
+
+                /* Quitar la clase */
+                document.body.classList.remove("printing-mode");
+
+                /* Devolver el panel a su lugar original */
+                if (originalNextSibling) {
+                    originalParent.insertBefore(target, originalNextSibling);
+                } else {
+                    originalParent.appendChild(target);
+                }
+
+                /* Restaurar el scroll */
+                window.scrollTo(0, scrollY);
+
+            }, 300);
+
         });
 
     });
-
-});
