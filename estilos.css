@@ -7645,19 +7645,17 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   IMPRESIÓN — VERSIÓN LIMPIA
-   Solo imprime el panel de resultados
+   IMPRESIÓN — VERSIÓN DEFINITIVA
+   Solo el panel de resultados, sin páginas en blanco
    ========================================================== */
 
 @media print {
-
-    /* ---- Configuración de página ---- */
 
     @page {
         margin: 15mm;
     }
 
-    /* ---- Resetear estilos base ---- */
+    /* ---- Ocultar TODO el layout ---- */
 
     html,
     body {
@@ -7666,55 +7664,48 @@ footer p:last-child {
         background: #FFFFFF !important;
         color: #000000 !important;
         font-size: 12pt;
-        visibility: visible !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
     }
 
-    /* ---- Ocultar TODO el contenido de la página ---- */
+    /* ---- Ocultar el contenido general ---- */
 
-    body * {
-        visibility: hidden;
+    body > nav,
+    body > header,
+    body > div.breadcrumb,
+    body > footer,
+    main.article-container > *:not(.has-result-panel),
+    .article-intro,
+    .article-section,
+    .evidence-section,
+    .content-section,
+    .contact-section,
+    .reference-box,
+    .scientific-links,
+    .scientific-card,
+    .reference-list,
+    .coming-soon,
+    .tool-note,
+    .intervention-grid,
+    .evaluation-list,
+    .clinical-grid,
+    .evidence-grid,
+    .blog-grid,
+    .about-grid,
+    .contact-grid,
+    .resources,
+    .page-hero,
+    .breadcrumb,
+    .navbar,
+    .skip-link,
+    .menu-toggle,
+    #scrollTopBtn,
+    button:not(.calc-copy-btn):not(.calc-print-btn) {
+        display: none !important;
     }
 
-    /* ---- Mostrar SOLO el panel de resultados ---- */
-
-    .calc-results-panel,
-    .barthel-results,
-    #tugResults,
-    #frtResults,
-    #tenMwtResults,
-    #fstsResults,
-    #gcsResults,
-    #ranchoResults,
-    #mdsUpdrsResults,
-    #alsfrsResults,
-    #mgAdlResults,
-    #pdms2Results,
-    #motricityResults,
-    #asiaResults,
-    #hughesResults,
-    #megosResults,
-    #cpResults,
-    .calc-results-panel *,
-    .barthel-results *,
-    #tugResults *,
-    #frtResults *,
-    #tenMwtResults *,
-    #fstsResults *,
-    #gcsResults *,
-    #ranchoResults *,
-    #mdsUpdrsResults *,
-    #alsfrsResults *,
-    #mgAdlResults *,
-    #pdms2Results *,
-    #motricityResults *,
-    #asiaResults *,
-    #hughesResults *,
-    #megosResults *,
-    #cpResults * {
-        visibility: visible !important;
-    }
-
-    /* ---- Posicionar el panel al inicio de la página ---- */
+    /* ---- Mostrar solo el panel de resultados ---- */
 
     .calc-results-panel,
     .barthel-results,
@@ -7733,9 +7724,9 @@ footer p:last-child {
     #hughesResults,
     #megosResults,
     #cpResults {
-        position: absolute !important;
-        left: 0 !important;
-        top: 60px !important;
+        display: block !important;
+        visibility: visible !important;
+        position: static !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -7745,26 +7736,68 @@ footer p:last-child {
         background: #FFFFFF !important;
         color: #000000 !important;
         page-break-inside: avoid;
+        page-break-after: avoid;
+        page-break-before: avoid;
     }
 
-    /* ---- Ocultar botones de acción dentro del panel ---- */
+    /* ---- Asegurar visibilidad de hijos ---- */
+
+    .calc-results-panel *,
+    .barthel-results *,
+    #tugResults *,
+    #frtResults *,
+    #tenMwtResults *,
+    #fstsResults *,
+    #gcsResults *,
+    #ranchoResults *,
+    #mdsUpdrsResults *,
+    #alsfrsResults *,
+    #mgAdlResults *,
+    #pdms2Results *,
+    #motricityResults *,
+    #asiaResults *,
+    #hughesResults *,
+    #megosResults *,
+    #cpResults * {
+        display: block !important;
+        visibility: visible !important;
+        color: #000000 !important;
+    }
+
+    /* ---- Excepción: mostrar inline y flex en hijos correctos ---- */
+
+    .calc-results-panel .scale-row,
+    .calc-results-panel .calc-results-header,
+    .calc-results-panel .calc-score-display,
+    .calc-results-panel .calc-badge {
+        display: flex !important;
+    }
+
+    .calc-results-panel .scale-row span {
+        display: inline !important;
+    }
+
+    /* ---- Ocultar los botones de acción ---- */
 
     .calc-result-actions,
-    .calc-actions,
-    .calc-btn-reset {
+    .calc-actions {
         display: none !important;
-        visibility: hidden !important;
     }
 
     /* ---- Ajustes de tabla ---- */
 
     .scale-table {
+        display: block !important;
         border: 1px solid #999 !important;
         page-break-inside: avoid;
     }
 
     .scale-row {
-        page-break-inside: avoid;
+        display: grid !important;
+        grid-template-columns: 1fr 1.5fr !important;
+        gap: 15px !important;
+        padding: 12px 15px !important;
+        border-bottom: 1px solid #CCC !important;
     }
 
     .scale-header {
@@ -7778,6 +7811,20 @@ footer p:last-child {
         border: 1px solid #999 !important;
         background: #F5F5F5 !important;
         color: #000000 !important;
+        padding: 5px 10px !important;
+        display: inline-block !important;
+    }
+
+    /* ---- Ajustes de score ---- */
+
+    .calc-score-number {
+        display: inline !important;
+        font-size: 2rem !important;
+        font-weight: 800 !important;
+    }
+
+    .calc-score-max {
+        display: inline !important;
     }
 
     /* ---- Enlaces ---- */
@@ -7791,16 +7838,12 @@ footer p:last-child {
 
     body::before {
         content: "NeuroRehab — Resultados de evaluación";
-        display: block;
+        display: block !important;
         font-size: 14pt;
         font-weight: bold;
         margin-bottom: 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #000;
         visibility: visible !important;
-        position: absolute;
-        top: 15mm;
-        left: 15mm;
-        right: 15mm;
     }
 }
