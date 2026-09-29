@@ -270,9 +270,9 @@ if (tenMwtCalculator) {
         document.getElementById("tenMwtChangeRow");
 
     const tenMwtChangeDescription =
-    document.getElementById("tenMwtChangeDescription");
+        document.getElementById("tenMwtChangeDescription");
 
-        const tenMwtInterpretationBox =
+    const tenMwtInterpretationBox =
         document.getElementById("tenMwtInterpretationBox");
 
     const tenMwtInterpretationLabel =
@@ -283,6 +283,7 @@ if (tenMwtCalculator) {
 
     const tenMwtMcidNote =
         document.getElementById("tenMwtMcidNote");
+
 
     /* ==========================================
     AYUDA TÉCNICA — OPCIÓN "OTRA"
@@ -351,14 +352,14 @@ if (tenMwtCalculator) {
 
     function setText(id, text) {
 
-    const element =
-        document.getElementById(id);
+        const element =
+            document.getElementById(id);
 
-    if (element) {
-        element.textContent = text;
+        if (element) {
+            element.textContent = text;
+        }
+
     }
-
-}
 
 
     /* ==========================================
@@ -367,18 +368,18 @@ if (tenMwtCalculator) {
 
     function showValidation(message) {
 
-    tenMwtValidation.textContent =
-        message;
+        tenMwtValidation.textContent =
+            message;
 
-    tenMwtValidation.hidden =
-        false;
+        tenMwtValidation.hidden =
+            false;
 
-    tenMwtResults.hidden =
-        true;
+        tenMwtResults.hidden =
+            true;
 
-    tenMwtValidation.focus();
+        tenMwtValidation.focus();
 
-}
+    }
 
 
     function clearValidation() {
@@ -422,6 +423,8 @@ if (tenMwtCalculator) {
     );
 
     updateTenMwtInstruction();
+
+
     /* ==========================================
     INTERPRETACIÓN CLÍNICA — VELOCIDAD DE MARCHA
     (Perry et al., 1995 / Fritz & Lusardi, 2009)
@@ -551,6 +554,7 @@ if (tenMwtCalculator) {
         }
     }
 
+
     /* ==========================================
     CÁLCULO 10MWT
     ========================================== */
@@ -563,29 +567,20 @@ if (tenMwtCalculator) {
 
 
             const time1 =
-                parseDecimal(
-                    tenMwtAttempt1.value
-                );
+                parseDecimal(tenMwtAttempt1.value);
 
             const time2 =
-                parseDecimal(
-                    tenMwtAttempt2.value
-                );
+                parseDecimal(tenMwtAttempt2.value);
 
             const baseline =
-                parseDecimal(
-                    tenMwtBaseline.value
-                );
+                parseDecimal(tenMwtBaseline.value);
 
 
             /* ==========================================
             INTENTO 1 — OBLIGATORIO
             ========================================== */
 
-            if (
-                time1 === null ||
-                time1 <= 0
-            ) {
+            if (time1 === null || time1 <= 0) {
 
                 showValidation(
                     "Ingrese un tiempo válido mayor que cero para el intento 1."
@@ -602,10 +597,7 @@ if (tenMwtCalculator) {
 
             if (
                 tenMwtAttempt2.value.trim() &&
-                (
-                    time2 === null ||
-                    time2 <= 0
-                )
+                (time2 === null || time2 <= 0)
             ) {
 
                 showValidation(
@@ -623,10 +615,7 @@ if (tenMwtCalculator) {
 
             if (
                 tenMwtBaseline.value.trim() &&
-                (
-                    baseline === null ||
-                    baseline <= 0
-                )
+                (baseline === null || baseline <= 0)
             ) {
 
                 showValidation(
@@ -647,30 +636,24 @@ if (tenMwtCalculator) {
                     ? [time1]
                     : [time1, time2];
 
-
             const averageTime =
-                times.reduce(
-                    function (sum, time) {
-                        return sum + time;
-                    },
-                    0
-                ) / times.length;
+                times.reduce(function (sum, time) {
+                    return sum + time;
+                }, 0) / times.length;
 
 
             /* ==========================================
             VELOCIDAD — 6 METROS CRONOMETRADOS
             ========================================== */
 
-            const speed1 =
-                6 / time1;
+            const speed1 = 6 / time1;
 
             const speed2 =
                 time2 === null
                     ? null
                     : 6 / time2;
 
-            const averageSpeed =
-                6 / averageTime;
+            const averageSpeed = 6 / averageTime;
 
 
             /* ==========================================
@@ -684,12 +667,10 @@ if (tenMwtCalculator) {
                 ].text
             );
 
-
             let aidText =
                 tenMwtAid.options[
                     tenMwtAid.selectedIndex
                 ].text;
-
 
             if (
                 tenMwtAid.value === "otra" &&
@@ -702,12 +683,7 @@ if (tenMwtCalculator) {
 
             }
 
-
-            setText(
-                "tenMwtResultAid",
-                aidText
-            );
-
+            setText("tenMwtResultAid", aidText);
 
             setText(
                 "tenMwtResultAttempt1",
@@ -716,7 +692,6 @@ if (tenMwtCalculator) {
                 formatNumber(speed1) +
                 " m/s"
             );
-
 
             setText(
                 "tenMwtResultAttempt2",
@@ -728,27 +703,20 @@ if (tenMwtCalculator) {
                       " m/s"
             );
 
-
             setText(
                 "tenMwtResultAverageTime",
-                formatNumber(averageTime) +
-                " s"
+                formatNumber(averageTime) + " s"
             );
-
 
             setText(
                 "tenMwtResultAverageSpeed",
-                formatNumber(averageSpeed) +
-                " m/s"
+                formatNumber(averageSpeed) + " m/s"
             );
-
 
             setText(
                 "tenMwtPrimaryResult",
-                formatNumber(averageSpeed) +
-                " m/s"
+                formatNumber(averageSpeed) + " m/s"
             );
-
 
             setText(
                 "tenMwtAttemptNote",
@@ -764,63 +732,72 @@ if (tenMwtCalculator) {
 
             if (baseline === null) {
 
-                tenMwtChangeRow.hidden =
-                    true;
+                tenMwtChangeRow.hidden = true;
 
- tenMwtChangeDescription.textContent =
-        "";
+                tenMwtChangeDescription.textContent = "";
 
-           } else {
+            } else {
 
-    const absoluteChange =
-        averageSpeed - baseline;
+                const absoluteChange =
+                    averageSpeed - baseline;
 
-   const roundedChange =
-    Number(absoluteChange.toFixed(2));
-   
-        const changePrefix =
-        absoluteChange > 0
-            ? "+"
-            : "";
+                const roundedChange =
+                    Number(absoluteChange.toFixed(2));
 
-    let changeDescription = "";
+                const changePrefix =
+                    absoluteChange > 0 ? "+" : "";
 
-    if (roundedChange > 0) {
+                let changeDescription = "";
 
-        changeDescription =
-            "La velocidad actual es mayor que la registrada previamente.";
+                if (roundedChange > 0) {
 
-    } else if (roundedChange < 0) {
+                    changeDescription =
+                        "La velocidad actual es mayor que la registrada previamente.";
 
-        changeDescription =
-            "La velocidad actual es menor que la registrada previamente.";
+                } else if (roundedChange < 0) {
 
-    } else {
+                    changeDescription =
+                        "La velocidad actual es menor que la registrada previamente.";
 
-        changeDescription =
-            "La velocidad actual es igual a la registrada previamente.";
+                } else {
 
-    }
+                    changeDescription =
+                        "La velocidad actual es igual a la registrada previamente.";
 
-    setText(
-        "tenMwtResultChange",
-        changePrefix +
-        formatNumber(absoluteChange) +
-        " m/s"
-    );
+                }
 
-    tenMwtChangeDescription.textContent =
-        changeDescription;
+                setText(
+                    "tenMwtResultChange",
+                    changePrefix +
+                    formatNumber(absoluteChange) +
+                    " m/s"
+                );
 
-    tenMwtChangeRow.hidden =
-        false;
+                tenMwtChangeDescription.textContent =
+                    changeDescription;
 
-}
+                tenMwtChangeRow.hidden = false;
+
+            }
+
+
+            /* ==========================================
+            INTERPRETACIÓN CLÍNICA
+            ========================================== */
+
+            updateTenMwtInterpretation(
+                averageSpeed,
+                tenMwtMode.value
+            );
+
+
+            /* ==========================================
+            MOSTRAR RESULTADOS
+            ========================================== */
 
             clearValidation();
 
-            tenMwtResults.hidden =
-                false;
+            tenMwtResults.hidden = false;
 
         }
     );
