@@ -26,8 +26,7 @@
     <style>
         /* =========================================================
            HERRAMIENTA DIGITAL 6MWT
-           Estilos locales para no depender de modificaciones
-           obligatorias en estilos.css.
+           Estilos locales con la paleta de NeuroRehab
            ========================================================= */
 
         .sixmwt-tool {
@@ -36,17 +35,17 @@
             border-radius: 18px;
             overflow: hidden;
             background: #ffffff;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(20, 167, 157, 0.15);
+            box-shadow: 0 12px 35px rgba(7, 26, 51, 0.08);
+            border: 1px solid rgba(47, 128, 237, 0.15);
         }
 
         .sixmwt-tool-header {
             padding: 32px;
             background: linear-gradient(
                 135deg,
-                #0b5960 0%,
-                #147f82 55%,
-                #14a79d 100%
+                #071A33 0%,
+                #0B3A70 55%,
+                #2F80ED 100%
             );
             color: #ffffff;
         }
@@ -95,12 +94,12 @@
         .sixmwt-field label {
             font-size: 0.86rem;
             font-weight: 700;
-            color: #173b40;
+            color: #071A33;
         }
 
         .sixmwt-field small {
             font-size: 0.76rem;
-            color: #65777a;
+            color: #596777;
         }
 
         .sixmwt-field input,
@@ -109,10 +108,10 @@
             width: 100%;
             box-sizing: border-box;
             padding: 12px 14px;
-            border: 1px solid #cbd9da;
+            border: 1px solid #CBD7E3;
             border-radius: 9px;
             background: #ffffff;
-            color: #173b40;
+            color: #172033;
             font: inherit;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
@@ -126,14 +125,14 @@
         .sixmwt-field select:focus,
         .sixmwt-field textarea:focus {
             outline: none;
-            border-color: #14a79d;
-            box-shadow: 0 0 0 3px rgba(20, 167, 157, 0.12);
+            border-color: #2F80ED;
+            box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.12);
         }
 
         .sixmwt-divider {
             height: 1px;
             margin: 30px 0;
-            background: #e4eeee;
+            background: #E3EAF2;
         }
 
         .sixmwt-status {
@@ -144,8 +143,8 @@
             margin-bottom: 24px;
             padding: 18px 20px;
             border-radius: 12px;
-            background: #f1f8f7;
-            border: 1px solid #d5e9e7;
+            background: #EAF3FF;
+            border: 1px solid #D7E8FA;
         }
 
         .sixmwt-status-label {
@@ -153,13 +152,13 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #527074;
+            color: #4A6280;
         }
 
         .sixmwt-status-value {
             font-size: 1.1rem;
             font-weight: 800;
-            color: #0b5960;
+            color: #0B3A70;
         }
 
         .sixmwt-timer {
@@ -169,7 +168,7 @@
             margin-bottom: 25px;
             padding: 25px;
             border-radius: 16px;
-            background: #102f33;
+            background: #071A33;
             color: #ffffff;
             text-align: center;
         }
@@ -192,7 +191,7 @@
 
         .sixmwt-timer-state {
             margin-top: 12px;
-            color: #b9d7d8;
+            color: #B8CEE5;
             font-size: 0.9rem;
         }
 
@@ -225,23 +224,39 @@
         }
 
         .sixmwt-btn-primary {
-            background: #14a79d;
+            background: #2F80ED;
             color: #ffffff;
+        }
+
+        .sixmwt-btn-primary:hover {
+            background: #1769CC;
         }
 
         .sixmwt-btn-secondary {
-            background: #e7f1f1;
-            color: #16464a;
+            background: #EAF3FF;
+            color: #0B3A70;
+        }
+
+        .sixmwt-btn-secondary:hover {
+            background: #D7E8FA;
         }
 
         .sixmwt-btn-danger {
-            background: #8b3940;
+            background: #C62828;
             color: #ffffff;
         }
 
+        .sixmwt-btn-danger:hover {
+            background: #9E2929;
+        }
+
         .sixmwt-btn-dark {
-            background: #173b40;
+            background: #071A33;
             color: #ffffff;
+        }
+
+        .sixmwt-btn-dark:hover {
+            background: #0B3A70;
         }
 
         .sixmwt-measure-grid {
@@ -253,15 +268,15 @@
 
         .sixmwt-measure-card {
             padding: 20px;
-            border: 1px solid #dce9e9;
+            border: 1px solid #DFE7EF;
             border-radius: 12px;
-            background: #fbfdfd;
+            background: #F8FAFC;
         }
 
         .sixmwt-measure-card span {
             display: block;
             margin-bottom: 8px;
-            color: #6b7f81;
+            color: #667687;
             font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -270,7 +285,7 @@
 
         .sixmwt-measure-card strong {
             display: block;
-            color: #0b5960;
+            color: #0B3A70;
             font-size: 1.7rem;
             line-height: 1.1;
         }
@@ -286,8 +301,8 @@
             margin-top: 30px;
             padding: 26px;
             border-radius: 14px;
-            background: #eef8f6;
-            border: 1px solid #bfe1dc;
+            background: #EAF3FF;
+            border: 1px solid #C9DCF4;
         }
 
         .sixmwt-result.visible {
@@ -296,7 +311,7 @@
 
         .sixmwt-result h4 {
             margin: 0 0 18px;
-            color: #0b5960;
+            color: #0B3A70;
             font-size: 1.3rem;
         }
 
@@ -317,22 +332,22 @@
             display: block;
             margin-bottom: 5px;
             font-size: 0.76rem;
-            color: #63787b;
+            color: #667687;
             text-transform: uppercase;
             font-weight: 700;
         }
 
         .sixmwt-result-item strong {
-            color: #173b40;
+            color: #172033;
             font-size: 1.25rem;
         }
 
         .sixmwt-note {
             margin-top: 20px;
             padding: 15px 17px;
-            border-left: 4px solid #14a79d;
+            border-left: 4px solid #2F80ED;
             background: #ffffff;
-            color: #536a6d;
+            color: #465568;
             font-size: 0.88rem;
         }
 
@@ -341,9 +356,9 @@
             margin: 18px 0;
             padding: 14px 16px;
             border-radius: 9px;
-            background: #fff5e6;
-            border: 1px solid #f0d19c;
-            color: #694d20;
+            background: #FFF5E6;
+            border: 1px solid #F0D19C;
+            color: #694D20;
             font-size: 0.88rem;
         }
 
@@ -351,48 +366,116 @@
             display: block;
         }
 
-        .sixmwt-stopwatch {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 25px;
-        }
-
-        .sixmwt-mini-field {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .sixmwt-mini-field label {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #365b5f;
-        }
-
-        .sixmwt-mini-field input,
-        .sixmwt-mini-field select {
-            padding: 11px 12px;
-            border: 1px solid #cbd9da;
-            border-radius: 8px;
-            font: inherit;
-        }
-
         .sixmwt-footnote {
             margin-top: 20px;
-            color: #667b7e;
+            color: #667687;
             font-size: 0.78rem;
             line-height: 1.6;
         }
 
-        .sixmwt-print-only {
-            display: none;
+
+        /* =========================================================
+           6MWT — INTERPRETACIÓN CLÍNICA
+           ========================================================= */
+
+        .sixmwt-interpretation {
+            margin-top: 20px;
+            padding: 22px 24px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            border-left: 5px solid #2F80ED;
+            box-shadow: 0 4px 12px rgba(7, 26, 51, 0.04);
+            transition: border-color 0.3s ease;
         }
+
+        .sixmwt-interpretation > strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #0B3A70;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .sixmwt-interpretation #sixmwtInterpretationLabel {
+            margin: 0 0 8px;
+            color: #1769CC;
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .sixmwt-interpretation #sixmwtInterpretationDescription {
+            margin: 0 0 12px;
+            color: #526173;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .sixmwt-mcid-note {
+            margin: 12px 0 0;
+            padding: 12px 16px;
+            background: #EAF2F9;
+            border-radius: 8px;
+            border-left: 3px solid #2F80ED;
+            color: #34424F;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .sixmwt-mcid-note strong {
+            color: #0B3A70;
+            font-weight: 700;
+        }
+
+
+        /* ==========================================
+           VARIANTES DE COLOR SEGÚN DISTANCIA
+           ========================================== */
+
+        /* Severamente reducido */
+        .sixmwt-interpretation.sixmwt-severe {
+            border-left-color: #C62828;
+        }
+        .sixmwt-interpretation.sixmwt-severe #sixmwtInterpretationLabel {
+            color: #C62828;
+        }
+
+        /* Moderadamente reducido */
+        .sixmwt-interpretation.sixmwt-moderate {
+            border-left-color: #E67E22;
+        }
+        .sixmwt-interpretation.sixmwt-moderate #sixmwtInterpretationLabel {
+            color: #E67E22;
+        }
+
+        /* Levemente reducido */
+        .sixmwt-interpretation.sixmwt-mild {
+            border-left-color: #F2C94C;
+        }
+        .sixmwt-interpretation.sixmwt-mild #sixmwtInterpretationLabel {
+            color: #B8860B;
+        }
+
+        /* Esperado */
+        .sixmwt-interpretation.sixmwt-expected {
+            border-left-color: #2F80ED;
+        }
+        .sixmwt-interpretation.sixmwt-expected #sixmwtInterpretationLabel {
+            color: #2F80ED;
+        }
+
+        /* Superior */
+        .sixmwt-interpretation.sixmwt-high {
+            border-left-color: #27AE60;
+        }
+        .sixmwt-interpretation.sixmwt-high #sixmwtInterpretationLabel {
+            color: #27AE60;
+        }
+
 
         /* =========================================================
            6MWT — PANEL DE RESULTADOS COPIABLE
-           Neutraliza el wrapper .calc-results-panel
-           para mantener la apariencia de la tarjeta interna
            ========================================================= */
 
         #sixmwtResults.calc-results-panel {
@@ -427,8 +510,7 @@
         @media (max-width: 760px) {
             .sixmwt-grid,
             .sixmwt-measure-grid,
-            .sixmwt-result-main,
-            .sixmwt-stopwatch {
+            .sixmwt-result-main {
                 grid-template-columns: 1fr;
             }
 
@@ -1230,6 +1312,43 @@
                     </div>
 
 
+                    <!-- INTERPRETACIÓN CLÍNICA -->
+
+                    <div
+                        id="sixmwtInterpretationBox"
+                        class="sixmwt-interpretation"
+                    >
+
+                        <strong>
+                            Interpretación clínica
+                        </strong>
+
+                        <p
+                            id="sixmwtInterpretationLabel"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                        >
+                            Complete la evaluación para obtener la interpretación.
+                        </p>
+
+                        <p id="sixmwtInterpretationDescription">
+                            La interpretación aparecerá al calcular el resultado.
+                        </p>
+
+                        <p
+                            id="sixmwtMcidNote"
+                            class="sixmwt-mcid-note"
+                            hidden
+                        >
+                            <strong>MCID:</strong>
+                            un cambio ≥34 m entre evaluaciones en personas
+                            con ACV puede considerarse clínicamente relevante.
+                        </p>
+
+                    </div>
+
+
                     <!-- BOTONES COPIAR / IMPRIMIR -->
 
                     <div class="calc-result-actions">
@@ -1404,7 +1523,8 @@
         </div>
 
         <p>
-            El objetivo principal del 6MWT es determinar la distancia            que una persona puede caminar en seis minutos bajo
+            El objetivo principal del 6MWT es determinar la distancia
+            que una persona puede caminar en seis minutos bajo
             condiciones estandarizadas.
         </p>
 
@@ -2288,6 +2408,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const finalDevice = document.getElementById("finalDevice");
     const finalRpe = document.getElementById("finalRpe");
 
+    const sixmwtInterpretationBox = document.getElementById("sixmwtInterpretationBox");
+    const sixmwtInterpretationLabel = document.getElementById("sixmwtInterpretationLabel");
+    const sixmwtInterpretationDescription = document.getElementById("sixmwtInterpretationDescription");
+    const sixmwtMcidNote = document.getElementById("sixmwtMcidNote");
+
 
     /* =====================================================
        FECHA ACTUAL
@@ -2451,6 +2576,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       INTERPRETACIÓN CLÍNICA — POR DISTANCIA (ACV)
+       (Eng et al., 2004 / Flansbjer et al., 2005)
+       ===================================================== */
+
+    function interpretSixMwtDistance(distance) {
+
+        if (distance < 150) {
+            return {
+                label: "Distancia severamente reducida",
+                className: "sixmwt-severe",
+                description:
+                    "La distancia recorrida se encuentra notablemente por " +
+                    "debajo de los valores esperados para personas con ACV. " +
+                    "Sugiere una importante limitación de la capacidad " +
+                    "funcional de marcha. Se recomienda priorizar el " +
+                    "entrenamiento de la resistencia, el control postural " +
+                    "y la prevención de caídas."
+            };
+        }
+
+        if (distance < 250) {
+            return {
+                label: "Distancia moderadamente reducida",
+                className: "sixmwt-moderate",
+                description:
+                    "La distancia recorrida se encuentra por debajo de los " +
+                    "valores esperados para personas con ACV. Puede reflejar " +
+                    "una limitación moderada de la capacidad funcional. " +
+                    "Se recomienda entrenamiento progresivo de la marcha " +
+                    "y la resistencia."
+            };
+        }
+
+        if (distance < 350) {
+            return {
+                label: "Distancia levemente reducida",
+                className: "sixmwt-mild",
+                description:
+                    "La distancia recorrida se encuentra en un rango " +
+                    "intermedio. Puede ser útil combinar entrenamiento " +
+                    "funcional de la marcha, resistencia y velocidad " +
+                    "progresiva."
+            };
+        }
+
+        if (distance < 450) {
+            return {
+                label: "Distancia esperada en ACV",
+                className: "sixmwt-expected",
+                description:
+                    "La distancia recorrida se encuentra dentro del rango " +
+                    "esperado para personas con ACV. Es posible mantener y " +
+                    "optimizar la función con entrenamiento regular de la " +
+                    "marcha y la resistencia."
+            };
+        }
+
+        return {
+            label: "Distancia superior al esperado en ACV",
+            className: "sixmwt-high",
+            description:
+                "La distancia recorrida supera los valores habitualmente " +
+                "observados en personas con ACV. Refleja un buen desempeño " +
+                "funcional. Se recomienda mantener la actividad física y " +
+                "el entrenamiento regular."
+        };
+    }
+
+
+    function updateSixMwtInterpretation(distance) {
+
+        if (!sixmwtInterpretationBox ||
+            !sixmwtInterpretationLabel ||
+            !sixmwtInterpretationDescription) {
+            return;
+        }
+
+        const interpretation = interpretSixMwtDistance(distance);
+
+        sixmwtInterpretationLabel.textContent = interpretation.label;
+        sixmwtInterpretationDescription.textContent = interpretation.description;
+
+        sixmwtInterpretationBox.classList.remove(
+            "sixmwt-severe",
+            "sixmwt-moderate",
+            "sixmwt-mild",
+            "sixmwt-expected",
+            "sixmwt-high"
+        );
+
+        sixmwtInterpretationBox.classList.add(interpretation.className);
+
+        if (sixmwtMcidNote) {
+            sixmwtMcidNote.hidden = false;
+        }
+    }
+
+
+    /* =====================================================
        RESULTADO
        ===================================================== */
 
@@ -2462,20 +2686,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const data = updateDistance();
 
-        finalDistance.textContent =
-            `${data.distance.toFixed(1)} m`;
+        finalDistance.textContent = `${data.distance.toFixed(1)} m`;
 
-        finalTime.textContent =
-            formatTime(elapsedSeconds);
+        finalTime.textContent = formatTime(elapsedSeconds);
 
-        finalLaps.textContent =
-            data.laps;
+        finalLaps.textContent = data.laps;
 
-        finalPauses.textContent =
-            Number.parseInt(pauseCount.value, 10) || 0;
+        finalPauses.textContent = Number.parseInt(pauseCount.value, 10) || 0;
 
-        finalDevice.textContent =
-            assistiveDevice.value || "No registrado";
+        finalDevice.textContent = assistiveDevice.value || "No registrado";
 
         finalRpe.textContent =
             perceivedExertion.value !== ""
@@ -2484,6 +2703,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         finalResult.classList.add("visible");
 
+        updateSixMwtInterpretation(data.distance);
     }
 
 
@@ -2514,8 +2734,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resumeBtn.disabled = true;
         finishBtn.disabled = false;
 
-        testStatus.textContent =
-            "Prueba en curso";
+        testStatus.textContent = "Prueba en curso";
 
         timerState.textContent =
             "La prueba está activa. Registre las vueltas y pausas según corresponda.";
@@ -2565,14 +2784,12 @@ document.addEventListener("DOMContentLoaded", function () {
         pauseBtn.disabled = true;
         resumeBtn.disabled = false;
 
-        testStatus.textContent =
-            "Prueba pausada";
+        testStatus.textContent = "Prueba pausada";
 
         timerState.textContent =
             "Cronómetro pausado. Reanude cuando corresponda.";
 
-        const currentPauses =
-            Number.parseInt(pauseCount.value, 10) || 0;
+        const currentPauses = Number.parseInt(pauseCount.value, 10) || 0;
 
         pauseCount.value = currentPauses + 1;
 
@@ -2594,11 +2811,9 @@ document.addEventListener("DOMContentLoaded", function () {
         pauseBtn.disabled = false;
         resumeBtn.disabled = true;
 
-        testStatus.textContent =
-            "Prueba en curso";
+        testStatus.textContent = "Prueba en curso";
 
-        timerState.textContent =
-            "La prueba está activa.";
+        timerState.textContent = "La prueba está activa.";
 
     }
 
@@ -2630,16 +2845,13 @@ document.addEventListener("DOMContentLoaded", function () {
             remainingSeconds = 0;
             elapsedSeconds = TOTAL_SECONDS;
 
-            testStatus.textContent =
-                "Prueba completada";
+            testStatus.textContent = "Prueba completada";
 
-            timerState.textContent =
-                "Se completaron los seis minutos.";
+            timerState.textContent = "Se completaron los seis minutos.";
 
         } else {
 
-            testStatus.textContent =
-                "Prueba finalizada";
+            testStatus.textContent = "Prueba finalizada";
 
             timerState.textContent =
                 "La evaluación fue finalizada manualmente.";
@@ -2682,8 +2894,7 @@ document.addEventListener("DOMContentLoaded", function () {
         perceivedExertion.value = "";
         clinicalObservations.value = "";
 
-        testStatus.textContent =
-            "Preparada para iniciar";
+        testStatus.textContent = "Preparada para iniciar";
 
         timerState.textContent =
             'Presione "Iniciar prueba" cuando la persona esté preparada.';
@@ -2708,9 +2919,7 @@ document.addEventListener("DOMContentLoaded", function () {
        ===================================================== */
 
     startBtn.addEventListener("click", startTest);
-
     pauseBtn.addEventListener("click", pauseTest);
-
     resumeBtn.addEventListener("click", resumeTest);
 
     finishBtn.addEventListener("click", function () {
@@ -2718,15 +2927,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     calculateBtn.addEventListener("click", updateResult);
-
     resetBtn.addEventListener("click", resetTest);
 
 
-    [
-        circuitLength,
-        completedLaps,
-        extraDistance
-    ].forEach(function (element) {
+    [circuitLength, completedLaps, extraDistance].forEach(function (element) {
 
         element.addEventListener("input", function () {
 
