@@ -7651,11 +7651,13 @@ footer p:last-child {
 
 @media print {
 
-    /* ---- Resetear márgenes del body ---- */
+    /* ---- Configuración de página ---- */
 
     @page {
         margin: 15mm;
     }
+
+    /* ---- Resetear estilos base ---- */
 
     html,
     body {
@@ -7664,23 +7666,13 @@ footer p:last-child {
         background: #FFFFFF !important;
         color: #000000 !important;
         font-size: 12pt;
+        visibility: visible !important;
     }
 
-    /* ---- Ocultar TODO con display: none ---- */
+    /* ---- Ocultar TODO el contenido de la página ---- */
 
-    body > *:not(.print-root) {
-        display: none !important;
-    }
-
-    /* ---- Restaurar el contenedor principal ---- */
-
-    body > main,
-    body > .article-container,
-    body > .navbar,
-    body > .breadcrumb,
-    body > .page-hero,
-    body > footer {
-        display: none !important;
+    body * {
+        visibility: hidden;
     }
 
     /* ---- Mostrar SOLO el panel de resultados ---- */
@@ -7701,24 +7693,7 @@ footer p:last-child {
     #asiaResults,
     #hughesResults,
     #megosResults,
-    #cpResults {
-        display: block !important;
-        visibility: visible !important;
-        position: static !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 20px !important;
-        box-shadow: none !important;
-        border: 1px solid #CCC !important;
-        page-break-inside: avoid;
-        page-break-after: avoid;
-        background: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    /* ---- Restaurar visibilidad de los hijos del panel ---- */
-
+    #cpResults,
     .calc-results-panel *,
     .barthel-results *,
     #tugResults *,
@@ -7737,7 +7712,39 @@ footer p:last-child {
     #megosResults *,
     #cpResults * {
         visibility: visible !important;
+    }
+
+    /* ---- Posicionar el panel al inicio de la página ---- */
+
+    .calc-results-panel,
+    .barthel-results,
+    #tugResults,
+    #frtResults,
+    #tenMwtResults,
+    #fstsResults,
+    #gcsResults,
+    #ranchoResults,
+    #mdsUpdrsResults,
+    #alsfrsResults,
+    #mgAdlResults,
+    #pdms2Results,
+    #motricityResults,
+    #asiaResults,
+    #hughesResults,
+    #megosResults,
+    #cpResults {
+        position: absolute !important;
+        left: 0 !important;
+        top: 60px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+        border: 1px solid #999 !important;
+        background: #FFFFFF !important;
         color: #000000 !important;
+        page-break-inside: avoid;
     }
 
     /* ---- Ocultar botones de acción dentro del panel ---- */
@@ -7746,6 +7753,7 @@ footer p:last-child {
     .calc-actions,
     .calc-btn-reset {
         display: none !important;
+        visibility: hidden !important;
     }
 
     /* ---- Ajustes de tabla ---- */
@@ -7789,5 +7797,10 @@ footer p:last-child {
         margin-bottom: 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #000;
+        visibility: visible !important;
+        position: absolute;
+        top: 15mm;
+        left: 15mm;
+        right: 15mm;
     }
 }
