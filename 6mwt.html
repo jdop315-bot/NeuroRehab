@@ -389,6 +389,19 @@
             display: none;
         }
 
+        /* =========================================================
+           6MWT — PANEL DE RESULTADOS COPIABLE
+           Neutraliza el wrapper .calc-results-panel
+           para mantener la apariencia de la tarjeta interna
+           ========================================================= */
+
+        #sixmwtResults.calc-results-panel {
+            padding: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
         @media print {
             body * {
                 visibility: hidden !important;
@@ -1103,13 +1116,21 @@
                 <div class="sixmwt-divider"></div>
 
 
-                <!-- RESULTADO -->
+                <!-- ==========================================
+                     RESULTADO (PANEL COPIABLE)
+                     ========================================== -->
 
                 <div
-                    class="sixmwt-result"
-                    id="finalResult"
+                    id="sixmwtResults"
+                    class="calc-results-panel sixmwt-result"
+                    role="region"
                     aria-live="polite"
+                    aria-labelledby="sixmwtResultsTitle"
                 >
+
+                    <h3 id="sixmwtResultsTitle" class="sr-only">
+                        Resultados del 6 Minute Walk Test
+                    </h3>
 
                     <h4>
                         Resultado de la evaluación
@@ -1208,6 +1229,38 @@
 
                     </div>
 
+
+                    <!-- BOTONES COPIAR / IMPRIMIR -->
+
+                    <div class="calc-result-actions">
+
+                        <button
+                            type="button"
+                            class="calc-copy-btn"
+                            data-target="sixmwtResults"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                            Copiar resultados
+                        </button>
+
+                        <button
+                            type="button"
+                            class="calc-print-btn"
+                            data-target="sixmwtResults"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9V2h12v7"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect width="12" height="8" x="6" y="14"/>
+                            </svg>
+                            Imprimir
+                        </button>
+
+                    </div>
+
                 </div>
 
 
@@ -1221,14 +1274,6 @@
                         id="calculateBtn"
                     >
                         Actualizar resultado
-                    </button>
-
-                    <button
-                        type="button"
-                        class="sixmwt-btn sixmwt-btn-dark"
-                        id="printBtn"
-                    >
-                        Imprimir / guardar PDF
                     </button>
 
                     <button
@@ -1359,8 +1404,7 @@
         </div>
 
         <p>
-            El objetivo principal del 6MWT es determinar la distancia
-            que una persona puede caminar en seis minutos bajo
+            El objetivo principal del 6MWT es determinar la distancia            que una persona puede caminar en seis minutos bajo
             condiciones estandarizadas.
         </p>
 
@@ -2218,7 +2262,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const resetBtn = document.getElementById("resetBtn");
     const calculateBtn = document.getElementById("calculateBtn");
-    const printBtn = document.getElementById("printBtn");
 
     const circuitLength = document.getElementById("circuitLength");
     const completedLaps = document.getElementById("completedLaps");
@@ -2230,7 +2273,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const distanceDisplay = document.getElementById("distanceDisplay");
 
     const toolAlert = document.getElementById("toolAlert");
-    const finalResult = document.getElementById("finalResult");
+    const finalResult = document.getElementById("sixmwtResults");
 
     const patientName = document.getElementById("patientName");
     const evaluationDate = document.getElementById("evaluationDate");
@@ -2678,18 +2721,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     resetBtn.addEventListener("click", resetTest);
 
-    printBtn.addEventListener("click", function () {
-
-        updateResult();
-
-        if (!finalResult.classList.contains("visible")) {
-            return;
-        }
-
-        window.print();
-
-    });
-
 
     [
         circuitLength,
@@ -2776,6 +2807,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </button>
 
 </body> 
-
 
 </html>

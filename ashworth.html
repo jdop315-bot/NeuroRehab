@@ -1089,9 +1089,22 @@
         </div>
 
 
-        <!-- RESULTADOS -->
+        <!-- ====================================
+             RESULTADOS (PANEL COPIABLE)
+             ==================================== -->
 
-        <div class="ashworth-results">
+        <div
+            id="ashworthResults"
+            class="calc-results-panel ashworth-results"
+            role="region"
+            aria-live="polite"
+            aria-labelledby="ashworthResultsTitle"
+        >
+
+            <h3 id="ashworthResultsTitle" class="sr-only">
+                Resultados del registro Ashworth
+            </h3>
+
 
             <div class="ashworth-results-header">
 
@@ -1244,6 +1257,38 @@
                     </p>
 
                 </div>
+
+            </div>
+
+
+            <!-- BOTONES COPIAR / IMPRIMIR -->
+
+            <div class="calc-result-actions">
+
+                <button
+                    type="button"
+                    class="calc-copy-btn"
+                    data-target="ashworthResults"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                    Copiar resultados
+                </button>
+
+                <button
+                    type="button"
+                    class="calc-print-btn"
+                    data-target="ashworthResults"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9V2h12v7"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect width="12" height="8" x="6" y="14"/>
+                    </svg>
+                    Imprimir
+                </button>
 
             </div>
 
@@ -1484,13 +1529,23 @@
             </div>
 
 
-            <!-- RESULTADO -->
+            <!-- ====================================
+                 RESULTADO (PANEL COPIABLE)
+                 ==================================== -->
 
             <div
-                class="mas-result"
-                id="masResult"
+                id="masResults"
+                class="calc-results-panel mas-result"
+                role="region"
+                aria-live="polite"
+                aria-labelledby="masResultsTitle"
                 hidden
             >
+
+                <h3 id="masResultsTitle" class="sr-only">
+                    Resultados del registro MAS
+                </h3>
+
 
                 <div class="mas-result-header">
 
@@ -1583,6 +1638,38 @@
                     percibida durante el movimiento pasivo. La puntuación
                     debe interpretarse junto con otros hallazgos del examen
                     motor y funcional.
+
+                </div>
+
+
+                <!-- BOTONES COPIAR / IMPRIMIR -->
+
+                <div class="calc-result-actions">
+
+                    <button
+                        type="button"
+                        class="calc-copy-btn"
+                        data-target="masResults"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                        </svg>
+                        Copiar resultados
+                    </button>
+
+                    <button
+                        type="button"
+                        class="calc-print-btn"
+                        data-target="masResults"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9V2h12v7"/>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                            <rect width="12" height="8" x="6" y="14"/>
+                        </svg>
+                        Imprimir
+                    </button>
 
                 </div>
 
@@ -2165,7 +2252,7 @@
     </svg>
 </button>
 
-</body> 
+</body>
 
 
 

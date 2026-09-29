@@ -16,7 +16,7 @@
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 
-<link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos.css">
 
     <script src="script.js" defer></script>
 
@@ -1497,9 +1497,7 @@
 
 
 
-    <!-- ========================================
-         RESUMEN DE DOMINIOS
-    ======================================== -->
+    <!-- RESUMEN DE DOMINIOS -->
 
     <div class="fma-subtotals">
 
@@ -1595,16 +1593,12 @@
 
 
 
-    <!-- ========================================
-         CONTENEDOR DE LA CALCULADORA
-    ======================================== -->
+    <!-- CONTENEDOR DE LA CALCULADORA -->
 
     <div id="fmaCalculator">
 
 
-        <!-- ====================================
-             DOMINIO A
-        ==================================== -->
+        <!-- DOMINIO A -->
 
         <div
             class="fma-domain"
@@ -1706,9 +1700,7 @@
 
 
 
-        <!-- ====================================
-             DOMINIO B
-        ==================================== -->
+        <!-- DOMINIO B -->
 
         <div
             class="fma-domain"
@@ -1753,9 +1745,7 @@
 
 
 
-        <!-- ====================================
-             DOMINIO C
-        ==================================== -->
+        <!-- DOMINIO C -->
 
         <div
             class="fma-domain"
@@ -1800,9 +1790,7 @@
 
 
 
-        <!-- ====================================
-             DOMINIO D
-        ==================================== -->
+        <!-- DOMINIO D -->
 
         <div
             class="fma-domain"
@@ -1845,9 +1833,7 @@
 
 
 
-            <!-- ==================================
-                 REGISTRO DE TIEMPOS
-            ================================== -->
+            <!-- REGISTRO DE TIEMPOS -->
 
             <div class="fma-timing-panel">
 
@@ -1916,40 +1902,136 @@
 
 
     <!-- ========================================
-         RESULTADO FINAL
+         RESULTADOS FMA-UE (panel copiable/imprimible)
     ======================================== -->
 
-    <div class="fma-result-card">
+    <div
+        id="fmaUeResults"
+        class="calc-results-panel fma-results-panel"
+        role="region"
+        aria-live="polite"
+        aria-labelledby="fmaUeResultsTitle"
+    >
 
-        <div>
+        <h3 id="fmaUeResultsTitle" class="sr-only">
+            Resultados FMA-UE
+        </h3>
+
+
+        <!-- RESULTADO FINAL -->
+
+        <div class="fma-result-card">
+
+            <div>
+
+                <span>
+                    RESULTADO FMA-UE
+                </span>
+
+                <h3>
+                    Función motora del miembro superior
+                </h3>
+
+                <p
+                    id="fmaResultMessage"
+                    aria-live="polite"
+                >
+                    Complete los ítems para obtener el resultado.
+                </p>
+
+            </div>
+
+
+            <div class="fma-result-score">
+
+                <strong id="fmaFinalScore">
+                    0
+                </strong>
+
+                <span>
+                    / 66
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PORCENTAJE -->
+
+        <div class="fma-final-percentage">
 
             <span>
-                RESULTADO FMA-UE
+                Porcentaje del máximo
             </span>
 
-            <h3>
-                Función motora del miembro superior
-            </h3>
+            <strong id="fmaPercentage">
+                0 %
+            </strong>
 
-            <p
-                id="fmaResultMessage"
-                aria-live="polite"
-            >
-                Complete los ítems para obtener el resultado.
+        </div>
+
+
+
+        <!-- MENSAJE DE COMPLETITUD -->
+
+        <div
+            id="fmaCompletionMessage"
+            class="fma-completion-message"
+            aria-live="polite"
+        >
+            Complete los ítems para obtener el resultado final.
+        </div>
+
+
+
+        <!-- AVISO -->
+
+        <div class="fma-disclaimer">
+
+            <strong>
+                Uso clínico responsable
+            </strong>
+
+            <p>
+                Esta herramienta facilita el registro y cálculo
+                de puntuaciones. No reemplaza la formación del
+                evaluador, el protocolo oficial ni el juicio clínico.
             </p>
 
         </div>
 
 
-        <div class="fma-result-score">
 
-            <strong id="fmaFinalScore">
-                0
-            </strong>
+        <!-- BOTONES COPIAR / IMPRIMIR -->
 
-            <span>
-                / 66
-            </span>
+        <div class="calc-result-actions">
+
+            <button
+                type="button"
+                class="calc-copy-btn"
+                data-target="fmaUeResults"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+                Copiar resultados
+            </button>
+
+            <button
+                type="button"
+                class="calc-print-btn"
+                data-target="fmaUeResults"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9V2h12v7"/>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect width="12" height="8" x="6" y="14"/>
+                </svg>
+                Imprimir
+            </button>
 
         </div>
 
@@ -1957,41 +2039,7 @@
 
 
 
-    <!-- ========================================
-         PORCENTAJE
-    ======================================== -->
-
-    <div class="fma-final-percentage">
-
-        <span>
-            Porcentaje del máximo
-        </span>
-
-        <strong id="fmaPercentage">
-            0 %
-        </strong>
-
-    </div>
-
-
-
-    <!-- ========================================
-         MENSAJE DE COMPLETITUD
-    ======================================== -->
-
-    <div
-        id="fmaCompletionMessage"
-        class="fma-completion-message"
-        aria-live="polite"
-    >
-        Complete los ítems para obtener el resultado final.
-    </div>
-
-
-
-    <!-- ========================================
-         ACCIONES
-    ======================================== -->
+    <!-- ACCIONES -->
 
     <div class="fma-actions">
 
@@ -2005,27 +2053,9 @@
 
     </div>
 
-
-
-    <!-- ========================================
-         AVISO
-    ======================================== -->
-
-    <div class="fma-disclaimer">
-
-        <strong>
-            Uso clínico responsable
-        </strong>
-
-        <p>
-            Esta herramienta facilita el registro y cálculo
-            de puntuaciones. No reemplaza la formación del
-            evaluador, el protocolo oficial ni el juicio clínico.
-        </p>
-
-    </div>
-
 </section>
+
+
 
 <!-- ========================================
      12 · CALCULADORA FMA-LE
@@ -2141,9 +2171,7 @@
 
 
 
-    <!-- ========================================
-         RESUMEN DE DOMINIOS
-    ======================================== -->
+    <!-- RESUMEN DE DOMINIOS -->
 
     <div class="fma-subtotals">
 
@@ -2217,16 +2245,12 @@
 
 
 
-    <!-- ========================================
-         CONTENEDOR DE LA CALCULADORA
-    ======================================== -->
+    <!-- CONTENEDOR DE LA CALCULADORA -->
 
     <div id="fmaLeCalculator">
 
 
-        <!-- ====================================
-             DOMINIO A — REFLEJOS Y SINERGIAS
-        ==================================== -->
+        <!-- DOMINIO A — REFLEJOS Y SINERGIAS -->
 
         <div
             class="fma-domain"
@@ -2285,10 +2309,7 @@
 
 
 
-        <!-- ====================================
-             DOMINIO B — SINERGIAS MIXTAS, MÍNIMA
-             Y REFLEJOS NORMALES
-        ==================================== -->
+        <!-- DOMINIO B — SINERGIAS MIXTAS, MÍNIMA Y REFLEJOS NORMALES -->
 
         <div
             class="fma-domain"
@@ -2361,9 +2382,7 @@
 
 
 
-        <!-- ====================================
-             DOMINIO C — COORDINACIÓN / VELOCIDAD
-        ==================================== -->
+        <!-- DOMINIO C — COORDINACIÓN / VELOCIDAD -->
 
         <div
             class="fma-domain"
@@ -2406,9 +2425,7 @@
 
 
 
-            <!-- ==================================
-                 REGISTRO DE TIEMPOS
-            ================================== -->
+            <!-- REGISTRO DE TIEMPOS -->
 
             <div class="fma-timing-panel">
 
@@ -2478,40 +2495,138 @@
 
 
     <!-- ========================================
-         RESULTADO FINAL
+         RESULTADOS FMA-LE (panel copiable/imprimible)
     ======================================== -->
 
-    <div class="fma-result-card">
+    <div
+        id="fmaLeResults"
+        class="calc-results-panel fma-results-panel"
+        role="region"
+        aria-live="polite"
+        aria-labelledby="fmaLeResultsTitle"
+    >
 
-        <div>
+        <h3 id="fmaLeResultsTitle" class="sr-only">
+            Resultados FMA-LE
+        </h3>
+
+
+        <!-- RESULTADO FINAL -->
+
+        <div class="fma-result-card">
+
+            <div>
+
+                <span>
+                    RESULTADO FMA-LE
+                </span>
+
+                <h3>
+                    Función motora del miembro inferior
+                </h3>
+
+                <p
+                    id="fmaLeResultMessage"
+                    aria-live="polite"
+                >
+                    Complete los ítems para obtener el resultado.
+                </p>
+
+            </div>
+
+
+            <div class="fma-result-score">
+
+                <strong id="fmaLeFinalScore">
+                    0
+                </strong>
+
+                <span>
+                    / 34
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PORCENTAJE -->
+
+        <div class="fma-final-percentage">
 
             <span>
-                RESULTADO FMA-LE
+                Porcentaje del máximo
             </span>
 
-            <h3>
-                Función motora del miembro inferior
-            </h3>
+            <strong id="fmaLePercentage">
+                0 %
+            </strong>
 
-            <p
-                id="fmaLeResultMessage"
-                aria-live="polite"
-            >
-                Complete los ítems para obtener el resultado.
+        </div>
+
+
+
+        <!-- MENSAJE DE COMPLETITUD -->
+
+        <div
+            id="fmaLeCompletionMessage"
+            class="fma-completion-message"
+            aria-live="polite"
+        >
+            Complete los ítems para obtener el resultado final.
+        </div>
+
+
+
+        <!-- AVISO -->
+
+        <div class="fma-disclaimer">
+
+            <strong>
+                Uso clínico responsable
+            </strong>
+
+            <p>
+                Esta herramienta facilita el registro y cálculo
+                de puntuaciones según el manual internacional
+                de la FMA-LE (2026). No reemplaza la formación
+                del evaluador, el protocolo oficial ni el juicio
+                clínico.
             </p>
 
         </div>
 
 
-        <div class="fma-result-score">
 
-            <strong id="fmaLeFinalScore">
-                0
-            </strong>
+        <!-- BOTONES COPIAR / IMPRIMIR -->
 
-            <span>
-                / 34
-            </span>
+        <div class="calc-result-actions">
+
+            <button
+                type="button"
+                class="calc-copy-btn"
+                data-target="fmaLeResults"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+                Copiar resultados
+            </button>
+
+            <button
+                type="button"
+                class="calc-print-btn"
+                data-target="fmaLeResults"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9V2h12v7"/>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect width="12" height="8" x="6" y="14"/>
+                </svg>
+                Imprimir
+            </button>
 
         </div>
 
@@ -2519,41 +2634,7 @@
 
 
 
-    <!-- ========================================
-         PORCENTAJE
-    ======================================== -->
-
-    <div class="fma-final-percentage">
-
-        <span>
-            Porcentaje del máximo
-        </span>
-
-        <strong id="fmaLePercentage">
-            0 %
-        </strong>
-
-    </div>
-
-
-
-    <!-- ========================================
-         MENSAJE DE COMPLETITUD
-    ======================================== -->
-
-    <div
-        id="fmaLeCompletionMessage"
-        class="fma-completion-message"
-        aria-live="polite"
-    >
-        Complete los ítems para obtener el resultado final.
-    </div>
-
-
-
-    <!-- ========================================
-         ACCIONES
-    ======================================== -->
+    <!-- ACCIONES -->
 
     <div class="fma-actions">
 
@@ -2567,29 +2648,9 @@
 
     </div>
 
-
-
-    <!-- ========================================
-         AVISO
-    ======================================== -->
-
-    <div class="fma-disclaimer">
-
-        <strong>
-            Uso clínico responsable
-        </strong>
-
-        <p>
-            Esta herramienta facilita el registro y cálculo
-            de puntuaciones según el manual internacional
-            de la FMA-LE (2026). No reemplaza la formación
-            del evaluador, el protocolo oficial ni el juicio
-            clínico.
-        </p>
-
-    </div>
-
 </section>
+
+
 
 <!-- ========================================
      MENSAJE FINAL
@@ -2643,7 +2704,7 @@
     </svg>
 </button>
 
-</body> 
+</body>
 
 
 

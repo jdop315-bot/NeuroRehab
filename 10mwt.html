@@ -230,49 +230,84 @@
 </button>
                 <div
     id="tenMwtResults"
-    class="coming-soon"
+    class="calc-results-panel"
     hidden
     role="region"
     aria-live="polite"
     aria-atomic="false"
     aria-labelledby="tenMwtResultsTitle"
-><h3 id="tenMwtResultsTitle" class="sr-only">
-    Resultados del 10 Meter Walk Test
-</h3>
-                    <div class="scale-table">
-                        <div class="scale-row scale-header"><span>Registro</span><span>Resultado</span></div>
-                        <div class="scale-row"><span>Modalidad</span><span id="tenMwtResultMode">—</span></div>
-                        <div class="scale-row"><span>Ayuda técnica</span><span id="tenMwtResultAid">—</span></div>
-                        <div class="scale-row"><span>Intento 1</span><span id="tenMwtResultAttempt1">—</span></div>
-                        <div class="scale-row"><span>Intento 2</span><span id="tenMwtResultAttempt2">—</span></div>
-                        <div class="scale-row"><span>Tiempo promedio</span><span id="tenMwtResultAverageTime">—</span></div>
-                        <div class="scale-row"><span>Velocidad promedio</span><span id="tenMwtResultAverageSpeed">—</span></div>
-                        <div class="scale-row" id="tenMwtChangeRow" hidden><span>Cambio absoluto</span><span id="tenMwtResultChange">—</span></div>
-                    </div>
-                    <div class="coming-soon">
-    <strong id="tenMwtPrimaryResultLabel">
-        Velocidad promedio
-    </strong>
+>
 
-    <p
-        id="tenMwtPrimaryResult"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-    >
-        —
-    </p>
+    <h3 id="tenMwtResultsTitle" class="sr-only">
+        Resultados del 10 Meter Walk Test
+    </h3>
 
-    <p id="tenMwtAttemptNote"></p>
+    <div class="scale-table">
+        <div class="scale-row scale-header"><span>Registro</span><span>Resultado</span></div>
+        <div class="scale-row"><span>Modalidad</span><span id="tenMwtResultMode">—</span></div>
+        <div class="scale-row"><span>Ayuda técnica</span><span id="tenMwtResultAid">—</span></div>
+        <div class="scale-row"><span>Intento 1</span><span id="tenMwtResultAttempt1">—</span></div>
+        <div class="scale-row"><span>Intento 2</span><span id="tenMwtResultAttempt2">—</span></div>
+        <div class="scale-row"><span>Tiempo promedio</span><span id="tenMwtResultAverageTime">—</span></div>
+        <div class="scale-row"><span>Velocidad promedio</span><span id="tenMwtResultAverageSpeed">—</span></div>
+        <div class="scale-row" id="tenMwtChangeRow" hidden><span>Cambio absoluto</span><span id="tenMwtResultChange">—</span></div>
+    </div>
 
-    <p
-    id="tenMwtChangeDescription"
-    role="status"
-    aria-live="polite"
-    aria-atomic="true"
-></p>
+    <div class="coming-soon">
+        <strong id="tenMwtPrimaryResultLabel">
+            Velocidad promedio
+        </strong>
+
+        <p
+            id="tenMwtPrimaryResult"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        >
+            —
+        </p>
+
+        <p id="tenMwtAttemptNote"></p>
+
+        <p
+            id="tenMwtChangeDescription"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></p>
+    </div>
+
+    <!-- BOTONES COPIAR / IMPRIMIR -->
+    <div class="calc-result-actions">
+
+        <button
+            type="button"
+            class="calc-copy-btn"
+            data-target="tenMwtResults"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            Copiar resultados
+        </button>
+
+        <button
+            type="button"
+            class="calc-print-btn"
+            data-target="tenMwtResults"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9V2h12v7"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <rect width="12" height="8" x="6" y="14"/>
+            </svg>
+            Imprimir
+        </button>
+
+    </div>
+
 </div>
-                </div>
             </form>
         </section>
 
@@ -467,6 +502,5 @@
 </button>
 
 </body> 
-
 
 </html>

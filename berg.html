@@ -920,34 +920,82 @@
 </div>
        </div>
 
-<!-- RESULTADO -->
-<div aria-atomic="true" aria-live="polite" class="bbs-result" id="bbsResult">
-    <span class="bbs-result-label">
-        RESULTADO
-    </span>
-    <strong id="bbsInterpretation">
-        Complete las 14 tareas para obtener la interpretación.
-    </strong>
-    <p id="bbsRecommendation">
-        La interpretación debe integrarse con el contexto
-        clínico y otras medidas de movilidad y riesgo de caídas.
-    </p>
+<!-- ==========================================
+     RESULTADOS BBS (PANEL COPIABLE)
+     ========================================== -->
+<div
+    id="bergResults"
+    class="calc-results-panel"
+    role="region"
+    aria-live="polite"
+    aria-labelledby="bergResultsTitle"
+>
+
+    <h3 id="bergResultsTitle" class="sr-only">
+        Resultados de la Berg Balance Scale
+    </h3>
+
+    <div class="bbs-result" id="bbsResult">
+        <span class="bbs-result-label">
+            RESULTADO
+        </span>
+        <strong id="bbsInterpretation">
+            Complete las 14 tareas para obtener la interpretación.
+        </strong>
+        <p id="bbsRecommendation">
+            La interpretación debe integrarse con el contexto
+            clínico y otras medidas de movilidad y riesgo de caídas.
+        </p>
+    </div>
+
+    <div class="bbs-disclaimer">
+        <strong>
+            Nota clínica:
+        </strong>
+        este evaluador es una herramienta digital de apoyo
+        para el registro y cálculo de la puntuación. La
+        aplicación clínica debe realizarse siguiendo el
+        protocolo estandarizado de la BBS y los criterios
+        específicos de puntuación correspondientes a cada ítem.
+    </div>
+
+    <!-- BOTONES COPIAR / IMPRIMIR -->
+    <div class="calc-result-actions">
+
+        <button
+            type="button"
+            class="calc-copy-btn"
+            data-target="bergResults"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            Copiar resultados
+        </button>
+
+        <button
+            type="button"
+            class="calc-print-btn"
+            data-target="bergResults"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9V2h12v7"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <rect width="12" height="8" x="6" y="14"/>
+            </svg>
+            Imprimir
+        </button>
+
+    </div>
+
 </div>
+
      <!-- ACCIONES -->
      <div class="bbs-actions">
       <button class="bbs-reset-button" id="bbsReset" type="button">
        Reiniciar evaluaci&oacute;n
       </button>
-     </div>
-     <div class="bbs-disclaimer">
-      <strong>
-       Nota cl&iacute;nica:
-      </strong>
-      este evaluador es una herramienta digital de apoyo
-            para el registro y c&aacute;lculo de la puntuaci&oacute;n. La
-            aplicaci&oacute;n cl&iacute;nica debe realizarse siguiendo el
-            protocolo estandarizado de la BBS y los criterios
-            espec&iacute;ficos de puntuaci&oacute;n correspondientes a cada &iacute;tem.
      </div>
     </div>
    </section>
@@ -1597,6 +1645,5 @@
 </button>
 
 </body> 
-
 
 </html>

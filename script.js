@@ -1551,7 +1551,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("masClear");
 
     const masResult =
-        document.getElementById("masResult");
+    document.getElementById("masResults");
 
     const masResultScore =
         document.getElementById("masResultScore");
