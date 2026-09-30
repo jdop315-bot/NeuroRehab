@@ -8112,3 +8112,106 @@ footer p:last-child {
 .tenmwt-interpretation.tenmwt-normal #tenMwtInterpretationLabel {
     color: #27AE60;
 }
+/* ==========================================================
+   IMPRESIÓN — Permitir que los paneles de interpretación
+   clínica se impriman aunque tengan la clase .coming-soon
+   
+   Aplica a: FRT, Motricity, 5TSTS y cualquier otro panel
+   cuya interpretación esté envuelta en .coming-soon
+   ========================================================== */
+
+@media print {
+
+    /* ------------------------------------------
+       FORZAR VISIBILIDAD DE INTERPRETACIONES
+       DENTRO DE PANELES DE RESULTADOS
+       ------------------------------------------ */
+
+    #frtResults .coming-soon,
+    #motricityResults .coming-soon,
+    #fstsResults .coming-soon,
+    #tugResults .coming-soon,
+    #tenMwtResults .coming-soon,
+    #barthelResults .coming-soon,
+    #sixmwtResults .coming-soon,
+    #bbsResults .coming-soon,
+    #gcsResults .coming-soon,
+    #ranchoResults .coming-soon,
+    #mdsUpdrsResults .coming-soon,
+    #alsfrsResults .coming-soon,
+    #mgAdlResults .coming-soon,
+    #pdms2Results .coming-soon,
+    #asiaResults .coming-soon,
+    #hughesResults .coming-soon,
+    #megosResults .coming-soon,
+    #cpResults .coming-soon,
+    #nihssResults .coming-soon,
+    #mrsResults .coming-soon,
+    #fmaUeResults .coming-soon,
+    #fmaLeResults .coming-soon {
+
+        display: block !important;
+        visibility: visible !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #999 !important;
+        border-radius: 4px !important;
+        padding: 12px 16px !important;
+        margin: 12px 0 !important;
+    }
+
+    /* ------------------------------------------
+       PRESERVAR EL BORDE IZQUIERDO DE COLOR
+       SEGÚN LA INTERPRETACIÓN
+       ------------------------------------------ */
+
+    /* FRT */
+    #frtResults .frt-high-risk {
+        border-left: 5px solid #C62828 !important;
+    }
+    #frtResults .frt-moderate-risk {
+        border-left: 5px solid #F2C94C !important;
+    }
+    #frtResults .frt-low-risk {
+        border-left: 5px solid #27AE60 !important;
+    }
+
+    /* Motricity */
+    #motricityResults .motricity-severe {
+        border-left: 5px solid #C62828 !important;
+    }
+    #motricityResults .motricity-moderate {
+        border-left: 5px solid #F2C94C !important;
+    }
+    #motricityResults .motricity-mild {
+        border-left: 5px solid #2F80ED !important;
+    }
+    #motricityResults .motricity-normal {
+        border-left: 5px solid #27AE60 !important;
+    }
+
+    /* 5TSTS */
+    #fstsResults .fsts-low-risk {
+        border-left: 5px solid #27AE60 !important;
+    }
+    #fstsResults .fsts-moderate-risk {
+        border-left: 5px solid #F2C94C !important;
+    }
+    #fstsResults .fsts-high-risk {
+        border-left: 5px solid #C62828 !important;
+    }
+
+    /* TUG */
+    #tugResults .tug-independent {
+        border-left: 5px solid #27AE60 !important;
+    }
+    #tugResults .tug-mild {
+        border-left: 5px solid #2F80ED !important;
+    }
+    #tugResults .tug-variable {
+        border-left: 5px solid #F2C94C !important;
+    }
+    #tugResults .tug-impaired {
+        border-left: 5px solid #C62828 !important;
+    }
+}
