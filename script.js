@@ -5695,6 +5695,8 @@ if (frtCalculator) {
     const frtInterpretationDescription =
         document.getElementById("frtInterpretationDescription");
 
+    const frtMcidNote =
+    document.getElementById("frtMcidNote");
 
     /* ==========================================
     CONVERSIÓN DE DECIMALES
@@ -5758,7 +5760,9 @@ if (frtCalculator) {
 
         frtResults.hidden =
             true;
-
+    if (frtMcidNote) {
+        frtMcidNote.hidden = true;
+    }
         frtValidation.focus();
 
     }
@@ -6081,6 +6085,15 @@ if (frtCalculator) {
                     false;
 
             }
+
+                        /* ---------------------------------------------
+               MOSTRAR MCID
+               --------------------------------------------- */
+
+            if (frtMcidNote) {
+                frtMcidNote.hidden = false;
+            }
+
 
             clearFrtValidation();
 
