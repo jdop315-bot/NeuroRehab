@@ -2713,9 +2713,11 @@ if (tugCalculator) {
  
     const tugInterpretationDescription =
         document.getElementById("tugInterpretationDescription");
+
+    const tugMcidNote =
+    document.getElementById("tugMcidNote");
  
- 
-    /* ==========================================
+     /* ==========================================
     AYUDA TÉCNICA — OPCIÓN "OTRA"
     ========================================== */
  
@@ -2805,7 +2807,9 @@ if (tugCalculator) {
  
         tugResults.hidden =
             true;
- 
+     if (tugMcidNote) {
+        tugMcidNote.hidden = true;
+    }
         tugValidation.focus();
  
     }
@@ -3139,7 +3143,14 @@ if (tugCalculator) {
                     false;
  
             }
- 
+             /* ---------------------------------------------
+               MOSTRAR MCID
+               --------------------------------------------- */
+
+            if (tugMcidNote) {
+                tugMcidNote.hidden = false;
+            }
+
             clearTugValidation();
  
             tugResults.hidden =

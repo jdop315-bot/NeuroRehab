@@ -8215,3 +8215,79 @@ footer p:last-child {
         border-left: 5px solid #C62828 !important;
     }
 }
+/* ==========================================================
+   BERG — Nota MCID
+   ========================================================== */
+
+.berg-mcid-note {
+    margin: 16px 0 0;
+    padding: 14px 18px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 4px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.berg-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   BERG — Impresión del MCID
+   ========================================================== */
+
+@media print {
+    #bergResults .berg-mcid-note {
+        display: block !important;
+        visibility: visible !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #999 !important;
+        border-left: 4px solid #2F80ED !important;
+        border-radius: 4px !important;
+        padding: 12px 16px !important;
+        margin: 12px 0 !important;
+    }
+}
+/* ==========================================================
+   TUG — Nota MCID
+   ========================================================== */
+
+.tug-mcid-note {
+    margin: 16px 0 0;
+    padding: 14px 18px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 4px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.tug-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   TUG — Impresión del MCID
+   ========================================================== */
+
+@media print {
+    #tugResults .tug-mcid-note {
+        display: block !important;
+        visibility: visible !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #999 !important;
+        border-left: 4px solid #2F80ED !important;
+        border-radius: 4px !important;
+        padding: 12px 16px !important;
+        margin: 12px 0 !important;
+    }
+}
