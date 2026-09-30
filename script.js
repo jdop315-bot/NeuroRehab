@@ -2287,6 +2287,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const recommendationElement =
             document.getElementById("bbsRecommendation");
 
+            const mcidElement =
+    document.getElementById("bergMcidNote");
 
         const resetButton =
             document.getElementById("bbsReset");
@@ -2398,7 +2400,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
-
+    if (mcidElement) {
+        mcidElement.hidden = true;
+    }
                 return;
 
             }
@@ -2466,6 +2470,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             }
+        /* ---------------------------------------------
+           MOSTRAR MCID CUANDO LA EVALUACIÓN ESTÁ COMPLETA
+           --------------------------------------------- */
+
+        if (mcidElement) {
+            mcidElement.hidden = false;
+        }
 
         }
 
