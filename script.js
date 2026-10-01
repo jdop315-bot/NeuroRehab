@@ -6122,6 +6122,7 @@ function initNihssCalculator() {
     const scoreDisplay = document.getElementById("nihssTotalScore");
     const badgeDisplay = document.getElementById("nihssBadge");
     const interpDisplay = document.getElementById("nihssInterpretation");
+    const mcidDisplay = document.getElementById("nihssMcidNote");
     const completedDisplay = document.getElementById("nihssCompletedCount");
     const resetBtn = document.getElementById("nihssReset");
 
@@ -6149,7 +6150,13 @@ function initNihssCalculator() {
         if (completedDisplay) {
             completedDisplay.textContent = `${answered} de ${itemNames.length}`;
         }
+        /* ---------------------------------------------
+           OCULTAR MCID MIENTRAS SE COMPLETA
+           --------------------------------------------- */
 
+        if (mcidDisplay) {
+            mcidDisplay.hidden = true;
+        }
         if (scoreDisplay) {
             scoreDisplay.textContent = total;
         }
@@ -6189,7 +6196,13 @@ function initNihssCalculator() {
         if (interpDisplay) {
             interpDisplay.textContent = desc;
         }
+        /* ---------------------------------------------
+           MOSTRAR MCID CUANDO LA EVALUACIÓN ESTÁ COMPLETA
+           --------------------------------------------- */
 
+        if (mcidDisplay && answered === itemNames.length) {
+            mcidDisplay.hidden = false;
+        }
         if (resultPanel) {
             resultPanel.hidden = false;
         }
