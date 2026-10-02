@@ -7041,6 +7041,7 @@ function initFstsCalculator() {
     const interpretationLabel = document.getElementById("fstsInterpretationLabel");
     const interpretationDescription = document.getElementById("fstsInterpretationDescription");
     const interpretationBox = document.getElementById("fstsInterpretationBox");
+    const fstsMcidNote = document.getElementById("fstsMcidNote");
 
     function parseDecimal(value) {
         const normalized = value.trim().replace(",", ".");
@@ -7071,6 +7072,9 @@ function initFstsCalculator() {
             validation.textContent = "Ingrese un tiempo válido mayor que cero para el intento 1.";
             validation.hidden = false;
             results.hidden = true;
+             if (fstsMcidNote) {
+                fstsMcidNote.hidden = true;
+            }
             validation.focus();
             return;
         }
@@ -7079,6 +7083,9 @@ function initFstsCalculator() {
             validation.textContent = "El intento 2 debe ser un tiempo válido mayor que cero o dejarse vacío.";
             validation.hidden = false;
             results.hidden = true;
+            if (fstsMcidNote) {
+                fstsMcidNote.hidden = true;
+            }
             validation.focus();
             return;
         }
@@ -7125,6 +7132,11 @@ function initFstsCalculator() {
             "fsts-high-risk"
         );
         interpretationBox.classList.add(className);
+        /* MOSTRAR MCID */
+
+        if (fstsMcidNote) {
+            fstsMcidNote.hidden = false;
+        }
 
         results.hidden = false;
     });
