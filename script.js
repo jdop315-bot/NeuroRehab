@@ -6583,6 +6583,8 @@ function initAlsfrsCalculator() {
     const grossMotorDisplay = document.getElementById("alsfrsGrossMotor");
     const respDisplay = document.getElementById("alsfrsResp");
     const interpDisplay = document.getElementById("alsfrsInterpretation");
+    const alsfrsMcidDisplay =
+    document.getElementById("alsfrsMcidNote");
     const resetBtn = document.getElementById("alsfrsReset");
 
     const bulbarItems = ["alsfrs_1", "alsfrs_2", "alsfrs_3"];
@@ -6647,7 +6649,12 @@ function initAlsfrsCalculator() {
         if (interpDisplay) {
             interpDisplay.textContent = note;
         }
+        /* MOSTRAR MCID */
 
+        if (alsfrsMcidDisplay) {
+            alsfrsMcidDisplay.hidden = false;
+        }
+        
         if (resultPanel) resultPanel.hidden = false;
     }
 
