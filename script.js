@@ -3626,6 +3626,14 @@ if (motricityCalculator) {
                     <p>${legInterpretation.description}</p>
                 </div>
 
+                <!-- MCID -->
+                <p class="motricity-mcid-note">
+                    <strong>MCID:</strong>
+                    un cambio ≥ 10 puntos entre evaluaciones en cualquiera
+                    de las dos extremidades puede considerarse clínicamente
+                    relevante en ACV.
+                </p>
+
             `;
 
             motricityResults.hidden =
