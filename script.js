@@ -6456,6 +6456,8 @@ function initHughesCalculator() {
     const scoreDisplay = document.getElementById("hughesScore");
     const badgeDisplay = document.getElementById("hughesBadge");
     const interpDisplay = document.getElementById("hughesInterpretation");
+    const hughesMcidDisplay =
+    document.getElementById("hughesMcidNote");
     const resetBtn = document.getElementById("hughesReset");
 
     const hughesData = {
@@ -6482,6 +6484,11 @@ function initHughesCalculator() {
         }
         if (interpDisplay) {
             interpDisplay.textContent = data.desc;
+        }
+                /* MOSTRAR MCID */
+
+        if (hughesMcidDisplay) {
+            hughesMcidDisplay.hidden = false;
         }
         if (resultPanel) resultPanel.hidden = false;
     }
