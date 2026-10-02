@@ -8,15 +8,8 @@ function gtag() {
     dataLayer.push(arguments);
 }
 
+// 1. Registrar el timestamp
 gtag("js", new Date());
 
-// Esperar a que Google Analytics esté listo antes de configurar
-function initGA() {
-    if (typeof window.google_tag_manager !== "undefined") {
-        gtag("config", "G-ZX2K9FYMMW");
-    } else {
-        setTimeout(initGA, 100);
-    }
-}
-
-initGA();
+// 2. Configurar el ID de medición INMEDIATAMENTE (sincrónico)
+gtag("config", "G-ZX2K9FYMMW");
