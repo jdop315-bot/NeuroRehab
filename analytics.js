@@ -12,4 +12,4 @@ function gtag() {
 gtag("js", new Date());
 
 // 2. Configurar el ID de medición INMEDIATAMENTE (sincrónico)
-gtag("config", "G-ZX2K9FYMMWV");
+gtag("config", "G-ZX2K9FYMWV");
