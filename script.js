@@ -837,6 +837,8 @@ if (barthelCalculator) {
 
     const barthelInterpretationDescription =
         document.getElementById("barthelInterpretationDescription");
+    const barthelMcidDisplay =
+    document.getElementById("barthelMcidNote");
 
 
     /* ------------------------------------------
@@ -990,6 +992,10 @@ if (barthelCalculator) {
                 barthelResults.hidden =
                     true;
 
+                                    if (barthelMcidDisplay) {
+                    barthelMcidDisplay.hidden = true;
+                }
+
                 barthelValidation.focus();
 
                 return;
@@ -1059,6 +1065,11 @@ if (barthelCalculator) {
                 interpretation.className
             );
 
+                        /* ----- MOSTRAR MCID ----- */
+
+            if (barthelMcidDisplay) {
+                barthelMcidDisplay.hidden = false;
+            }
 
             /* ----- MOSTRAR PANEL DE RESULTADOS ----- */
 
