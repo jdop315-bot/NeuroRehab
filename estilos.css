@@ -8367,3 +8367,41 @@ footer p:last-child {
         margin: 12px 0 !important;
     }
 }
+/* ==========================================================
+   mRS — Nota MCID
+   ========================================================== */
+
+.mrs-mcid-note {
+    margin: 16px 0 0;
+    padding: 14px 18px;
+    background: #EAF2F9;
+    border-radius: 8px;
+    border-left: 4px solid #2F80ED;
+    color: #34424F;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.mrs-mcid-note strong {
+    color: #0B3A70;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   mRS — Impresión del MCID
+   ========================================================== */
+
+@media print {
+    #mrsResults .mrs-mcid-note {
+        display: block !important;
+        visibility: visible !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #999 !important;
+        border-left: 4px solid #2F80ED !important;
+        border-radius: 4px !important;
+        padding: 12px 16px !important;
+        margin: 12px 0 !important;
+    }
+}

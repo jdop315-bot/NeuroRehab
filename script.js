@@ -6232,6 +6232,7 @@ function initMrsCalculator() {
     const scoreDisplay = document.getElementById("mrsTotalScore");
     const badgeDisplay = document.getElementById("mrsBadge");
     const interpDisplay = document.getElementById("mrsInterpretation");
+    const mrsMcidDisplay = document.getElementById("mrsMcidNote");
     const resetBtn = document.getElementById("mrsReset");
 
     const mRSData = {
@@ -6259,6 +6260,13 @@ function initMrsCalculator() {
         if (interpDisplay) {
             const indepText = parseInt(val, 10) <= 2 ? "Categorizado como Resultado Favorable (Independencia Funcional)." : "Categorizado como Dependencia Funcional o Pronóstico Desfavorable.";
             interpDisplay.textContent = `${data.desc} ${indepText}`;
+        }
+                /* ---------------------------------------------
+           MOSTRAR MCID
+           --------------------------------------------- */
+
+        if (mrsMcidDisplay) {
+            mrsMcidDisplay.hidden = false;
         }
         if (resultPanel) resultPanel.hidden = false;
     }
