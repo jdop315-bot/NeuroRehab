@@ -6949,6 +6949,8 @@ function initMdsUpdrsCalculator() {
     const scoreDisplay = document.getElementById("mdsUpdrsScore");
     const badgeDisplay = document.getElementById("mdsUpdrsBadge");
     const interpDisplay = document.getElementById("mdsUpdrsInterpretation");
+    const mdsUpdrsMcidDisplay =
+    document.getElementById("mdsUpdrsMcidNote");
     const resetBtn = document.getElementById("mdsUpdrsReset");
 
     function calculateMdsUpdrs() {
@@ -6968,6 +6970,9 @@ function initMdsUpdrsCalculator() {
             if (interpDisplay) {
                 interpDisplay.textContent =
                     "Complete las 4 partes para obtener el perfil de afectación.";
+            }
+            if (mdsUpdrsMcidDisplay) {
+                mdsUpdrsMcidDisplay.hidden = true;
             }
             if (resultPanel) resultPanel.hidden = false;
             return;
@@ -7005,6 +7010,9 @@ function initMdsUpdrsCalculator() {
             badgeDisplay.textContent = category;
         }
         if (interpDisplay) interpDisplay.textContent = desc;
+                if (mdsUpdrsMcidDisplay) {
+            mdsUpdrsMcidDisplay.hidden = false;
+        }
         if (resultPanel) resultPanel.hidden = false;
     }
 
