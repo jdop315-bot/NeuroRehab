@@ -7509,3 +7509,84 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+/* ==========================================================
+   CALCULADORA ESCALA DE TINETTI (POMA)
+   ========================================================== */
+
+const tinettiCalculator = document.getElementById("tinettiForm");
+
+if (tinettiCalculator) {
+
+    const tinettiBalance = document.querySelectorAll('input[name="tinetti_balance"]');
+    const tinettiGait = document.querySelectorAll('input[name="tinetti_gait"]');
+    const tinettiResults = document.getElementById("tinettiResults");
+    const tinettiBadge = document.getElementById("tinettiBadge");
+    const tinettiScore = document.getElementById("tinettiScore");
+    const tinettiInterpretationBox = document.getElementById("tinettiInterpretationBox");
+    const tinettiInterpretationLabel = document.getElementById("tinettiInterpretationLabel");
+    const tinettiInterpretationDescription = document.getElementById("tinettiInterpretationDescription");
+    const tinettiMcidNote = document.getElementById("tinettiMcidNote");
+    const tinettiReset = document.getElementById("tinettiReset");
+
+    function calculateTinetti() {
+        const balanceChecked = document.querySelector('input[name="tinetti_balance"]:checked');
+        const gaitChecked = document.querySelector('input[name="tinetti_gait"]:checked');
+
+        if (!balanceChecked || !gaitChecked) {
+            tinettiBadge.className = "calc-badge calc-badge-blue";
+            tinettiBadge.textContent = "Seleccione todas las opciones";
+            tinettiScore.textContent = "—";
+            tinettiInterpretationLabel.textContent = "Complete la evaluación para obtener la interpretación.";
+            tinettiInterpretationDescription.textContent = "La interpretación aparecerá al completar los ítems.";
+            tinettiMcidNote.hidden = true;
+            tinettiResults.hidden = false;
+            return;
+        }
+
+        const balanceScore = parseInt(balanceChecked.value, 10);
+        const gaitScore = parseInt(gaitChecked.value, 10);
+        const total = balanceScore + gaitScore;
+
+        tinettiScore.textContent = total;
+
+        let label, className, description;
+
+        if (total < 19) {
+            label = "Alto riesgo de caídas";
+            className = "tinetti-high-risk";
+            description = "La puntuación indica un alto riesgo de caídas. Se recomienda intervención fisioterapéutica intensiva centrada en el equilibrio, la fuerza y el entrenamiento de la marcha, así como educación sobre prevención de caídas en el hogar.";
+        } else if (total <= 24) {
+            label = "Riesgo moderado de caídas";
+            className = "tinetti-moderate-risk";
+            description = "La puntuación sugiere un riesgo moderado de caídas. Es recomendable un programa de ejercicio multicomponente que incluya equilibrio, fuerza y marcha, con seguimiento periódico.";
+        } else {
+            label = "Bajo riesgo de caídas";
+            className = "tinetti-low-risk";
+            description = "La puntuación indica un bajo riesgo de caídas. Se recomienda mantener la actividad física regular y el entrenamiento de fuerza y equilibrio para preservar la funcionalidad.";
+        }
+
+        tinettiBadge.className = `calc-badge ${className === 'tinetti-high-risk' ? 'calc-badge-red' : className === 'tinetti-moderate-risk' ? 'calc-badge-yellow' : 'calc-badge-green'}`;
+        tinettiBadge.textContent = label;
+
+        tinettiInterpretationLabel.textContent = label;
+        tinettiInterpretationDescription.textContent = description;
+
+        tinettiInterpretationBox.classList.remove("tinetti-low-risk", "tinetti-moderate-risk", "tinetti-high-risk");
+        tinettiInterpretationBox.classList.add(className);
+
+        tinettiMcidNote.hidden = false;
+        tinettiResults.hidden = false;
+    }
+
+    tinettiBalance.forEach(input => input.addEventListener("change", calculateTinetti));
+    tinettiGait.forEach(input => input.addEventListener("change", calculateTinetti));
+
+    if (tinettiReset) {
+        tinettiReset.addEventListener("click", () => {
+            tinettiCalculator.reset();
+            calculateTinetti();
+        });
+    }
+
+    calculateTinetti();
+}

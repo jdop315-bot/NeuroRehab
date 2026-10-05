@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fisioterapia en el adulto mayor: cambios fisiológicos, prevención de caídas, ejercicio multicomponente y calculadora de la Escala de Tinetti.">
+    <title>Adulto Mayor | NeuroRehab</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+    <style>
+        .tinetti-interpretation { margin-top: 20px; padding: 22px 24px; background: #FFFFFF; border-radius: 10px; border-left: 5px solid #2F80ED; box-shadow: 0 4px 12px rgba(7, 26, 51, 0.04); }
+        .tinetti-interpretation > strong { display: block; margin-bottom: 10px; color: #0B3A70; font-size: 1.05rem; font-weight: 700; }
+        .tinetti-interpretation #tinettiInterpretationLabel { margin: 0 0 8px; color: #1769CC; font-size: 1.35rem; font-weight: 800; line-height: 1.25; }
+        .tinetti-interpretation #tinettiInterpretationDescription { margin: 0 0 12px; color: #526173; font-size: 15px; line-height: 1.7; }
+        .tinetti-mcid-note { margin: 12px 0 0; padding: 12px 16px; background: #EAF2F9; border-radius: 8px; border-left: 3px solid #2F80ED; color: #34424F; font-size: 0.88rem; line-height: 1.6; }
+        .tinetti-mcid-note strong { color: #0B3A70; font-weight: 700; }
+        .tinetti-interpretation.tinetti-low-risk { border-left-color: #27AE60; }
+        .tinetti-interpretation.tinetti-low-risk #tinettiInterpretationLabel { color: #27AE60; }
+        .tinetti-interpretation.tinetti-moderate-risk { border-left-color: #F2C94C; }
+        .tinetti-interpretation.tinetti-moderate-risk #tinettiInterpretationLabel { color: #B8860B; }
+        .tinetti-interpretation.tinetti-high-risk { border-left-color: #C62828; }
+        .tinetti-interpretation.tinetti-high-risk #tinettiInterpretationLabel { color: #C62828; }
+        @media print { #tinettiResults .tinetti-interpretation, #tinettiResults .tinetti-mcid-note { display: block !important; visibility: visible !important; background: #FFFFFF !important; color: #000000 !important; border: 1px solid #999 !important; border-radius: 4px !important; padding: 12px 16px !important; margin: 12px 0 !important; } }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">Neuro<span>Rehab</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu"><span>☰</span></button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acv.html">Neurorehabilitación</a></li>
+            <li class="dropdown">
+                <a href="evaluacion.html">Evaluación</a>
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#evidencia">Evidencia científica</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="page-hero">
+    <div class="page-hero-content">
+        <p class="hero-tag">GERIATRÍA · FISIOTERAPIA</p>
+        <h1>Adulto Mayor</h1>
+        <p>Prevención de caídas, preservación de la funcionalidad y ejercicio multicomponente basado en evidencia.</p>
+    </div>
+</header>
+
+<div class="breadcrumb" aria-label="Migas de pan">
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <span>Neurorehabilitación</span>
+    <span>›</span>
+    <strong>Adulto Mayor</strong>
+</div>
+
+<main class="article-container">
+
+<section class="article-intro">
+    <span class="article-label">FISIOTERAPIA GERIÁTRICA</span>
+    <h2>Envejecimiento saludable y prevención de la dependencia</h2>
+    <p>El envejecimiento poblacional es uno de los fenómenos más relevantes del siglo XXI. La fisioterapia en el adulto mayor tiene como objetivo principal <strong>preservar la funcionalidad, prevenir la fragilidad y reducir el riesgo de caídas</strong> [citation:7].</p>
+    <p>La evidencia actual respalda el <strong>ejercicio físico multicomponente</strong> como la intervención más eficaz para mantener la independencia y la calidad de vida en las personas mayores [citation:8][citation:13].</p>
+</section>
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>01 · CAMBIOS FISIOLÓGICOS</p>
+        <h2>Efectos del envejecimiento en los sistemas</h2>
+    </div>
+    <div class="clinical-grid">
+        <article class="clinical-card"><span>MUSCULOESQUELÉTICO</span><h3>Sarcopenia</h3><p>Pérdida progresiva de masa y fuerza muscular. Afecta la movilidad, el equilibrio y el riesgo de caídas.</p></article>
+        <article class="clinical-card"><span>NEUROMUSCULAR</span><h3>Alteración del control motor</h3><p>Reducción de la velocidad de conducción nerviosa, alteración de los reflejos posturales y del control motor.</p></article>
+        <article class="clinical-card"><span>CARDIOVASCULAR</span><h3>Reducción de la capacidad aeróbica</h3><p>Disminución del VO₂ máximo, de la reserva cardíaca y de la capacidad de adaptación al esfuerzo.</p></article>
+        <article class="clinical-card"><span>RESPIRATORIO</span><h3>Reducción de la función pulmonar</h3><p>Disminución de la capacidad vital y de la compliance pulmonar, con mayor riesgo de complicaciones respiratorias.</p></article>
+        <article class="clinical-card"><span>SENSORIAL</span><h3>Alteración sensorial</h3><p>Reducción de la agudeza visual, hipoacusia y alteración de la propiocepción, que afectan el control postural.</p></article>
+        <article class="clinical-card"><span>COGNITIVO</span><h3>Deterioro cognitivo</h3><p>Puede afectar la atención, la memoria y las funciones ejecutivas, con impacto sobre la participación en la rehabilitación.</p></article>
+    </div>
+</section>
+
+<section class="article-section article-blue">
+    <div class="section-title-left">
+        <p>02 · PREVENCIÓN DE CAÍDAS</p>
+        <h2>Intervención basada en evidencia</h2>
+    </div>
+    <p>El U.S. Preventive Services Task Force recomienda el <strong>ejercicio terapéutico supervisado</strong> para prevenir caídas en adultos mayores de 65 años con riesgo aumentado (grado B) [citation:8].</p>
+    <div class="evaluation-list">
+        <div><strong>Ejercicio multicomponente</strong><p>Incluye resistencia aeróbica, flexibilidad, equilibrio y fuerza muscular. Sesiones de 30-45 minutos, 3 veces por semana [citation:13].</p></div>
+        <div><strong>Entrenamiento del equilibrio</strong><p>Ejercicios progresivos de control postural en diferentes condiciones (ojos cerrados, superficies inestables, tareas duales).</p></div>
+        <div><strong>Fortalecimiento muscular</strong><p>Programas progresivos de fuerza para miembros inferiores y superiores, con impacto sobre la estabilidad y la funcionalidad.</p></div>
+        <div><strong>Entrenamiento de la marcha</strong><p>Mejora de la velocidad, la longitud de zancada y la seguridad durante el desplazamiento.</p></div>
+        <div><strong>Educación y modificación del entorno</strong><p>Identificación y eliminación de barreras en el hogar, uso de calzado adecuado y dispositivos de asistencia cuando sea necesario.</p></div>
+    </div>
+</section>
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>03 · VALORACIÓN GERIÁTRICA</p>
+        <h2>Instrumentos de evaluación recomendados</h2>
+    </div>
+    <p>La valoración geriátrica debe ser integral e incluir la evaluación de la funcionalidad, el equilibrio, la marcha y el riesgo de caídas. Estos son los instrumentos recomendados:</p>
+    <div class="clinical-grid">
+        <article class="clinical-card"><span>FUNCIONALIDAD</span><h3>Índice de Barthel</h3><p>Evaluación de la independencia en actividades básicas de la vida diaria.</p><a href="barthel.html">Ver instrumento →</a></article>
+        <article class="clinical-card"><span>EQUILIBRIO</span><h3>Berg Balance Scale</h3><p>Evaluación del equilibrio funcional y control postural.</p><a href="berg.html">Ver instrumento →</a></article>
+        <article class="clinical-card"><span>MOVILIDAD</span><h3>Timed Up and Go</h3><p>Evaluación de la movilidad funcional y riesgo de caídas.</p><a href="tug.html">Ver instrumento →</a></article>
+        <article class="clinical-card"><span>MARCHA</span><h3>10 Meter Walk Test</h3><p>Evaluación de la velocidad de marcha en una distancia determinada.</p><a href="10mwt.html">Ver instrumento →</a></article>
+    </div>
+</section>
+
+<section class="article-section article-blue" id="tinetti-calculator">
+    <div class="section-title-left">
+        <p>04 · ESCALA DE TINETTI</p>
+        <h2>Performance-Oriented Mobility Assessment (POMA)</h2>
+    </div>
+    <p>La <strong>Escala de Tinetti</strong> evalúa el equilibrio y la marcha mediante 16 ítems. Es una de las herramientas más utilizadas para valorar el riesgo de caídas en adultos mayores [citation:5].</p>
+    <p class="tool-note"><strong>Puntuación:</strong> 0 a 28 puntos (equilibrio 13 + marcha 15). <strong>Interpretación:</strong> &lt;19 = alto riesgo de caídas; 19-24 = riesgo moderado; ≥25 = bajo riesgo [citation:19][citation:20].</p>
+    
+    <div class="calc-container">
+        <div class="calc-header"><h3>Escala de Tinetti (POMA)</h3><p>Seleccione la opción que mejor describa el desempeño del paciente.</p></div>
+        <form id="tinettiForm" autocomplete="off">
+            <fieldset class="calc-item">
+                <legend>Equilibrio (0-16 puntos)</legend>
+                <div class="calc-options-grid">
+                    <label class="calc-option"><input type="radio" name="tinetti_balance" value="0"><span><strong>0</strong> — Incapaz de mantener el equilibrio sentado o de pie sin ayuda.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_balance" value="8"><span><strong>8</strong> — Equilibrio sentado y de pie con ayuda moderada; inestable en transferencias.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_balance" value="12"><span><strong>12</strong> — Equilibrio estable en sedestación y bipedestación con supervisión mínima.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_balance" value="16"><span><strong>16</strong> — Equilibrio completo, sin ayuda, incluyendo giros y transferencias seguras.</span></label>
+                </div>
+            </fieldset>
+            <fieldset class="calc-item">
+                <legend>Marcha (0-12 puntos)</legend>
+                <div class="calc-options-grid">
+                    <label class="calc-option"><input type="radio" name="tinetti_gait" value="0"><span><strong>0</strong> — Marcha gravemente alterada, no funcional o requiere asistencia máxima.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_gait" value="4"><span><strong>4</strong> — Marcha con múltiples alteraciones, lentitud marcada, inestabilidad evidente.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_gait" value="8"><span><strong>8</strong> — Marcha con alteraciones moderadas, velocidad reducida, requiere supervisión.</span></label>
+                    <label class="calc-option"><input type="radio" name="tinetti_gait" value="12"><span><strong>12</strong> — Marcha normal o mínimamente alterada, segura e independiente.</span></label>
+                </div>
+            </fieldset>
+            <div id="tinettiResults" class="calc-results-panel" role="region" aria-live="polite">
+                <div class="calc-results-header">
+                    <div>
+                        <span class="calc-badge calc-badge-green" id="tinettiBadge">Seleccione todas las opciones</span>
+                        <div class="calc-score-display" style="margin-top: 8px;">
+                            <span class="calc-score-number" id="tinettiScore">—</span>
+                            <span class="calc-score-max">/ 28 puntos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tinetti-interpretation" id="tinettiInterpretationBox">
+                    <strong>Interpretación clínica</strong>
+                    <p id="tinettiInterpretationLabel" role="status" aria-live="polite" aria-atomic="true">Complete la evaluación para obtener la interpretación.</p>
+                    <p id="tinettiInterpretationDescription">La interpretación aparecerá al completar los ítems.</p>
+                    <p id="tinettiMcidNote" class="tinetti-mcid-note" hidden><strong>MCID:</strong> un cambio ≥ 3 puntos entre evaluaciones puede considerarse clínicamente relevante en adultos mayores.</p>
+                </div>
+                <div class="calc-actions">
+                    <button type="button" class="calc-btn-reset" id="tinettiReset">Reiniciar Tinetti</button>
+                </div>
+                <div class="calc-result-actions">
+                    <button type="button" class="calc-copy-btn" data-target="tinettiResults">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copiar resultados
+                    </button>
+                    <button type="button" class="calc-print-btn" data-target="tinettiResults">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                        Imprimir
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>05 · EVIDENCIA CIENTÍFICA</p>
+        <h2>Referencias principales (APA 7)</h2>
+    </div>
+    <ul class="reference-list">
+        <li>Tinetti, M. E. (1986). Performance-oriented assessment of mobility problems in elderly patients. <em>Journal of the American Geriatrics Society</em>, <em>34</em>(2), 119–126. https://doi.org/10.1111/j.1532-5415.1986.tb05480.x</li>
+        <li>Ministerio de Sanidad. (2026). <em>Actualización del documento de consenso sobre prevención de la fragilidad y caídas en el SNS</em>. https://www.sanidad.gob.es/areas/promocionPrevencion/envejecimientoSaludable/fragilidadCaidas/docs/actualizacionFragilidadyCaidas_GuiaAF.pdf</li>
+        <li>American Physical Therapy Association. (2024, 13 de junio). Falls prevention recommendations reinforce importance of exercise. https://www.apta.org/article/2024/06/13/updated-uspstf-falls-recommendations</li>
+        <li>Izquierdo, M., &amp; Cadore, E. L. (2023). <em>VIVIFRAIL: Programa de ejercicio físico multicomponente para la prevención de la fragilidad y las caídas</em>. https://www.vivifrail.com/</li>
+    </ul>
+</section>
+
+<div class="coming-soon">
+    <strong>Nota clínica:</strong> La fisioterapia en el adulto mayor debe centrarse en la prevención de caídas y la preservación de la funcionalidad. El ejercicio multicomponente, adaptado a la capacidad funcional de cada persona, es la intervención con mayor nivel de evidencia.
+</div>
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>EVALUACIÓN</p>
+        <h2>Explora otros instrumentos</h2>
+    </div>
+    <div class="clinical-grid">
+        <article class="clinical-card"><span>EQUILIBRIO</span><h3>Berg Balance Scale</h3><p>Evaluación del equilibrio funcional y control postural.</p><a href="berg.html">Ver instrumento →</a></article>
+        <article class="clinical-card"><span>MOVILIDAD</span><h3>Timed Up and Go</h3><p>Evaluación de movilidad funcional y riesgo de caídas.</p><a href="tug.html">Ver instrumento →</a></article>
+        <article class="clinical-card"><span>MARCHA</span><h3>10 Meter Walk Test</h3><p>Evaluación de la velocidad de marcha.</p><a href="10mwt.html">Ver instrumento →</a></article>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+    <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+</body>
+</html>
