@@ -8633,3 +8633,24 @@ footer p:last-child {
         margin: 12px 0 !important;
     }
 }
+/* ==========================================================
+   TARJETAS CLÍNICAS — ETIQUETA DE TEXTO
+   (para las tarjetas de "Explora otros instrumentos")
+   Sobrescribe el diseño circular del span
+   ========================================================== */
+
+.clinical-card > span.clinical-card-tag {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-bottom: 14px;
+    border-radius: 0;
+    background: transparent;
+    color: #2F80ED;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
