@@ -14,6 +14,8 @@
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/lesion-medular.html</loc><priority>0.9</priority></url>
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/paralisis-cerebral.html</loc><priority>0.9</priority></url>
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/sindrome-down.html</loc><priority>0.9</priority></url>
+    <url><loc>https://jdop315-bot.github.io/NeuroRehab/sindrome-angelman.html</loc><priority>0.9</priority></url>
+    <url><loc>https://jdop315-bot.github.io/NeuroRehab/adulto-mayor.html</loc><priority>0.9</priority></url>
 
     <!-- Evaluación -->
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/evaluacion.html</loc><priority>0.8</priority></url>
@@ -29,5 +31,8 @@
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/motricity-index.html</loc><priority>0.8</priority></url>
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/barthel.html</loc><priority>0.8</priority></url>
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/actividad-funcion.html</loc><priority>0.8</priority></url>
+
+    <!-- Investigación -->
+    <url><loc>https://jdop315-bot.github.io/NeuroRehab/investigacion.html</loc><priority>0.9</priority></url>
 
 </urlset>

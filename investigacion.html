@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Investigación en fisioterapia y neurorehabilitación: niveles de evidencia, diseños de estudio, lectura crítica, métricas clave y recursos para la práctica basada en evidencia.">
+    <title>Investigación | NeuroRehab</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">Neuro<span>Rehab</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu"><span>☰</span></button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acv.html">Neurorehabilitación</a></li>
+            <li class="dropdown">
+                <a href="evaluacion.html">Evaluación</a>
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#evidencia">Evidencia científica</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <li><a href="investigacion.html">Investigación</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="page-hero">
+    <div class="page-hero-content">
+        <p class="hero-tag">INVESTIGACIÓN · PRÁCTICA BASADA EN EVIDENCIA</p>
+        <h1>Investigación en neurorehabilitación</h1>
+        <p>Herramientas para comprender, evaluar y aplicar la evidencia científica en la práctica clínica.</p>
+    </div>
+</header>
+
+<div class="breadcrumb" aria-label="Migas de pan">
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <strong>Investigación</strong>
+</div>
+
+<main class="article-container">
+
+<section class="article-intro">
+    <span class="article-label">FISIOTERAPIA BASADA EN EVIDENCIA</span>
+    <h2>Investigar para decidir mejor</h2>
+    <p>La <strong>práctica basada en evidencia (PBE)</strong> integra la mejor evidencia científica disponible con la experiencia clínica del profesional y las preferencias y valores del paciente (Sackett et al., 1996).</p>
+    <p>En neurorehabilitación, donde las decisiones terapéuticas impactan directamente sobre la función y la calidad de vida de las personas, la capacidad de <strong>leer, interpretar y aplicar la literatura científica</strong> se convierte en una competencia esencial del fisioterapeuta.</p>
+    <p>Esta sección ofrece herramientas conceptuales y prácticas para acercarse al método científico, evaluar críticamente un artículo y comprender las métricas más utilizadas en la investigación clínica.</p>
+</section>
+
+<!-- ====================================
+     01 · NIVELES DE EVIDENCIA
+     ==================================== -->
+
+<section class="article-section article-blue">
+    <div class="section-title-left">
+        <p>01 · NIVELES DE EVIDENCIA</p>
+        <h2>La jerarquía de la evidencia científica</h2>
+    </div>
+    <p>No toda la evidencia tiene el mismo peso. La <strong>pirámide de la evidencia</strong> organiza los diseños de estudio según su capacidad para responder preguntas clínicas con menor riesgo de sesgo (Murad et al., 2016).</p>
+
+    <div class="evaluation-list">
+        <div>
+            <strong>Revisiones sistemáticas y metaanálisis</strong>
+            <p>Sintetizan toda la evidencia disponible sobre una pregunta específica. Ocupan la cima de la jerarquía cuando están bien conducidas y actualizadas.</p>
+        </div>
+        <div>
+            <strong>Ensayos clínicos aleatorizados (ECA)</strong>
+            <p>Diseño experimental que permite establecer causalidad. Es el "estándar de oro" para evaluar intervenciones.</p>
+        </div>
+        <div>
+            <strong>Estudios de cohorte</strong>
+            <p>Siguen a un grupo de personas a lo largo del tiempo. Útiles para estudiar factores pronósticos y exposiciones.</p>
+        </div>
+        <div>
+            <strong>Estudios de casos y controles</strong>
+            <p>Comparan personas con y sin una condición. Útiles para enfermedades raras o con latencia prolongada.</p>
+        </div>
+        <div>
+            <strong>Series de casos y reportes de caso</strong>
+            <p>Describen la experiencia con uno o pocos pacientes. Útiles para generar hipótesis, no para inferencias causales.</p>
+        </div>
+        <div>
+            <strong>Opinión de expertos</strong>
+            <p>Basa recomendaciones en la experiencia individual. Útil cuando no hay evidencia de mayor nivel, pero con mayor riesgo de sesgo.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     02 · DISEÑOS DE ESTUDIO
+     ==================================== -->
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>02 · DISEÑOS DE ESTUDIO</p>
+        <h2>¿Qué tipo de estudio responde mi pregunta?</h2>
+    </div>
+    <p>La pregunta clínica determina el diseño de estudio adecuado. Identificar el diseño correcto es el primer paso para interpretar los resultados (Guyatt et al., 2008).</p>
+
+    <div class="clinical-grid">
+        <article class="clinical-card">
+            <span class="clinical-card-tag">TRATAMIENTO</span>
+            <h3>Ensayo clínico aleatorizado</h3>
+            <p>Compara una intervención con un control. Pregunta típica: <em>"¿Es efectivo este tratamiento?"</em></p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">DIAGNÓSTICO</span>
+            <h3>Estudio transversal</h3>
+            <p>Compara una prueba diagnóstica con un patrón de referencia. Pregunta típica: <em>"¿Qué tan precisa es esta prueba?"</em></p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">PRONÓSTICO</span>
+            <h3>Estudio de cohorte</h3>
+            <p>Sigue a un grupo en el tiempo para identificar factores predictores. Pregunta típica: <em>"¿Qué espera a este paciente?"</em></p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">ETIOLOGÍA</span>
+            <h3>Casos y controles</h3>
+            <p>Compara personas con y sin un desenlace. Pregunta típica: <em>"¿Qué factores de riesgo están asociados?"</em></p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">EXPERIENCIA</span>
+            <h3>Cualitativo</h3>
+            <p>Explora vivencias, percepciones y significados. Pregunta típica: <em>"¿Cómo vive esta persona su condición?"</em></p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">SÍNTESIS</span>
+            <h3>Revisión sistemática</h3>
+            <p>Integra la evidencia de múltiples estudios sobre una misma pregunta. Es el diseño de mayor jerarquía.</p>
+        </article>
+    </div>
+</section>
+
+<!-- ====================================
+     03 · LECTURA CRÍTICA
+     ==================================== -->
+
+<section class="article-section article-blue">
+    <div class="section-title-left">
+        <p>03 · LECTURA CRÍTICA</p>
+        <h2>¿Cómo evaluar un artículo científico?</h2>
+    </div>
+    <p>La lectura crítica es una competencia fundamental del fisioterapeuta basado en evidencia. Estos son los aspectos clave a considerar al evaluar un artículo (Straus et al., 2018).</p>
+
+    <div class="evaluation-list">
+        <div>
+            <strong>1. ¿Es válido el estudio?</strong>
+            <p>Verifica el diseño, el tamaño de muestra, la aleatorización (si aplica), el cegamiento, el seguimiento y el análisis estadístico.</p>
+        </div>
+        <div>
+            <strong>2. ¿Cuáles son los resultados?</strong>
+            <p>Revisa las medidas de efecto (RR, OR, RAR, NNT), los intervalos de confianza y la significancia estadística y clínica.</p>
+        </div>
+        <div>
+            <strong>3. ¿Son aplicables a mi paciente?</strong>
+            <p>Considera las características de la muestra, el contexto clínico, los recursos disponibles y las preferencias del paciente.</p>
+        </div>
+        <div>
+            <strong>4. ¿Hay sesgos evidentes?</strong>
+            <p>Busca sesgo de selección, de información, de medición, de desgaste y conflicto de interés.</p>
+        </div>
+    </div>
+
+    <div class="coming-soon">
+        <strong>Checklist de lectura crítica:</strong>
+        <br><br>
+        ✅ ¿La pregunta de investigación está claramente definida?<br>
+        ✅ ¿El diseño es apropiado para responder la pregunta?<br>
+        ✅ ¿La muestra es representativa y adecuada en tamaño?<br>
+        ✅ ¿Los autores controlaron los sesgos potenciales?<br>
+        ✅ ¿Los resultados se reportan con intervalos de confianza?<br>
+        ✅ ¿Las conclusiones se derivan de los resultados?
+    </div>
+</section>
+
+<!-- ====================================
+     04 · MÉTRICAS CLAVE
+     ==================================== -->
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>04 · MÉTRICAS CLAVE</p>
+        <h2>¿Qué significan los números?</h2>
+    </div>
+    <p>Comprender las métricas más utilizadas permite interpretar correctamente los resultados de un estudio y aplicarlos a la práctica clínica (Akobeng, 2005).</p>
+
+    <div class="clinical-grid">
+        <article class="clinical-card">
+            <span class="clinical-card-tag">DIAGNÓSTICO</span>
+            <h3>Sensibilidad</h3>
+            <p>Probabilidad de que una prueba sea positiva cuando la condición <strong>está</strong> presente. Alta sensibilidad = pocos falsos negativos.</p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">DIAGNÓSTICO</span>
+            <h3>Especificidad</h3>
+            <p>Probabilidad de que una prueba sea negativa cuando la condición <strong>no está</strong> presente. Alta especificidad = pocos falsos positivos.</p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">DIAGNÓSTICO</span>
+            <h3>LR+ y LR−</h3>
+            <p>Razones de verosimilitud. Modifican la probabilidad pre-test y permiten estimar la probabilidad post-test.</p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">TRATAMIENTO</span>
+            <h3>NNT</h3>
+            <p>Número de pacientes que deben tratarse para prevenir un evento adicional. NNT bajo = mayor eficiencia.</p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">TRATAMIENTO</span>
+            <h3>RR y OR</h3>
+            <p>Riesgo relativo y odds ratio. Cuantifican la asociación entre exposición e intervención.</p>
+        </article>
+        <article class="clinical-card">
+            <span class="clinical-card-tag">CAMBIO</span>
+            <h3>MCID</h3>
+            <p>Diferencia mínima clínicamente importante. Indica si un cambio es relevante para el paciente, más allá de la significancia estadística.</p>
+        </article>
+    </div>
+
+    <div class="coming-soon">
+        <strong>Importante:</strong>
+        <br><br>
+        La <strong>significancia estadística</strong> (valor p &lt; 0.05) no equivale a <strong>significancia clínica</strong>. Un resultado puede ser estadísticamente significativo pero no tener impacto real en la vida del paciente.
+    </div>
+</section>
+
+<!-- ====================================
+     05 · RECURSOS
+     ==================================== -->
+
+<section class="article-section article-blue">
+    <div class="section-title-left">
+        <p>05 · RECURSOS</p>
+        <h2>Bases de datos y recursos recomendados</h2>
+    </div>
+    <p>Estos son los principales recursos para buscar evidencia científica en fisioterapia y neurorehabilitación.</p>
+
+    <div class="scientific-links">
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">01</div>
+            <div class="scientific-card-content">
+                <span>BASES DE DATOS BIBLIOGRÁFICAS</span>
+                <h4>PubMed</h4>
+                <p>Base de datos de referencia internacional con más de 35 millones de artículos científicos y revisiones de literatura.</p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">Explorar PubMed →</a>
+            </div>
+        </article>
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">02</div>
+            <div class="scientific-card-content">
+                <span>FISIOTERAPIA BASADA EN EVIDENCIA</span>
+                <h4>PEDro</h4>
+                <p>Base de datos especializada en fisioterapia con ensayos clínicos, revisiones sistemáticas y guías de práctica clínica.</p>
+                <a href="https://pedro.org.au/" target="_blank" rel="noopener noreferrer">Explorar PEDro →</a>
+            </div>
+        </article>
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">03</div>
+            <div class="scientific-card-content">
+                <span>REVISIONES SISTEMÁTICAS</span>
+                <h4>Cochrane Library</h4>
+                <p>Base de datos internacional de revisiones sistemáticas y metaanálisis de alta calidad metodológica.</p>
+                <a href="https://www.cochranelibrary.com/" target="_blank" rel="noopener noreferrer">Explorar Cochrane →</a>
+            </div>
+        </article>
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">04</div>
+            <div class="scientific-card-content">
+                <span>ENSAYOS CLÍNICOS</span>
+                <h4>ClinicalTrials.gov</h4>
+                <p>Registro internacional de ensayos clínicos financiados por organismos públicos y privados de todo el mundo.</p>
+                <a href="https://clinicaltrials.gov/" target="_blank" rel="noopener noreferrer">Explorar ClinicalTrials →</a>
+            </div>
+        </article>
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">05</div>
+            <div class="scientific-card-content">
+                <span>EVALUACIÓN CRÍTICA</span>
+                <h4>CASP Checklists</h4>
+                <p>Listas de verificación para evaluar críticamente diferentes tipos de estudios (ECA, cohortes, casos y controles, cualitativos).</p>
+                <a href="https://casp-uk.net/casp-tools-checklists/" target="_blank" rel="noopener noreferrer">Explorar CASP →</a>
+            </div>
+        </article>
+
+        <article class="scientific-card">
+            <div class="scientific-card-number">06</div>
+            <div class="scientific-card-content">
+                <span>REPORTE DE ESTUDIOS</span>
+                <h4>EQUATOR Network</h4>
+                <p>Recursos para el reporte transparente y preciso de estudios científicos en salud (CONSORT, PRISMA, STROBE, etc.).</p>
+                <a href="https://www.equator-network.org/" target="_blank" rel="noopener noreferrer">Explorar EQUATOR →</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ====================================
+     06 · EVIDENCIA CIENTÍFICA
+     ==================================== -->
+
+<section class="article-section">
+    <div class="section-title-left">
+        <p>06 · REFERENCIAS</p>
+        <h2>Referencias principales (APA 7)</h2>
+    </div>
+    <ul class="reference-list">
+        <li>Akobeng, A. K. (2005). Understanding measures of treatment effect in clinical trials. <em>Archives of Disease in Childhood</em>, <em>90</em>(1), 54–56. https://doi.org/10.1136/adc.2004.052233</li>
+        <li>Guyatt, G., Rennie, D., Meade, M. O., &amp; Cook, D. J. (Eds.). (2008). <em>Users' guides to the medical literature: A manual for evidence-based clinical practice</em> (2nd ed.). McGraw-Hill.</li>
+        <li>Murad, M. H., Asi, N., Alsawas, M., &amp; Alahdab, F. (2016). New evidence pyramid. <em>Evidence-Based Medicine</em>, <em>21</em>(4), 125–127. https://doi.org/10.1136/ebmed-2016-110401</li>
+        <li>Sackett, D. L., Rosenberg, W. M. C., Gray, J. A. M., Haynes, R. B., &amp; Richardson, W. S. (1996). Evidence based medicine: What it is and what it isn't. <em>BMJ</em>, <em>312</em>(7023), 71–72. https://doi.org/10.1136/bmj.312.7023.71</li>
+        <li>Straus, S. E., Glasziou, P., Richardson, W. S., &amp; Haynes, R. B. (2018). <em>Evidence-based medicine: How to practice and teach EBM</em> (5th ed.). Elsevier.</li>
+    </ul>
+</section>
+
+<div class="coming-soon">
+    <strong>Nota:</strong> La investigación en neurorehabilitación es un campo en constante evolución. Esta sección es una introducción conceptual a los principios de la práctica basada en evidencia. Para profundizar, se recomienda consultar los recursos enlazados y la formación específica en lectura crítica.
+</div>
+
+</main>
+
+<footer>
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+    <p>Los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+</body>
+</html>
