@@ -34,5 +34,8 @@
 
     <!-- Investigación -->
     <url><loc>https://jdop315-bot.github.io/NeuroRehab/investigacion.html</loc><priority>0.9</priority></url>
+    
+<!-- Blog -->
+<url><loc>https://jdop315-bot.github.io/NeuroRehab/blog-neuroplasticidad-acv.html</loc><priority>0.7</priority></url>
 
 </urlset>
