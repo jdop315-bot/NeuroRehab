@@ -8654,3 +8654,23 @@ footer p:last-child {
     text-transform: uppercase;
     line-height: 1.4;
 }
+
+/* ==========================================================
+   BLOG — ENLACE A ARTÍCULO
+   ========================================================== */
+
+.blog-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: 6px 0;
+    color: #1769CC;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-link:hover {
+    color: #0B3A70;
+    transform: translateX(3px);
+}
