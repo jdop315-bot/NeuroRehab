@@ -7645,135 +7645,6 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   IMPRESIÓN — VERSIÓN SIMPLE
-   Solo se activa cuando el JS añade la clase .printing
-   ========================================================== */
-
-@media print {
-
-    @page {
-        margin: 15mm;
-    }
-
-    html,
-    body {
-        background: #FFFFFF !important;
-        color: #000000 !important;
-        font-size: 12pt;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    /* Ocultar navbar, hero, breadcrumb, footer */
-    .navbar,
-    .page-hero,
-    .breadcrumb,
-    footer,
-    .skip-link,
-    .menu-toggle,
-    #scrollTopBtn,
-    .article-intro,
-    .article-section,
-    .reference-box,
-    .scientific-links,
-    .evidence-section,
-    .content-section,
-    .contact-section,
-    .evidence-grid,
-    .blog-grid,
-    .about-grid,
-    .contact-grid,
-    .resources,
-    .coming-soon,
-    .tool-note,
-    .intervention-grid,
-    .evaluation-list,
-    .clinical-grid,
-    .instrument-grid,
-    .stats-section,
-    .cards {
-        display: none !important;
-    }
-
-    /* Mostrar solo el panel de resultados */
-    .calc-results-panel,
-    .barthel-results,
-    #tugResults,
-    #frtResults,
-    #tenMwtResults,
-    #fstsResults,
-    #gcsResults,
-    #ranchoResults,
-    #mdsUpdrsResults,
-    #alsfrsResults,
-    #mgAdlResults,
-    #pdms2Results,
-    #motricityResults,
-    #asiaResults,
-    #hughesResults,
-    #megosResults,
-    #cpResults {
-        display: block !important;
-        visibility: visible !important;
-        position: static !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 20px !important;
-        box-shadow: none !important;
-        border: 1px solid #999 !important;
-        background: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    /* Hijos visibles */
-    .calc-results-panel *,
-    .barthel-results *,
-    #tugResults *,
-    #frtResults *,
-    #tenMwtResults *,
-    #fstsResults *,
-    #gcsResults *,
-    #ranchoResults *,
-    #mdsUpdrsResults *,
-    #alsfrsResults *,
-    #mgAdlResults *,
-    #pdms2Results *,
-    #motricityResults *,
-    #asiaResults *,
-    #hughesResults *,
-    #megosResults *,
-    #cpResults * {
-        visibility: visible !important;
-        color: #000000 !important;
-    }
-
-    /* Ocultar botones de acción */
-    .calc-result-actions,
-    .calc-actions {
-        display: none !important;
-    }
-
-    /* Encabezado de la impresión */
-    body::before {
-        content: "NeuroRehab — Resultados de evaluación";
-        display: block;
-        font-size: 14pt;
-        font-weight: bold;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #000;
-    }
-
-    a {
-        color: #000000 !important;
-        text-decoration: underline;
-    }
-        /* Cuando el body tiene la clase printing-mode, ocultar todo excepto el panel */
-    body.printing-mode > *:not(.calc-results-panel):not(.barthel-results):not(#tugResults):not(#frtResults):not(#tenMwtResults):not(#fstsResults):not(#gcsResults):not(#ranchoResults):not(#mdsUpdrsResults):not(#alsfrsResults):not(#mgAdlResults):not(#pdms2Results):not(#motricityResults):not(#asiaResults):not(#hughesResults):not(#megosResults):not(#cpResults) {
-        display: none !important;
-    }
-}
-/* ==========================================================
    FMA — Neutralizar wrapper del panel de resultados
    Evita el efecto "doble caja" entre .calc-results-panel
    y las tarjetas internas .fma-*
@@ -8690,6 +8561,21 @@ footer p:last-child {
     .scale-row.scale-row-3 {
         grid-template-columns: 1fr;
         gap: 5px;
+    }
+
+}
+/* ==========================================================
+   IMPRESIÓN — EVITAR CORTE DE TABLAS
+   ========================================================== */
+
+@media print {
+
+    .scale-table,
+    .bbs-result,
+    .ashworth-table-wrapper,
+    .fma-result-card,
+    .fma-interpretation {
+        page-break-inside: avoid;
     }
 
 }
