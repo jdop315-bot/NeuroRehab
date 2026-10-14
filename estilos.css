@@ -7969,5 +7969,99 @@ footer p:last-child {
         gap: 5px;
     }
 }
+/* ==========================================================
+   IMPRESIÓN — AISLAR PANEL DE RESULTADOS
+   
+   El botón "Imprimir" de cada calculadora (script.js) mueve
+   el panel de resultados al <body> y añade la clase
+   .printing-mode. Estas reglas se activan SOLO entonces,
+   para que la impresión muestre únicamente el panel.
+   
+   Ctrl + P (sin pulsar el botón) imprime la página completa.
+   ========================================================== */
+
+@media print {
+
+    /* =========================================
+       Cuando printing-mode está activo
+       ========================================= */
+
+    body.printing-mode {
+        background: #FFFFFF !important;
+    }
+
+    /* Ocultar TODO lo que no sea el panel movido al body */
+    body.printing-mode > *:not(.calc-results-panel):not(.barthel-results):not(#tugResults):not(#frtResults):not(#tenMwtResults):not(#fstsResults):not(#gcsResults):not(#ranchoResults):not(#mdsUpdrsResults):not(#alsfrsResults):not(#mgAdlResults):not(#pdms2Results):not(#asiaResults):not(#hughesResults):not(#megosResults):not(#cpResults):not(#nihssResults):not(#mrsResults):not(#fmaUeResults):not(#fmaLeResults):not(#tinettiResults) {
+        display: none !important;
+    }
+
+    /* Asegurar que el panel se vea limpio */
+    body.printing-mode .calc-results-panel,
+    body.printing-mode .barthel-results,
+    body.printing-mode #tugResults,
+    body.printing-mode #frtResults,
+    body.printing-mode #tenMwtResults,
+    body.printing-mode #fstsResults,
+    body.printing-mode #gcsResults,
+    body.printing-mode #ranchoResults,
+    body.printing-mode #mdsUpdrsResults,
+    body.printing-mode #alsfrsResults,
+    body.printing-mode #mgAdlResults,
+    body.printing-mode #pdms2Results,
+    body.printing-mode #asiaResults,
+    body.printing-mode #hughesResults,
+    body.printing-mode #megosResults,
+    body.printing-mode #cpResults,
+    body.printing-mode #nihssResults,
+    body.printing-mode #mrsResults,
+    body.printing-mode #fmaUeResults,
+    body.printing-mode #fmaLeResults,
+    body.printing-mode #tinettiResults {
+        display: block !important;
+        visibility: visible !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: #FFFFFF !important;
+        border: none !important;
+    }
+
+    /* Hijos visibles */
+    body.printing-mode .calc-results-panel *,
+    body.printing-mode .barthel-results * {
+        visibility: visible !important;
+    }
+
+    /* Ocultar botones de acción dentro del panel */
+    body.printing-mode .calc-result-actions,
+    body.printing-mode .calc-actions {
+        display: none !important;
+    }
+
+    /* Encabezado de impresión */
+    body.printing-mode::before {
+        content: "NeuroRehab — Resultados de evaluación";
+        display: block;
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #000;
+        color: #000;
+    }
+
+    /* Evitar corte de tablas */
+    .scale-table,
+    .bbs-result,
+    .ashworth-table-wrapper,
+    .fma-result-card,
+    .fma-interpretation {
+        page-break-inside: avoid;
+    }
+
+}
 
 
