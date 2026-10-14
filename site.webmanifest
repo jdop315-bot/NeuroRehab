@@ -1,0 +1,27 @@
+{
+    "name": "NeuroRehab — Fisioterapia y Neurorehabilitación",
+    "short_name": "NeuroRehab",
+    "description": "Plataforma de fisioterapia y neurorehabilitación basada en evidencia científica.",
+    "start_url": "/NeuroRehab/",
+    "scope": "/NeuroRehab/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#071A33",
+    "theme_color": "#2F80ED",
+    "lang": "es-ES",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "/NeuroRehab/web-app-manifest-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/NeuroRehab/web-app-manifest-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
