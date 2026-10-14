@@ -587,51 +587,71 @@
             </p>
 
 
-            <div class="search-tools">
+            <div class="search-tools" role="search" aria-label="Buscador de instrumentos">
 
-                <input
-                    type="text"
-                    id="instrumentSearch"
-                    placeholder="Ejemplo: Berg, marcha, ACV..."
-                    autocomplete="off"
-                >
+    <label for="instrumentSearch" class="sr-only">
+        Buscar instrumentos por nombre, dominio o condición
+    </label>
 
-                <select id="domainFilter">
+    <input
+        type="text"
+        id="instrumentSearch"
+        placeholder="Ejemplo: Berg, marcha, ACV..."
+        autocomplete="off"
+        aria-describedby="instrumentSearchHelp"
+    >
 
-                    <option value="all">
-                        Todos los dominios
-                    </option>
+    <label for="domainFilter" class="sr-only">
+        Filtrar por dominio de evaluación
+    </label>
 
-                    <option value="motor">
-                        Función motora
-                    </option>
+    <select
+        id="domainFilter"
+        aria-label="Filtrar por dominio"
+    >
 
-                    <option value="balance">
-                        Equilibrio
-                    </option>
+        <option value="all">
+            Todos los dominios
+        </option>
 
-                    <option value="gait">
-                        Marcha y movilidad
-                    </option>
+        <option value="motor">
+            Función motora
+        </option>
 
-                    <option value="tone">
-                        Tono muscular
-                    </option>
+        <option value="balance">
+            Equilibrio
+        </option>
 
-                    <option value="function">
-                        Funcionalidad
-                    </option>
+        <option value="gait">
+            Marcha y movilidad
+        </option>
 
-                    <option value="quality">
-                        Calidad de vida
-                    </option>
+        <option value="tone">
+            Tono muscular
+        </option>
 
-                </select>
+        <option value="function">
+            Funcionalidad
+        </option>
 
-            </div>
+        <option value="quality">
+            Calidad de vida
+        </option>
+
+    </select>
+
+    <p id="instrumentSearchHelp" class="sr-only">
+        Escriba para buscar. Los resultados se actualizan automáticamente.
+    </p>
+
+</div>
 
 
-            <div id="instrumentResults">
+            <div
+    id="instrumentResults"
+    role="region"
+    aria-live="polite"
+    aria-label="Resultados de búsqueda">
 
                 <!-- NIHSS -->
                 <article class="search-result" data-domain="function" data-search="nihss national institutes health stroke scale ictus acv accidente cerebrovascular gravedad deficit neurologico">
@@ -1048,7 +1068,11 @@
             </div>
 
 
-            <p id="noResults" style="display: none;">
+            <p
+    id="noResults"
+    role="status"
+    aria-live="polite"
+    style="display: none;">
                 No se encontraron instrumentos con esos
                 criterios de búsqueda.
             </p>
@@ -1056,7 +1080,6 @@
         </section>
 
     </main>
-
 
     <!-- ========================================
          FOOTER
