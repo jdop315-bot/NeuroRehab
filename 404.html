@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="robots"
+        content="noindex, follow"
+    >
+
+    <title>Página no encontrada | NeuroRehab</title>
+
+    <meta
+        name="description"
+        content="La página que buscas no existe o ha sido movida. Vuelve al inicio o explora las secciones principales de NeuroRehab."
+    >
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/404.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="Página no encontrada | NeuroRehab">
+    <meta property="og:description" content="La página que buscas no existe o ha sido movida. Vuelve al inicio o explora las secciones principales.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Página no encontrada | NeuroRehab">
+    <meta name="twitter:description" content="La página que buscas no existe o ha sido movida.">
+    <meta name="twitter:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        /* =========================================================
+           404 — ESTILOS ESPECÍFICOS
+           ========================================================= */
+
+        .not-found-section {
+            min-height: calc(100vh - 76px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 25px;
+            background:
+                radial-gradient(
+                    circle at 75% 30%,
+                    rgba(47, 128, 237, 0.10),
+                    transparent 45%
+                ),
+                #F5F8FC;
+        }
+
+        .not-found-container {
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .not-found-code {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 6px 16px;
+            background: #EAF3FF;
+            border: 1px solid #D7E8FA;
+            border-radius: 30px;
+            color: #1769CC;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+        }
+
+        .not-found-title {
+            margin: 0 0 20px;
+            color: #071A33;
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .not-found-description {
+            max-width: 640px;
+            margin: 0 auto 40px;
+            color: #526173;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .not-found-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 55px;
+        }
+
+        .not-found-actions .btn-primary,
+        .not-found-actions .btn-secondary {
+            padding: 13px 24px;
+            font-size: 0.95rem;
+            border-radius: 8px;
+        }
+
+        .not-found-actions .btn-secondary {
+            border-color: #2F80ED;
+            color: #1769CC;
+            background: #FFFFFF;
+        }
+
+        .not-found-actions .btn-secondary:hover {
+            background: #EAF3FF;
+        }
+
+        .not-found-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .not-found-link-card {
+            display: block;
+            padding: 22px 24px;
+            background: #FFFFFF;
+            border: 1px solid #DFE7EF;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(7, 26, 51, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .not-found-link-card:hover {
+            transform: translateY(-4px);
+            border-color: #2F80ED;
+            box-shadow: 0 12px 28px rgba(7, 26, 51, 0.10);
+        }
+
+        .not-found-link-card span {
+            display: block;
+            margin-bottom: 8px;
+            color: #2F80ED;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .not-found-link-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #0B3A70;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .not-found-link-card p {
+            margin: 0;
+            color: #596777;
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 650px) {
+
+            .not-found-section {
+                padding: 60px 20px;
+            }
+
+            .not-found-actions .btn-primary,
+            .not-found-actions .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .not-found-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="index.html#neurorehabilitacion">Neurorehabilitación</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">Evaluación</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">Evidencia científica</a>
+            </li>
+
+            <li>
+                <a href="index.html#recursos">Recursos</a>
+            </li>
+
+            <li>
+                <a href="investigacion.html">Investigación</a>
+            </li>
+
+            <li>
+                <a href="index.html#blog">Blog</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- ========================================
+     CONTENIDO PRINCIPAL
+======================================== -->
+
+<main class="not-found-section" id="contenido-principal">
+
+    <div class="not-found-container">
+
+        <span class="not-found-code">
+            ERROR 404
+        </span>
+
+        <h1 class="not-found-title">
+            Página no encontrada
+        </h1>
+
+        <p class="not-found-description">
+            La página que buscas no existe, ha sido movida o el enlace
+            no es correcto. Pero no te preocupes: puedes volver al
+            inicio o acceder directamente a las secciones principales
+            de NeuroRehab.
+        </p>
+
+        <div class="not-found-actions">
+
+            <a href="index.html" class="btn-primary">
+                Volver al inicio
+            </a>
+
+            <a href="evaluacion.html" class="btn-secondary">
+                Ir a Evaluación
+            </a>
+
+        </div>
+
+        <div class="not-found-links">
+
+            <a href="index.html#neurorehabilitacion" class="not-found-link-card">
+                <span>NEUROREHABILITACIÓN</span>
+                <strong>Áreas de especialización</strong>
+                <p>ACV, Parkinson, lesión medular, parálisis cerebral y más.</p>
+            </a>
+
+            <a href="evaluacion.html" class="not-found-link-card">
+                <span>EVALUACIÓN</span>
+                <strong>Instrumentos clínicos</strong>
+                <p>Escalas y pruebas funcionales con calculadoras interactivas.</p>
+            </a>
+
+            <a href="investigacion.html" class="not-found-link-card">
+                <span>INVESTIGACIÓN</span>
+                <strong>Práctica basada en evidencia</strong>
+                <p>Lectura crítica, niveles de evidencia y recursos científicos.</p>
+            </a>
+
+            <a href="index.html#blog" class="not-found-link-card">
+                <span>BLOG</span>
+                <strong>Artículos y divulgación</strong>
+                <p>Neuroplasticidad, ejercicio terapéutico y evaluación clínica.</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+    <p>
+        © 2026 NeuroRehab
+    </p>
+
+    <p>
+        Fisioterapia · Neurorehabilitación · Ciencia
+    </p>
+
+</footer>
+
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+</body>
+
+</html>
