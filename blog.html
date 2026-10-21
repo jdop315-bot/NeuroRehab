@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog | NeuroRehab</title>
+
+    <meta
+        name="description"
+        content="Artículos sobre neurorehabilitación, fisioterapia neurológica, ejercicio terapéutico, neuroplasticidad y evaluación clínica basada en evidencia."
+    >
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/blog.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="Blog | NeuroRehab">
+    <meta property="og:description" content="Artículos sobre neurorehabilitación, ejercicio terapéutico, neuroplasticidad y evaluación clínica.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | NeuroRehab">
+    <meta name="twitter:description" content="Artículos sobre neurorehabilitación, ejercicio terapéutico, neuroplasticidad y evaluación clínica.">
+    <meta name="twitter:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+
+    <style>
+        /* =========================================================
+           BLOG HUB — ESTILOS ESPECÍFICOS
+           ========================================================= */
+
+        .blog-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 45px;
+            max-width: 900px;
+        }
+
+        .blog-filter-btn {
+            padding: 8px 18px;
+            border: 1px solid #DFE7EF;
+            border-radius: 30px;
+            background: #FFFFFF;
+            color: #596777;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .blog-filter-btn:hover {
+            border-color: #2F80ED;
+            color: #2F80ED;
+        }
+
+        .blog-filter-btn.active {
+            background: #2F80ED;
+            border-color: #2F80ED;
+            color: #FFFFFF;
+        }
+
+        .blog-grid-hub {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 26px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas de blog (extendiendo .blog-card existente) */
+        .blog-card-hub {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border: 1px solid #DFE7EF;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(7, 26, 51, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            overflow: hidden;
+            text-align: left;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-card-hub:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(7, 26, 51, 0.10);
+            border-color: #BDD5EC;
+        }
+
+        .blog-card-hub-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #EAF3FF 0%, #D7E8FA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2F80ED;
+            border-bottom: 1px solid #E3EAF2;
+        }
+
+        .blog-card-hub-image svg {
+            width: 50px;
+            height: 50px;
+            opacity: 0.8;
+        }
+
+        .blog-card-hub-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-card-hub .blog-category {
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .blog-card-hub h3 {
+            margin: 0 0 12px;
+            color: #0B3A70;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .blog-card-hub p {
+            margin: 0 0 20px;
+            color: #596777;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .blog-card-hub-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #E3EAF2;
+        }
+
+        .blog-card-hub-link {
+            color: #1769CC;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-card-hub:hover .blog-card-hub-link {
+            color: #0B3A70;
+            transform: translateX(3px);
+        }
+
+        /* Etiqueta de tiempo de lectura */
+        .blog-read-time {
+            color: #8A98A8;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-read-time svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        @media (max-width: 650px) {
+            .blog-grid-hub {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="index.html#neurorehabilitacion">Neurorehabilitación</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">Evaluación</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">Evidencia científica</a>
+            </li>
+
+            <li>
+                <a href="index.html#recursos">Recursos</a>
+            </li>
+
+            <li>
+                <a href="investigacion.html">Investigación</a>
+            </li>
+
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ========================================
+     HERO
+======================================== -->
+
+<header class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="hero-tag">
+            DIVULGACIÓN · CIENCIA · FISIOTERAPIA
+        </p>
+
+        <h1>
+            Blog de NeuroRehab
+        </h1>
+
+        <p>
+            Artículos sobre neurorehabilitación, ejercicio terapéutico,
+            neuroplasticidad y evaluación clínica basados en evidencia
+            científica.
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================================
+     MIGAS DE PAN
+======================================== -->
+
+<div class="breadcrumb" aria-label="Migas de pan">
+
+    <a href="index.html">
+        Inicio
+    </a>
+
+    <span>›</span>
+
+    <strong>
+        Blog
+    </strong>
+
+</div>
+
+<!-- ========================================
+     CONTENIDO PRINCIPAL
+======================================== -->
+
+<main class="article-container" id="contenido-principal">
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+
+            <p>TODOS LOS ARTÍCULOS</p>
+
+            <h2>
+                Explora nuestras publicaciones
+            </h2>
+
+        </div>
+
+        <!-- FILTROS -->
+        <div class="blog-filters" id="blogFilters">
+            <button class="blog-filter-btn active" data-filter="all">Todos</button>
+            <button class="blog-filter-btn" data-filter="neuroplasticidad">Neuroplasticidad</button>
+            <button class="blog-filter-btn" data-filter="ejercicio">Ejercicio Terapéutico</button>
+            <button class="blog-filter-btn" data-filter="evaluacion">Evaluación Clínica</button>
+        </div>
+
+        <!-- GRID DE ARTÍCULOS -->
+        <div class="blog-grid-hub" id="blogGrid">
+
+            <!-- Artículo 1 -->
+            <a href="blog-neuroplasticidad-acv.html" class="blog-card-hub" data-category="neuroplasticidad">
+                <div class="blog-card-hub-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+                        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+                    </svg>
+                </div>
+                <div class="blog-card-hub-content">
+                    <span class="blog-category">NEUROPLASTICIDAD</span>
+                    <h3>Neuroplasticidad y recuperación funcional después del ACV</h3>
+                    <p>Revisión clínica de los principios de neuroplasticidad aplicables a la rehabilitación post-ACV: mecanismos, ventanas temporales y dosificación del ejercicio.</p>
+                    <div class="blog-card-hub-footer">
+                        <span class="blog-card-hub-link">Leer artículo →</span>
+                        <span class="blog-read-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            8 min
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Artículo 2 -->
+            <a href="blog-ejercicio-aerobico-parkinson.html" class="blog-card-hub" data-category="ejercicio">
+                <div class="blog-card-hub-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="13" cy="4" r="1"/>
+                        <path d="m5 21 3-3-2-4"/>
+                        <path d="M16 21v-4l-2-2 1-5-4 1-2 4"/>
+                        <path d="M18 8h2"/>
+                    </svg>
+                </div>
+                <div class="blog-card-hub-content">
+                    <span class="blog-category">EJERCICIO TERAPÉUTICO</span>
+                    <h3>Ejercicio aeróbico en la enfermedad de Parkinson</h3>
+                    <p>Resumen de la guía APTA 2022 y recomendaciones prácticas para la prescripción de ejercicio aeróbico en fisioterapia neurológica.</p>
+                    <div class="blog-card-hub-footer">
+                        <span class="blog-card-hub-link">Leer artículo →</span>
+                        <span class="blog-read-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            6 min
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Artículo 3 -->
+            <a href="blog-escalas-equilibrio.html" class="blog-card-hub" data-category="evaluacion">
+                <div class="blog-card-hub-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                </div>
+                <div class="blog-card-hub-content">
+                    <span class="blog-category">EVALUACIÓN CLÍNICA</span>
+                    <h3>Escalas de equilibrio en neurorehabilitación</h3>
+                    <p>Comparación crítica entre Berg Balance Scale, Mini-BESTest y otras herramientas de evaluación del equilibrio en poblaciones neurológicas.</p>
+                    <div class="blog-card-hub-footer">
+                        <span class="blog-card-hub-link">Leer artículo →</span>
+                        <span class="blog-read-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            10 min
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+
+    <p>Los contenidos son de carácter educativo y no reemplazan el juicio clínico individualizado.</p>
+
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+<!-- =========================================================
+     JAVASCRIPT PARA FILTROS
+     ========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".blog-filter-btn");
+    const blogCards = document.querySelectorAll(".blog-card-hub");
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            // Quitar clase activa de todos
+            filterButtons.forEach(b => b.classList.remove("active"));
+            // Añadir al clickeado
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            blogCards.forEach(card => {
+                const category = card.getAttribute("data-category");
+                if (filterValue === "all" || category === filterValue) {
+                    card.style.display = "flex";
+                    // Pequeña animación de entrada
+                    card.style.opacity = "0";
+                    setTimeout(() => {
+                        card.style.transition = "opacity 0.3s ease";
+                        card.style.opacity = "1";
+                    }, 10);
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>
