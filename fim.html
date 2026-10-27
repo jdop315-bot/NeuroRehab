@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FIM (Functional Independence Measure) | NeuroRehab</title>
+
+    <meta
+        name="description"
+        content="FIM: Functional Independence Measure. Evaluación de la discapacidad motora y cognitiva en 18 ítems. Calculadora interactiva, puntuación e interpretación clínica."
+    >
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/fim.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="FIM (Functional Independence Measure) | NeuroRehab">
+    <meta property="og:description" content="Evaluación de la discapacidad motora y cognitiva en 18 ítems. Calculadora interactiva e interpretación.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FIM (Functional Independence Measure) | NeuroRehab">
+    <meta name="twitter:description" content="Evaluación de la discapacidad motora y cognitiva en 18 ítems. Calculadora interactiva e interpretación.">
+    <meta name="twitter:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "MedicalWebPage",
+            "@id": "https://jdop315-bot.github.io/NeuroRehab/fim.html#webpage",
+            "url": "https://jdop315-bot.github.io/NeuroRehab/fim.html",
+            "name": "FIM (Functional Independence Measure) | NeuroRehab",
+            "description": "Evaluación de la discapacidad motora y cognitiva en 18 ítems. Calculadora interactiva e interpretación.",
+            "inLanguage": "es-ES",
+            "isPartOf": { "@id": "https://jdop315-bot.github.io/NeuroRehab/#website" },
+            "publisher": { "@id": "https://jdop315-bot.github.io/NeuroRehab/#organization" },
+            "about": {
+                "@type": "MedicalTest",
+                "name": "Functional Independence Measure",
+                "alternateName": "FIM"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Inicio",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/" },
+                { "@type": "ListItem", "position": 2, "name": "Evaluación",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/evaluacion.html" },
+                { "@type": "ListItem", "position": 3, "name": "FIM",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/fim.html" }
+            ]
+        }
+    ]
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="index.html#neurorehabilitacion">Neurorehabilitación</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">Evaluación</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="mini-bestest.html">Mini-BESTest</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="fim.html">FIM (Funcional)</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">Evidencia científica</a>
+            </li>
+
+            <li>
+                <a href="index.html#recursos">Recursos</a>
+            </li>
+
+            <li>
+                <a href="investigacion.html">Investigación</a>
+            </li>
+
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ========================================
+     HERO
+======================================== -->
+
+<header class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="hero-tag">
+            ACTIVIDAD Y FUNCIÓN
+        </p>
+
+        <h1>
+            FIM (Functional Independence Measure)
+        </h1>
+
+        <p>
+            Evaluación integral de la discapacidad física, cognitiva y social.
+            Estándar de oro en la medición de la carga de cuidado del paciente.
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================================
+     MIGAS DE PAN
+======================================== -->
+
+<div class="breadcrumb" aria-label="Migas de pan">
+
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <a href="evaluacion.html">Evaluación</a>
+    <span>›</span>
+    <strong>FIM</strong>
+
+</div>
+
+<!-- ========================================
+     CONTENIDO PRINCIPAL
+======================================== -->
+
+<main class="article-container" id="contenido-principal">
+
+    <!-- INTRODUCCIÓN -->
+    <section class="article-intro">
+
+        <span class="article-label">
+            FIM
+        </span>
+
+        <h2>
+            Midiendo la independencia funcional real
+        </h2>
+
+        <p>
+            El <strong>FIM (Functional Independence Measure)</strong> es un instrumento diseñado para evaluar la cantidad de asistencia que requiere una persona para realizar las actividades de la vida diaria (AVD), independientemente de si la discapacidad es física o cognitiva.
+        </p>
+
+        <p>
+            A diferencia del Índice de Barthel, el FIM incluye un **dominio cognitivo** (comunicación y cognición social), lo que permite identificar si el paciente necesita supervisión por problemas de memoria, comprensión o seguridad, incluso si físicamente es capaz de realizar la tarea.
+        </p>
+
+    </section>
+
+    <!-- 01 · ESTRUCTURA Y ESCALA -->
+    <section class="article-section">
+
+        <div class="section-title-left">
+            <p>01 · ESTRUCTURA Y PUNTUACIÓN</p>
+            <h2>Los 18 ítems del FIM</h2>
+        </div>
+
+        <p>
+            El FIM consta de <strong>18 ítems</strong> divididos en dos grandes dominios, sumando un total de <strong>126 puntos</strong> en el mejor de los casos:
+        </p>
+
+        <div class="clinical-grid">
+            <article class="clinical-card">
+                <span class="clinical-card-tag">DOMINIO MOTOR (13 ÍTEMS)</span>
+                <h3>91 puntos</h3>
+                <p>
+                    Evalúa el autocuidado (comer, aseo, baño, vestido), control de esfínteres, transferencias (cama, silla, baño, ducha) y locomoción (caminar o silla de ruedas y escaleras).
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span class="clinical-card-tag">DOMINIO COGNITIVO (5 ÍTEMS)</span>
+                <h3>35 puntos</h3>
+                <p>
+                    Evalúa la comunicación (comprensión y expresión) y la cognición social (interacción social, resolución de problemas y memoria).
+                </p>
+            </article>
+        </div>
+
+        <div class="scale-table" style="margin-top: 30px;">
+            <div class="scale-row scale-header">
+                <span>Nivel</span>
+                <span>Descripción de la Independencia</span>
+            </div>
+            <div class="scale-row">
+                <span>7 - Independencia completa</span>
+                <span>Realiza la tarea de forma segura, sin ayuda ni dispositivos (tiempo razonable).</span>
+            </div>
+            <div class="scale-row">
+                <span>6 - Independencia modificada</span>
+                <span>Requiere un dispositivo de ayuda o tiempo extra, pero no a otra persona.</span>
+            </div>
+            <div class="scale-row">
+                <span>5 - Supervisión o preparación</span>
+                <span>Requiere supervisión, estímulo o preparación del entorno (no contacto físico).</span>
+            </div>
+            <div class="scale-row">
+                <span>4 - Asistencia mínima</span>
+                <span>El paciente realiza el 75% o más del esfuerzo.</span>
+            </div>
+            <div class="scale-row">
+                <span>3 - Asistencia moderada</span>
+                <span>El paciente realiza entre el 50% y el 74% del esfuerzo.</span>
+            </div>
+            <div class="scale-row">
+                <span>2 - Asistencia máxima</span>
+                <span>El paciente realiza entre el 25% y el 49% del esfuerzo.</span>
+            </div>
+            <div class="scale-row">
+                <span>1 - Asistencia total</span>
+                <span>El paciente realiza menos del 25% del esfuerzo o depende completamente de otra persona.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 · CALCULADORA -->
+    <section class="article-section article-blue" id="fim-calculator">
+
+        <div class="section-title-left">
+            <p>02 · CALCULADORA CLÍNICA</p>
+            <h2>Evaluación Interactiva del FIM</h2>
+        </div>
+
+        <p>
+            Seleccione la puntuación observada para cada uno de los 18 ítems. La calculadora sumará automáticamente los dominios Motor y Cognitivo.
+        </p>
+
+        <div class="calc-container">
+
+            <div class="calc-header">
+                <h3>Registro del FIM</h3>
+                <p>Puntuación total: 18 a 126 puntos.</p>
+            </div>
+
+            <form id="fimForm" autocomplete="off">
+                
+                <h3 class="motricity-subheading">Dominio Motor (13 ítems)</h3>
+                
+                <div class="tug-form-grid">
+                    <!-- Autocuidado -->
+                    <div>
+                        <label for="fimEating">1. Alimentación</label>
+                        <select id="fimEating" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimGrooming">2. Aseo personal</label>
+                        <select id="fimGrooming" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimBathing">3. Baño</label>
+                        <select id="fimBathing" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimDressUpper">4. Vestido (tronco superior)</label>
+                        <select id="fimDressUpper" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimDressLower">5. Vestido (tronco inferior)</label>
+                        <select id="fimDressLower" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimToileting">6. Aseo en el inodoro</label>
+                        <select id="fimToileting" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+
+                    <!-- Control Esfínteres -->
+                    <div>
+                        <label for="fimBladder">7. Control de vejiga</label>
+                        <select id="fimBladder" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimBowel">8. Control de intestino</label>
+                        <select id="fimBowel" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+
+                    <!-- Transferencias -->
+                    <div>
+                        <label for="fimBedChair">9. Transferencia cama/silla</label>
+                        <select id="fimBedChair" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimToilet">10. Transferencia inodoro</label>
+                        <select id="fimToilet" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimTub">11. Transferencia bañera/ducha</label>
+                        <select id="fimTub" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+
+                    <!-- Locomoción -->
+                    <div>
+                        <label for="fimLocomotion">12. Locomoción (marcha/silla)</label>
+                        <select id="fimLocomotion" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimStairs">13. Escaleras</label>
+                        <select id="fimStairs" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="motricity-subheading">Dominio Cognitivo (5 ítems)</h3>
+
+                <div class="tug-form-grid">
+                    <div>
+                        <label for="fimComprehension">14. Comprensión</label>
+                        <select id="fimComprehension" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimExpression">15. Expresión</label>
+                        <select id="fimExpression" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimSocial">16. Interacción social</label>
+                        <select id="fimSocial" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimProblem">17. Resolución de problemas</label>
+                        <select id="fimProblem" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="fimMemory">18. Memoria</label>
+                        <select id="fimMemory" class="calc-select">
+                            <option value="7">7 - Independiente</option>
+                            <option value="6">6 - Independiente con dispositivo</option>
+                            <option value="5">5 - Supervisión</option>
+                            <option value="4">4 - Asistencia mínima</option>
+                            <option value="3">3 - Asistencia moderada</option>
+                            <option value="2">2 - Asistencia máxima</option>
+                            <option value="1">1 - Asistencia total</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="fimResults" class="calc-results-panel" role="region" aria-live="polite">
+                    <div class="calc-results-header">
+                        <div>
+                            <span class="calc-badge calc-badge-green" id="fimBadge">Independencia Completa</span>
+                            <div class="calc-score-display" style="margin-top: 8px;">
+                                <span class="calc-score-number" id="fimTotalScore">126</span>
+                                <span class="calc-score-max">/ 126 puntos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desglose de dominios -->
+                    <div class="fma-final-percentage" style="background: #F5F9FD; border: 1px solid #D9E5F2; margin-bottom: 20px;">
+                        <div style="text-align: center; flex: 1;">
+                            <span style="display: block; font-size: 0.8rem; color: #526173; font-weight: 700;">MOTOR</span>
+                            <strong id="fimMotorScore" style="font-size: 1.4rem; color: #1769CC;">91</strong>
+                        </div>
+                        <div style="width: 1px; background: #D9E5F2; height: 30px;"></div>
+                        <div style="text-align: center; flex: 1;">
+                            <span style="display: block; font-size: 0.8rem; color: #526173; font-weight: 700;">COGNITIVO</span>
+                            <strong id="fimCognitiveScore" style="font-size: 1.4rem; color: #1769CC;">35</strong>
+                        </div>
+                    </div>
+
+                    <p class="calc-interpretation-text" id="fimInterpretation">
+                        El paciente es completamente independiente en todas las áreas evaluadas.
+                    </p>
+
+                    <div class="calc-actions">
+                        <button type="button" class="calc-btn-reset" id="fimReset">
+                            Reiniciar Evaluación
+                        </button>
+                    </div>
+
+                    <!-- BOTONES COPIAR / IMPRIMIR -->
+                    <div class="calc-result-actions">
+                        <button type="button" class="calc-copy-btn" data-target="fimResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                            Copiar resultados
+                        </button>
+                        <button type="button" class="calc-print-btn" data-target="fimResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9V2h12v7"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect width="12" height="8" x="6" y="14"/>
+                            </svg>
+                            Imprimir
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- 03 · INTERPRETACIÓN -->
+    <section class="article-section dark-section">
+        <div class="section-title-left">
+            <p>03 · INTERPRETACIÓN</p>
+            <h2>Carga de cuidado y Niveles de Asistencia</h2>
+        </div>
+
+        <p>
+            La puntuación total del FIM va de 18 a 126. A menor puntuación, mayor es la carga de cuidado y la dependencia del paciente.
+        </p>
+        
+        <div class="scale-table">
+            <div class="scale-row scale-header">
+                <span>Puntuación Total</span>
+                <span>Nivel de Asistencia</span>
+            </div>
+            <div class="scale-row">
+                <span>126</span>
+                <span>Independencia completa</span>
+            </div>
+            <div class="scale-row">
+                <span>109 – 125</span>
+                <span>Independencia modificada (requiere dispositivos o tiempo extra)</span>
+            </div>
+            <div class="scale-row">
+                <span>91 – 108</span>
+                <span>Supervisión o asistencia mínima</span>
+            </div>
+            <div class="scale-row">
+                <span>73 – 90</span>
+                <span>Asistencia moderada</span>
+            </div>
+            <div class="scale-row">
+                <span>55 – 72</span>
+                <span>Asistencia máxima</span>
+            </div>
+            <div class="scale-row">
+                <span>18 – 54</span>
+                <span>Asistencia total (dependencia completa)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 · EVIDENCIA CIENTÍFICA -->
+    <section class="article-section">
+        <div class="section-title-left">
+            <p>04 · EVIDENCIA CIENTÍFICA</p>
+            <h2>Referencias principales (APA 7)</h2>
+        </div>
+
+        <ul class="reference-list">
+            <li>Granger, C. V., Hamilton, B. B., Keith, R. A., Zielezny, M., & Sherwin, F. S. (1986). Advances in functional assessment for medical rehabilitation. <em>Topics in Geriatric Rehabilitation</em>, <em>1</em>(3), 59-74.</li>
+            <li>Keith, R. A., Granger, C. V., Hamilton, B. B., & Sherwin, F. S. (1987). The functional independence measure: a new tool for rehabilitation. <em>Advances in clinical rehabilitation</em>, <em>1</em>, 6-18.</li>
+            <li>Linacre, J. M., Heinemann, A. W., Wright, B. D., Granger, C. V., & Hamilton, B. B. (1994). The structure and stability of the Functional Independence Measure. <em>Archives of physical medicine and rehabilitation</em>, <em>75</em>(2), 127-132.</li>
+        </ul>
+    </section>
+
+    <!-- NOTA CLÍNICA -->
+    <div class="coming-soon">
+        <strong>Nota clínica:</strong>
+        El FIM es especialmente útil en unidades de neurorrehabilitación para medir la evolución del paciente, estimar la duración de la estancia hospitalaria y planificar el alta. Requiere que el evaluador esté certificado en su aplicación para garantizar la fiabilidad.
+    </div>
+
+    <!-- EXPLORA OTROS INSTRUMENTOS -->
+    <section class="article-section">
+        <div class="section-title-left">
+            <p>EVALUACIÓN</p>
+            <h2>Explora otros instrumentos</h2>
+        </div>
+        <div class="clinical-grid">
+            <article class="clinical-card">
+                <span class="clinical-card-tag">ACTIVIDAD Y FUNCIÓN</span>
+                <h3>Índice de Barthel</h3>
+                <p>Evaluación de la independencia en actividades básicas de la vida diaria.</p>
+                <a href="barthel.html">Ver instrumento →</a>
+            </article>
+            <article class="clinical-card">
+                <span class="clinical-card-tag">EQUILIBRIO</span>
+                <h3>Mini-BESTest</h3>
+                <p>Evaluación del equilibrio dinámico y control postural.</p>
+                <a href="mini-bestest.html">Ver instrumento →</a>
+            </article>
+        </div>
+    </section>
+
+</main>
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+    <p>Los contenidos y los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+<!-- =========================================================
+     JAVASCRIPT: CALCULADORA FIM
+     ========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const fimForm = document.getElementById("fimForm");
+    if (!fimForm) return;
+
+    const fimResults = document.getElementById("fimResults");
+    const fimBadge = document.getElementById("fimBadge");
+    const fimTotalScore = document.getElementById("fimTotalScore");
+    const fimMotorScore = document.getElementById("fimMotorScore");
+    const fimCognitiveScore = document.getElementById("fimCognitiveScore");
+    const fimInterpretation = document.getElementById("fimInterpretation");
+    const fimReset = document.getElementById("fimReset");
+
+    // IDs de los 13 ítems motores
+    const motorIds = [
+        "fimEating", "fimGrooming", "fimBathing", "fimDressUpper", "fimDressLower",
+        "fimToileting", "fimBladder", "fimBowel", "fimBedChair", "fimToilet",
+        "fimTub", "fimLocomotion", "fimStairs"
+    ];
+
+    // IDs de los 5 ítems cognitivos
+    const cognitiveIds = [
+        "fimComprehension", "fimExpression", "fimSocial", "fimProblem", "fimMemory"
+    ];
+
+    function updateFIM() {
+        let motorTotal = 0;
+        let cognitiveTotal = 0;
+
+        motorIds.forEach(id => {
+            motorTotal += parseInt(document.getElementById(id).value) || 0;
+        });
+
+        cognitiveIds.forEach(id => {
+            cognitiveTotal += parseInt(document.getElementById(id).value) || 0;
+        });
+
+        const total = motorTotal + cognitiveTotal;
+
+        fimMotorScore.textContent = motorTotal;
+        fimCognitiveScore.textContent = cognitiveTotal;
+        fimTotalScore.textContent = total;
+
+        let badgeText = "";
+        let badgeClass = "calc-badge-green";
+        let desc = "";
+
+        if (total === 126) {
+            badgeText = "Independencia Completa";
+            badgeClass = "calc-badge-green";
+            desc = "El paciente es completamente independiente en todas las áreas evaluadas, sin requerir asistencia ni supervisión.";
+        } else if (total >= 109) {
+            badgeText = "Independencia Modificada";
+            badgeClass = "calc-badge-green";
+            desc = "El paciente es independiente, pero requiere dispositivos de ayuda, adaptaciones o un tiempo excesivo para realizar las tareas.";
+        } else if (total >= 91) {
+            badgeText = "Supervisión o Asistencia Mínima";
+            badgeClass = "calc-badge-yellow";
+            desc = "El paciente requiere supervisión, preparación del entorno o asistencia física mínima (realiza >75% del esfuerzo).";
+        } else if (total >= 73) {
+            badgeText = "Asistencia Moderada";
+            badgeClass = "calc-badge-orange";
+            desc = "El paciente requiere asistencia física moderada (realiza entre el 50% y el 74% del esfuerzo).";
+        } else if (total >= 55) {
+            badgeText = "Asistencia Máxima";
+            badgeClass = "calc-badge-red";
+            desc = "El paciente requiere asistencia física máxima (realiza entre el 25% y el 49% del esfuerzo).";
+        } else {
+            badgeText = "Asistencia Total";
+            badgeClass = "calc-badge-red";
+            desc = "El paciente es totalmente dependiente (realiza <25% del esfuerzo) o requiere cuidado las 24 horas.";
+        }
+
+        fimBadge.className = `calc-badge ${badgeClass}`;
+        fimBadge.textContent = badgeText;
+        fimInterpretation.textContent = desc;
+        fimResults.hidden = false;
+    }
+
+    fimForm.addEventListener("change", updateFIM);
+
+    if (fimReset) {
+        fimReset.addEventListener("click", () => {
+            // Reiniciar todos los select a 7 (independiente)
+            fimForm.querySelectorAll("select.calc-select").forEach(select => {
+                select.value = "7";
+            });
+            updateFIM();
+        });
+    }
+
+    // Inicializar
+    updateFIM();
+});
+</script>
+
+</body>
+</html>

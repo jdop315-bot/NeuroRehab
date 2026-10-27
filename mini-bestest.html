@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini-BESTest | NeuroRehab</title>
+
+    <meta
+        name="description"
+        content="Mini-BESTest: evaluación del equilibrio dinámico y control postural (anticipatorio, reactivo, sensorial y marcha). Calculadora interactiva y guía clínica."
+    >
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/mini-bestest.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="Mini-BESTest | NeuroRehab">
+    <meta property="og:description" content="Evaluación del equilibrio dinámico y control postural. Calculadora interactiva y guía clínica.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mini-BESTest | NeuroRehab">
+    <meta name="twitter:description" content="Evaluación del equilibrio dinámico y control postural. Calculadora interactiva y guía clínica.">
+    <meta name="twitter:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "MedicalWebPage",
+            "@id": "https://jdop315-bot.github.io/NeuroRehab/mini-bestest.html#webpage",
+            "url": "https://jdop315-bot.github.io/NeuroRehab/mini-bestest.html",
+            "name": "Mini-BESTest | NeuroRehab",
+            "description": "Evaluación del equilibrio dinámico y control postural. Calculadora interactiva y guía clínica.",
+            "inLanguage": "es-ES",
+            "isPartOf": { "@id": "https://jdop315-bot.github.io/NeuroRehab/#website" },
+            "publisher": { "@id": "https://jdop315-bot.github.io/NeuroRehab/#organization" },
+            "about": {
+                "@type": "MedicalTest",
+                "name": "Mini-BESTest",
+                "alternateName": "Mini-Balance Evaluation Systems Test"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Inicio",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/" },
+                { "@type": "ListItem", "position": 2, "name": "Evaluación",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/evaluacion.html" },
+                { "@type": "ListItem", "position": 3, "name": "Mini-BESTest",
+                  "item": "https://jdop315-bot.github.io/NeuroRehab/mini-bestest.html" }
+            ]
+        }
+    ]
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="index.html#neurorehabilitacion">Neurorehabilitación</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">Evaluación</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="mini-bestest.html">Mini-BESTest</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    <li><a href="mini-bestest.html">Mini-BESTest</a></li>
+                    <li><a href="fim.html">FIM (Funcional)</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">Evidencia científica</a>
+            </li>
+
+            <li>
+                <a href="index.html#recursos">Recursos</a>
+            </li>
+
+            <li>
+                <a href="investigacion.html">Investigación</a>
+            </li>
+
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ========================================
+     HERO
+======================================== -->
+
+<header class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="hero-tag">
+            EVALUACIÓN DEL EQUILIBRIO DINÁMICO
+        </p>
+
+        <h1>
+            Mini-BESTest
+        </h1>
+
+        <p>
+            Evaluación de los sistemas de control postural: ajustes anticipatorios,
+            respuestas reactivas, orientación sensorial y marcha dinámica.
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================================
+     MIGAS DE PAN
+======================================== -->
+
+<div class="breadcrumb" aria-label="Migas de pan">
+
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <a href="evaluacion.html">Evaluación</a>
+    <span>›</span>
+    <strong>Mini-BESTest</strong>
+
+</div>
+
+<!-- ========================================
+     CONTENIDO PRINCIPAL
+======================================== -->
+
+<main class="article-container" id="contenido-principal">
+
+    <!-- INTRODUCCIÓN -->
+    <section class="article-intro">
+
+        <span class="article-label">
+            MINI-BESTEST
+        </span>
+
+        <h2>
+            Evaluando el equilibrio más allá de lo estático
+        </h2>
+
+        <p>
+            El <strong>Mini-BESTest</strong> (Mini-Balance Evaluation Systems Test) es una versión abreviada del BESTest. Fue desarrollado para evaluar el equilibrio dinámico de forma rápida (10-15 minutos) y sin el elevado efecto techo que presenta la Escala de Berg en pacientes neurológicos.
+        </p>
+
+        <p>
+            A diferencia de otras escalas, el Mini-BESTest desglosa el equilibrio en 4 sistemas específicos, lo que permite al fisioterapeuta identificar exactamente <em>por qué</em> el paciente se cae (por déficit sensorial, falta de reacciones de paso, etc.).
+        </p>
+
+    </section>
+
+    <!-- 01 · DOMINIOS -->
+    <section class="article-section">
+
+        <div class="section-title-left">
+            <p>01 · ESTRUCTURA</p>
+            <h2>Los 4 sistemas evaluados</h2>
+        </div>
+
+        <div class="clinical-grid">
+            <article class="clinical-card">
+                <span class="clinical-card-tag">ANTICIPATORIO</span>
+                <h3>Ajustes posturales anticipatorios</h3>
+                <p>
+                    Evalúa la capacidad de preparar el cuerpo antes de un movimiento voluntario (ej. levantarse de una silla, pararse en puntillas).
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span class="clinical-card-tag">REACTIVO</span>
+                <h3>Control postural reactivo</h3>
+                <p>
+                    Evalúa la capacidad de recuperar el equilibrio tras una perturbación externa (ej. empujones hacia adelante, atrás o los lados).
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span class="clinical-card-tag">SENSORIAL</span>
+                <h3>Orientación sensorial</h3>
+                <p>
+                    Evalúa cómo el paciente integra la visión, la propiocepción y el sistema vestibular para mantenerse de pie (ojos cerrados, superficie de espuma).
+                </p>
+            </article>
+
+            <article class="clinical-card">
+                <span class="clinical-card-tag">MARCHA</span>
+                <h3>Marcha dinámica</h3>
+                <p>
+                    Evalúa el equilibrio durante la marcha (cambios de velocidad, giros de cabeza, pivotes y pasar obstáculos).
+                </p>
+            </article>
+        </div>
+
+    </section>
+
+    <!-- 02 · CALCULADORA -->
+    <section class="article-section article-blue" id="mini-bestest-calculator">
+
+        <div class="section-title-left">
+            <p>02 · CALCULADORA CLÍNICA</p>
+            <h2>Evaluación Interactiva (0 - 28 puntos)</h2>
+        </div>
+
+        <p>
+            Cada uno de los 14 ítems se puntúa de <strong>0 a 2</strong> (0 = severo, 2 = normal). Seleccione la puntuación obtenida en cada prueba.
+        </p>
+
+        <div class="calc-container">
+
+            <div class="calc-header">
+                <h3>Registro del Mini-BESTest</h3>
+                <p>Puntuación máxima posible: 28 puntos.</p>
+            </div>
+
+            <form id="miniBestestForm" autocomplete="off">
+                
+                <h3 class="motricity-subheading">1. Ajustes Posturales Anticipatorios (6 pts)</h3>
+                <div class="tug-form-grid">
+                    <div>
+                        <label for="mbSitToStand">1. Sentado a de pie</label>
+                        <select id="mbSitToStand" class="calc-select">
+                            <option value="0">0 - Inestable, no lo logra sin ayuda</option>
+                            <option value="1">1 - Necesita impulso con brazos o ayuda leve</option>
+                            <option value="2">2 - Estable, sin usar los brazos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbToes">2. Ponerse de puntillas</label>
+                        <select id="mbToes" class="calc-select">
+                            <option value="0">0 - Inestable, no puede</option>
+                            <option value="1">1 - Talones caen a la mitad</option>
+                            <option value="2">2 - Estable durante 3 segundos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbOneLeg">3. Apoyo unipodal</label>
+                        <select id="mbOneLeg" class="calc-select">
+                            <option value="0">0 - Menos de 3 segundos</option>
+                            <option value="1">1 - Entre 3 y 5 segundos</option>
+                            <option value="2">2 - Más de 5 segundos de forma estable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="motricity-subheading">2. Control Postural Reactivo (6 pts)</h3>
+                <div class="tug-form-grid">
+                    <div>
+                        <label for="mbStepForward">4. Paso compensatorio hacia adelante</label>
+                        <select id="mbStepForward" class="calc-select">
+                            <option value="0">0 - No da el paso o da más de 3 pasos</option>
+                            <option value="1">1 - Da 2 o 3 pasos</option>
+                            <option value="2">2 - Da 1 paso y recupera estabilidad</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbStepBackward">5. Paso compensatorio hacia atrás</label>
+                        <select id="mbStepBackward" class="calc-select">
+                            <option value="0">0 - No da el paso o da más de 3 pasos</option>
+                            <option value="1">1 - Da 2 o 3 pasos</option>
+                            <option value="2">2 - Da 1 paso y recupera estabilidad</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbStepLateral">6. Paso compensatorio lateral</label>
+                        <select id="mbStepLateral" class="calc-select">
+                            <option value="0">0 - No da el paso o cae</option>
+                            <option value="1">1 - Da más de 1 paso o vacila</option>
+                            <option value="2">2 - Da 1 paso para recuperar equilibrio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="motricity-subheading">3. Orientación Sensorial (6 pts)</h3>
+                <div class="tug-form-grid">
+                    <div>
+                        <label for="mbEyesOpen">7. Ojos abiertos, superficie dura</label>
+                        <select id="mbEyesOpen" class="calc-select">
+                            <option value="0">0 - Menos de 30 segundos</option>
+                            <option value="1">1 - 30 segundos con oscilación marcada</option>
+                            <option value="2">2 - 30 segundos con estabilidad</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbEyesClosed">8. Ojos cerrados, superficie de espuma</label>
+                        <select id="mbEyesClosed" class="calc-select">
+                            <option value="0">0 - Menos de 30 segundos</option>
+                            <option value="1">1 - 30 segundos con oscilación</option>
+                            <option value="2">2 - 30 segundos con estabilidad</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbIncline">9. Ojos cerrados, plano inclinado</label>
+                        <select id="mbIncline" class="calc-select">
+                            <option value="0">0 - Incapaz o requiere asistencia</option>
+                            <option value="1">1 - Permanece pero con mucha oscilación</option>
+                            <option value="2">2 - Permanece estable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="motricity-subheading">4. Marcha Dinámica (10 pts)</h3>
+                <div class="tug-form-grid">
+                    <div>
+                        <label for="mbGaitSpeed">10. Cambio de velocidad de la marcha</label>
+                        <select id="mbGaitSpeed" class="calc-select">
+                            <option value="0">0 - No puede cambiar o se detiene</option>
+                            <option value="1">1 - Cambia la velocidad con dificultad</option>
+                            <option value="2">2 - Cambia de velocidad con fluidez</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbHeadTurns">11. Marcha con giros horizontales de cabeza</label>
+                        <select id="mbHeadTurns" class="calc-select">
+                            <option value="0">0 - No puede o pierde el equilibrio</option>
+                            <option value="1">1 - Camina pero con desviación notoria</option>
+                            <option value="2">2 - Camina estable sin desviaciones</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbHeadUpDown">12. Marcha con giros verticales de cabeza</label>
+                        <select id="mbHeadUpDown" class="calc-select">
+                            <option value="0">0 - No puede o pierde el equilibrio</option>
+                            <option value="1">1 - Camina pero con desviación notoria</option>
+                            <option value="2">2 - Camina estable sin desviaciones</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbPivot">13. Giro de 180° en la marcha (Pivote)</label>
+                        <select id="mbPivot" class="calc-select">
+                            <option value="0">0 - Giro muy inestable o requiere asistencia</option>
+                            <option value="1">1 - Giro lento con pasos cortos</option>
+                            <option value="2">2 - Giro rápido, seguro y sin pasos extra</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mbObstacle">14. Superar un obstáculo</label>
+                        <select id="mbObstacle" class="calc-select">
+                            <option value="0">0 - Se detiene o tropieza</option>
+                            <option value="1">1 - Pasa el obstáculo con vacilación</option>
+                            <option value="2">2 - Pasa con fluidez y estabilidad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="miniBestestResults" class="calc-results-panel" role="region" aria-live="polite">
+                    <div class="calc-results-header">
+                        <div>
+                            <span class="calc-badge calc-badge-green" id="mbBadge">Riesgo bajo de caídas</span>
+                            <div class="calc-score-display" style="margin-top: 8px;">
+                                <span class="calc-score-number" id="mbTotalScore">28</span>
+                                <span class="calc-score-max">/ 28 puntos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="calc-interpretation-text" id="mbInterpretation">
+                        Puntuación ≥ 21. El paciente muestra un buen control postural dinámico.
+                    </p>
+
+                    <div class="calc-actions">
+                        <button type="button" class="calc-btn-reset" id="mbReset">
+                            Reiniciar Evaluación
+                        </button>
+                    </div>
+
+                    <!-- BOTONES COPIAR / IMPRIMIR -->
+                    <div class="calc-result-actions">
+                        <button type="button" class="calc-copy-btn" data-target="miniBestestResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                            Copiar resultados
+                        </button>
+                        <button type="button" class="calc-print-btn" data-target="miniBestestResults">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9V2h12v7"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect width="12" height="8" x="6" y="14"/>
+                            </svg>
+                            Imprimir
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- 03 · INTERPRETACIÓN -->
+    <section class="article-section dark-section">
+        <div class="section-title-left">
+            <p>03 · INTERPRETACIÓN</p>
+            <h2>Puntos de corte y significado clínico</h2>
+        </div>
+
+        <p>
+            La puntuación total máxima es de <strong>28 puntos</strong>. A mayor puntuación, mejor equilibrio dinámico.
+        </p>
+        
+        <div class="scale-table">
+            <div class="scale-row scale-header">
+                <span>Puntuación</span>
+                <span>Interpretación Clínica</span>
+            </div>
+            <div class="scale-row">
+                <span>0 – 16</span>
+                <span>Alto riesgo de caídas. Déficits severos en múltiples sistemas de control postural. Requiere asistencia y entrenamiento intensivo de equilibrio.</span>
+            </div>
+            <div class="scale-row">
+                <span>17 – 20</span>
+                <span>Riesgo moderado de caídas. Presencia de déficits específicos (ej. reacciones reactivas o marcha dinámica).</span>
+            </div>
+            <div class="scale-row">
+                <span>21 – 28</span>
+                <span>Bajo riesgo de caídas. Buen control postural generalizado, aunque pueden existir déficits aislados.</span>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+            * Nota: Un punto de corte común para identificar riesgo de caídas en condiciones neurológicas (como Parkinson o ACV) es de <strong>&le; 17.5 puntos</strong> (King et al., 2012).
+        </p>
+    </section>
+
+    <!-- 04 · EVIDENCIA CIENTÍFICA -->
+    <section class="article-section">
+        <div class="section-title-left">
+            <p>04 · EVIDENCIA CIENTÍFICA</p>
+            <h2>Referencias principales (APA 7)</h2>
+        </div>
+
+        <ul class="reference-list">
+            <li>Franchignoni, F., Horak, F., Godi, M., Nardone, A., & Giordano, A. (2010). Using psychometric techniques to improve the Balance Evaluation Systems Test: the mini-BESTest. <em>Journal of rehabilitation medicine</em>, <em>42</em>(4), 323-331. https://doi.org/10.2340/16501977-0537</li>
+            <li>King, L. A., Priest, K. C., Salarian, A., Pierce, D., & Horak, F. B. (2012). Comparing the Mini-BESTest with the Berg Balance Scale to evaluate balance disorders in Parkinson's disease. <em>Parkinson's Disease</em>, <em>2012</em>. https://doi.org/10.1155/2012/375419</li>
+            <li>Tsang, C. S., Liao, L. R., Chung, R. C., & Pang, M. Y. (2013). Psychometric properties of the Mini-Balance Evaluation Systems Test (Mini-BESTest) in community-dwelling individuals with chronic stroke. <em>Physical therapy</em>, <em>93</em>(8), 1102-1115. https://doi.org/10.2522/ptj.20120454</li>
+        </ul>
+    </section>
+
+    <!-- NOTA CLÍNICA -->
+    <div class="coming-soon">
+        <strong>Nota clínica:</strong>
+        El Mini-BESTest requiere un equipo mínimo: una silla sin apoyabrazos, una caja de zapatos (para el obstáculo), un cronómetro, una rampa de 10° (opcional para el ítem 9) y una superficie de espuma (foam pad).
+    </div>
+
+    <!-- EXPLORA OTROS INSTRUMENTOS -->
+    <section class="article-section">
+        <div class="section-title-left">
+            <p>EVALUACIÓN</p>
+            <h2>Explora otros instrumentos</h2>
+        </div>
+        <div class="clinical-grid">
+            <article class="clinical-card">
+                <span class="clinical-card-tag">EQUILIBRIO</span>
+                <h3>Berg Balance Scale</h3>
+                <p>Evaluación del equilibrio funcional estático y dinámico (0-56 puntos).</p>
+                <a href="berg.html">Ver instrumento →</a>
+            </article>
+            <article class="clinical-card">
+                <span class="clinical-card-tag">MOVILIDAD</span>
+                <h3>Timed Up and Go</h3>
+                <p>Medición del tiempo para levantarse, caminar y volver a sentarse.</p>
+                <a href="tug.html">Ver instrumento →</a>
+            </article>
+        </div>
+    </section>
+
+</main>
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+    <p>Los contenidos y los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+<!-- =========================================================
+     JAVASCRIPT: CALCULADORA MINI-BESTEST
+     ========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const mbForm = document.getElementById("miniBestestForm");
+    if (!mbForm) return;
+
+    const mbResults = document.getElementById("miniBestestResults");
+    const mbBadge = document.getElementById("mbBadge");
+    const mbScore = document.getElementById("mbTotalScore");
+    const mbInterpretation = document.getElementById("mbInterpretation");
+    const mbReset = document.getElementById("mbReset");
+
+    const selects = mbForm.querySelectorAll("select.calc-select");
+
+    function updateMiniBestest() {
+        let total = 0;
+        selects.forEach(select => {
+            total += parseInt(select.value) || 0;
+        });
+
+        mbScore.textContent = total;
+
+        let badgeText = "";
+        let badgeClass = "calc-badge-green";
+        let desc = "";
+
+        if (total <= 16) {
+            badgeText = "Riesgo Alto de Caídas";
+            badgeClass = "calc-badge-red";
+            desc = "Puntuación indicativa de déficits severos en el control postural. Se recomienda entrenamiento de equilibrio intensivo, asistencia en la marcha y prevención de caídas.";
+        } else if (total <= 20) {
+            badgeText = "Riesgo Moderado";
+            badgeClass = "calc-badge-orange";
+            desc = "Puntuación intermedia. Existen déficits específicos (ej. reacciones reactivas o déficits sensoriales) que deben ser el objetivo principal de la fisioterapia.";
+        } else {
+            badgeText = "Riesgo Bajo de Caídas";
+            badgeClass = "calc-badge-green";
+            desc = "Puntuación ≥ 21. El paciente muestra un buen control postural dinámico y es probable que sea independiente en la comunidad.";
+        }
+
+        mbBadge.className = `calc-badge ${badgeClass}`;
+        mbBadge.textContent = badgeText;
+        mbInterpretation.textContent = desc;
+        mbResults.hidden = false;
+    }
+
+    mbForm.addEventListener("change", updateMiniBestest);
+
+    if (mbReset) {
+        mbReset.addEventListener("click", () => {
+            selects.forEach(select => select.selectedIndex = select.options.length - 1); // Reiniciar al máximo (opción 2)
+            updateMiniBestest();
+        });
+    }
+
+    // Inicializar
+    updateMiniBestest();
+});
+</script>
+
+</body>
+</html>

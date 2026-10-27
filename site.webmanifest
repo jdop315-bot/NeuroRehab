@@ -35,5 +35,21 @@
             "type": "image/png",
             "purpose": "maskable"
         }
+    ],
+    "screenshots": [
+        {
+            "src": "/NeuroRehab/preview.png",
+            "sizes": "1200x630",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Interfaz de escritorio de NeuroRehab"
+        },
+        {
+            "src": "/NeuroRehab/preview.png",
+            "sizes": "1200x630",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Interfaz móvil de NeuroRehab"
+        }
     ]
 }
