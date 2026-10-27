@@ -617,20 +617,12 @@ img {
    ======================================== */
 
 .stats-section {
-    margin: 0 25px;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            120deg,
-            #071A33,
-            #0B3A70
-        );
-
+    width: 100%;
+    margin: 0;
+    padding: 20px 0; /* Un poco de aire arriba y abajo */
+    background: linear-gradient(120deg, #071A33, #0B3A70);
     color: #ffffff;
-
-    border-radius: 16px;
+    /* Se elimina el border-radius y el margen lateral */
 }
 
 .stats-container {
