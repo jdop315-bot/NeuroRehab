@@ -2068,11 +2068,7 @@ footer p:first-child {
        ESTADÍSTICAS
        ================================== */
 
-    .stats-section {
-        margin: 0 15px;
-    }
-
-    .stats-container {
+     .stats-container {
         grid-template-columns: 1fr;
     }
 
