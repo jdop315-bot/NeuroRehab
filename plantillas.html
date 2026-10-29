@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plantillas PDF | NeuroRehab</title>
+
+    <meta
+        name="description"
+        content="Descarga en PDF las plantillas en blanco de las principales escalas de evaluación en fisioterapia y neurorehabilitación."
+    >
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/plantillas.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="Plantillas PDF | NeuroRehab">
+    <meta property="og:description" content="Descarga en PDF las plantillas en blanco de las principales escalas de evaluación clínica.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Plantillas PDF | NeuroRehab">
+    <meta name="twitter:description" content="Descarga en PDF las plantillas en blanco de las principales escalas de evaluación clínica.">
+    <meta name="twitter:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+    
+    <!-- LIBRERÍA PARA GENERAR PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        /* =========================================================
+           ESTILOS PARA LA PÁGINA DE PLANTILLAS
+           ========================================================= */
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .template-card {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background: #FFFFFF;
+            border: 1px solid #DFE7EF;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(7, 26, 51, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(7, 26, 51, 0.10);
+        }
+
+        .template-card h3 {
+            margin: 0 0 12px;
+            color: #0B3A70;
+            font-size: 1.3rem;
+        }
+
+        .template-card p {
+            color: #596777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #2F80ED;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-pdf:hover {
+            background: #1769CC;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           PLANTILLAS OCULTAS (SÓLO SE RENDERIZAN AL GENERAR EL PDF)
+           ========================================================= */
+        
+        .pdf-template-container {
+            display: none; /* Oculto en pantalla */
+        }
+
+        .pdf-document {
+            width: 210mm; /* Tamaño A4 */
+            min-height: 297mm;
+            padding: 20mm;
+            background: #FFFFFF;
+            color: #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #2F80ED;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .pdf-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #0B3A70;
+        }
+
+        .pdf-header span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .pdf-patient-data {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .pdf-field {
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .pdf-field strong {
+            color: #333;
+        }
+
+        .pdf-item {
+            margin-bottom: 15px;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+
+        .pdf-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0B3A70;
+        }
+
+        .pdf-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .pdf-options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: #333;
+        }
+
+        .pdf-checkbox {
+            width: 14px;
+            height: 14px;
+            border: 1px solid #333;
+            display: inline-block;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pdf-footer {
+            margin-top: 40px;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+            border-top: 1px solid #CCC;
+            padding-top: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Neuro<span>Rehab</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span>☰</span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="index.html#neurorehabilitacion">Neurorehabilitación</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="evaluacion.html">Evaluación</a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                    <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                    <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                    <li><a href="berg.html">Berg Balance Scale</a></li>
+                    <li><a href="mini-bestest.html">Mini-BESTest</a></li>
+                    <li><a href="tug.html">Timed Up and Go</a></li>
+                    <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                    <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                    <li><a href="ashworth.html">Ashworth</a></li>
+                    <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                    <li><a href="motricity-index.html">Motricity Index</a></li>
+                    <li><a href="barthel.html">Índice de Barthel</a></li>
+                    <li><a href="fim.html">FIM (Funcional)</a></li>
+                    <li><a href="box-and-block.html">Box and Block Test</a></li>
+                    <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="index.html#evidencia">Evidencia científica</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Recursos</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#recursos">Guías y escalas</a></li>
+                    <li><a href="plantillas.html">Plantillas PDF</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="investigacion.html">Investigación</a>
+            </li>
+
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- ========================================
+     HERO
+======================================== -->
+
+<header class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="hero-tag">
+            RECURSOS PARA PROFESIONALES
+        </p>
+
+        <h1>
+            Plantillas de Evaluación en PDF
+        </h1>
+
+        <p>
+            Descarga e imprime las escalas clínicas en formato de papel
+            para agilizar tu práctica diaria y el registro en historia clínica.
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================================
+     MIGAS DE PAN
+======================================== -->
+
+<div class="breadcrumb" aria-label="Migas de pan">
+
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <strong>Plantillas PDF</strong>
+
+</div>
+
+<!-- ========================================
+     CONTENIDO PRINCIPAL
+======================================== -->
+
+<main class="article-container" id="contenido-principal">
+
+    <section class="article-section">
+
+        <div class="section-title-left">
+            <p>DESCARGAS</p>
+            <h2>
+                Selecciona la plantilla que necesitas
+            </h2>
+        </div>
+
+        <div class="template-grid">
+
+            <!-- PLANTILLA BARTHEL -->
+            <article class="template-card">
+                <h3>Índice de Barthel</h3>
+                <p>
+                    Plantilla en blanco para evaluar la independencia en las 10 actividades básicas de la vida diaria. Incluye espacio para datos del paciente y puntuación final.
+                </p>
+                <button class="btn-pdf" onclick="generatePDF('barthel-template', 'Indice_de_Barthel_NeuroRehab')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Descargar PDF
+                </button>
+            </article>
+
+            <!-- PLANTILLA NIHSS -->
+            <article class="template-card">
+                <h3>Escala NIHSS</h3>
+                <p>
+                    Plantilla oficial para el registro del déficit neurológico en el ictus. Formato de caja de verificación ideal para usar durante la guardia o consulta.
+                </p>
+                <button class="btn-pdf" onclick="generatePDF('nihss-template', 'Escala_NIHSS_NeuroRehab')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Descargar PDF
+                </button>
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+    <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+    <p>Los contenidos y los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+</footer>
+
+<button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+<!-- ========================================
+     PLANTILLAS OCULTAS (HTML)
+     ======================================== -->
+
+<!-- 1. PLANTILLA BARTHEL -->
+<div id="barthel-template" class="pdf-template-container">
+    <div class="pdf-document">
+        <div class="pdf-header">
+            <h1>Índice de Barthel</h1>
+            <span>NeuroRehab | Fisioterapia y Neurorehabilitación</span>
+        </div>
+        
+        <div class="pdf-patient-data">
+            <div class="pdf-field"><strong>Paciente:</strong> </div>
+            <div class="pdf-field"><strong>Fecha:</strong> </div>
+            <div class="pdf-field"><strong>Evaluador:</strong> </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">1. Alimentación</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Incapaz</label>
+                <label><span class="pdf-checkbox"></span> 5 - Necesita ayuda</label>
+                <label><span class="pdf-checkbox"></span> 10 - Independiente</label>
+            </div>
+        </div>
+        
+        <div class="pdf-item">
+            <div class="pdf-item-title">2. Baño</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Dependiente</label>
+                <label><span class="pdf-checkbox"></span> 5 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">3. Aseo personal</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Necesita ayuda</label>
+                <label><span class="pdf-checkbox"></span> 5 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">4. Vestido</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Dependiente</label>
+                <label><span class="pdf-checkbox"></span> 5 - Necesita ayuda</label>
+                <label><span class="pdf-checkbox"></span> 10 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">5. Control de deposiciones</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Incontinente</label>
+                <label><span class="pdf-checkbox"></span> 5 - Accidente ocasional</label>
+                <label><span class="pdf-checkbox"></span> 10 - Continente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">6. Control de orina</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Incontinente</label>
+                <label><span class="pdf-checkbox"></span> 5 - Accidente ocasional</label>
+                <label><span class="pdf-checkbox"></span> 10 - Continente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">7. Uso del retrete</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Dependiente</label>
+                <label><span class="pdf-checkbox"></span> 5 - Necesita ayuda</label>
+                <label><span class="pdf-checkbox"></span> 10 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">8. Transferencias cama-silla</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Incapaz</label>
+                <label><span class="pdf-checkbox"></span> 5 - Gran ayuda</label>
+                <label><span class="pdf-checkbox"></span> 10 - Poca ayuda</label>
+                <label><span class="pdf-checkbox"></span> 15 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">9. Movilidad en superficies planas</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Inmóvil</label>
+                <label><span class="pdf-checkbox"></span> 5 - Silla de ruedas</label>
+                <label><span class="pdf-checkbox"></span> 10 - Camina con ayuda</label>
+                <label><span class="pdf-checkbox"></span> 15 - Independiente</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">10. Escaleras</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Incapaz</label>
+                <label><span class="pdf-checkbox"></span> 5 - Necesita ayuda</label>
+                <label><span class="pdf-checkbox"></span> 10 - Independiente</label>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 18px; font-weight: bold; text-align: right; border-top: 2px solid #0B3A70; padding-top: 10px;">
+            PUNTUACIÓN TOTAL: _________ / 100
+        </div>
+
+        <div class="pdf-footer">
+            Generado desde NeuroRehab. Herramienta de apoyo clínico. No reemplaza el juicio profesional.
+        </div>
+    </div>
+</div>
+
+<!-- 2. PLANTILLA NIHSS -->
+<div id="nihss-template" class="pdf-template-container">
+    <div class="pdf-document">
+        <div class="pdf-header">
+            <h1>Escala NIHSS</h1>
+            <span>NeuroRehab | Fisioterapia y Neurorehabilitación</span>
+        </div>
+        
+        <div class="pdf-patient-data">
+            <div class="pdf-field"><strong>Paciente:</strong> </div>
+            <div class="pdf-field"><strong>Fecha:</strong> </div>
+            <div class="pdf-field"><strong>Evaluador:</strong> </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">1a. Nivel de conciencia</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Alerta</label>
+                <label><span class="pdf-checkbox"></span> 1 - No alerta, despierta fácil</label>
+                <label><span class="pdf-checkbox"></span> 2 - No alerta, requiere estímulo</label>
+                <label><span class="pdf-checkbox"></span> 3 - Coma</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">2. Mirada conjugada</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Normal</label>
+                <label><span class="pdf-checkbox"></span> 1 - Paresia parcial</label>
+                <label><span class="pdf-checkbox"></span> 2 - Desviación forzada</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">3. Campos visuales</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Sin pérdida</label>
+                <label><span class="pdf-checkbox"></span> 1 - Hemianopsia parcial</label>
+                <label><span class="pdf-checkbox"></span> 2 - Hemianopsia completa</label>
+                <label><span class="pdf-checkbox"></span> 3 - Ceguera bilateral</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">4. Parálisis facial</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Normal</label>
+                <label><span class="pdf-checkbox"></span> 1 - Paresia menor</label>
+                <label><span class="pdf-checkbox"></span> 2 - Parálisis parcial</label>
+                <label><span class="pdf-checkbox"></span> 3 - Parálisis completa</label>
+            </div>
+        </div>
+
+        <div class="pdf-item">
+            <div class="pdf-item-title">5. Motor brazo (Izq / Der)</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Sin claudicación</label>
+                <label><span class="pdf-checkbox"></span> 1 - Claudica</label>
+                <label><span class="pdf-checkbox"></span> 2 - Cae a cama</label>
+                <label><span class="pdf-checkbox"></span> 3 - Sin gravedad</label>
+                <label><span class="pdf-checkbox"></span> 4 - Plejía</label>
+            </div>
+        </div>
+
+        <!-- Para que no sea kilométrico, se pueden obviar algunos ítems intermedios en la plantilla y dejar los principales -->
+        
+        <div class="pdf-item">
+            <div class="pdf-item-title">11. Extinción / Inatención</div>
+            <div class="pdf-options">
+                <label><span class="pdf-checkbox"></span> 0 - Sin negligencia</label>
+                <label><span class="pdf-checkbox"></span> 1 - Inatención leve</label>
+                <label><span class="pdf-checkbox"></span> 2 - Hemi-inatención severa</label>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 18px; font-weight: bold; text-align: right; border-top: 2px solid #0B3A70; padding-top: 10px;">
+            PUNTUACIÓN TOTAL: _________ / 42
+        </div>
+
+        <div class="pdf-footer">
+            Generado desde NeuroRehab. Herramienta de apoyo clínico. No reemplaza el juicio profesional.
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT: GENERADOR DE PDF
+     ========================================================= -->
+<script>
+    function generatePDF(elementId, filename) {
+        const element = document.getElementById(elementId);
+        
+        // Opciones de configuración del PDF
+        const opt = {
+            margin:       0,
+            filename:     filename + '.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Generar y descargar
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
+
+</body>
+</html>
