@@ -115,8 +115,13 @@
            PLANTILLAS OCULTAS (SÓLO SE RENDERIZAN AL GENERAR EL PDF)
            ========================================================= */
         
-        .pdf-template-container {
-            display: none; /* Oculto en pantalla */
+              .pdf-template-container {
+            /* En lugar de display: none, lo mandamos fuera de la pantalla */
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 210mm;
+            z-index: -1;
         }
 
         .pdf-document {
