@@ -116,34 +116,47 @@
             display: none; /* Oculto en la vista normal */
         }
 
-        /* ESTILOS EXCLUSIVOS PARA IMPRESIÓN */
+                /* ESTILOS EXCLUSIVOS PARA IMPRESIÓN */
         @media print {
-            /* Ocultar todo el sitio */
-            body * {
-                visibility: hidden;
+            /* 1. Ocultar absolutamente todo excepto la plantilla seleccionada */
+            body.print-barthel > *:not(#barthel-template),
+            body.print-nihss > *:not(#nihss-template) {
+                display: none !important;
             }
 
-            /* Mostrar solo la plantilla seleccionada */
+            /* 2. Resetear el fondo y márgenes del cuerpo */
+            body {
+                background: #FFFFFF !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* 3. Hacer visible la plantilla seleccionada */
             body.print-barthel #barthel-template,
             body.print-nihss #nihss-template {
                 display: block !important;
-                visibility: visible;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
+                position: static !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
-            /* Hacer visibles los elementos dentro de la plantilla */
-            body.print-barthel #barthel-template *,
-            body.print-nihss #nihss-template * {
-                visibility: visible;
-            }
-
-            /* Configuración de página */
+            /* 4. Configuración de página A4 */
             @page {
                 size: A4 portrait;
                 margin: 15mm;
+            }
+
+            /* 5. Asegurar que las opciones se listen una debajo de la otra sin desordenarse */
+            .pdf-options {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 6px !important;
+            }
+
+            /* 6. Evitar que un ítem se corte a la mitad entre dos páginas */
+            .pdf-item {
+                page-break-inside: avoid;
             }
         }
 
