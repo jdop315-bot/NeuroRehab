@@ -116,24 +116,14 @@
             display: none; /* Oculto en la vista normal */
         }
 
-                /* ESTILOS EXCLUSIVOS PARA IMPRESIÓN */
-        @media print {
-            /* 1. Ocultar absolutamente todo excepto la plantilla seleccionada */
-            body.print-mrs > *:not(#mrs-template),
-            body.print-berg > *:not(#berg-template),
-            body.print-tug > *:not(#tug-template) {
+                   @media print {
+            /* 1. Ocultar TODO el body por defecto */
+            body > * {
                 display: none !important;
             }
 
-            /* 2. Resetear el fondo y márgenes del cuerpo */
-            body {
-                background: #FFFFFF !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-
-            /* 3. Hacer visible la plantilla seleccionada */
-             body.print-barthel #barthel-template,
+            /* 2. Mostrar únicamente la plantilla que tenga la clase activa */
+            body.print-barthel #barthel-template,
             body.print-nihss #nihss-template,
             body.print-mrs #mrs-template,
             body.print-berg #berg-template,
@@ -145,20 +135,20 @@
                 padding: 0 !important;
             }
 
-            /* 4. Configuración de página A4 */
+            /* 3. Configuración de página A4 */
             @page {
                 size: A4 portrait;
                 margin: 15mm;
             }
 
-            /* 5. Asegurar que las opciones se listen una debajo de la otra sin desordenarse */
+            /* 4. Asegurar que las opciones se listen una debajo de la otra */
             .pdf-options {
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 6px !important;
             }
 
-            /* 6. Evitar que un ítem se corte a la mitad entre dos páginas */
+            /* 5. Evitar que un ítem se corte a la mitad */
             .pdf-item {
                 page-break-inside: avoid;
             }
@@ -945,15 +935,17 @@
      JAVASCRIPT: FUNCIÓN PARA IMPRIMIR
      ========================================================= -->
 <script>
-    function printTemplate(className) {
-        // Añadir la clase al body para activar el CSS de impresión
+        function printTemplate(className) {
+        // 1. Limpiar cualquier clase de impresión anterior
+        document.body.className = "";
+        
+        // 2. Añadir la clase de la plantilla seleccionada
         document.body.classList.add(className);
         
-        // Abrir el diálogo de impresión del navegador
+        // 3. Abrir el diálogo de impresión
         window.print();
         
-        // Quitar la clase después de imprimir
-        // Usamos un pequeño delay por si el navegador tarda en abrir el diálogo
+        // 4. Quitar la clase después de imprimir (con un pequeño retraso)
         setTimeout(function() {
             document.body.classList.remove(className);
         }, 1000);
