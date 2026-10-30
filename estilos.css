@@ -48,7 +48,7 @@
 
     /* Sombras */
     --sombra-suave: 0 4px 15px rgba(7, 26, 51, 0.04);
-    --sombra-media: 0 8px 25px rgba(7, 26, 51, 0.06);
+    --sombra-media: 0 8px 25px rgba(10, 55, 115, 0.06);
     --sombra-fuerte: 0 12px 30px rgba(7, 26, 51, 0.10);
 
     /* Radios */
@@ -300,12 +300,11 @@ img {
 
 .hero-text {
     max-width: 680px;
-
     font-size: 20px;
-
-    color: #D9EAF7;
-
+    color: #FFFFFF; /* Cambiado a blanco puro para mejor contraste */
+    opacity: 0.9; /* Un toque de transparencia para que no encandile */
     margin-bottom: 38px;
+    line-height: 1.6; /* Mejora la respiración del texto */
 }
 
 .hero-buttons {
@@ -619,10 +618,11 @@ img {
 .stats-section {
     width: 100%;
     margin: 0;
-    padding: 20px 0; /* Un poco de aire arriba y abajo */
-    background: linear-gradient(120deg, #071A33, #0B3A70);
+    padding: 20px 0;
+    background: linear-gradient(135deg, #071A33 0%, #0B3A70 100%); /* Degradado sutil */
     color: #ffffff;
-    /* Se elimina el border-radius y el margen lateral */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stats-container {
@@ -7229,7 +7229,24 @@ footer p:last-child {
     letter-spacing: 0.13em;
     text-transform: uppercase;
 }
+/* NUEVO: Icono para las tarjetas de Sobre NeuroRehab */
+.about-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    background: #EAF3FF;
+    border-radius: 50%;
+    color: #1769CC;
+    transition: background 0.3s ease, color 0.3s ease;
+}
 
+.about-card:hover .about-icon {
+    background: #2F80ED;
+    color: #FFFFFF;
+}
 .about-card h3 {
     margin: 0 0 14px;
     color: #0B3A70;
@@ -7301,9 +7318,9 @@ footer p:last-child {
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    border-color: #2F80ED;
-    box-shadow: 0 12px 30px rgba(7, 26, 51, 0.10);
+    transform: translateY(-8px); /* Salto más alto */
+    border-color: #2F80ED; /* Borde azul */
+    box-shadow: 0 15px 35px rgba(7, 26, 51, 0.12); /* Sombra más marcada */
 }
 
 .contact-icon {
