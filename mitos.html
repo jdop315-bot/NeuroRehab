@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitos en Neurorehabilitación | NeuroRehab</title>
+    <meta name="description" content="Desmontamos los mitos más comunes en fisioterapia neurológica basándonos en la evidencia científica actual: espasticidad, ACV crónico, Parkinson y control motor.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jdop315-bot.github.io/NeuroRehab/mitos.html">
+    <meta property="og:site_name" content="NeuroRehab">
+    <meta property="og:title" content="Mitos en Neurorehabilitación | NeuroRehab">
+    <meta property="og:description" content="Derribando mitos en fisioterapia neurológica basados en la evidencia.">
+    <meta property="og:image" content="https://jdop315-bot.github.io/NeuroRehab/preview.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2F80ED">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-ZX2K9FYMWV"></script>
+    <script src="analytics.js"></script>
+    
+    <style>
+        /* =========================================================
+           ESTILOS ESPECÍFICOS PARA LA PÁGINA DE MITOS
+           ========================================================= */
+        .mito-card {
+            background: #FFFFFF;
+            border: 1px solid #DFE7EF;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(7, 26, 51, 0.04);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .mito-card:hover {
+            box-shadow: 0 10px 30px rgba(7, 26, 51, 0.08);
+        }
+
+        .mito-header {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: #FBFDFF;
+            transition: background 0.2s ease;
+        }
+
+        .mito-header:hover {
+            background: #F5F9FD;
+        }
+
+        .mito-header h3 {
+            margin: 0;
+            color: #0B3A70;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mito-icon-x {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #FFEBEB;
+            color: #C62828;
+            border-radius: 50%;
+            flex-shrink: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .mito-toggle-icon {
+            color: #2F80ED;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .mito-card.active .mito-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .mito-content {
+            display: none;
+            padding: 0 30px 30px 30px;
+            border-top: 1px solid #E3EAF2;
+        }
+
+        .mito-card.active .mito-content {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .mito-content-inner {
+            padding-top: 25px;
+        }
+
+        .evidencia-box {
+            background: #EAF3FF;
+            padding: 20px;
+            border-left: 4px solid #2F80ED;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+
+        .evidencia-box strong {
+            display: block;
+            color: #0B3A70;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .evidencia-box p {
+            margin: 0;
+            color: #34424F;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .aplicacion-box {
+            background: #F5F9FD;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #D9E5F2;
+        }
+
+        .aplicacion-box strong {
+            display: block;
+            color: #1769CC;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .aplicacion-box p {
+            margin: 0;
+            color: #526173;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <!-- ========================================
+         NAVEGACIÓN
+         ======================================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Neuro<span>Rehab</span></a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu"><span>☰</span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#neurorehabilitacion">Neurorehabilitación</a></li>
+                <li class="dropdown">
+                    <a href="evaluacion.html">Evaluación</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="nihss.html">NIHSS (Ictus)</a></li>
+                        <li><a href="mrs.html">Rankin Modificada (mRS)</a></li>
+                        <li><a href="fugl-meyer.html">Fugl-Meyer Assessment</a></li>
+                        <li><a href="berg.html">Berg Balance Scale</a></li>
+                        <li><a href="mini-bestest.html">Mini-BESTest</a></li>
+                        <li><a href="tug.html">Timed Up and Go</a></li>
+                        <li><a href="10mwt.html">10 Meter Walk Test (10MWT)</a></li>
+                        <li><a href="6mwt.html">6 Minute Walk Test (6MWT)</a></li>
+                        <li><a href="ashworth.html">Ashworth</a></li>
+                        <li><a href="functional-reach.html">Functional Reach Test</a></li>
+                        <li><a href="motricity-index.html">Motricity Index</a></li>
+                        <li><a href="barthel.html">Índice de Barthel</a></li>
+                        <li><a href="fim.html">FIM (Funcional)</a></li>
+                        <li><a href="box-and-block.html">Box and Block Test</a></li>
+                        <li><a href="actividad-funcion.html">Actividad y función</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#evidencia">Evidencia científica</a></li>
+                <li class="dropdown">
+                    <a href="#">Recursos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#recursos">Guías y escalas</a></li>
+                        <li><a href="plantillas.html">Plantillas PDF</a></li>
+                    <li><a href="mitos.html">Mitos en Neurorehabilitación</a></li>
+                        <li><a href="mitos.html">Mitos en Neurorehabilitación</a></li>
+                    </ul>
+                </li>
+                <li><a href="investigacion.html">Investigación</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO
+         ======================================== -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <p class="hero-tag">EVIDENCIA VS. TRADICIÓN</p>
+            <h1>Mitos en Neurorehabilitación</h1>
+            <p>Derribando creencias arraigadas en la práctica clínica basándonos en la neurociencia y la evidencia científica actual.</p>
+        </div>
+    </header>
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb" aria-label="Migas de pan">
+        <a href="index.html">Inicio</a><span>›</span><a href="index.html#recursos">Recursos</a><span>›</span><strong>Mitos</strong>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="article-container" id="contenido-principal">
+
+        <section class="article-intro">
+            <span class="article-label">FISIOTERAPIA BASADA EN EVIDENCIA</span>
+            <h2>La evidencia evoluciona, la práctica debe evolucionar</h2>
+            <p>
+                Muchas de las técnicas que aprendimos hace años han sido refutadas por la investigación. Como profesionales, nuestro deber es cuestionar la tradición y actualizar nuestra práctica clínica. Haz clic en cada mito para descubrir qué dice la ciencia al respecto.
+            </p>
+        </section>
+
+        <section class="article-section" style="padding-top: 0;">
+            
+            <div class="mitos-list" id="mitosList">
+
+                <!-- MITO 1 -->
+                <article class="mito-card">
+                    <div class="mito-header" onclick="toggleMito(this)">
+                        <h3><span class="mito-icon-x">✕</span> "La espasticidad siempre se debe tratar con estiramientos pasivos"</h3>
+                        <svg class="mito-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="mito-content">
+                        <div class="mito-content-inner">
+                            <div class="evidencia-box">
+                                <strong>Lo que dice la evidencia</strong>
+                                <p>El estiramiento pasivo prolongado tiene un efecto muy limitado y transitorio sobre la actividad neural que genera la espasticidad. Si se aplica de forma agresiva o con mucha velocidad, puede exacerbar el reflejo de estiramiento (aumentar la espasticidad) debido a la activación de los husos neuromusculares.</p>
+                            </div>
+                            <div class="aplicacion-box">
+                                <strong>Aplicación clínica</strong>
+                                <p>El manejo de la espasticidad debe ser multifactorial. En lugar de estirar pasivamente durante 30 minutos, combina movilización activa, entrenamiento de fuerza excéntrica, tareas funcionales orientadas a objetivos y educación postural. Si se usa el estiramiento, que sea suave y combinado con movimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MITO 2 -->
+                <article class="mito-card">
+                    <div class="mito-header" onclick="toggleMito(this)">
+                        <h3><span class="mito-icon-x">✕</span> "Los pacientes con ACV crónico ya no pueden mejorar"</h3>
+                        <svg class="mito-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="mito-content">
+                        <div class="mito-content-inner">
+                            <div class="evidencia-box">
+                                <strong>Lo que dice la evidencia</strong>
+                                <p>El cerebro mantiene su capacidad de neuroplasticidad durante toda la vida. Si bien la ventana subaguda (primeros 3-6 meses) es la de máxima sensibilidad, la rehabilitación intensiva, repetitiva y orientada a tareas ha demostrado generar mejoras funcionales significativas en pacientes con años de evolución.</p>
+                            </div>
+                            <div class="aplicacion-box">
+                                <strong>Aplicación clínica</strong>
+                                <p>Nunca limites el pronóstico por el tiempo transcurrido. El desuso aprendido es el peor enemigo. Aplica programas de alta intensidad (CIMT modificado, entrenamiento en cinta con soporte parcial del peso) incluso en fase crónica, siempre ajustados a la fatiga y capacidad cardiovascular del paciente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MITO 3 -->
+                <article class="mito-card">
+                    <div class="mito-header" onclick="toggleMito(this)">
+                        <h3><span class="mito-icon-x">✕</span> "El cerebro se recupera solo con el tiempo"</h3>
+                        <svg class="mito-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="mito-content">
+                        <div class="mito-content-inner">
+                            <div class="evidencia-box">
+                                <strong>Lo que dice la evidencia</strong>
+                                <p>La recuperación espontánea existe (edema que cede, penumbra isquémica que se recupera), pero se estanca. Si no hay un estímulo terapéutico dirigido, el cerebro consolida patrones compensatorios ineficientes y el "desuso aprendido" de la extremidad parética.</p>
+                            </div>
+                            <div class="aplicacion-box">
+                                <strong>Aplicación clínica</strong>
+                                <p>La rehabilitación debe guiar la plasticidad (plasticidad adaptativa). Cuanto antes intervengas (movilización temprana en fase aguda), mejor. Pero el punto clave es que la "experiencia" (la rehabilitación) esculpe los circuitos neuronales. Sin rehabilitación dirigida, la plasticidad puede ser maladaptativa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MITO 4 -->
+                <article class="mito-card">
+                    <div class="mito-header" onclick="toggleMito(this)">
+                        <h3><span class="mito-icon-x">✕</span> "La fisioterapia en Parkinson solo sirve para la marcha"</h3>
+                        <svg class="mito-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="mito-content">
+                        <div class="mito-content-inner">
+                            <div class="evidencia-box">
+                                <strong>Lo que dice la evidencia</strong>
+                                <p>La guía de práctica clínica de la APTA (2022) recomienda el ejercicio aeróbico de moderada a alta intensidad con un nivel de evidencia <strong>alto y recomendación fuerte</strong>. Este tipo de ejercicio no solo mejora la capacidad cardiorrespiratoria, sino que tiene un efecto potencial neuroprotector, mejora la gravedad motora (MDS-UPDRS III) y reduce la fatiga.</p>
+                            </div>
+                            <div class="aplicacion-box">
+                                <strong>Aplicación clínica</strong>
+                                <p>No te limites al entrenamiento de la marcha. Prescribe ejercicio aeróbico (caminata rápida, bicicleta estática) al 60-85% de la FC máxima, 3 a 5 veces por semana. Considera el timing de la medicación (aprovechar las ventanas "on") y monitorea la fatiga y la hipotensión ortostática.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MITO 5 -->
+                <article class="mito-card">
+                    <div class="mito-header" onclick="toggleMito(this)">
+                        <h3><span class="mito-icon-x">✕</span> "Si el paciente tiene fuerza, caminará seguro"</h3>
+                        <svg class="mito-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="mito-content">
+                        <div class="mito-content-inner">
+                            <div class="evidencia-box">
+                                <strong>Lo que dice la evidencia</strong>
+                                <p>La fuerza muscular es un requisito necesario pero no suficiente para una marcha funcional. La marcha requiere control motor selectivo, coordinación, equilibrio dinámico, integración sensorial (propiocepción y visión) y confianza (autoeficacia). Un paciente puede tener un MRC 5/5 en cuádriceps y aún así tener alto riesgo de caídas.</p>
+                            </div>
+                            <div class="aplicacion-box">
+                                <strong>Aplicación clínica</strong>
+                                <p>No te quedes solo con el test de fuerza (MRC). Evalúa el equilibrio (Mini-BESTest), el riesgo de caídas (TUG), la calidad del movimiento y la confianza del paciente. Entrena tareas funcionales y contextos cambiantes, no solo máquinas de gimnasio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer>
+        <p>© 2026 NeuroRehab · Plataforma de Fisioterapia y Neurorehabilitación Basada en Evidencia</p>
+        <p>Los contenidos y los instrumentos de cálculo son herramientas de soporte clínico y no reemplazan el juicio médico individualizado.</p>
+    </footer>
+
+    <button id="scrollTopBtn" type="button" aria-label="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <!-- SCRIPT PARA EL ACORDEÓN -->
+    <script>
+        function toggleMito(headerElement) {
+            const card = headerElement.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
