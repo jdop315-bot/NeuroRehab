@@ -8135,3 +8135,96 @@ footer p:last-child {
         gap: 20px;
     }
 }
+/* ==========================================================
+   PODCAST SECTION
+   ========================================================== */
+
+.podcast-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #FFFFFF;
+    border: 1px solid #DFE7EF;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(7, 26, 51, 0.06);
+    max-width: 900px;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.podcast-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(7, 26, 51, 0.12);
+}
+
+.podcast-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #EAF3FF 0%, #D7E8FA 100%);
+    border-radius: 20px;
+    color: #2F80ED;
+}
+
+.podcast-content {
+    flex: 1;
+}
+
+.podcast-tag {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    background: #2F80ED;
+    color: #FFFFFF;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.podcast-content h3 {
+    margin: 0 0 10px;
+    color: #0B3A70;
+    font-size: 1.4rem;
+}
+
+.podcast-content p {
+    color: #596777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Personalización del reproductor de audio nativo */
+.audio-player-wrapper {
+    width: 100%;
+}
+
+.custom-audio-player {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Ajuste para que el reproductor combine con el azul */
+.custom-audio-player::-webkit-media-controls-panel {
+    background-color: #F5F8FC;
+}
+
+@media (max-width: 700px) {
+    .podcast-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .podcast-content h3 {
+        font-size: 1.2rem;
+    }
+}
