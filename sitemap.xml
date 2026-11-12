@@ -100,6 +100,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
 </url>
+<url>
+    <loc>https://jdop315-bot.github.io/NeuroRehab/ame.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+</url>
 
     <!-- Evaluación -->
     <url>
