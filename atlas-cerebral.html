@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="estilos.css">
     
-    <!-- IMPORTACIÓN DE THREE.JS (Kimi) -->
+    <!-- IMPORTACIÓN DE THREE.JS -->
     <script type="importmap">
     {
         "imports": {
@@ -28,27 +28,20 @@
     </script>
 
     <style>
-        /* =========================================================
-           ESTILOS ESPECÍFICOS DEL VISOR 3D (Adaptados a NeuroRehab)
-           ========================================================= */
-        
-        /* Sobrescribimos el overflow para que el canvas ocupe todo el alto */
         body {
             overflow: hidden;
             background-color: #071A33;
         }
 
-        /* El canvas se pone por debajo de la navbar */
         #visor-3d-container {
             position: absolute;
-            top: 76px; /* Alto de tu navbar */
+            top: 76px;
             left: 0;
             width: 100%;
             height: calc(100vh - 76px);
             z-index: 1;
         }
 
-        /* Panel de control flotante */
         .panel-3d {
             position: absolute;
             top: 100px;
@@ -63,28 +56,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .panel-3d h2 {
-            color: #FFFFFF;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .panel-3d p.sub {
-            color: #A0C4E8;
-            font-size: 0.75rem;
-            margin-bottom: 20px;
-        }
-
-        .grupo-control {
-            margin-bottom: 20px;
-        }
-
-        .grupo-control label {
-            display: block;
-            color: #D9EAF7;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-        }
+        .panel-3d h2 { color: #FFFFFF; font-size: 1.1rem; margin-bottom: 5px; }
+        .panel-3d p.sub { color: #A0C4E8; font-size: 0.75rem; margin-bottom: 20px; }
+        .grupo-control { margin-bottom: 20px; }
+        .grupo-control label { display: block; color: #D9EAF7; font-size: 0.8rem; margin-bottom: 8px; }
 
         .btn-3d {
             width: 100%;
@@ -99,32 +74,11 @@
             margin-bottom: 10px;
         }
 
-        .btn-3d:hover {
-            background: rgba(47, 128, 237, 0.25);
-            border-color: #2F80ED;
-        }
+        .btn-3d:hover { background: rgba(47, 128, 237, 0.25); border-color: #2F80ED; }
+        .btn-3d.activo { background: #2F80ED; border-color: #2F80ED; box-shadow: 0 0 15px rgba(47, 128, 237, 0.5); }
+        .btn-3d .led { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #4B5563; margin-right: 8px; }
+        .btn-3d.activo .led { background: #FFFFFF; box-shadow: 0 0 8px #FFFFFF; }
 
-        .btn-3d.activo {
-            background: #2F80ED;
-            border-color: #2F80ED;
-            box-shadow: 0 0 15px rgba(47, 128, 237, 0.5);
-        }
-
-        .btn-3d .led {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #4B5563;
-            margin-right: 8px;
-        }
-
-        .btn-3d.activo .led {
-            background: #FFFFFF;
-            box-shadow: 0 0 8px #FFFFFF;
-        }
-
-        /* Aviso inferior para el usuario */
         .ayuda-3d {
             position: absolute;
             bottom: 20px;
@@ -141,7 +95,6 @@
 
 <body>
 
-    <!-- NAVEGACIÓN (Se mantiene tu navbar) -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Neuro<span>Rehab</span></a>
@@ -184,10 +137,8 @@
         </div>
     </nav>
 
-    <!-- CONTENEDOR DEL VISOR 3D -->
     <div id="visor-3d-container"></div>
 
-    <!-- PANEL DE CONTROL FLOTANTE -->
     <div class="panel-3d">
         <h2>Atlas Cerebral 3D</h2>
         <p class="sub">Herramienta de estudio interactiva</p>
@@ -212,9 +163,6 @@
         Arrastra para rotar · Usa la rueda para hacer zoom
     </div>
 
-    <!-- ============================================================
-         LÓGICA 3D (Código de Kimi adaptado)
-         ============================================================ -->
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -222,6 +170,7 @@
 
         const contenedor = document.getElementById('visor-3d-container');
 
+        // 1. Escena, Cámara y Renderizador
         const escena = new THREE.Scene();
         escena.background = new THREE.Color(0x071A33);
         escena.fog = new THREE.Fog(0x071A33, 18, 45);
@@ -234,19 +183,19 @@
         renderizador.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         contenedor.appendChild(renderizador.domElement);
 
-        // Luces
-        const luzAmbiente = new THREE.AmbientLight(0x4477aa, 0.6);
+        // 2. Luces
+        const luzAmbiente = new THREE.AmbientLight(0x4477aa, 0.8);
         escena.add(luzAmbiente);
 
-        const luzPrincipal = new THREE.DirectionalLight(0x2F80ED, 1.5); // Azul de NeuroRehab
+        const luzPrincipal = new THREE.DirectionalLight(0xFFFFFF, 1.5); 
         luzPrincipal.position.set(-4, 6, 5);
         escena.add(luzPrincipal);
 
-        const luzRelleno = new THREE.DirectionalLight(0x63B3ED, 0.8);
+        const luzRelleno = new THREE.DirectionalLight(0x63B3ED, 1.0);
         luzRelleno.position.set(5, -3, -4);
         escena.add(luzRelleno);
 
-        // Controles
+        // 3. Controles
         const controles = new OrbitControls(camara, renderizador.domElement);
         controles.enableDamping = true;
         controles.dampingFactor = 0.06;
@@ -254,79 +203,39 @@
         controles.maxDistance = 15;
         controles.enablePan = false;
 
-        // Cerebro Procedural
+        // 4. Grupo del Cerebro y Variables
         const grupoCerebro = new THREE.Group();
+        escena.add(grupoCerebro);
         let materialCerebroReal = null;
 
-        const materialCerebro = new THREE.MeshPhysicalMaterial({
-            color: 0xe8a0a8,
-            roughness: 0.55,
-            metalness: 0.05,
-            clearcoat: 0.3,
-            transparent: true,
-            opacity: 1.0,
-            side: THREE.DoubleSide
-        });
+        // 5. Carga del modelo 3D (.glb.glb)
+        const cargadorGLB = new GLTFLoader();
+        cargadorGLB.load(
+            './modelos/cerebro.glb.glb',
+            (gltf) => {
+                const modelo = gltf.scene;
+                modelo.scale.setScalar(1.5); 
+                modelo.position.set(0, -0.2, 0); 
 
-        function ruido(x, y, z) {
-            return Math.sin(x * 3.1) * Math.cos(y * 2.7) * Math.sin(z * 3.7)
-                 + Math.sin(x * 6.3 + 1.7) * Math.cos(y * 5.9) * Math.sin(z * 6.1) * 0.5;
-        }
+                modelo.traverse((child) => {
+                    if (child.isMesh) {
+                        child.material.transparent = true;
+                        child.material.opacity = 1.0;
+                        materialCerebroReal = child.material; 
+                    }
+                });
 
-        function crearHemisferio(lado) {
-            const geometria = new THREE.SphereGeometry(1.4, 96, 96);
-            const pos = geometria.attributes.position;
-            for (let i = 0; i < pos.count; i++) {
-                const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
-                let ny = y * 0.78;
-                const factorSurco = ruido(x, ny, z) * 0.06;
-                const nx = x + (x / Math.max(0.001, Math.hypot(x, ny, z))) * factorSurco;
-                const nz = z + (z / Math.max(0.001, Math.hypot(x, ny, z))) * factorSurco;
-                pos.setXYZ(i, nx, ny, nz);
-            }
-            geometria.computeVertexNormals();
-            const malla = new THREE.Mesh(geometria, materialCerebro);
-            malla.position.x = lado * 0.78;
-            malla.rotation.z = lado * -0.12;
-            return malla;
-        }
+                grupoCerebro.add(modelo);
+            },
+            (progreso) => console.log(`Cargando: ${(progreso.loaded / 1024).toFixed(1)} KB`),
+            (error) => console.error('Error al cargar el modelo:', error)
+        );
 
-                // En el evento del slider:
-        sliderOpacidad.addEventListener('input', (e) => {
-            const opacidad = parseFloat(e.target.value);
-            if (materialCerebroReal) materialCerebroReal.opacity = opacidad;
-            valorOpacidad.textContent = `${Math.round(opacidad * 100)}%`;
-        });
-
-        // En el evento del botón de transparencia:
-        btnTransparencia.addEventListener('click', () => {
-            cerebroTransparente = !cerebroTransparente;
-            btnTransparencia.classList.toggle('activo', cerebroTransparente);
-            const opacidadObjetivo = cerebroTransparente ? 0.25 : 1.0;
-            if (materialCerebroReal) materialCerebroReal.opacity = opacidadObjetivo;
-            sliderOpacidad.value = opacidadObjetivo;
-            valorOpacidad.textContent = `${Math.round(opacidadObjetivo * 100)}%`;
-        });
-
-        // En el evento del botón modo clínico:
-        btnModoClinico.addEventListener('click', () => {
-            modoClinicoActivo = !modoClinicoActivo;
-            btnModoClinico.classList.toggle('activo', modoClinicoActivo);
-            marcadorClinico.visible = modoClinicoActivo;
-
-            if (modoClinicoActivo && !cerebroTransparente) {
-                if (materialCerebroReal) materialCerebroReal.opacity = 0.55;
-                sliderOpacidad.value = 0.55;
-                valorOpacidad.textContent = '55%';
-            }
-        });
-
-        // Marcador Clínico
+        // 6. Marcador Clínico
         const marcadorClinico = new THREE.Group();
         const nucleo = new THREE.Mesh(new THREE.SphereGeometry(0.09, 24, 24), new THREE.MeshBasicMaterial({ color: 0x00ffff }));
         const halo = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 24), new THREE.MeshBasicMaterial({ color: 0x00ffff, transparent: true, opacity: 0.25, depthWrite: false }));
         
-        // Etiqueta del marcador
         const canvasEtiqueta = document.createElement('canvas');
         canvasEtiqueta.width = 512; canvasEtiqueta.height = 128;
         const ctx = canvasEtiqueta.getContext('2d');
@@ -344,7 +253,7 @@
         marcadorClinico.visible = false;
         grupoCerebro.add(marcadorClinico);
 
-        // Partículas (Neuronas)
+        // 7. Partículas (Neuronas de fondo)
         const NUM_PARTICULAS = 400;
         const posicionesParticulas = new Float32Array(NUM_PARTICULAS * 3);
         const velocidadesParticulas = new Float32Array(NUM_PARTICULAS);
@@ -365,19 +274,21 @@
         const particulas = new THREE.Points(geometriaParticulas, materialParticulas);
         escena.add(particulas);
 
-        // Interactividad
+        // 8. Interactividad (UI)
         let modoClinicoActivo = false;
         let cerebroTransparente = false;
 
         const sliderOpacidad = document.getElementById('slider-opacidad');
         const valorOpacidad = document.getElementById('valor-opacidad');
+        const btnTransparencia = document.getElementById('btn-transparencia');
+        const btnModoClinico = document.getElementById('btn-modo-clinico');
+
         sliderOpacidad.addEventListener('input', (e) => {
             const opacidad = parseFloat(e.target.value);
             if (materialCerebroReal) materialCerebroReal.opacity = opacidad;
             valorOpacidad.textContent = `${Math.round(opacidad * 100)}%`;
         });
 
-        const btnTransparencia = document.getElementById('btn-transparencia');
         btnTransparencia.addEventListener('click', () => {
             cerebroTransparente = !cerebroTransparente;
             btnTransparencia.classList.toggle('activo', cerebroTransparente);
@@ -387,20 +298,19 @@
             valorOpacidad.textContent = `${Math.round(opacidadObjetivo * 100)}%`;
         });
 
-        const btnModoClinico = document.getElementById('btn-modo-clinico');
         btnModoClinico.addEventListener('click', () => {
             modoClinicoActivo = !modoClinicoActivo;
             btnModoClinico.classList.toggle('activo', modoClinicoActivo);
             marcadorClinico.visible = modoClinicoActivo;
 
             if (modoClinicoActivo && !cerebroTransparente) {
-               if (materialCerebroReal) materialCerebroReal.opacity = 0.55;
+                if (materialCerebroReal) materialCerebroReal.opacity = 0.55;
                 sliderOpacidad.value = 0.55;
                 valorOpacidad.textContent = '55%';
             }
         });
 
-        // Bucle de Animación
+        // 9. Bucle de Animación
         const reloj = new THREE.Clock();
 
         function animar() {
@@ -428,7 +338,7 @@
         }
         animar();
 
-        // Responsividad
+        // 10. Responsividad
         window.addEventListener('resize', () => {
             camara.aspect = contenedor.clientWidth / contenedor.clientHeight;
             camara.updateProjectionMatrix();
@@ -436,7 +346,6 @@
         });
     </script>
 
-    <!-- SCRIPT GLOBAL DE NEUROREHAB (para el menú móvil) -->
     <script src="script.js"></script>
 </body>
 </html>
