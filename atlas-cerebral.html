@@ -193,8 +193,6 @@
         escena.fog = new THREE.Fog(0x071A33, 20, 50);
 
         const camara = new THREE.PerspectiveCamera(45, contenedor.clientWidth / contenedor.clientHeight, 0.1, 100);
-        // Vista inicial más cercana para que el cerebro se vea grande
-        camara.position.set(0, 0, 10); 
 
         const renderizador = new THREE.WebGLRenderer({ antialias: true });
         renderizador.setSize(contenedor.clientWidth, contenedor.clientHeight);
@@ -222,17 +220,20 @@
         const grupoCerebro = new THREE.Group();
         escena.add(grupoCerebro);
         let materialCerebroReal = null;
-        let modeloCargado = false;
+        
+        // Variables para guardar el centro y tamaño real del cerebro
+        let centroCerebro = new THREE.Vector3(0, 0, 0);
+        let radioCerebro = 5;
 
-        // 5. Coordenadas anatómicas ajustadas para el modelo Grab3D
-        // (Modifica estos valores si al hacer clic el marcador no cae sobre la estructura)
+        // 5. Definición de coordenadas anatómicas relativas al centro del cerebro
+        // Usamos un sistema de coordenadas "normalizado" (de -1 a 1)
         const regiones = {
-            frontal:   { pos: [0, 4, 12],   label: "Lóbulo Frontal",  color: 0x2F80ED },
-            parietal:  { pos: [0, 8, 0],    label: "Lóbulo Parietal", color: 0x9B51E0 },
-            temporal:  { pos: [7, 0, 4],    label: "Lóbulo Temporal", color: 0xF2994A },
-            occipital: { pos: [0, 0, -12],  label: "Lóbulo Occipital",color: 0x27AE60 },
-            cerebelo:  { pos: [0, -6, -8],  label: "Cerebelo",        color: 0xEB5757 },
-            tronco:    { pos: [0, -8, -2],  label: "Tronco Encefálico",color: 0xF2C94C }
+            frontal:   { pos: [0, 0.3, 0.8],   label: "Lóbulo Frontal",  color: 0x2F80ED },
+            parietal:  { pos: [0, 0.8, 0],     label: "Lóbulo Parietal", color: 0x9B51E0 },
+            temporal:  { pos: [0.7, -0.1, 0.2],label: "Lóbulo Temporal", color: 0xF2994A },
+            occipital: { pos: [0, 0.2, -0.9],  label: "Lóbulo Occipital",color: 0x27AE60 },
+            cerebelo:  { pos: [0, -0.7, -0.6], label: "Cerebelo",        color: 0xEB5757 },
+            tronco:    { pos: [0, -0.9, 0],    label: "Tronco Encefálico",color: 0xF2C94C }
         };
 
         // 6. Carga del modelo
@@ -241,9 +242,19 @@
             './modelos/cerebro.glb.glb',
             (gltf) => {
                 const modelo = gltf.scene;
-                // Escalar a 10.0 para que tenga un tamaño imponente
+                
+                // 1. Escalar el modelo
                 modelo.scale.setScalar(10.0); 
-                modelo.position.set(0, 0, 0); 
+
+                // 2. Calcular el centro real del modelo usando su caja delimitadora
+                const box = new THREE.Box3().setFromObject(modelo);
+                box.getCenter(centroCerebro);
+                const size = new THREE.Vector3();
+                box.getSize(size);
+                radioCerebro = Math.max(size.x, size.y, size.z) / 2;
+
+                // 3. Mover el modelo para que su centro esté en el (0,0,0)
+                modelo.position.sub(centroCerebro);
 
                 modelo.traverse((child) => {
                     if (child.isMesh) {
@@ -254,25 +265,36 @@
                 });
 
                 grupoCerebro.add(modelo);
-                modeloCargado = true;
+
+                // 4. Ajustar la cámara inicial para ver todo el cerebro
+                camara.position.set(0, 0, radioCerebro * 3.5);
+                controles.target.set(0, 0, 0);
+                controles.update();
+
+                // 5. Crear los marcadores basados en el nuevo centro (0,0,0)
+                Object.keys(regiones).forEach(key => {
+                    const reg = regiones[key];
+                    const marcador = crearMarcador(key, reg, radioCerebro);
+                    marcadores[key] = marcador;
+                    grupoCerebro.add(marcador);
+                });
             },
             (progreso) => console.log(`Cargando: ${(progreso.loaded / 1024).toFixed(1)} KB`),
             (error) => console.error('Error al cargar el modelo:', error)
         );
 
-        // 7. Función para crear un marcador
-        function crearMarcador(regionKey) {
-            const region = regiones[regionKey];
+        // 7. Función para crear un marcador escalado
+        function crearMarcador(regionKey, region, radio) {
             const grupoMarcador = new THREE.Group();
             
             // Núcleo
             const nucleo = new THREE.Mesh(
-                new THREE.SphereGeometry(0.3, 24, 24), 
+                new THREE.SphereGeometry(radio * 0.06, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color })
             );
             // Halo
             const halo = new THREE.Mesh(
-                new THREE.SphereGeometry(0.7, 24, 24), 
+                new THREE.SphereGeometry(radio * 0.12, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color, transparent: true, opacity: 0.25, depthWrite: false })
             );
             
@@ -286,13 +308,17 @@
             ctx.fillText(region.label, 256, 80);
             const textura = new THREE.CanvasTexture(canvas);
             const etiqueta = new THREE.Sprite(new THREE.SpriteMaterial({ map: textura, transparent: true }));
-            etiqueta.scale.set(5, 1.25, 1);
-            etiqueta.position.set(0, 1.5, 0); // Flota arriba del núcleo
+            etiqueta.scale.set(radio * 0.8, radio * 0.2, 1);
+            etiqueta.position.set(0, radio * 0.2, 0); // Flota arriba
 
             grupoMarcador.add(nucleo, halo, etiqueta);
             
-            // Posicionar el grupo
-            grupoMarcador.position.set(region.pos[0], region.pos[1], region.pos[2]);
+            // Posicionar (multiplicando por el radio para escalar las coordenadas)
+            grupoMarcador.position.set(
+                region.pos[0] * radio, 
+                region.pos[1] * radio, 
+                region.pos[2] * radio
+            );
             grupoMarcador.visible = false;
             
             grupoMarcador.userData = { halo: halo, nucleo: nucleo };
@@ -300,16 +326,9 @@
             return grupoMarcador;
         }
 
-        // 8. Crear todos los marcadores
-        const marcadores = {};
-        Object.keys(regiones).forEach(key => {
-            const marcador = crearMarcador(key);
-            marcadores[key] = marcador;
-            grupoCerebro.add(marcador);
-        });
-
-        // 9. Interactividad UI
+        // 8. Interactividad UI
         let regionActiva = null;
+        const marcadores = {};
         
         const sliderOpacidad = document.getElementById('slider-opacidad');
         const valorOpacidad = document.getElementById('valor-opacidad');
@@ -332,23 +351,20 @@
                     return;
                 }
 
-                // Ocultar todos y limpiar activo
                 Object.values(marcadores).forEach(m => m.visible = false);
                 botonesRegion.forEach(b => b.classList.remove('activo'));
 
-                // Mostrar seleccionado
                 marcadores[regionKey].visible = true;
                 btn.classList.add('activo');
                 regionActiva = regionKey;
 
                 // Hacer zoom al marcador
-                const pos = regiones[regionKey].pos;
-                const distancia = 15; // Distancia para ver el cerebro completo
-                const targetPosition = new THREE.Vector3(pos[0], pos[1], pos[2] + distancia);
+                const pos = marcadores[regionKey].position;
+                const distancia = radioCerebro * 2.5; // Distancia de zoom
                 
                 setTimeout(() => {
-                    camara.position.copy(targetPosition);
-                    controles.target.set(pos[0], pos[1], pos[2]);
+                    camara.position.set(pos.x, pos.y, pos.z + distancia);
+                    controles.target.copy(pos);
                     controles.update();
                 }, 10);
             });
@@ -360,12 +376,13 @@
             botonesRegion.forEach(b => b.classList.remove('activo'));
             regionActiva = null;
 
-            camara.position.set(0, 0, 10);
+            // Resetear cámara al centro original
+            camara.position.set(0, 0, radioCerebro * 3.5);
             controles.target.set(0, 0, 0);
             controles.update();
         });
 
-        // 10. Animación
+        // 9. Animación
         const reloj = new THREE.Clock();
         function animar() {
             requestAnimationFrame(animar);
@@ -388,7 +405,7 @@
         }
         animar();
 
-        // 11. Responsividad
+        // 10. Responsividad
         window.addEventListener('resize', () => {
             camara.aspect = contenedor.clientWidth / contenedor.clientHeight;
             camara.updateProjectionMatrix();
