@@ -389,8 +389,11 @@
             const tiempo = reloj.getElapsedTime();
 
             if (!regionActiva) {
-                grupoCerebro.rotation.y += 0.001;
-            }
+    grupoCerebro.rotation.y += 0.001;
+} else {
+    // Detener la rotación cuando hay una región activa
+    grupoCerebro.rotation.y = grupoCerebro.rotation.y; 
+}
 
             Object.values(marcadores).forEach(m => {
                 if (m.visible) {
