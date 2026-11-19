@@ -256,7 +256,7 @@
 
         // Cerebro Procedural
         const grupoCerebro = new THREE.Group();
-        escena.add(grupoCerebro);
+        let materialCerebroReal = null;
 
         const materialCerebro = new THREE.MeshPhysicalMaterial({
             color: 0xe8a0a8,
@@ -291,17 +291,35 @@
             return malla;
         }
 
-        const cargadorGLB = new GLTFLoader();
-cargadorGLB.load(
-    './modelos/cerebro.glb.glb',   // Asegúrate de que esta sea la ruta correcta
-    (gltf) => {
-        const modelo = gltf.scene;
-        modelo.scale.setScalar(1.5); // Ajusta el tamaño si es necesario
-        grupoCerebro.add(modelo);
-    },
-    (progreso) => console.log(`Cargando: ${(progreso.loaded / 1024).toFixed(1)} KB`),
-    (error) => console.error('Error al cargar el modelo:', error)
-);
+                // En el evento del slider:
+        sliderOpacidad.addEventListener('input', (e) => {
+            const opacidad = parseFloat(e.target.value);
+            if (materialCerebroReal) materialCerebroReal.opacity = opacidad;
+            valorOpacidad.textContent = `${Math.round(opacidad * 100)}%`;
+        });
+
+        // En el evento del botón de transparencia:
+        btnTransparencia.addEventListener('click', () => {
+            cerebroTransparente = !cerebroTransparente;
+            btnTransparencia.classList.toggle('activo', cerebroTransparente);
+            const opacidadObjetivo = cerebroTransparente ? 0.25 : 1.0;
+            if (materialCerebroReal) materialCerebroReal.opacity = opacidadObjetivo;
+            sliderOpacidad.value = opacidadObjetivo;
+            valorOpacidad.textContent = `${Math.round(opacidadObjetivo * 100)}%`;
+        });
+
+        // En el evento del botón modo clínico:
+        btnModoClinico.addEventListener('click', () => {
+            modoClinicoActivo = !modoClinicoActivo;
+            btnModoClinico.classList.toggle('activo', modoClinicoActivo);
+            marcadorClinico.visible = modoClinicoActivo;
+
+            if (modoClinicoActivo && !cerebroTransparente) {
+                if (materialCerebroReal) materialCerebroReal.opacity = 0.55;
+                sliderOpacidad.value = 0.55;
+                valorOpacidad.textContent = '55%';
+            }
+        });
 
         // Marcador Clínico
         const marcadorClinico = new THREE.Group();
@@ -355,7 +373,7 @@ cargadorGLB.load(
         const valorOpacidad = document.getElementById('valor-opacidad');
         sliderOpacidad.addEventListener('input', (e) => {
             const opacidad = parseFloat(e.target.value);
-            materialCerebro.opacity = opacidad;
+            if (materialCerebroReal) materialCerebroReal.opacity = opacidad;
             valorOpacidad.textContent = `${Math.round(opacidad * 100)}%`;
         });
 
@@ -364,7 +382,7 @@ cargadorGLB.load(
             cerebroTransparente = !cerebroTransparente;
             btnTransparencia.classList.toggle('activo', cerebroTransparente);
             const opacidadObjetivo = cerebroTransparente ? 0.25 : 1.0;
-            materialCerebro.opacity = opacidadObjetivo;
+            if (materialCerebroReal) materialCerebroReal.opacity = opacidadObjetivo;
             sliderOpacidad.value = opacidadObjetivo;
             valorOpacidad.textContent = `${Math.round(opacidadObjetivo * 100)}%`;
         });
@@ -376,7 +394,7 @@ cargadorGLB.load(
             marcadorClinico.visible = modoClinicoActivo;
 
             if (modoClinicoActivo && !cerebroTransparente) {
-                materialCerebro.opacity = 0.55;
+               if (materialCerebroReal) materialCerebroReal.opacity = 0.55;
                 sliderOpacidad.value = 0.55;
                 valorOpacidad.textContent = '55%';
             }
