@@ -176,7 +176,7 @@
         escena.fog = new THREE.Fog(0x071A33, 18, 45);
 
         const camara = new THREE.PerspectiveCamera(45, contenedor.clientWidth / contenedor.clientHeight, 0.1, 100);
-        camara.position.set(0, 0.5, 7);
+        camara.position.set(0, 0.5, 4); // z: 4 lo acerca, z: 10 lo aleja
 
         const renderizador = new THREE.WebGLRenderer({ antialias: true });
         renderizador.setSize(contenedor.clientWidth, contenedor.clientHeight);
@@ -214,7 +214,7 @@
             './modelos/cerebro.glb.glb',
             (gltf) => {
                 const modelo = gltf.scene;
-                modelo.scale.setScalar(1.5); 
+               modelo.scale.setScalar(10.0); // Prueba con 8.0, 10.0 o 12.0 
                 modelo.position.set(0, -0.2, 0); 
 
                 modelo.traverse((child) => {
