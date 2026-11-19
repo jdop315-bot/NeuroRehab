@@ -98,7 +98,6 @@
             pointer-events: none;
         }
         
-        /* Estilo para separadores en el panel */
         .divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
@@ -194,7 +193,8 @@
         escena.fog = new THREE.Fog(0x071A33, 20, 50);
 
         const camara = new THREE.PerspectiveCamera(45, contenedor.clientWidth / contenedor.clientHeight, 0.1, 100);
-        camara.position.set(0, 0, 15); // Vista inicial
+        // Vista inicial más cercana para que el cerebro se vea grande
+        camara.position.set(0, 0, 10); 
 
         const renderizador = new THREE.WebGLRenderer({ antialias: true });
         renderizador.setSize(contenedor.clientWidth, contenedor.clientHeight);
@@ -216,7 +216,7 @@
         controles.dampingFactor = 0.06;
         controles.minDistance = 3;
         controles.maxDistance = 30;
-        controles.enablePan = true; // Permitir mover la vista
+        controles.enablePan = true; 
 
         // 4. Grupo del Cerebro
         const grupoCerebro = new THREE.Group();
@@ -224,15 +224,15 @@
         let materialCerebroReal = null;
         let modeloCargado = false;
 
-        // 5. Definición de coordenadas anatómicas (Relativas al modelo)
-        // NOTA: Estos valores están ajustados para el modelo de Grab3D escalado a 8.0
+        // 5. Coordenadas anatómicas ajustadas para el modelo Grab3D
+        // (Modifica estos valores si al hacer clic el marcador no cae sobre la estructura)
         const regiones = {
-            frontal:   { pos: [0, 2.5, 7], label: "Lóbulo Frontal",  color: 0x2F80ED },
-            parietal:  { pos: [0, 4.5, 0], label: "Lóbulo Parietal", color: 0x9B51E0 },
-            temporal:  { pos: [6, -1, 2],  label: "Lóbulo Temporal", color: 0xF2994A },
-            occipital: { pos: [0, 0, -7],  label: "Lóbulo Occipital",color: 0x27AE60 },
-            cerebelo:  { pos: [0, -4, -5], label: "Cerebelo",        color: 0xEB5757 },
-            tronco:    { pos: [0, -5, -1], label: "Tronco Encefálico",color: 0xF2C94C }
+            frontal:   { pos: [0, 4, 12],   label: "Lóbulo Frontal",  color: 0x2F80ED },
+            parietal:  { pos: [0, 8, 0],    label: "Lóbulo Parietal", color: 0x9B51E0 },
+            temporal:  { pos: [7, 0, 4],    label: "Lóbulo Temporal", color: 0xF2994A },
+            occipital: { pos: [0, 0, -12],  label: "Lóbulo Occipital",color: 0x27AE60 },
+            cerebelo:  { pos: [0, -6, -8],  label: "Cerebelo",        color: 0xEB5757 },
+            tronco:    { pos: [0, -8, -2],  label: "Tronco Encefálico",color: 0xF2C94C }
         };
 
         // 6. Carga del modelo
@@ -241,8 +241,8 @@
             './modelos/cerebro.glb.glb',
             (gltf) => {
                 const modelo = gltf.scene;
-                modelo.scale.setScalar(8.0); 
-                // Centrar el modelo (ajustar según sea necesario)
+                // Escalar a 10.0 para que tenga un tamaño imponente
+                modelo.scale.setScalar(10.0); 
                 modelo.position.set(0, 0, 0); 
 
                 modelo.traverse((child) => {
@@ -267,12 +267,12 @@
             
             // Núcleo
             const nucleo = new THREE.Mesh(
-                new THREE.SphereGeometry(0.2, 24, 24), 
+                new THREE.SphereGeometry(0.3, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color })
             );
             // Halo
             const halo = new THREE.Mesh(
-                new THREE.SphereGeometry(0.5, 24, 24), 
+                new THREE.SphereGeometry(0.7, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color, transparent: true, opacity: 0.25, depthWrite: false })
             );
             
@@ -286,22 +286,21 @@
             ctx.fillText(region.label, 256, 80);
             const textura = new THREE.CanvasTexture(canvas);
             const etiqueta = new THREE.Sprite(new THREE.SpriteMaterial({ map: textura, transparent: true }));
-            etiqueta.scale.set(4, 1, 1);
-            etiqueta.position.set(0, 1, 0); // Flota arriba del núcleo
+            etiqueta.scale.set(5, 1.25, 1);
+            etiqueta.position.set(0, 1.5, 0); // Flota arriba del núcleo
 
             grupoMarcador.add(nucleo, halo, etiqueta);
             
-            // Posicionar el grupo según las coordenadas
+            // Posicionar el grupo
             grupoMarcador.position.set(region.pos[0], region.pos[1], region.pos[2]);
             grupoMarcador.visible = false;
             
-            // Guardar referencia para la animación
             grupoMarcador.userData = { halo: halo, nucleo: nucleo };
 
             return grupoMarcador;
         }
 
-        // 8. Crear todos los marcadores y añadirlos al grupo
+        // 8. Crear todos los marcadores
         const marcadores = {};
         Object.keys(regiones).forEach(key => {
             const marcador = crearMarcador(key);
@@ -321,13 +320,11 @@
             valorOpacidad.textContent = `${Math.round(opacidad * 100)}%`;
         });
 
-        // Manejar clics en botones de región
         const botonesRegion = document.querySelectorAll('.btn-3d[data-region]');
         botonesRegion.forEach(btn => {
             btn.addEventListener('click', () => {
                 const regionKey = btn.getAttribute('data-region');
                 
-                // Lógica de toggle: si haces clic en la misma región, la desactivas
                 if (regionActiva === regionKey) {
                     marcadores[regionKey].visible = false;
                     btn.classList.remove('activo');
@@ -335,23 +332,20 @@
                     return;
                 }
 
-                // Ocultar todos los marcadores
+                // Ocultar todos y limpiar activo
                 Object.values(marcadores).forEach(m => m.visible = false);
                 botonesRegion.forEach(b => b.classList.remove('activo'));
 
-                // Mostrar el seleccionado
+                // Mostrar seleccionado
                 marcadores[regionKey].visible = true;
                 btn.classList.add('activo');
                 regionActiva = regionKey;
 
                 // Hacer zoom al marcador
                 const pos = regiones[regionKey].pos;
-                // Movemos la cámara para ver el marcador de frente
-                const distancia = 8; // Distancia de zoom
+                const distancia = 15; // Distancia para ver el cerebro completo
                 const targetPosition = new THREE.Vector3(pos[0], pos[1], pos[2] + distancia);
                 
-                // Animación simple de cámara (usando anime.js o simple set)
-                // Para mantenerlo simple, usamos un setTimeout para suavizar un poco
                 setTimeout(() => {
                     camara.position.copy(targetPosition);
                     controles.target.set(pos[0], pos[1], pos[2]);
@@ -366,8 +360,7 @@
             botonesRegion.forEach(b => b.classList.remove('activo'));
             regionActiva = null;
 
-            // Resetear cámara
-            camara.position.set(0, 0, 15);
+            camara.position.set(0, 0, 10);
             controles.target.set(0, 0, 0);
             controles.update();
         });
@@ -378,12 +371,10 @@
             requestAnimationFrame(animar);
             const tiempo = reloj.getElapsedTime();
 
-            // Rotación automática lenta del cerebro (solo si no hay región activa)
             if (!regionActiva) {
                 grupoCerebro.rotation.y += 0.001;
             }
 
-            // Pulsación de los marcadores
             Object.values(marcadores).forEach(m => {
                 if (m.visible) {
                     const pulso = 1 + Math.sin(tiempo * 4) * 0.15;
