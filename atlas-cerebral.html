@@ -43,6 +43,9 @@
             z-index: 1;
         }
 
+        /* ==========================================
+           PANEL DE CONTROL (PC)
+           ========================================== */
         .panel-3d {
             position: absolute;
             top: 90px;
@@ -57,21 +60,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-height: calc(100vh - 180px);
             overflow-y: auto;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        /* Botón para colapsar el panel en móvil (oculto en PC) */
+        /* Botón de colapsar (Oculto en PC) */
         .btn-colapsar {
             display: none;
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 0.8rem;
-            cursor: pointer;
         }
 
         .panel-3d h2 { color: #FFFFFF; font-size: 1.1rem; margin-bottom: 5px; }
@@ -100,19 +94,6 @@
         .btn-3d:hover { background: rgba(47, 128, 237, 0.25); border-color: #2F80ED; }
         .btn-3d.activo { background: #2F80ED; border-color: #2F80ED; box-shadow: 0 0 15px rgba(47, 128, 237, 0.5); }
 
-        .ayuda-3d {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-align: center;
-            pointer-events: none;
-        }
-        
         .divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
@@ -120,7 +101,7 @@
         }
 
         /* ==========================================
-           TARJETA DE INFORMACIÓN CLÍNICA
+           TARJETA DE INFORMACIÓN (PC)
            ========================================== */
         .card-info {
             position: absolute;
@@ -128,14 +109,13 @@
             right: 30px;
             z-index: 20;
             width: 380px;
-            background: rgba(255, 255, 255, 0.95); /* Fondo blanco para leer mejor */
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 14px;
             padding: 25px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             border-left: 6px solid #2F80ED;
             
-            /* Oculto por defecto */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
@@ -148,12 +128,7 @@
             transform: translateY(0);
         }
 
-        .card-info h3 {
-            margin: 0 0 10px;
-            color: #0B3A70;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
+        .card-info h3 { margin: 0 0 10px; color: #0B3A70; font-size: 1.4rem; font-weight: 700; }
 
         .card-info .funcion-title,
         .card-info .lesion-title {
@@ -169,12 +144,7 @@
 
         .card-info .lesion-title { color: #C62828; }
 
-        .card-info p {
-            margin: 0;
-            color: #526173;
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
+        .card-info p { margin: 0; color: #526173; font-size: 0.92rem; line-height: 1.6; }
 
         .btn-cerrar-card {
             position: absolute;
@@ -188,25 +158,34 @@
             transition: color 0.2s ease;
         }
 
-        .btn-cerrar-card:hover {
-            color: #C62828;
+        .btn-cerrar-card:hover { color: #C62828; }
+
+        .ayuda-3d {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-align: center;
+            pointer-events: none;
         }
 
         /* ==========================================
-           RESPONSIVE PARA MÓVILES
+           VERSIÓN MÓVIL
            ========================================== */
-                @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .panel-3d {
                 top: 80px;
                 left: 10px;
                 right: 10px;
                 width: auto;
-                background: rgba(10, 30, 58, 0.95); /* Fondo más opaco */
-                max-height: none; /* Quitamos la restricción de altura */
                 padding: 15px;
             }
 
-            /* El botón es siempre visible y se queda arriba */
+            /* Botón visible solo en móvil */
             .btn-colapsar {
                 display: block;
                 width: 100%;
@@ -219,43 +198,33 @@
                 font-weight: bold;
                 font-size: 0.85rem;
                 cursor: pointer;
-                transition: background 0.3s ease;
             }
 
-            /* Cuando el panel está colapsado, ocultamos el contenido y dejamos solo el botón */
+            /* Ocultar contenido al colapsar */
             .panel-3d.colapsado {
-                background: transparent; /* El contenedor se vuelve transparente */
+                background: transparent;
                 border: none;
                 box-shadow: none;
                 padding: 0;
-                top: 80px; /* Mantiene la posición */
+                top: 80px;
             }
-
+            
             .panel-3d.colapsado .contenido-panel {
                 display: none;
             }
             
             .panel-3d.colapsado .btn-colapsar {
-                background: rgba(10, 30, 58, 0.85); /* Botón oscuro cuando está colapsado */
+                background: rgba(10, 30, 58, 0.85);
                 border: 1px solid rgba(47, 128, 237, 0.4);
                 margin-bottom: 0;
             }
 
             .panel-3d h2 { font-size: 1rem; }
             .panel-3d p.sub { display: none; }
-            
             .grupo-control { margin-bottom: 10px; }
             .btn-3d { padding: 8px; font-size: 0.75rem; margin-bottom: 6px; }
             
-            .ayuda-3d {
-                bottom: 10px;
-                font-size: 0.7rem;
-                width: 90%;
-            }
-        }
-
-            /* Tarjeta de info en móvil */
-            
+            /* Tarjeta pegada abajo en móvil */
             .card-info {
                 bottom: 0;
                 left: 0;
@@ -263,7 +232,7 @@
                 width: 100%;
                 padding: 15px;
                 border-radius: 20px 20px 0 0;
-                max-height: 40vh; /* <-- Altura máxima del 40% */
+                max-height: 40vh;
                 overflow-y: auto;
                 border-left: none;
                 border-top: 4px solid #2F80ED;
@@ -271,8 +240,15 @@
 
             .card-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
             .card-info p { font-size: 0.8rem; line-height: 1.4; }
-            .funcion-title, .lesion-title { font-size: 0.7rem; margin-top: 10px; }
+            .card-info .funcion-title, 
+            .card-info .lesion-title { font-size: 0.7rem; margin-top: 10px; }
             .btn-cerrar-card { top: 10px; right: 10px; font-size: 1rem; }
+
+            .ayuda-3d {
+                bottom: 10px;
+                font-size: 0.7rem;
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -408,7 +384,6 @@
         const grupoCerebro = new THREE.Group();
         escena.add(grupoCerebro);
         let materialCerebroReal = null;
-        
         let centroCerebro = new THREE.Vector3(0, 0, 0);
         let radioCerebro = 5;
 
@@ -488,7 +463,6 @@
                 controles.target.set(0, 0, 0);
                 controles.update();
 
-                // Crear los marcadores
                 Object.keys(regiones).forEach(key => {
                     const reg = regiones[key];
                     const marcador = crearMarcador(key, reg, radioCerebro);
@@ -550,7 +524,6 @@
         const cardFuncion = document.getElementById('cardFuncion');
         const cardLesion = document.getElementById('cardLesion');
         
-        // Función para mostrar la tarjeta
         function mostrarInfo(regionKey) {
             const reg = regiones[regionKey];
             cardTitle.textContent = reg.label;
@@ -559,7 +532,6 @@
             infoCard.classList.add('visible');
         }
 
-        // Función para ocultar la tarjeta
         function ocultarInfo() {
             infoCard.classList.remove('visible');
         }
@@ -590,11 +562,9 @@
                 btn.classList.add('activo');
                 regionActiva = regionKey;
 
-                // Mostrar tarjeta de información
                 mostrarInfo(regionKey);
 
                 // Zoom al marcador
-                               // Hacer zoom al marcador (más alejado para ver el contexto)
                 const pos = marcadores[regionKey].position;
                 const distancia = window.innerWidth < 768 ? radioCerebro * 6.0 : radioCerebro * 4.5;
                 
@@ -606,12 +576,12 @@
             });
         });
 
-        // Cerrar tarjeta con el botón X
+        // Cerrar tarjeta
         document.getElementById('btnCerrarCard').addEventListener('click', () => {
             ocultarInfo();
         });
 
-        // Botón de reset
+        // Reset
         document.getElementById('btn-reset-view').addEventListener('click', () => {
             Object.values(marcadores).forEach(m => m.visible = false);
             botonesRegion.forEach(b => b.classList.remove('activo'));
@@ -623,7 +593,7 @@
             controles.update();
         });
 
-        // Botón colapsar móvil
+        // Colapsar móvil
         const btnColapsar = document.getElementById('btnColapsar');
         const panelControl = document.getElementById('panelControl');
         if (btnColapsar && panelControl) {
@@ -643,8 +613,6 @@
             requestAnimationFrame(animar);
             const tiempo = reloj.getElapsedTime();
 
-                        // Solo rotar si NO hay una región activa Y la tarjeta no está visible
-                     
             if (!regionActiva && !infoCard.classList.contains('visible')) {
                 grupoCerebro.rotation.y += 0.001;
             }
