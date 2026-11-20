@@ -226,14 +226,18 @@
             }
 
             /* Tarjeta de info en móvil */
+            
             .card-info {
-                bottom: 10px;
-                left: 10px;
-                right: 10px;
-                width: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
                 padding: 20px;
-                max-height: 50vh;
+                border-radius: 20px 20px 0 0; /* Bordes redondeados solo arriba */
+                max-height: 45vh; /* Ocupa menos de la mitad de la pantalla */
                 overflow-y: auto;
+                border-left: none;
+                border-top: 5px solid #2F80ED; /* Línea azul arriba */
             }
 
             .card-info h3 { font-size: 1.2rem; }
@@ -607,7 +611,8 @@
             requestAnimationFrame(animar);
             const tiempo = reloj.getElapsedTime();
 
-            if (!regionActiva) {
+                        // Solo rotar si NO hay una región activa Y la tarjeta no está visible
+            if (!regionActiva && !infoCard.classList.contains('visible')) {
                 grupoCerebro.rotation.y += 0.001;
             }
 
