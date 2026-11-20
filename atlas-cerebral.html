@@ -45,18 +45,33 @@
 
         .panel-3d {
             position: absolute;
-            top: 100px;
-            left: 30px;
+            top: 90px;
+            left: 20px;
             z-index: 10;
-            width: 300px;
+            width: 280px;
             background: rgba(10, 30, 58, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(47, 128, 237, 0.4);
             border-radius: 14px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-height: calc(100vh - 150px);
+            max-height: calc(100vh - 180px);
             overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Botón para colapsar el panel en móvil (oculto en PC) */
+        .btn-colapsar {
+            display: none;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.8rem;
+            cursor: pointer;
         }
 
         .panel-3d h2 { color: #FFFFFF; font-size: 1.1rem; margin-bottom: 5px; }
@@ -102,6 +117,127 @@
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
             margin: 15px 0;
+        }
+
+        /* ==========================================
+           TARJETA DE INFORMACIÓN CLÍNICA
+           ========================================== */
+        .card-info {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            z-index: 20;
+            width: 380px;
+            background: rgba(255, 255, 255, 0.95); /* Fondo blanco para leer mejor */
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-left: 6px solid #2F80ED;
+            
+            /* Oculto por defecto */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-info.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .card-info h3 {
+            margin: 0 0 10px;
+            color: #0B3A70;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .card-info .funcion-title,
+        .card-info .lesion-title {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #2F80ED;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-info .lesion-title { color: #C62828; }
+
+        .card-info p {
+            margin: 0;
+            color: #526173;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .btn-cerrar-card {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: #8A98A8;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .btn-cerrar-card:hover {
+            color: #C62828;
+        }
+
+        /* ==========================================
+           RESPONSIVE PARA MÓVILES
+           ========================================== */
+        @media (max-width: 768px) {
+            .panel-3d {
+                top: 80px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                max-height: 45vh;
+                padding: 15px;
+            }
+
+            .btn-colapsar {
+                display: block;
+            }
+
+            .panel-3d.colapsado .contenido-panel {
+                display: none;
+            }
+
+            .panel-3d h2 { font-size: 1rem; }
+            .panel-3d p.sub { font-size: 0.7rem; margin-bottom: 10px; }
+            
+            .grupo-control { margin-bottom: 10px; }
+            .btn-3d { padding: 8px; font-size: 0.75rem; margin-bottom: 6px; }
+            
+            .ayuda-3d {
+                bottom: 10px;
+                font-size: 0.7rem;
+                width: 90%;
+            }
+
+            /* Tarjeta de info en móvil */
+            .card-info {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                padding: 20px;
+                max-height: 50vh;
+                overflow-y: auto;
+            }
+
+            .card-info h3 { font-size: 1.2rem; }
+            .card-info p { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -152,28 +288,45 @@
 
     <div id="visor-3d-container"></div>
 
-    <div class="panel-3d">
-        <h2>Atlas Cerebral 3D</h2>
-        <p class="sub">Selecciona una estructura para explorar</p>
+    <!-- PANEL DE CONTROL -->
+    <div class="panel-3d" id="panelControl">
+        <button class="btn-colapsar" id="btnColapsar">☰ Mostrar/Ocultar Controles</button>
 
-        <div class="grupo-control">
-            <label for="slider-opacidad">Opacidad del tejido:</label>
-            <input type="range" id="slider-opacidad" min="0.05" max="1" step="0.01" value="1" style="width: 100%; accent-color: #2F80ED;">
-            <span id="valor-opacidad" style="color: #A0C4E8; font-size: 0.75rem;">100%</span>
+        <div class="contenido-panel">
+            <h2>Atlas Cerebral 3D</h2>
+            <p class="sub">Selecciona una estructura para explorar</p>
+
+            <div class="grupo-control">
+                <label for="slider-opacidad">Opacidad del tejido:</label>
+                <input type="range" id="slider-opacidad" min="0.05" max="1" step="0.01" value="1" style="width: 100%; accent-color: #2F80ED;">
+                <span id="valor-opacidad" style="color: #A0C4E8; font-size: 0.75rem;">100%</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <button class="btn-3d" data-region="frontal">Lóbulo Frontal</button>
+            <button class="btn-3d" data-region="parietal">Lóbulo Parietal</button>
+            <button class="btn-3d" data-region="temporal">Lóbulo Temporal</button>
+            <button class="btn-3d" data-region="occipital">Lóbulo Occipital</button>
+            <button class="btn-3d" data-region="cerebelo">Cerebelo</button>
+            <button class="btn-3d" data-region="tronco">Tronco Encefálico</button>
+            
+            <div class="divider"></div>
+            
+            <button id="btn-reset-view" class="btn-3d" style="text-align: center; justify-content: center;">Vista General</button>
         </div>
+    </div>
 
-        <div class="divider"></div>
-
-        <button class="btn-3d" data-region="frontal">Lóbulo Frontal</button>
-        <button class="btn-3d" data-region="parietal">Lóbulo Parietal</button>
-        <button class="btn-3d" data-region="temporal">Lóbulo Temporal</button>
-        <button class="btn-3d" data-region="occipital">Lóbulo Occipital</button>
-        <button class="btn-3d" data-region="cerebelo">Cerebelo</button>
-        <button class="btn-3d" data-region="tronco">Tronco Encefálico</button>
+    <!-- TARJETA DE INFORMACIÓN -->
+    <div class="card-info" id="infoCard">
+        <button class="btn-cerrar-card" id="btnCerrarCard">✕</button>
+        <h3 id="cardTitle">Título</h3>
         
-        <div class="divider"></div>
+        <span class="funcion-title">Función principal</span>
+        <p id="cardFuncion">...</p>
         
-        <button id="btn-reset-view" class="btn-3d" style="text-align: center; justify-content: center;">Vista General</button>
+        <span class="lesion-title">Implicaciones clínicas de la lesión</span>
+        <p id="cardLesion">...</p>
     </div>
 
     <div class="ayuda-3d">
@@ -221,19 +374,53 @@
         escena.add(grupoCerebro);
         let materialCerebroReal = null;
         
-        // Variables para guardar el centro y tamaño real del cerebro
         let centroCerebro = new THREE.Vector3(0, 0, 0);
         let radioCerebro = 5;
 
-        // 5. Definición de coordenadas anatómicas relativas al centro del cerebro
-        // Usamos un sistema de coordenadas "normalizado" (de -1 a 1)
+        // 5. Información Clínica y Coordenadas
         const regiones = {
-            frontal:   { pos: [0, 0.3, 0.8],   label: "Lóbulo Frontal",  color: 0x2F80ED },
-            parietal:  { pos: [0, 0.8, 0],     label: "Lóbulo Parietal", color: 0x9B51E0 },
-            temporal:  { pos: [0.7, -0.1, 0.2],label: "Lóbulo Temporal", color: 0xF2994A },
-            occipital: { pos: [0, 0.2, -0.9],  label: "Lóbulo Occipital",color: 0x27AE60 },
-            cerebelo:  { pos: [0, -0.7, -0.6], label: "Cerebelo",        color: 0xEB5757 },
-            tronco:    { pos: [0, -0.9, 0],    label: "Tronco Encefálico",color: 0xF2C94C }
+            frontal: { 
+                pos: [0, 0.3, 0.8], 
+                label: "Lóbulo Frontal", 
+                color: 0x2F80ED,
+                funcion: "Es el centro de las funciones ejecutivas, la planificación, la toma de decisiones, el control motor voluntario (incluyendo el área motora primaria) y la producción del lenguaje (área de Broca).",
+                lesion: "Puede causar parálisis o paresia contralateral, afasia motora (dificultad para expresar lenguaje), cambios de personalidad, desinhibición, apatía y alteraciones en la resolución de problemas."
+            },
+            parietal: { 
+                pos: [0, 0.8, 0], 
+                label: "Lóbulo Parietal", 
+                color: 0x9B51E0,
+                funcion: "Procesa la información somatosensorial (tacto, dolor, temperatura, propiocepción) y es clave en la integración visoespacial, la orientación y la atención.",
+                lesion: "Puede provocar déficits sensitivos contralaterales, negligencia hemiespacial (ignorar un lado del cuerpo o espacio), apraxias (dificultad para realizar movimientos aprendidos) y alteraciones en la percepción del esquema corporal."
+            },
+            temporal: { 
+                pos: [0.7, -0.1, 0.2], 
+                label: "Lóbulo Temporal", 
+                color: 0xF2994A,
+                funcion: "Responsable de la audición (corteza auditiva primaria), la comprensión del lenguaje (área de Wernicke) y la memoria a largo plazo (incluyendo el hipocampo).",
+                lesion: "Puede causar afasia sensorial o de comprensión (dificultad para entender el lenguaje), agnosia auditiva, trastornos de la memoria, epilepsia del lóbulo temporal y alteraciones emocionales."
+            },
+            occipital: { 
+                pos: [0, 0.2, -0.9], 
+                label: "Lóbulo Occipital", 
+                color: 0x27AE60,
+                funcion: "Es el centro de procesamiento visual primario. Recibe e interpreta la información de los campos visuales contralaterales.",
+                lesion: "Puede provocar hemianopsia homónima contralateral (pérdida de la mitad del campo visual), ceguera cortical (sin daño ocular), agnosia visual y alteraciones en la percepción de formas o colores."
+            },
+            cerebelo: { 
+                pos: [0, -0.7, -0.6], 
+                label: "Cerebelo", 
+                color: 0xEB5757,
+                funcion: "Coordina la ejecución suave y precisa del movimiento, mantiene el equilibrio, el tono postural y participa en el aprendizaje motor y algunas funciones cognitivas.",
+                lesion: "Causa ataxia (incoordinación motora), dismetría (errores en la distancia de los movimientos), disdiadococinesia (dificultad para movimientos alternantes rápidos), temblor intencional y alteraciones del equilibrio y la marcha."
+            },
+            tronco: { 
+                pos: [0, -0.9, 0], 
+                label: "Tronco Encefálico", 
+                color: 0xF2C94C,
+                funcion: "Alberga los centros vitales (respiración, presión arterial, ritmo cardíaco), vías motoras y sensitivas, y los núcleos de los pares craneales.",
+                lesion: "Puede ser potencialmente mortal. Causa parálisis de pares craneales, disfagia, disartria, alteraciones respiratorias y cardiovasculares, y síndromes alternos (hemiplejía contralateral con parálisis craneal ipsilateral)."
+            }
         };
 
         // 6. Carga del modelo
@@ -242,18 +429,14 @@
             './modelos/cerebro.glb.glb',
             (gltf) => {
                 const modelo = gltf.scene;
-                
-                // 1. Escalar el modelo
                 modelo.scale.setScalar(10.0); 
 
-                // 2. Calcular el centro real del modelo usando su caja delimitadora
                 const box = new THREE.Box3().setFromObject(modelo);
                 box.getCenter(centroCerebro);
                 const size = new THREE.Vector3();
                 box.getSize(size);
                 radioCerebro = Math.max(size.x, size.y, size.z) / 2;
 
-                // 3. Mover el modelo para que su centro esté en el (0,0,0)
                 modelo.position.sub(centroCerebro);
 
                 modelo.traverse((child) => {
@@ -266,12 +449,11 @@
 
                 grupoCerebro.add(modelo);
 
-                // 4. Ajustar la cámara inicial para ver todo el cerebro
                 camara.position.set(0, 0, radioCerebro * 3.5);
                 controles.target.set(0, 0, 0);
                 controles.update();
 
-                // 5. Crear los marcadores basados en el nuevo centro (0,0,0)
+                // Crear los marcadores
                 Object.keys(regiones).forEach(key => {
                     const reg = regiones[key];
                     const marcador = crearMarcador(key, reg, radioCerebro);
@@ -283,22 +465,19 @@
             (error) => console.error('Error al cargar el modelo:', error)
         );
 
-        // 7. Función para crear un marcador escalado
+        // 7. Función para crear un marcador
         function crearMarcador(regionKey, region, radio) {
             const grupoMarcador = new THREE.Group();
             
-            // Núcleo
             const nucleo = new THREE.Mesh(
                 new THREE.SphereGeometry(radio * 0.06, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color })
             );
-            // Halo
             const halo = new THREE.Mesh(
                 new THREE.SphereGeometry(radio * 0.12, 24, 24), 
                 new THREE.MeshBasicMaterial({ color: region.color, transparent: true, opacity: 0.25, depthWrite: false })
             );
             
-            // Etiqueta
             const canvas = document.createElement('canvas');
             canvas.width = 512; canvas.height = 128;
             const ctx = canvas.getContext('2d');
@@ -309,11 +488,10 @@
             const textura = new THREE.CanvasTexture(canvas);
             const etiqueta = new THREE.Sprite(new THREE.SpriteMaterial({ map: textura, transparent: true }));
             etiqueta.scale.set(radio * 0.8, radio * 0.2, 1);
-            etiqueta.position.set(0, radio * 0.2, 0); // Flota arriba
+            etiqueta.position.set(0, radio * 0.2, 0);
 
             grupoMarcador.add(nucleo, halo, etiqueta);
             
-            // Posicionar (multiplicando por el radio para escalar las coordenadas)
             grupoMarcador.position.set(
                 region.pos[0] * radio, 
                 region.pos[1] * radio, 
@@ -332,7 +510,25 @@
         
         const sliderOpacidad = document.getElementById('slider-opacidad');
         const valorOpacidad = document.getElementById('valor-opacidad');
+        const infoCard = document.getElementById('infoCard');
+        const cardTitle = document.getElementById('cardTitle');
+        const cardFuncion = document.getElementById('cardFuncion');
+        const cardLesion = document.getElementById('cardLesion');
         
+        // Función para mostrar la tarjeta
+        function mostrarInfo(regionKey) {
+            const reg = regiones[regionKey];
+            cardTitle.textContent = reg.label;
+            cardFuncion.textContent = reg.funcion;
+            cardLesion.textContent = reg.lesion;
+            infoCard.classList.add('visible');
+        }
+
+        // Función para ocultar la tarjeta
+        function ocultarInfo() {
+            infoCard.classList.remove('visible');
+        }
+
         sliderOpacidad.addEventListener('input', (e) => {
             const opacidad = parseFloat(e.target.value);
             if (materialCerebroReal) materialCerebroReal.opacity = opacidad;
@@ -348,6 +544,7 @@
                     marcadores[regionKey].visible = false;
                     btn.classList.remove('activo');
                     regionActiva = null;
+                    ocultarInfo();
                     return;
                 }
 
@@ -358,9 +555,12 @@
                 btn.classList.add('activo');
                 regionActiva = regionKey;
 
-                // Hacer zoom al marcador
+                // Mostrar tarjeta de información
+                mostrarInfo(regionKey);
+
+                // Zoom al marcador
                 const pos = marcadores[regionKey].position;
-                const distancia = radioCerebro * 2.5; // Distancia de zoom
+                const distancia = radioCerebro * 2.5;
                 
                 setTimeout(() => {
                     camara.position.set(pos.x, pos.y, pos.z + distancia);
@@ -370,17 +570,36 @@
             });
         });
 
+        // Cerrar tarjeta con el botón X
+        document.getElementById('btnCerrarCard').addEventListener('click', () => {
+            ocultarInfo();
+        });
+
         // Botón de reset
         document.getElementById('btn-reset-view').addEventListener('click', () => {
             Object.values(marcadores).forEach(m => m.visible = false);
             botonesRegion.forEach(b => b.classList.remove('activo'));
             regionActiva = null;
+            ocultarInfo();
 
-            // Resetear cámara al centro original
             camara.position.set(0, 0, radioCerebro * 3.5);
             controles.target.set(0, 0, 0);
             controles.update();
         });
+
+        // Botón colapsar móvil
+        const btnColapsar = document.getElementById('btnColapsar');
+        const panelControl = document.getElementById('panelControl');
+        if (btnColapsar && panelControl) {
+            btnColapsar.addEventListener('click', () => {
+                panelControl.classList.toggle('colapsado');
+                if (panelControl.classList.contains('colapsado')) {
+                    btnColapsar.textContent = "☰ Mostrar Controles";
+                } else {
+                    btnColapsar.textContent = "✕ Ocultar Controles";
+                }
+            });
+        }
 
         // 9. Animación
         const reloj = new THREE.Clock();
@@ -389,11 +608,8 @@
             const tiempo = reloj.getElapsedTime();
 
             if (!regionActiva) {
-    grupoCerebro.rotation.y += 0.001;
-} else {
-    // Detener la rotación cuando hay una región activa
-    grupoCerebro.rotation.y = grupoCerebro.rotation.y; 
-}
+                grupoCerebro.rotation.y += 0.001;
+            }
 
             Object.values(marcadores).forEach(m => {
                 if (m.visible) {
