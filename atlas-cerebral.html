@@ -232,12 +232,12 @@
                 left: 0;
                 right: 0;
                 width: 100%;
-                padding: 20px;
-                border-radius: 20px 20px 0 0; /* Bordes redondeados solo arriba */
-                max-height: 45vh; /* Ocupa menos de la mitad de la pantalla */
+                padding: 15px;
+                border-radius: 20px 20px 0 0;
+                max-height: 35vh; /* <-- REDUCIDO A 35% */
                 overflow-y: auto;
                 border-left: none;
-                border-top: 5px solid #2F80ED; /* Línea azul arriba */
+                border-top: 5px solid #2F80ED;
             }
 
             .card-info h3 { font-size: 1.2rem; }
@@ -563,8 +563,9 @@
                 mostrarInfo(regionKey);
 
                 // Zoom al marcador
+                               // Hacer zoom al marcador (más alejado para ver el contexto)
                 const pos = marcadores[regionKey].position;
-                const distancia = radioCerebro * 2.5;
+                const distancia = radioCerebro * 4.5; // <-- CAMBIADO AQUÍ
                 
                 setTimeout(() => {
                     camara.position.set(pos.x, pos.y, pos.z + distancia);
@@ -612,6 +613,7 @@
             const tiempo = reloj.getElapsedTime();
 
                         // Solo rotar si NO hay una región activa Y la tarjeta no está visible
+                     
             if (!regionActiva && !infoCard.classList.contains('visible')) {
                 grupoCerebro.rotation.y += 0.001;
             }
