@@ -195,40 +195,64 @@
         /* ==========================================
            RESPONSIVE PARA MÓVILES
            ========================================== */
-        @media (max-width: 768px) {
-                        .panel-3d {
+                @media (max-width: 768px) {
+            .panel-3d {
                 top: 80px;
                 left: 10px;
                 right: 10px;
                 width: auto;
-                max-height: 30vh; /* <-- Reducido a 30% para que ocupe menos */
-                padding: 10px; /* <-- Menos padding */
+                background: rgba(10, 30, 58, 0.95); /* Fondo más opaco */
+                max-height: none; /* Quitamos la restricción de altura */
+                padding: 15px;
             }
 
+            /* El botón es siempre visible y se queda arriba */
             .btn-colapsar {
                 display: block;
-                padding: 6px; /* <-- Botón más delgado */
-                font-size: 0.75rem;
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                background: #2F80ED;
+                border: none;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: bold;
+                font-size: 0.85rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
             }
 
-            .panel-3d h2 { font-size: 0.9rem; margin-bottom: 3px; }
-            .panel-3d p.sub { display: none; } /* <-- Ocultar subtítulo para ahorrar espacio */
-            
-            .grupo-control { margin-bottom: 8px; }
-            .grupo-control label { font-size: 0.7rem; margin-bottom: 4px; }
-            .grupo-control input { height: 4px; } /* <-- Slider más delgado */
-            
-            .btn-3d { 
-                padding: 6px 10px; 
-                font-size: 0.7rem; 
-                margin-bottom: 4px; 
+            /* Cuando el panel está colapsado, ocultamos el contenido y dejamos solo el botón */
+            .panel-3d.colapsado {
+                background: transparent; /* El contenedor se vuelve transparente */
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                top: 80px; /* Mantiene la posición */
             }
+
+            .panel-3d.colapsado .contenido-panel {
+                display: none;
+            }
+            
+            .panel-3d.colapsado .btn-colapsar {
+                background: rgba(10, 30, 58, 0.85); /* Botón oscuro cuando está colapsado */
+                border: 1px solid rgba(47, 128, 237, 0.4);
+                margin-bottom: 0;
+            }
+
+            .panel-3d h2 { font-size: 1rem; }
+            .panel-3d p.sub { display: none; }
+            
+            .grupo-control { margin-bottom: 10px; }
+            .btn-3d { padding: 8px; font-size: 0.75rem; margin-bottom: 6px; }
             
             .ayuda-3d {
-                bottom: 5px;
-                font-size: 0.65rem;
+                bottom: 10px;
+                font-size: 0.7rem;
                 width: 90%;
             }
+        }
 
             /* Tarjeta de info en móvil */
             
